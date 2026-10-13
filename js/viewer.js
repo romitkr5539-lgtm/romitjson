@@ -5,7 +5,17 @@ const fileInput=document.querySelector("#fileInput");
 const searchInput=document.querySelector("#treeSearch");
 const expandButton=document.querySelector("#expandAllBtn");
 const collapseButton=document.querySelector("#collapseAllBtn");
+const inputLineNumbers=document.querySelector("#inputLineNumbers");
 const maxTreeNodes=5000;
+
+function updateInputLineNumbers(){
+  const lineCount=Math.max(1,(input.value||"").split("\n").length);
+  inputLineNumbers.innerHTML=Array.from({length:lineCount},(_,index)=>`<span>${index+1}</span>`).join("");
+}
+
+input.addEventListener("input",updateInputLineNumbers);
+input.addEventListener("scroll",()=>{inputLineNumbers.scrollTop=input.scrollTop;});
+updateInputLineNumbers();
 
 function setStatus(text,type=""){
   status.textContent=text;
@@ -95,6 +105,7 @@ function applySearch(){
 }
 
 function viewJson(){
+  updateInputLineNumbers();
   const source=input.value.trim();
   if(!source){
     tree.replaceChildren();

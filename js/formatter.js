@@ -4,14 +4,50 @@ const status=document.querySelector("#formatterStatus");
 const copyButton=document.querySelector("#copyBtn");
 const downloadButton=document.querySelector("#downloadBtn");
 const fileInput=document.querySelector("#fileInput");
+const inputLineNumbers=document.querySelector("#inputLineNumbers");
+const outputLineNumbers=document.querySelector("#outputLineNumbers");
+
+function updateLineNumbers(panel,text){
+  const lineCount=Math.max(1,String(text).split("\n").length);
+  panel.innerHTML=Array.from({length:lineCount},(_,index)=>`<span>${index+1}</span>`).join("");
+}
+
+input.addEventListener("input",()=>updateLineNumbers(inputLineNumbers,input.value));
+input.addEventListener("scroll",()=>{inputLineNumbers.scrollTop=input.scrollTop;});
+output.addEventListener("scroll",()=>{outputLineNumbers.scrollTop=output.scrollTop;});
+updateLineNumbers(inputLineNumbers,input.value);
 
 function setStatus(text,type=""){
   status.textContent=text;
   status.className="formatter-status"+(type?" "+type:"");
 }
 
+function escapeHtml(value){
+  return String(value).replace(/&/g,"&amp;").replace(/</g,"&lt;").replace(/>/g,"&gt;");
+}
+
+function colorizeJson(value){
+  const text=String(value);
+  return escapeHtml(text).replace(/("(?:\\u[0-9a-fA-F]{4}|\\[^u]|[^\\"])*"\s*:?)|("(?:\\u[0-9a-fA-F]{4}|\\[^u]|[^\\"])*")|(true|false|null)|(-?\d+(?:\.\d+)?(?:[eE][+-]?\d+)?)/g,(match)=>{
+    if(/^"(?:\\u[0-9a-fA-F]{4}|\\[^u]|[^\\"])*"\s*:?$/.test(match) && /:$/.test(match)){
+      return '<span class="json-token json-key">'+match+'</span>';
+    }
+    if(/^"(?:\\u[0-9a-fA-F]{4}|\\[^u]|[^\\"])*"$/.test(match)){
+      return '<span class="json-token json-string">'+match+'</span>';
+    }
+    if(/^(true|false|null)$/.test(match)){
+      return '<span class="json-token json-boolean">'+match+'</span>';
+    }
+    if(/^[-\d.]/.test(match)){
+      return '<span class="json-token json-number">'+match+'</span>';
+    }
+    return '<span class="json-token json-string">'+match+'</span>';
+  }).replace(/[{}\[\],:]/g,(match)=>'<span class="json-token json-punctuation">'+match+'</span>');
+}
+
 function formatJson(){
   const source=input.value.trim();
+  updateLineNumbers(inputLineNumbers,input.value);
   if(!source){
     output.textContent="";
     copyButton.disabled=true;
@@ -23,7 +59,9 @@ function formatJson(){
     const value=JSON.parse(source);
     const indent=document.querySelector("#indentSize").value;
     const formatted=JSON.stringify(value,null,indent==="tab"?"\t":Number(indent));
-    output.textContent=formatted;
+    output.innerHTML=colorizeJson(formatted);
+    output.dataset.raw=formatted;
+    updateLineNumbers(outputLineNumbers,formatted);
     copyButton.disabled=false;
     downloadButton.disabled=false;
     setStatus("Valid JSON. Formatted output is ready.","success");
@@ -39,7 +77,9 @@ function formatJson(){
 document.querySelector("#formatBtn").addEventListener("click",formatJson);
 document.querySelector("#clearBtn").addEventListener("click",()=>{
   input.value="";
+  updateLineNumbers(inputLineNumbers,input.value);
   output.textContent="Your formatted JSON will appear here.";
+  updateLineNumbers(outputLineNumbers,output.textContent);
   copyButton.disabled=true;
   downloadButton.disabled=true;
   setStatus("Paste JSON or open a file to begin.");
@@ -61,6 +101,7 @@ fileInput.addEventListener("change",()=>{
   const reader=new FileReader();
   reader.onload=()=>{
     input.value=String(reader.result||"");
+    updateLineNumbers(inputLineNumbers,input.value);
     setStatus(file.name+" loaded. Choose Format JSON to continue.");
     input.focus();
   };
@@ -68,15 +109,17 @@ fileInput.addEventListener("change",()=>{
   reader.readAsText(file);
 });
 copyButton.addEventListener("click",async()=>{
+  const text=output.dataset.raw || output.textContent;
   try{
-    await navigator.clipboard.writeText(output.textContent);
+    await navigator.clipboard.writeText(text);
     setStatus("Formatted JSON copied to clipboard.","success");
   }catch{
     setStatus("Clipboard access is unavailable in this browser.","error");
   }
 });
 downloadButton.addEventListener("click",()=>{
-  const blob=new Blob([output.textContent],{type:"application/json"});
+  const text=output.dataset.raw || output.textContent;
+  const blob=new Blob([text],{type:"application/json"});
   const url=URL.createObjectURL(blob);
   const link=document.createElement("a");
   link.href=url;

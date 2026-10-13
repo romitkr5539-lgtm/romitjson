@@ -6,6 +6,59 @@ const resultDetail=document.querySelector("#resultDetail");
 const resultMeta=document.querySelector("#resultMeta");
 const status=document.querySelector("#validatorStatus");
 const fileInput=document.querySelector("#fileInput");
+const validatorOverlay=document.querySelector(".validator-text-overlay");
+const validatorLineNumbers=document.querySelector(".line-number-panel");
+
+function updateLineNumbers(){
+  const lines=Math.max(1,(input.value||"").split("\n").length);
+  if(!validatorLineNumbers)return;
+  validatorLineNumbers.innerHTML=Array.from({length:lines},(_,index)=>`<span>${index+1}</span>`).join("");
+}
+
+function setTextHighlight(source,error){
+  const overlay=document.querySelector(".validator-text-overlay");
+  if(!overlay)return;
+  overlay.replaceChildren();
+  if(!source||!error){
+    input.classList.remove("invalid");
+    return;
+  }
+  const match=/at position\s+(\d+)/i.exec(error.message||"");
+  const position=match?Math.max(0,Math.min(source.length,Number(match[1]))):source.length;
+  const start=Math.max(0,position-1);
+  const end=Math.min(source.length,position+1);
+  const beforeText=source.slice(0,start);
+  const badText=source.slice(start,end);
+  const afterText=source.slice(end);
+  const before=document.createTextNode(beforeText);
+  const dirty=document.createTextNode(badText);
+  const highlight=document.createElement("span");
+  highlight.className="invalid-highlight";
+  highlight.appendChild(dirty);
+  const fragment=document.createDocumentFragment();
+  fragment.append(before,highlight,document.createTextNode(afterText));
+  overlay.appendChild(fragment);
+  input.classList.add("invalid");
+}
+
+function clearTextHighlight(){
+  const overlay=document.querySelector(".validator-text-overlay");
+  if(overlay)overlay.replaceChildren();
+  input.classList.remove("invalid");
+}
+
+function parseJsonError(error){
+  const message=error&&error.message?error.message:"";
+  const lineMatch=/line\s+(\d+)\s+column\s+(\d+)/i.exec(message);
+  if(lineMatch){
+    return {message,line:Number(lineMatch[1]),column:Number(lineMatch[2])};
+  }
+  const columnMatch=/column\s+(\d+)/i.exec(message);
+  if(columnMatch){
+    return {message,line:null,column:Number(columnMatch[1])};
+  }
+  return {message,line:null,column:null};
+}
 
 function setStatus(text,type=""){
   status.textContent=text;
@@ -20,14 +73,17 @@ function rootType(value){
 
 function updateInputSize(){
   inputSize.textContent=input.value.length.toLocaleString()+" characters";
+  updateLineNumbers();
 }
 
 function resetResult(){
+  clearTextHighlight();
   result.classList.remove("invalid");
   result.querySelector(".validation-icon").textContent="✓";
   resultHeading.textContent="Ready to validate";
   resultDetail.textContent="Paste JSON, open a file, or load a sample.";
   resultMeta.hidden=true;
+  document.querySelector("#errorColumn").textContent="—";
   setStatus("Your JSON stays in this browser.");
 }
 
@@ -41,21 +97,27 @@ function validateJson(){
   }
   try{
     const value=JSON.parse(source);
+    clearTextHighlight();
     result.classList.remove("invalid");
     result.querySelector(".validation-icon").textContent="✓";
     resultHeading.textContent="Valid JSON";
     resultDetail.textContent="Your JSON is syntactically correct.";
     document.querySelector("#rootType").textContent=rootType(value);
     document.querySelector("#characterCount").textContent=input.value.length.toLocaleString();
+    document.querySelector("#errorColumn").textContent="—";
     resultMeta.hidden=false;
     setStatus("Validation complete. No syntax errors found.","success");
   }catch(error){
+    const details=parseJsonError(error);
+    const columnText=details.column!==null?String(details.column):"?";
+    setTextHighlight(source,error);
     result.classList.add("invalid");
     result.querySelector(".validation-icon").textContent="!";
-    resultHeading.textContent="Invalid JSON";
-    resultDetail.textContent=error.message;
-    resultMeta.hidden=true;
-    setStatus("Validation failed. Check the JSON syntax and try again.","error");
+    resultHeading.textContent=`Invalid JSON at column ${columnText}`;
+    resultDetail.textContent=details.message;
+    document.querySelector("#errorColumn").textContent=columnText;
+    resultMeta.hidden=false;
+    setStatus(`Validation failed at column ${columnText}. Check the JSON syntax and try again.`,"error");
   }
   document.querySelector("#resultTitle").scrollIntoView({behavior:"smooth",block:"start"});
 }
