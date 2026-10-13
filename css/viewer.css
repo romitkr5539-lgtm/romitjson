@@ -2,3 +2,5 @@
 @media(max-width:760px){.viewer-main{padding-top:38px}.viewer-toolbar{align-items:stretch;flex-direction:column}.viewer-toolbar-actions button{flex:1}.viewer-grid{grid-template-columns:1fr}.viewer-input-panel,.viewer-tree-panel{min-height:380px}.viewer-input-panel textarea{min-height:300px}.json-tree-container{min-height:300px}.tree-controls{flex-wrap:wrap}.tree-search{flex-basis:100%}.tree-controls .panel-action{flex:1}}
 @media(max-width:380px){.tree-controls{gap:5px;padding:8px}.tree-controls .panel-action{padding:6px 5px;font-size:10px}.json-tree-container{padding:12px}}
 .tree-search input{font:inherit;font-size:12px}
+.viewer-input-panel .numbered-code-wrap{min-height:460px}.viewer-input-panel .numbered-code-wrap>#jsonInput{min-height:460px}.viewer-input-panel .numbered-code-wrap .line-number-panel{font-size:13px}
+@media(max-width:760px){.viewer-input-panel .numbered-code-wrap,.viewer-input-panel .numbered-code-wrap>#jsonInput{min-height:300px}}
