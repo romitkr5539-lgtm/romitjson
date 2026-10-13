@@ -1,0 +1,141 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>About RomitJSON</title>
+<meta name="description" content="Learn about RomitJSON and how its browser-based JSON tools keep your data private while helping you format, validate, compare, and convert JSON.">
+<meta name="robots" content="index,follow">
+<link rel="canonical" href="https://romitjson.com/about.html">
+<meta name="theme-color" content="#071613">
+<link rel="stylesheet" href="css/style.css">
+<link rel="stylesheet" href="css/about.css">
+</head>
+<body class="dark">
+<header class="site-header"><div class="nav-wrap">
+<a class="brand" href="index.html#home" aria-label="RomitJSON home"><span class="brand-mark">{ }</span><span>Romit<span class="brand-accent">JSON</span></span></a>
+<nav id="mainNav" aria-label="Main navigation">
+<a href="index.html#home">Home</a>
+<div class="nav-dropdown"><button class="nav-drop-btn" aria-expanded="false">View &amp; Edit <span>▾</span></button><div class="nav-drop-menu">
+<a href="viewer.html"><b class="ndm-green">◉</b><span><strong>JSON Viewer</strong><small>Browse JSON as a tree</small></span></a>
+<a href="editor.html"><b class="ndm-blue">✎</b><span><strong>JSON Editor</strong><small>Edit and inspect JSON</small></span></a></div></div>
+<div class="nav-dropdown"><button class="nav-drop-btn" aria-expanded="false">Validate <span>▾</span></button><div class="nav-drop-menu">
+<a href="validator.html"><b class="ndm-green">✓</b><span><strong>JSON Validator</strong><small>Find syntax errors</small></span></a>
+<a href="compare.html"><b class="ndm-violet">⇄</b><span><strong>JSON Compare</strong><small>Find document differences</small></span></a></div></div>
+<div class="nav-dropdown"><button class="nav-drop-btn" aria-expanded="false">Convert <span>▾</span></button><div class="nav-drop-menu">
+<a href="csv.html"><b class="ndm-violet">{ }</b><span><strong>JSON → CSV</strong><small>Convert arrays to CSV</small></span></a>
+<a href="yaml.html"><b class="ndm-purple">YML</b><span><strong>JSON → YAML</strong><small>Create YAML data</small></span></a>
+<a href="xml.html"><b class="ndm-orange">&lt;/&gt;</b><span><strong>JSON → XML</strong><small>Create XML data</small></span></a></div></div>
+<div class="nav-dropdown"><button class="nav-drop-btn" aria-expanded="false">Generate <span>▾</span></button><div class="nav-drop-menu">
+<a href="typescript.html"><b class="ndm-blue">TS</b><span><strong>JSON → TypeScript</strong><small>Generate interfaces</small></span></a>
+<a href="minifier.html"><b class="ndm-red">↘</b><span><strong>JSON Minifier</strong><small>Reduce JSON size</small></span></a></div></div>
+<a href="about.html" aria-current="page">About</a></nav>
+<div class="header-actions"><button class="menu-btn" id="menuBtn" aria-controls="mainNav" aria-expanded="false">Menu</button></div>
+</div></header>
+
+<main class="about-main">
+<section class="about-hero section">
+<div class="section-heading">
+<div>
+<label>ABOUT</label>
+<h1>Built for fast, private JSON work.</h1>
+<p>RomitJSON gives you a clean browser-based toolbox for formatting, validating, comparing, converting, and generating JSON data without sending your files anywhere.</p>
+</div>
+</div>
+</section>
+
+<section class="about-grid section">
+<div class="about-card feature-card">
+<span class="feature-icon green">ϟ</span>
+<h2>Local by design</h2>
+<p>Everything runs in the browser. Your JSON stays on your device while you format, validate, compare, or convert it.</p>
+</div>
+<div class="about-card feature-card">
+<span class="feature-icon blue">♙</span>
+<h2>Made for productivity</h2>
+<p>Move from raw JSON to readable output, clean CSV, YAML, XML, or TypeScript declarations in seconds.</p>
+</div>
+<div class="about-card feature-card">
+<span class="feature-icon purple">♧</span>
+<h2>No signup required</h2>
+<p>Open the tool, paste or load a file, and start working immediately. There is no account or subscription flow to slow you down.</p>
+</div>
+</section>
+
+<section class="story section">
+<div class="section-heading">
+<div>
+<label>WHY ROMITJSON</label>
+<h2>Simple tools for real JSON tasks.</h2>
+</div>
+</div>
+<div class="story-copy">
+<p>JSON is the backbone of modern apps, APIs, and config files. Whether you are debugging a payload, cleaning data, or generating code, the right tool should feel fast, clear, and non-intrusive.</p>
+<p>RomitJSON combines a compact set of helpers that are easy to use from any browser and reliable enough for everyday work. The goal is to keep the process tidy, local, and transparent.</p>
+</div>
+</section>
+
+<section class="principles section">
+<div class="section-heading">
+<div>
+<label>PRINCIPLES</label>
+<h2>What the project focuses on.</h2>
+</div>
+</div>
+<div class="principles-grid">
+<div class="principle">
+<strong>Privacy first</strong>
+<p>Files are read locally and never uploaded to a server.</p>
+</div>
+<div class="principle">
+<strong>Fast feedback</strong>
+<p>Formatting, validation, and conversion are immediate and easy to review.</p>
+</div>
+<div class="principle">
+<strong>Clear output</strong>
+<p>Generated results are ready to copy, download, and share without extra cleanup.</p>
+</div>
+<div class="principle">
+<strong>Tooling breadth</strong>
+<p>From compare and viewer tools to TypeScript generation and XML conversion, the suite covers common JSON workflow tasks.</p>
+</div>
+</div>
+</section>
+</main>
+
+<footer><div class="footer-grid"><div class="footer-brand"><a class="brand" href="index.html#home"><span class="brand-mark small">{ }</span><span>Romit<span class="brand-accent">JSON</span></span></a><p>Simple browser-based tools for working with JSON data.</p></div><div><h4>Company</h4><a href="about.html">About</a></div><div><h4>Resources</h4><a href="index.html#all-tools">All tools</a><a href="index.html#faq">FAQ</a></div><div class="copyright">© <span id="year"></span> RomitJSON. All rights reserved.</div></div></footer>
+<script>
+const menuBtn = document.querySelector('#menuBtn');
+const mainNav = document.querySelector('#mainNav');
+menuBtn.addEventListener('click', () => {
+  const isOpen = mainNav.classList.toggle('open');
+  menuBtn.setAttribute('aria-expanded', String(isOpen));
+});
+
+for (const button of document.querySelectorAll('.nav-drop-btn')) {
+  button.addEventListener('click', (event) => {
+    event.stopPropagation();
+    const dropdown = button.parentElement;
+    document.querySelectorAll('.nav-dropdown').forEach((item) => {
+      if (item !== dropdown) {
+        item.classList.remove('open');
+        item.querySelector('.nav-drop-btn').setAttribute('aria-expanded', 'false');
+      }
+    });
+    const isOpen = dropdown.classList.toggle('open');
+    button.setAttribute('aria-expanded', String(isOpen));
+  });
+}
+document.addEventListener('click', (event) => {
+  if (!event.target.closest('.nav-dropdown')) {
+    document.querySelectorAll('.nav-dropdown').forEach((item) => {
+      item.classList.remove('open');
+      item.querySelector('.nav-drop-btn').setAttribute('aria-expanded', 'false');
+    });
+  }
+});
+
+document.querySelector('#year').textContent = new Date().getFullYear();
+</script>
+</body>
+</html>

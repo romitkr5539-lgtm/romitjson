@@ -2,13 +2,15 @@
 <html lang="en">
 <head>
 <meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
-<title>Free Online JSON Tools | JSON Formatter, Validator, Viewer & Converter | RomitJSON</title>
-<meta name="description" content="RomitJSON provides free browser-based JSON tools to format, validate, view, edit, minify, compare and convert JSON data. No signup required.">
+<title>Free Online JSON Tools: Format, Validate &amp; Convert | RomitJSON</title>
+<meta name="description" content="Use free online JSON tools to format, validate, view, edit, minify, compare, and convert JSON. Private, browser-based, and no signup required.">
+<meta name="author" content="RomitJSON">
 <meta name="robots" content="index,follow,max-image-preview:large,max-snippet:-1,max-video-preview:-1">
 <link rel="canonical" href="https://romitjson.com/"><meta name="theme-color" content="#10b995">
-<meta property="og:type" content="website"><meta property="og:site_name" content="RomitJSON"><meta property="og:title" content="Free Online JSON Tools | RomitJSON"><meta property="og:description" content="Format, validate, view, edit, compare and convert JSON data directly in your browser."><meta property="og:url" content="https://romitjson.com/">
+<meta property="og:type" content="website"><meta property="og:site_name" content="RomitJSON"><meta property="og:locale" content="en_US"><meta property="og:title" content="Free Online JSON Tools: Format, Validate &amp; Convert | RomitJSON"><meta property="og:description" content="Use free online JSON tools to format, validate, view, edit, minify, compare, and convert JSON. Private, browser-based, and no signup required."><meta property="og:url" content="https://romitjson.com/">
+<meta name="twitter:card" content="summary"><meta name="twitter:title" content="Free Online JSON Tools: Format, Validate &amp; Convert | RomitJSON"><meta name="twitter:description" content="Use free online JSON tools to format, validate, view, edit, minify, compare, and convert JSON. Private, browser-based, and no signup required.">
 <link rel="stylesheet" href="css/style.css">
-<script type="application/ld+json">{"@context":"https://schema.org","@type":"WebSite","name":"RomitJSON","url":"https://romitjson.com/","description":"Free browser-based JSON tools for formatting, validation, viewing, editing and conversion.","inLanguage":"en"}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"WebSite","@id":"https://romitjson.com/#website","name":"RomitJSON","url":"https://romitjson.com/","description":"Free browser-based tools to format, validate, view, edit, minify, compare, and convert JSON.","inLanguage":"en","publisher":{"@id":"https://romitjson.com/#organization"}},{"@type":"Organization","@id":"https://romitjson.com/#organization","name":"RomitJSON","url":"https://romitjson.com/"},{"@type":"WebApplication","@id":"https://romitjson.com/#webapp","name":"RomitJSON JSON Tools","url":"https://romitjson.com/","applicationCategory":"DeveloperApplication","operatingSystem":"Any","browserRequirements":"Requires JavaScript and a modern web browser.","offers":{"@type":"Offer","price":"0","priceCurrency":"USD"},"description":"Free browser-based tools to format, validate, view, edit, minify, compare, and convert JSON. Data is processed locally in your browser."}]}</script>
 </head>
 <body class="dark">
 <header class="site-header"><div class="nav-wrap">
@@ -28,7 +30,7 @@
 <div class="nav-dropdown"><button class="nav-drop-btn" aria-expanded="false">Generate <span>▾</span></button><div class="nav-drop-menu">
 <a href="typescript.html"><b class="ndm-blue">TS</b><span><strong>JSON → TypeScript</strong><small>Generate interfaces</small></span></a>
 <a href="minifier.html"><b class="ndm-red">↘</b><span><strong>JSON Minifier</strong><small>Reduce JSON size</small></span></a></div></div>
-<a href="#about">About</a></nav>
+<a href="about.html">About</a></nav>
 <div class="header-actions"><button class="menu-btn" id="menuBtn">Menu</button></div>
 </div></header>
 <main>
@@ -63,9 +65,9 @@
 <option value="formatter">JSON Formatter</option><option value="viewer">JSON Viewer</option><option value="validator">JSON Validator</option><option value="editor">JSON Editor</option><option value="minifier">JSON Minifier</option><option value="compare">JSON Compare</option><option value="jsoncsv">JSON → CSV</option><option value="jsonyaml">JSON → YAML</option><option value="jsonxml">JSON → XML</option><option value="typescript">JSON → TypeScript</option>
 </select></div><div class="toolbar-actions"><button class="primary-btn" id="runTool">Run Tool</button><button class="secondary-btn" id="clearBtn">Clear</button></div></div>
 <div class="editor-grid"><div class="editor-panel"><div class="panel-head"><span>INPUT JSON</span><button id="sampleBtn">Sample</button></div>
-<textarea id="jsonInput" spellcheck="false" placeholder='{"name":"Romit","tools":["format","validate"]}'></textarea>
-<div id="compareInputWrap" class="compare-wrap"><label for="jsonInput2">SECOND JSON FOR COMPARE</label><textarea id="jsonInput2" spellcheck="false" placeholder='{"name":"Romit","tools":["format","validate","compare"]}'></textarea></div></div>
-<div class="editor-panel output-panel"><div class="panel-head"><span id="resultTitle">OUTPUT</span><button id="copyBtn">Copy</button></div><pre id="jsonOutput"></pre><div class="result-actions"><button class="download-btn" id="downloadBtn">Download Result</button></div></div></div><div id="toolMessage" class="tool-message"></div></div></section>
+<div class="workspace-code-wrap"><div class="workspace-line-numbers" id="inputLineNumbers" aria-hidden="true"></div><textarea id="jsonInput" spellcheck="false" placeholder='{"name":"Romit","tools":["format","validate"]}'></textarea></div>
+<div id="compareInputWrap" class="compare-wrap"><label for="jsonInput2">SECOND JSON FOR COMPARE</label><div class="workspace-code-wrap"><div class="workspace-line-numbers" id="compareLineNumbers" aria-hidden="true"></div><textarea id="jsonInput2" spellcheck="false" placeholder='{"name":"Romit","tools":["format","validate","compare"]}'></textarea></div></div></div>
+<div class="editor-panel output-panel"><div class="panel-head"><span id="resultTitle">OUTPUT</span><button id="copyBtn">Copy</button></div><div class="workspace-code-wrap output-code-wrap"><div class="workspace-line-numbers" id="outputLineNumbers" aria-hidden="true"></div><pre id="jsonOutput"></pre></div><div class="result-actions"><button class="download-btn" id="downloadBtn">Download Result</button></div></div></div><div id="toolMessage" class="tool-message"></div></div></section>
 
 <section class="info-section section" id="about"><div class="info-grid"><div class="why"><label>WHY USE OUR JSON TOOLS?</label><div class="feature-list">
 <div class="feature"><span class="feature-icon green">ϟ</span><div><strong>Fast &amp; Reliable</strong><p>Process JSON instantly without uploading it to a server.</p></div></div>
@@ -83,6 +85,6 @@
 <section class="faq section" id="faq"><label>FAQ</label><h2>Common questions.</h2><details><summary>What is JSON?</summary><p>JSON is a text-based format for representing objects, arrays, strings, numbers, booleans and null values.</p></details><details><summary>How do I format JSON?</summary><p>Open JSON Formatter, paste or load JSON, choose indentation, then select Format JSON.</p></details><details><summary>Can I validate JSON online?</summary><p>Yes. The validator checks syntax locally and reports parsing errors.</p></details><details><summary>Are my JSON files uploaded?</summary><p>No. These browser-based tools read supported files locally on your device.</p></details></section>
 <section class="cta"><h2>Work with JSON<br>without the hassle.</h2><button class="primary-btn" id="ctaBtn">Choose a JSON file</button></section>
 </main>
-<footer><div class="footer-grid"><div class="footer-brand"><a class="brand" href="#home"><span class="brand-mark small">{ }</span><span>Romit<span class="brand-accent">JSON</span></span></a><p>Simple browser-based tools for working with JSON data.</p></div><div><h4>Company</h4><a href="#about">About</a></div><div><h4>Resources</h4><a href="#all-tools">All tools</a><a href="#faq">FAQ</a></div><div class="copyright">© <span id="year"></span> RomitJSON. All rights reserved.</div></div></footer>
+<footer><div class="footer-grid"><div class="footer-brand"><a class="brand" href="#home"><span class="brand-mark small">{ }</span><span>Romit<span class="brand-accent">JSON</span></span></a><p>Simple browser-based tools for working with JSON data.</p></div><div><h4>Company</h4><a href="about.html">About</a></div><div><h4>Resources</h4><a href="#all-tools">All tools</a><a href="#faq">FAQ</a></div><div class="copyright">© <span id="year"></span> RomitJSON. All rights reserved.</div></div></footer>
 <div class="modal" id="pasteModal" aria-hidden="true"><div class="modal-box"><button id="closeModal" class="modal-close" aria-label="Close">×</button><label>PASTE JSON</label><h2>Paste your JSON data</h2><textarea id="pasteArea" spellcheck="false" placeholder='{"hello":"world"}'></textarea><button class="primary-btn" id="usePaste">Use JSON</button></div></div>
 <script src="js/script.js"></script></body></html>

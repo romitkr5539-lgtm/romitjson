@@ -46,11 +46,17 @@
 <div class="formatter-grid">
 <section class="formatter-panel" aria-labelledby="inputTitle">
 <div class="formatter-panel-head"><h2 id="inputTitle">Input JSON</h2><div><button class="panel-action" id="sampleBtn" type="button">Sample</button><button class="panel-action" id="openFileBtn" type="button">Open file</button><input id="fileInput" type="file" accept=".json,application/json" hidden></div></div>
+<div class="numbered-code-wrap">
+<div class="line-number-panel" id="inputLineNumbers" aria-hidden="true"></div>
 <textarea id="jsonInput" spellcheck="false" aria-label="Input JSON" placeholder='Paste JSON here, for example: {"name":"RomitJSON"}'></textarea>
+</div>
 </section>
 <section class="formatter-panel" aria-labelledby="outputTitle">
 <div class="formatter-panel-head"><h2 id="outputTitle">Formatted output</h2><div><button class="panel-action" id="copyBtn" type="button" disabled>Copy</button><button class="panel-action" id="downloadBtn" type="button" disabled>Download</button></div></div>
+<div class="numbered-code-wrap">
+<div class="line-number-panel" id="outputLineNumbers" aria-hidden="true">1</div>
 <pre id="jsonOutput" aria-label="Formatted JSON output">Your formatted JSON will appear here.</pre>
+</div>
 </section>
 </div>
 <p class="formatter-status" id="formatterStatus" role="status" aria-live="polite">Paste JSON or open a file to begin.</p>

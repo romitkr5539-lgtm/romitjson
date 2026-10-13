@@ -46,7 +46,11 @@
 </div>
 <section class="editor-panel" aria-labelledby="documentTitle">
 <div class="formatter-panel-head"><h2 id="documentTitle">JSON document</h2><div class="document-meta"><span id="fileName">Untitled JSON</span><span id="lineCount">0 lines</span></div></div>
-<textarea id="jsonDocument" spellcheck="false" autocapitalize="off" autocomplete="off" aria-label="Editable JSON document" placeholder='Start typing JSON, or open a JSON file. Example: {"name":"RomitJSON"}'></textarea>
+<div class="editor-text-wrap">
+  <div class="line-number-panel" aria-hidden="true"></div>
+  <pre class="editor-text-overlay" aria-hidden="true"></pre>
+  <textarea id="jsonDocument" spellcheck="false" autocapitalize="off" autocomplete="off" aria-label="Editable JSON document" placeholder='Start typing JSON, or open a JSON file. Example: {"name":"RomitJSON"}'></textarea>
+</div>
 </section>
 <div id="editorStatus" class="editor-status" role="status" aria-live="polite"><span id="statusMark" aria-hidden="true">•</span><span id="statusText">Ready. Your changes stay in this browser.</span></div>
 </section>

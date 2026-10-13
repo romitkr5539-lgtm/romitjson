@@ -47,13 +47,17 @@
 <div class="validator-grid">
 <section class="formatter-panel validator-input-panel" aria-labelledby="inputTitle">
 <div class="formatter-panel-head"><h2 id="inputTitle">Input JSON</h2><span id="inputSize">0 characters</span></div>
-<textarea id="jsonInput" spellcheck="false" aria-label="Input JSON" placeholder='Paste JSON here, for example: {"name":"RomitJSON"}'></textarea>
+<div class="validator-text-wrap">
+  <div class="line-number-panel" aria-hidden="true"></div>
+  <pre class="validator-text-overlay" aria-hidden="true"></pre>
+  <textarea id="jsonInput" spellcheck="false" aria-label="Input JSON" placeholder='Paste JSON here, for example: {"name":"RomitJSON"}'></textarea>
+</div>
 </section>
 <section class="formatter-panel validator-result-panel" aria-labelledby="resultTitle">
 <div class="formatter-panel-head"><h2 id="resultTitle">Validation result</h2></div>
 <div id="validationResult" class="validation-result" aria-live="polite" aria-atomic="true">
 <span class="validation-icon" aria-hidden="true">✓</span>
-<div><h3 id="resultHeading">Ready to validate</h3><p id="resultDetail">Paste JSON, open a file, or load a sample.</p><dl id="resultMeta" class="result-meta" hidden><div><dt>Root type</dt><dd id="rootType"></dd></div><div><dt>Characters</dt><dd id="characterCount"></dd></div></dl></div>
+<div><h3 id="resultHeading">Ready to validate</h3><p id="resultDetail">Paste JSON, open a file, or load a sample.</p><dl id="resultMeta" class="result-meta" hidden><div><dt>Root type</dt><dd id="rootType"></dd></div><div><dt>Characters</dt><dd id="characterCount"></dd></div><div><dt>Column</dt><dd id="errorColumn">—</dd></div></dl></div>
 </div>
 </section>
 </div>
