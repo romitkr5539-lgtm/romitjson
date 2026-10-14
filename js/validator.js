@@ -47,17 +47,19 @@ function clearTextHighlight(){
   input.classList.remove("invalid");
 }
 
-function parseJsonError(error){
+function parseJsonError(error,source){
   const message=error&&error.message?error.message:"";
-  const lineMatch=/line\s+(\d+)\s+column\s+(\d+)/i.exec(message);
-  if(lineMatch){
-    return {message,line:Number(lineMatch[1]),column:Number(lineMatch[2])};
+  const nativeLocation=/line\s+(\d+)\s+column\s+(\d+)/i.exec(message);
+  if(nativeLocation)return {message,line:Number(nativeLocation[1]),column:Number(nativeLocation[2])};
+  const positionMatch=/at position\s+(\d+)/i.exec(message);
+  if(positionMatch&&typeof source==="string"){
+    const before=source.slice(0,Number(positionMatch[1]));
+    const lines=before.split(/\r\n|\r|\n/);
+    return {message,line:lines.length,column:lines[lines.length-1].length+1,position:Number(positionMatch[1])};
   }
   const columnMatch=/column\s+(\d+)/i.exec(message);
-  if(columnMatch){
-    return {message,line:null,column:Number(columnMatch[1])};
-  }
-  return {message,line:null,column:null};
+  if(columnMatch)return {message,line:null,column:Number(columnMatch[1])};
+  return {message,line:null,column:null,position:null};
 }
 
 function setStatus(text,type=""){
@@ -108,16 +110,16 @@ function validateJson(){
     resultMeta.hidden=false;
     setStatus("Validation complete. No syntax errors found.","success");
   }catch(error){
-    const details=parseJsonError(error);
+    const details=parseJsonError(error,source);
     const columnText=details.column!==null?String(details.column):"?";
     setTextHighlight(source,error);
     result.classList.add("invalid");
     result.querySelector(".validation-icon").textContent="!";
-    resultHeading.textContent=`Invalid JSON at column ${columnText}`;
+    resultHeading.textContent=details.line!==null?`Invalid JSON at line ${details.line}, column ${columnText}`:`Invalid JSON at column ${columnText}`;
     resultDetail.textContent=details.message;
     document.querySelector("#errorColumn").textContent=columnText;
     resultMeta.hidden=false;
-    setStatus(`Validation failed at column ${columnText}. Check the JSON syntax and try again.`,"error");
+    setStatus(details.line!==null?`Validation failed at line ${details.line}, column ${columnText}. Check the JSON syntax and try again.`:`Validation failed at column ${columnText}. Check the JSON syntax and try again.`,"error");
   }
   document.querySelector("#resultTitle").scrollIntoView({behavior:"smooth",block:"start"});
 }
