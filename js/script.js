@@ -7,7 +7,7 @@ function updateWorkspaceLineNumbers(){updateLineNumbers(inputLineNumbers,input.v
 function syncLineNumbers(textarea,panel){textarea.addEventListener("scroll",()=>{panel.scrollTop=textarea.scrollTop})}
 input.addEventListener("input",updateWorkspaceLineNumbers);input2.addEventListener("input",updateWorkspaceLineNumbers);syncLineNumbers(input,inputLineNumbers);syncLineNumbers(input2,compareLineNumbers);output.addEventListener("scroll",()=>{outputLineNumbers.scrollTop=output.scrollTop});updateWorkspaceLineNumbers();
 function setMessage(t,error=false){message.textContent=t;message.style.color=error?"#d85b5b":"var(--accent-dark)";updateWorkspaceLineNumbers()}
-function parseText(text){try{return{value:JSON.parse(text)}}catch(e){return{error:e}}}
+function parseText(text){try{return{value:JSON.parse(text)}}catch(e){const message=e&&e.message||"";const match=/at position\s+(\d+)/i.exec(message);if(match&&!/line\s+\d+\s+column\s+\d+/i.test(message)){const before=String(text).slice(0,Number(match[1]));const lines=before.split(/\r\n|\r|\n/);e.message=message+" (line "+lines.length+", column "+(lines[lines.length-1].length+1)+")"}return{error:e}}}
 function pretty(v){return JSON.stringify(v,null,2)}
 function escapeHtml(value){return String(value).replace(/&/g,"&amp;").replace(/</g,"&lt;").replace(/>/g,"&gt;")}
 function colorizeJson(value){
