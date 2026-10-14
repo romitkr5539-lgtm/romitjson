@@ -2,6 +2,7 @@
 <html lang="en">
 <head>
 <meta charset="utf-8">
+<link rel="icon" href="/favicon.svg" type="image/svg+xml">
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <title>JSON Viewer | RomitJSON</title>
 <meta name="description" content="Explore JSON objects and arrays in an interactive, searchable tree. Files are processed locally in your browser.">
@@ -11,6 +12,16 @@
 <link rel="stylesheet" href="css/style.css">
 <link rel="stylesheet" href="css/formatter.css">
 <link rel="stylesheet" href="css/viewer.css">
+
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="RomitJSON">
+<meta property="og:title" content="JSON Viewer | RomitJSON">
+<meta property="og:description" content="Explore JSON objects and arrays in an interactive, searchable tree. Files are processed locally in your browser.">
+<meta property="og:url" content="https://romitjson.com/viewer.html">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="JSON Viewer | RomitJSON">
+<meta name="twitter:description" content="Explore JSON objects and arrays in an interactive, searchable tree. Files are processed locally in your browser.">
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"WebApplication","name":"JSON Viewer","url":"https://romitjson.com/viewer.html","description":"Explore JSON objects and arrays in an interactive, searchable tree. Files are processed locally in your browser.","applicationCategory":"DeveloperApplication","operatingSystem":"Any","isAccessibleForFree":true,"offers":{"@type":"Offer","price":"0","priceCurrency":"USD"}}</script>
 </head>
 <body class="dark">
 <header class="site-header"><div class="nav-wrap">
@@ -30,7 +41,7 @@
 <div class="nav-dropdown"><button class="nav-drop-btn" aria-expanded="false">Generate <span>▾</span></button><div class="nav-drop-menu">
 <a href="typescript.html"><b class="ndm-blue">TS</b><span><strong>JSON → TypeScript</strong><small>Generate interfaces</small></span></a>
 <a href="minifier.html"><b class="ndm-red">↘</b><span><strong>JSON Minifier</strong><small>Reduce JSON size</small></span></a></div></div>
-<a href="index.html#about">About</a></nav>
+<div class="nav-dropdown"><button class="nav-drop-btn" aria-expanded="false">More Tools <span>▾</span></button><div class="nav-drop-menu"><a href="repair.html"><b class="ndm-orange">Fix</b><span><strong>JSON Repair</strong><small>Fix common syntax mistakes</small></span></a><a href="schemavalidator.html"><b class="ndm-green">✓</b><span><strong>Schema Validator</strong><small>Check structure and constraints</small></span></a><a href="size-analyzer.html"><b class="ndm-blue">KB</b><span><strong>Size Analyzer</strong><small>Measure payload size</small></span></a><a href="jsonpath.html"><b class="ndm-violet">$</b><span><strong>JSONPath Query</strong><small>Select nested values</small></span></a></div></div><a href="index.html#about">About</a></nav>
 <div class="header-actions"><button class="menu-btn" id="menuBtn" aria-controls="mainNav" aria-expanded="false">Menu</button></div>
 </div></header>
 <main class="formatter-main viewer-main">
@@ -61,7 +72,7 @@
 <p class="formatter-status" id="viewerStatus" role="status" aria-live="polite">Your JSON stays in this browser.</p>
 </section>
 </main>
-<footer><div class="footer-grid"><div class="footer-brand"><a class="brand" href="index.html#home"><span class="brand-mark small">{ }</span><span>Romit<span class="brand-accent">JSON</span></span></a><p>Simple browser-based tools for working with JSON data.</p></div><div><h4>Company</h4><a href="index.html#about">About</a></div><div><h4>Resources</h4><a href="index.html#all-tools">All tools</a><a href="index.html#faq">FAQ</a></div><div class="copyright">© <span id="year"></span> RomitJSON. All rights reserved.</div></div></footer>
+<footer><div class="footer-grid"><div class="footer-brand"><a class="brand" href="index.html#home"><span class="brand-mark small">{ }</span><span>Romit<span class="brand-accent">JSON</span></span></a><p>Simple browser-based tools for working with JSON data.</p></div><div><h4>Company</h4><a href="index.html#about">About</a></div><div><h4>Resources</h4><a href="index.html#all-tools">All tools</a><a href="index.html#faq">FAQ</a><a href="repair.html">JSON Repair</a><a href="schemavalidator.html">Schema Validator</a><a href="size-analyzer.html">Size Analyzer</a><a href="jsonpath.html">JSONPath Query</a></div><div class="copyright">© <span id="year"></span> RomitJSON. All rights reserved.</div></div></footer>
 <script src="js/viewer.js"></script>
 </body>
 </html>
