@@ -70,7 +70,17 @@ function formatJson(){
     output.textContent="";
     copyButton.disabled=true;
     downloadButton.disabled=true;
-    setStatus("Invalid JSON: "+error.message,"error");
+    const message=String(error&&error.message||error);
+    const nativeLocation=/line\s+(\d+)\s+column\s+(\d+)/i.exec(message);
+    const positionMatch=/at position\s+(\d+)/i.exec(message);
+    let location="";
+    if(nativeLocation){location=" at line "+nativeLocation[1]+", column "+nativeLocation[2];}
+    else if(positionMatch){
+      const before=input.value.slice(0,Number(positionMatch[1]));
+      const lines=before.split(/\r\n|\r|\n/);
+      location=" at line "+lines.length+", column "+(lines[lines.length-1].length+1);
+    }
+    setStatus("Invalid JSON"+location+": "+message,"error");
   }
 }
 
