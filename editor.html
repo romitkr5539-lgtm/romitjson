@@ -2,7 +2,6 @@
 <html lang="en">
 <head>
 <meta charset="utf-8">
-<link rel="icon" href="/favicon.svg" type="image/svg+xml">
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <title>JSON Editor | RomitJSON</title>
 <meta name="description" content="Edit, validate, format, copy, and download JSON in your browser. Your data stays on your device.">
@@ -12,16 +11,6 @@
 <link rel="stylesheet" href="css/style.css">
 <link rel="stylesheet" href="css/formatter.css">
 <link rel="stylesheet" href="css/editor.css">
-
-<meta property="og:type" content="website">
-<meta property="og:site_name" content="RomitJSON">
-<meta property="og:title" content="JSON Editor | RomitJSON">
-<meta property="og:description" content="Edit, validate, format, copy, and download JSON in your browser. Your data stays on your device.">
-<meta property="og:url" content="https://romitjson.com/editor.html">
-<meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="JSON Editor | RomitJSON">
-<meta name="twitter:description" content="Edit, validate, format, copy, and download JSON in your browser. Your data stays on your device.">
-<script type="application/ld+json">{"@context":"https://schema.org","@type":"WebApplication","name":"JSON Editor","url":"https://romitjson.com/editor.html","description":"Edit, validate, format, copy, and download JSON in your browser. Your data stays on your device.","applicationCategory":"DeveloperApplication","operatingSystem":"Any","isAccessibleForFree":true,"offers":{"@type":"Offer","price":"0","priceCurrency":"USD"}}</script>
 </head>
 <body class="dark">
 <header class="site-header"><div class="nav-wrap">
@@ -41,7 +30,7 @@
 <div class="nav-dropdown"><button class="nav-drop-btn" aria-expanded="false">Generate <span>▾</span></button><div class="nav-drop-menu">
 <a href="typescript.html"><b class="ndm-blue">TS</b><span><strong>JSON → TypeScript</strong><small>Generate interfaces</small></span></a>
 <a href="minifier.html"><b class="ndm-red">↘</b><span><strong>JSON Minifier</strong><small>Reduce JSON size</small></span></a></div></div>
-<div class="nav-dropdown"><button class="nav-drop-btn" aria-expanded="false">More Tools <span>▾</span></button><div class="nav-drop-menu"><a href="repair.html"><b class="ndm-orange">Fix</b><span><strong>JSON Repair</strong><small>Fix common syntax mistakes</small></span></a><a href="schemavalidator.html"><b class="ndm-green">✓</b><span><strong>Schema Validator</strong><small>Check structure and constraints</small></span></a><a href="size-analyzer.html"><b class="ndm-blue">KB</b><span><strong>Size Analyzer</strong><small>Measure payload size</small></span></a><a href="jsonpath.html"><b class="ndm-violet">$</b><span><strong>JSONPath Query</strong><small>Select nested values</small></span></a></div></div><a href="index.html#about">About</a></nav>
+<a href="index.html#about">About</a></nav>
 <div class="header-actions"><button class="menu-btn" id="menuBtn" aria-controls="mainNav" aria-expanded="false">Menu</button></div>
 </div></header>
 <main class="formatter-main editor-main">
@@ -51,6 +40,18 @@
 <p>Edit JSON directly, check syntax as you work, and format or export valid documents. Everything stays in your browser.</p>
 </section>
 <section class="formatter-tool editor-tool" aria-label="JSON editor">
+<div class="editor-commandbar" role="toolbar" aria-label="Editor tools">
+<div class="editor-command-group">
+<button type="button" id="undoBtn" aria-label="Undo" title="Undo" disabled>↶</button><button type="button" id="redoBtn" aria-label="Redo" title="Redo" disabled>↷</button>
+<button type="button" id="sortBtn" aria-label="Sort object keys" title="Sort object keys">⇅</button><button type="button" id="findBtn" aria-label="Find in JSON" title="Find in JSON">⌕</button>
+<button type="button" id="validateBtn" aria-label="Validate JSON" title="Validate JSON">✓</button><button type="button" id="printBtn" aria-label="Print JSON" title="Print JSON">▤</button><button type="button" id="fullscreenBtn" aria-label="Toggle fullscreen" title="Toggle fullscreen">⛶</button>
+</div>
+<div class="editor-command-group editor-settings">
+<label for="editorIndent">Indent</label><select id="editorIndent"><option value="2">2 spaces</option><option value="4">4 spaces</option><option value="tab">Tabs</option></select>
+<label for="editorView">View</label><select id="editorView"><option value="code">Code</option><option value="tree">Tree</option></select>
+</div>
+</div>
+<div class="editor-findbar" id="editorFindbar" hidden><label for="editorFind">Find</label><input id="editorFind" type="search" placeholder="Search JSON"><button type="button" id="findPrevious" aria-label="Previous match" title="Previous match">↑</button><button type="button" id="findNext" aria-label="Next match" title="Next match">↓</button><span id="findStatus" role="status"></span><button type="button" id="closeFind" aria-label="Close search" title="Close search">×</button></div>
 <div class="formatter-toolbar editor-toolbar">
 <div class="editor-actions"><button class="secondary-btn" id="openFileBtn" type="button">Open JSON</button><input id="fileInput" type="file" accept=".json,application/json" hidden><button class="secondary-btn" id="sampleBtn" type="button">Sample</button></div>
 <div class="editor-actions"><button class="secondary-btn" id="formatBtn" type="button" disabled>Format</button><button class="secondary-btn" id="copyBtn" type="button" disabled>Copy</button><button class="primary-btn" id="downloadBtn" type="button" disabled>Download</button><button class="secondary-btn" id="clearBtn" type="button">Clear</button></div>
@@ -61,12 +62,13 @@
   <div class="line-number-panel" aria-hidden="true"></div>
   <pre class="editor-text-overlay" aria-hidden="true"></pre>
   <textarea id="jsonDocument" spellcheck="false" autocapitalize="off" autocomplete="off" aria-label="Editable JSON document" placeholder='Start typing JSON, or open a JSON file. Example: {"name":"RomitJSON"}'></textarea>
+  <div id="editorTree" class="editor-tree" aria-label="JSON tree" hidden></div>
 </div>
 </section>
 <div id="editorStatus" class="editor-status" role="status" aria-live="polite"><span id="statusMark" aria-hidden="true">•</span><span id="statusText">Ready. Your changes stay in this browser.</span></div>
 </section>
 </main>
-<footer><div class="footer-grid"><div class="footer-brand"><a class="brand" href="index.html#home"><span class="brand-mark small">{ }</span><span>Romit<span class="brand-accent">JSON</span></span></a><p>Simple browser-based tools for working with JSON data.</p></div><div><h4>Company</h4><a href="index.html#about">About</a></div><div><h4>Resources</h4><a href="index.html#all-tools">All tools</a><a href="index.html#faq">FAQ</a><a href="repair.html">JSON Repair</a><a href="schemavalidator.html">Schema Validator</a><a href="size-analyzer.html">Size Analyzer</a><a href="jsonpath.html">JSONPath Query</a></div><div class="copyright">© <span id="year"></span> RomitJSON. All rights reserved.</div></div></footer>
+<footer><div class="footer-grid"><div class="footer-brand"><a class="brand" href="index.html#home"><span class="brand-mark small">{ }</span><span>Romit<span class="brand-accent">JSON</span></span></a><p>Simple browser-based tools for working with JSON data.</p></div><div><h4>Company</h4><a href="index.html#about">About</a></div><div><h4>Resources</h4><a href="index.html#all-tools">All tools</a><a href="index.html#faq">FAQ</a></div><div class="copyright">© <span id="year"></span> RomitJSON. All rights reserved.</div></div></footer>
 <script src="js/editor.js"></script>
 </body>
 </html>

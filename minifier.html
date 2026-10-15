@@ -2,7 +2,6 @@
 <html lang="en">
 <head>
 <meta charset="utf-8">
-<link rel="icon" href="/favicon.svg" type="image/svg+xml">
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <title>JSON Minifier | RomitJSON</title>
 <meta name="description" content="Minify JSON by removing unnecessary whitespace. Validate, copy, and download compact JSON locally in your browser.">
@@ -12,16 +11,6 @@
 <link rel="stylesheet" href="css/style.css">
 <link rel="stylesheet" href="css/formatter.css">
 <link rel="stylesheet" href="css/minifier.css">
-
-<meta property="og:type" content="website">
-<meta property="og:site_name" content="RomitJSON">
-<meta property="og:title" content="JSON Minifier | RomitJSON">
-<meta property="og:description" content="Minify JSON by removing unnecessary whitespace. Validate, copy, and download compact JSON locally in your browser.">
-<meta property="og:url" content="https://romitjson.com/minifier.html">
-<meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="JSON Minifier | RomitJSON">
-<meta name="twitter:description" content="Minify JSON by removing unnecessary whitespace. Validate, copy, and download compact JSON locally in your browser.">
-<script type="application/ld+json">{"@context":"https://schema.org","@type":"WebApplication","name":"JSON Minifier","url":"https://romitjson.com/minifier.html","description":"Minify JSON by removing unnecessary whitespace. Validate, copy, and download compact JSON locally in your browser.","applicationCategory":"DeveloperApplication","operatingSystem":"Any","isAccessibleForFree":true,"offers":{"@type":"Offer","price":"0","priceCurrency":"USD"}}</script>
 </head>
 <body class="dark">
 <header class="site-header"><div class="nav-wrap">
@@ -41,35 +30,38 @@
 <div class="nav-dropdown"><button class="nav-drop-btn" aria-expanded="false">Generate <span>▾</span></button><div class="nav-drop-menu">
 <a href="typescript.html"><b class="ndm-blue">TS</b><span><strong>JSON → TypeScript</strong><small>Generate interfaces</small></span></a>
 <a href="minifier.html" aria-current="page"><b class="ndm-red">↘</b><span><strong>JSON Minifier</strong><small>Reduce JSON size</small></span></a></div></div>
-<div class="nav-dropdown"><button class="nav-drop-btn" aria-expanded="false">More Tools <span>▾</span></button><div class="nav-drop-menu"><a href="repair.html"><b class="ndm-orange">Fix</b><span><strong>JSON Repair</strong><small>Fix common syntax mistakes</small></span></a><a href="schemavalidator.html"><b class="ndm-green">✓</b><span><strong>Schema Validator</strong><small>Check structure and constraints</small></span></a><a href="size-analyzer.html"><b class="ndm-blue">KB</b><span><strong>Size Analyzer</strong><small>Measure payload size</small></span></a><a href="jsonpath.html"><b class="ndm-violet">$</b><span><strong>JSONPath Query</strong><small>Select nested values</small></span></a></div></div><a href="index.html#about">About</a></nav>
+<a href="index.html#about">About</a></nav>
 <div class="header-actions"><button class="menu-btn" id="menuBtn" aria-controls="mainNav" aria-expanded="false">Menu</button></div>
 </div></header>
 <main class="formatter-main minifier-main">
 <section class="formatter-intro">
 <label>JSON TOOL / MINIFIER</label>
 <h1>JSON Minifier</h1>
-<p>Remove unnecessary whitespace from JSON while preserving its data. Validation and minification happen locally in your browser.</p>
+<p>Remove insignificant JSON whitespace while preserving the original tokens and values. This is not gzip or Brotli compression; processing stays in your browser.</p>
 </section>
 <section class="formatter-tool minifier-tool" aria-label="JSON minifier">
 <div class="formatter-toolbar minifier-toolbar">
-<div class="minifier-actions"><button class="secondary-btn" id="openFileBtn" type="button">Open JSON</button><input id="fileInput" type="file" accept=".json,application/json" hidden><button class="secondary-btn" id="sampleBtn" type="button">Sample</button></div>
-<div class="minifier-actions"><button class="primary-btn" id="minifyBtn" type="button">Minify JSON</button><button class="secondary-btn" id="clearBtn" type="button">Clear</button></div>
+<div class="minifier-actions"><button class="secondary-btn" id="openFileBtn" type="button">Open JSON</button><input id="fileInput" type="file" accept=".json,application/json" hidden><button class="secondary-btn" id="sampleBtn" type="button">Sample</button><button class="secondary-btn" id="pasteBtn" type="button">Paste</button><button class="secondary-btn" id="copyInputBtn" type="button" disabled>Copy input</button></div>
+<div class="minifier-actions"><label class="auto-minify-setting"><input id="autoMinify" type="checkbox"><span>Auto Minify</span></label><button class="primary-btn" id="minifyBtn" type="button">Minify JSON</button><button class="secondary-btn" id="formatOutputBtn" type="button" disabled>Format output</button><button class="secondary-btn" id="clearBtn" type="button">Clear</button></div>
 </div>
 <div class="formatter-grid minifier-grid">
 <section class="formatter-panel" aria-labelledby="inputTitle">
-<div class="formatter-panel-head"><h2 id="inputTitle">Input JSON</h2><span id="inputSize">0 bytes</span></div>
+<div class="formatter-panel-head"><h2 id="inputTitle">Input JSON</h2><div class="minifier-input-meta"><span id="fileName">Untitled JSON</span><span id="inputSize">0 bytes</span></div></div>
 <textarea id="jsonInput" spellcheck="false" aria-label="Input JSON" placeholder='Paste JSON here, for example: {"name":"RomitJSON"}'></textarea>
+<p class="minifier-file-hint">Drop a .json file here, or choose Open JSON. Processing stays in this browser.</p>
 </section>
 <section class="formatter-panel output-panel" aria-labelledby="outputTitle">
-<div class="formatter-panel-head"><h2 id="outputTitle">Minified output</h2><div><button class="panel-action" id="copyBtn" type="button" disabled>Copy</button><button class="panel-action" id="downloadBtn" type="button" disabled>Download</button></div></div>
+<div class="formatter-panel-head"><h2 id="outputTitle">Minified output</h2><div><button class="panel-action" id="copyBtn" type="button" disabled>Copy output</button><button class="panel-action" id="downloadBtn" type="button" disabled>Download .min.json</button></div></div>
 <pre id="jsonOutput" aria-label="Minified JSON output">Your minified JSON will appear here.</pre>
 </section>
 </div>
-<dl id="minifierStats" class="minifier-stats" hidden><div><dt>Original size</dt><dd id="originalSize">0 bytes</dd></div><div><dt>Minified size</dt><dd id="minifiedSize">0 bytes</dd></div><div><dt>Reduced by</dt><dd id="sizeSaved">0%</dd></div></dl>
+<dl id="minifierStats" class="minifier-stats" hidden><div><dt>Original size (UTF-8)</dt><dd id="originalSize">0 bytes</dd></div><div><dt>Minified size (UTF-8)</dt><dd id="minifiedSize">0 bytes</dd></div><div><dt>Bytes saved</dt><dd id="bytesSaved">0 bytes</dd></div><div><dt>Size reduction</dt><dd id="sizeSaved">0%</dd></div></dl>
 <p class="formatter-status" id="minifierStatus" role="status" aria-live="polite">Paste JSON or open a file to begin.</p>
+<nav class="minifier-related-links" aria-label="Related JSON tools"><a href="validator.html">JSON Validator</a><a href="formatter.html">JSON Formatter</a></nav>
 </section>
 </main>
-<footer><div class="footer-grid"><div class="footer-brand"><a class="brand" href="index.html#home"><span class="brand-mark small">{ }</span><span>Romit<span class="brand-accent">JSON</span></span></a><p>Simple browser-based tools for working with JSON data.</p></div><div><h4>Company</h4><a href="index.html#about">About</a></div><div><h4>Resources</h4><a href="index.html#all-tools">All tools</a><a href="index.html#faq">FAQ</a><a href="repair.html">JSON Repair</a><a href="schemavalidator.html">Schema Validator</a><a href="size-analyzer.html">Size Analyzer</a><a href="jsonpath.html">JSONPath Query</a></div><div class="copyright">© <span id="year"></span> RomitJSON. All rights reserved.</div></div></footer>
+<div class="minifier-paste-modal" id="pasteModal" aria-hidden="true" hidden><div class="minifier-paste-panel" role="dialog" aria-modal="true" aria-labelledby="pasteTitle"><button type="button" class="minifier-paste-close" id="closePasteBtn" aria-label="Close paste dialog">×</button><h2 id="pasteTitle">Paste JSON</h2><textarea id="pasteArea" placeholder='{"name":"example"}'></textarea><div><button type="button" class="secondary-btn" id="cancelPasteBtn">Cancel</button><button type="button" class="primary-btn" id="usePasteBtn">Use JSON</button></div></div></div>
+<footer><div class="footer-grid"><div class="footer-brand"><a class="brand" href="index.html#home"><span class="brand-mark small">{ }</span><span>Romit<span class="brand-accent">JSON</span></span></a><p>Simple browser-based tools for working with JSON data.</p></div><div><h4>Company</h4><a href="index.html#about">About</a></div><div><h4>Resources</h4><a href="index.html#all-tools">All tools</a><a href="index.html#faq">FAQ</a></div><div class="copyright">© <span id="year"></span> RomitJSON. All rights reserved.</div></div></footer>
 <script src="js/minifier.js"></script>
 </body>
 </html>

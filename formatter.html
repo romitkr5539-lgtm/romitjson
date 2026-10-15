@@ -2,7 +2,6 @@
 <html lang="en">
 <head>
 <meta charset="utf-8">
-<link rel="icon" href="/favicon.svg" type="image/svg+xml">
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <title>JSON Formatter | RomitJSON</title>
 <meta name="description" content="Format and validate JSON in your browser. Choose indentation, copy the result, or download a formatted JSON file.">
@@ -11,16 +10,6 @@
 <meta name="theme-color" content="#071613">
 <link rel="stylesheet" href="css/style.css">
 <link rel="stylesheet" href="css/formatter.css">
-
-<meta property="og:type" content="website">
-<meta property="og:site_name" content="RomitJSON">
-<meta property="og:title" content="JSON Formatter | RomitJSON">
-<meta property="og:description" content="Format and validate JSON in your browser. Choose indentation, copy the result, or download a formatted JSON file.">
-<meta property="og:url" content="https://romitjson.com/formatter.html">
-<meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="JSON Formatter | RomitJSON">
-<meta name="twitter:description" content="Format and validate JSON in your browser. Choose indentation, copy the result, or download a formatted JSON file.">
-<script type="application/ld+json">{"@context":"https://schema.org","@type":"WebApplication","name":"JSON Formatter","url":"https://romitjson.com/formatter.html","description":"Format and validate JSON in your browser. Choose indentation, copy the result, or download a formatted JSON file.","applicationCategory":"DeveloperApplication","operatingSystem":"Any","isAccessibleForFree":true,"offers":{"@type":"Offer","price":"0","priceCurrency":"USD"}}</script>
 </head>
 <body class="dark">
 <header class="site-header"><div class="nav-wrap">
@@ -40,7 +29,7 @@
 <div class="nav-dropdown"><button class="nav-drop-btn" aria-expanded="false">Generate <span>▾</span></button><div class="nav-drop-menu">
 <a href="typescript.html"><b class="ndm-blue">TS</b><span><strong>JSON → TypeScript</strong><small>Generate interfaces</small></span></a>
 <a href="minifier.html"><b class="ndm-red">↘</b><span><strong>JSON Minifier</strong><small>Reduce JSON size</small></span></a></div></div>
-<div class="nav-dropdown"><button class="nav-drop-btn" aria-expanded="false">More Tools <span>▾</span></button><div class="nav-drop-menu"><a href="repair.html"><b class="ndm-orange">Fix</b><span><strong>JSON Repair</strong><small>Fix common syntax mistakes</small></span></a><a href="schemavalidator.html"><b class="ndm-green">✓</b><span><strong>Schema Validator</strong><small>Check structure and constraints</small></span></a><a href="size-analyzer.html"><b class="ndm-blue">KB</b><span><strong>Size Analyzer</strong><small>Measure payload size</small></span></a><a href="jsonpath.html"><b class="ndm-violet">$</b><span><strong>JSONPath Query</strong><small>Select nested values</small></span></a></div></div><a href="index.html#about">About</a></nav>
+<a href="index.html#about">About</a></nav>
 <div class="header-actions"><button class="menu-btn" id="menuBtn" aria-controls="mainNav" aria-expanded="false">Menu</button></div>
 </div></header>
 <main class="formatter-main">
@@ -51,29 +40,34 @@
 </section>
 <section class="formatter-tool" aria-label="JSON formatter">
 <div class="formatter-toolbar">
-<label class="indent-setting" for="indentSize"><span>Indentation</span><select id="indentSize"><option value="2">2 spaces</option><option value="4">4 spaces</option><option value="tab">Tabs</option></select></label>
+<div class="format-settings"><label class="indent-setting" for="indentSize"><span>Indentation</span><select id="indentSize"><option value="2">2 spaces</option><option value="4">4 spaces</option><option value="tab">Tabs</option></select></label><label class="sort-setting"><input id="sortKeys" type="checkbox"><span>Sort keys A-Z</span></label></div>
 <div class="formatter-actions"><button class="primary-btn" id="formatBtn" type="button">Format JSON</button><button class="secondary-btn" id="clearBtn" type="button">Clear</button></div>
 </div>
 <div class="formatter-grid">
 <section class="formatter-panel" aria-labelledby="inputTitle">
-<div class="formatter-panel-head"><h2 id="inputTitle">Input JSON</h2><div><button class="panel-action" id="sampleBtn" type="button">Sample</button><button class="panel-action" id="openFileBtn" type="button">Open file</button><input id="fileInput" type="file" accept=".json,application/json" hidden></div></div>
+<div class="formatter-panel-head"><h2 id="inputTitle">Input JSON</h2><div><button class="panel-action" id="sampleBtn" type="button">Sample</button><button class="panel-action" id="pasteBtn" type="button">Paste</button><button class="panel-action" id="openFileBtn" type="button">Open file</button><input id="fileInput" type="file" accept=".json,application/json" hidden></div></div>
 <div class="numbered-code-wrap">
 <div class="line-number-panel" id="inputLineNumbers" aria-hidden="true"></div>
 <textarea id="jsonInput" spellcheck="false" aria-label="Input JSON" placeholder='Paste JSON here, for example: {"name":"RomitJSON"}'></textarea>
 </div>
+<p id="dropHint" class="drop-hint">Drop a .json file here, or use Paste / Open file.</p>
 </section>
 <section class="formatter-panel" aria-labelledby="outputTitle">
-<div class="formatter-panel-head"><h2 id="outputTitle">Formatted output</h2><div><button class="panel-action" id="copyBtn" type="button" disabled>Copy</button><button class="panel-action" id="downloadBtn" type="button" disabled>Download</button></div></div>
-<div class="numbered-code-wrap">
+<div class="formatter-panel-head output-head"><h2 id="outputTitle">Formatted output</h2><div class="output-actions"><div class="view-switch" role="group" aria-label="Output view"><button type="button" class="panel-action active" id="codeViewBtn" aria-pressed="true">Code</button><button type="button" class="panel-action" id="treeViewBtn" aria-pressed="false">Tree</button></div><button class="panel-action" id="copyBtn" type="button" disabled>Copy</button><button class="panel-action" id="downloadBtn" type="button" disabled>Download .json</button></div></div>
+<div class="formatter-searchbar"><label class="visually-hidden" for="formatterSearch">Search JSON keys and values</label><input id="formatterSearch" type="search" placeholder="Search keys and values" disabled><button class="panel-action" id="previousMatchBtn" type="button" aria-label="Previous match" disabled>↑</button><button class="panel-action" id="nextMatchBtn" type="button" aria-label="Next match" disabled>↓</button><span id="matchCount" role="status">0 matches</span><button class="panel-action" id="copyPathBtn" type="button" disabled>Copy path</button><button class="panel-action" id="expandAllBtn" type="button" disabled>Expand all</button><button class="panel-action" id="collapseAllBtn" type="button" disabled>Collapse all</button></div>
+<div class="numbered-code-wrap" id="codeOutputWrap">
 <div class="line-number-panel" id="outputLineNumbers" aria-hidden="true">1</div>
 <pre id="jsonOutput" aria-label="Formatted JSON output">Your formatted JSON will appear here.</pre>
 </div>
+<div id="jsonTree" class="formatter-tree" aria-label="JSON tree" hidden></div>
 </section>
 </div>
+<dl class="formatter-stats" id="formatterStats" aria-label="JSON statistics"><div><dt>Input size</dt><dd id="inputBytes">0 bytes</dd></div><div><dt>Formatted size</dt><dd id="formattedBytes">0 bytes</dd></div><div><dt>Minified size</dt><dd id="minifiedBytes">0 bytes</dd></div><div><dt>Object keys</dt><dd id="objectKeyCount">0</dd></div><div><dt>Array items</dt><dd id="arrayItemCount">0</dd></div><div><dt>Max depth</dt><dd id="maxDepth">0</dd></div></dl>
 <p class="formatter-status" id="formatterStatus" role="status" aria-live="polite">Paste JSON or open a file to begin.</p>
 </section>
 </main>
-<footer><div class="footer-grid"><div class="footer-brand"><a class="brand" href="index.html#home"><span class="brand-mark small">{ }</span><span>Romit<span class="brand-accent">JSON</span></span></a><p>Simple browser-based tools for working with JSON data.</p></div><div><h4>Company</h4><a href="index.html#about">About</a></div><div><h4>Resources</h4><a href="index.html#all-tools">All tools</a><a href="index.html#faq">FAQ</a><a href="repair.html">JSON Repair</a><a href="schemavalidator.html">Schema Validator</a><a href="size-analyzer.html">Size Analyzer</a><a href="jsonpath.html">JSONPath Query</a></div><div class="copyright">© <span id="year"></span> RomitJSON. All rights reserved.</div></div></footer>
+<div class="paste-modal" id="pasteModal" aria-hidden="true" hidden><div class="paste-modal-panel" role="dialog" aria-modal="true" aria-labelledby="pasteTitle"><button type="button" class="paste-modal-close" id="closePasteBtn" aria-label="Close paste dialog">×</button><h2 id="pasteTitle">Paste JSON</h2><textarea id="pasteArea" placeholder='{"name":"example"}'></textarea><div class="paste-modal-actions"><button type="button" class="secondary-btn" id="cancelPasteBtn">Cancel</button><button type="button" class="primary-btn" id="usePasteBtn">Use JSON</button></div></div></div>
+<footer><div class="footer-grid"><div class="footer-brand"><a class="brand" href="index.html#home"><span class="brand-mark small">{ }</span><span>Romit<span class="brand-accent">JSON</span></span></a><p>Simple browser-based tools for working with JSON data.</p></div><div><h4>Company</h4><a href="index.html#about">About</a></div><div><h4>Resources</h4><a href="index.html#all-tools">All tools</a><a href="index.html#faq">FAQ</a></div><div class="copyright">© <span id="year"></span> RomitJSON. All rights reserved.</div></div></footer>
 <script src="js/formatter.js"></script>
 </body>
 </html>
