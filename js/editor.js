@@ -8,6 +8,14 @@ const downloadButton=document.querySelector("#downloadBtn");
 const fileInput=document.querySelector("#fileInput");
 const editorOverlay=document.querySelector(".editor-text-overlay");
 const editorLineNumbers=document.querySelector(".line-number-panel");
+const editorTree=document.querySelector("#editorTree");
+const editorTextWrap=document.querySelector(".editor-text-wrap");
+const undoButton=document.querySelector("#undoBtn");
+const redoButton=document.querySelector("#redoBtn");
+const undoHistory=[];
+const redoHistory=[];
+let lastDocument=documentInput.value;
+let editorMode="code";
 
 function updateLineNumbers(){
   const lines=Math.max(1,(documentInput.value||"").split("\n").length);
@@ -87,6 +95,7 @@ function inspectDocument(){
     downloadButton.disabled=true;
     clearTextHighlight();
     setStatus("Ready. Your changes stay in this browser.");
+    if(editorMode==="tree")editorTree.textContent="No JSON to display.";
     return null;
   }
   try{
@@ -96,6 +105,7 @@ function inspectDocument(){
     downloadButton.disabled=false;
     clearTextHighlight();
     setStatus("Valid JSON. Ready to format or export.","valid");
+    if(editorMode==="tree")renderTree(value);
     return {value};
   }catch(error){
     const details=parseJsonError(error);
@@ -104,19 +114,80 @@ function inspectDocument(){
     downloadButton.disabled=true;
     setTextHighlight(source,error);
     setStatus(`Invalid JSON at column ${details.column!==null?details.column:"?"}: ${details.message}`,"invalid");
+    if(editorMode==="tree")editorTree.textContent=statusText.textContent;
     return null;
   }
 }
 
-documentInput.addEventListener("input",inspectDocument);
+function updateHistoryButtons(){
+  undoButton.disabled=undoHistory.length===0;
+  redoButton.disabled=redoHistory.length===0;
+}
+
+function recordDocumentInput(){
+  if(documentInput.value!==lastDocument){
+    undoHistory.push(lastDocument);
+    if(undoHistory.length>100)undoHistory.shift();
+    redoHistory.length=0;
+    lastDocument=documentInput.value;
+  }
+  inspectDocument();
+  updateHistoryButtons();
+}
+
+function setDocumentValue(value){
+  if(documentInput.value!==value){
+    undoHistory.push(documentInput.value);
+    if(undoHistory.length>100)undoHistory.shift();
+    redoHistory.length=0;
+    documentInput.value=value;
+    lastDocument=value;
+  }
+  inspectDocument();
+  updateHistoryButtons();
+}
+
+function renderTree(value){
+  editorTree.replaceChildren();
+  function appendValue(parent,key,item){
+    if(item!==null&&typeof item==="object"){
+      const details=document.createElement("details");
+      const summary=document.createElement("summary");
+      const entries=Array.isArray(item)?item.map((value,index)=>[index,value]):Object.entries(item);
+      summary.textContent=String(key)+" "+(Array.isArray(item)?"["+entries.length+"]":"{"+entries.length+"}");
+      details.append(summary);
+      for(const[childKey,childValue]of entries)appendValue(details,String(childKey),childValue);
+      parent.append(details);
+      return;
+    }
+    const node=document.createElement("div");
+    node.className="editor-tree-node";
+    node.textContent=String(key)+": "+JSON.stringify(item);
+    parent.append(node);
+  }
+  const entries=value!==null&&typeof value==="object"?(Array.isArray(value)?value.map((item,index)=>[index,item]):Object.entries(value)):null;
+  if(entries){
+    for(const[key,item]of entries)appendValue(editorTree,String(key),item);
+    if(!entries.length){const empty=document.createElement("div");empty.className="editor-tree-empty";empty.textContent=Array.isArray(value)?"Empty array":"Empty object";editorTree.append(empty)}
+  }else{
+    const node=document.createElement("div");node.className="editor-tree-node";node.textContent=JSON.stringify(value);editorTree.append(node);
+  }
+}
+
+function indentValue(){
+  const value=document.querySelector("#editorIndent").value;
+  return value==="tab"?"\t":Number(value);
+}
+
+documentInput.addEventListener("input",recordDocumentInput);
 documentInput.addEventListener("scroll",syncEditorScroll);
 documentInput.addEventListener("keydown",event=>{
   if(event.key==="Tab"){
     event.preventDefault();
     const start=documentInput.selectionStart;
     const end=documentInput.selectionEnd;
-    documentInput.setRangeText("  ",start,end,"end");
-    inspectDocument();
+    documentInput.setRangeText(indentValue(),start,end,"end");
+    recordDocumentInput();
   }else if((event.ctrlKey||event.metaKey)&&event.key==="Enter"){
     inspectDocument();
   }
@@ -124,20 +195,100 @@ documentInput.addEventListener("keydown",event=>{
 formatButton.addEventListener("click",()=>{
   const parsed=inspectDocument();
   if(parsed===null)return;
-  documentInput.value=JSON.stringify(parsed.value,null,2);
-  inspectDocument();
+  setDocumentValue(JSON.stringify(parsed.value,null,indentValue()));
   documentInput.focus();
 });
-document.querySelector("#clearBtn").addEventListener("click",()=>{
-  documentInput.value="";
-  document.querySelector("#fileName").textContent="Untitled JSON";
+undoButton.addEventListener("click",()=>{
+  if(!undoHistory.length)return;
+  redoHistory.push(documentInput.value);
+  documentInput.value=undoHistory.pop();
+  lastDocument=documentInput.value;
   inspectDocument();
+  updateHistoryButtons();
+  documentInput.focus();
+});
+redoButton.addEventListener("click",()=>{
+  if(!redoHistory.length)return;
+  undoHistory.push(documentInput.value);
+  documentInput.value=redoHistory.pop();
+  lastDocument=documentInput.value;
+  inspectDocument();
+  updateHistoryButtons();
+  documentInput.focus();
+});
+document.querySelector("#sortBtn").addEventListener("click",()=>{
+  const parsed=inspectDocument();
+  if(parsed===null)return;
+  function sortKeys(value){
+    if(Array.isArray(value))return value.map(sortKeys);
+    if(value&&typeof value==="object")return Object.fromEntries(Object.keys(value).sort((a,b)=>a.localeCompare(b)).map(key=>[key,sortKeys(value[key])]));
+    return value;
+  }
+  setDocumentValue(JSON.stringify(sortKeys(parsed.value),null,indentValue()));
+  setStatus("Object keys sorted alphabetically.","valid");
+});
+document.querySelector("#validateBtn").addEventListener("click",()=>{
+  const parsed=inspectDocument();
+  if(parsed!==null)setStatus("Valid JSON. No syntax errors found.","valid");
+  documentInput.focus();
+});
+document.querySelector("#findBtn").addEventListener("click",()=>{
+  if(editorMode!=="code"){
+    document.querySelector("#editorView").value="code";
+    document.querySelector("#editorView").dispatchEvent(new Event("change"));
+  }
+  const findbar=document.querySelector("#editorFindbar");
+  findbar.hidden=false;
+  document.querySelector("#editorFind").focus();
+});
+function findInDocument(direction){
+  const query=document.querySelector("#editorFind").value;
+  const findStatus=document.querySelector("#findStatus");
+  if(!query){findStatus.textContent="Enter text to search.";return}
+  const source=documentInput.value.toLocaleLowerCase();
+  const needle=query.toLocaleLowerCase();
+  const start=direction>0?documentInput.selectionEnd:documentInput.selectionStart-1;
+  let index=direction>0?source.indexOf(needle,Math.max(0,start)):source.lastIndexOf(needle,Math.max(0,start));
+  if(index<0)index=direction>0?source.indexOf(needle):source.lastIndexOf(needle);
+  if(index<0){findStatus.textContent="No matches.";return}
+  documentInput.focus();
+  documentInput.setSelectionRange(index,index+query.length);
+  findStatus.textContent="Match at character "+(index+1)+".";
+}
+document.querySelector("#findNext").addEventListener("click",()=>findInDocument(1));
+document.querySelector("#findPrevious").addEventListener("click",()=>findInDocument(-1));
+document.querySelector("#editorFind").addEventListener("keydown",event=>{
+  if(event.key==="Enter"){event.preventDefault();findInDocument(event.shiftKey?-1:1)}
+  if(event.key==="Escape")document.querySelector("#closeFind").click();
+});
+document.querySelector("#closeFind").addEventListener("click",()=>{
+  document.querySelector("#editorFindbar").hidden=true;
+  document.querySelector("#findStatus").textContent="";
+  document.querySelector("#editorFind").value="";
+});
+document.querySelector("#editorView").addEventListener("change",event=>{
+  editorMode=event.target.value;
+  const treeMode=editorMode==="tree";
+  editorTextWrap.classList.toggle("tree-mode",treeMode);
+  editorTree.hidden=!treeMode;
+  if(treeMode)inspectDocument();
+  else documentInput.focus();
+});
+document.querySelector("#printBtn").addEventListener("click",()=>window.print());
+document.querySelector("#fullscreenBtn").addEventListener("click",async()=>{
+  try{
+    if(document.fullscreenElement)await document.exitFullscreen();
+    else await document.querySelector(".editor-tool").requestFullscreen();
+  }catch(error){setStatus("Fullscreen is unavailable in this browser.","invalid")}
+});
+document.querySelector("#clearBtn").addEventListener("click",()=>{
+  setDocumentValue("");
+  document.querySelector("#fileName").textContent="Untitled JSON";
   documentInput.focus();
 });
 document.querySelector("#sampleBtn").addEventListener("click",()=>{
   document.querySelector("#fileName").textContent="Sample JSON";
-  documentInput.value=JSON.stringify({name:"RomitJSON",version:"1.0",tools:["format","view","validate"],private:true},null,2);
-  inspectDocument();
+  setDocumentValue(JSON.stringify({name:"RomitJSON",version:"1.0",tools:["format","view","validate"],private:true},null,2));
 });
 document.querySelector("#openFileBtn").addEventListener("click",()=>fileInput.click());
 fileInput.addEventListener("change",()=>{
@@ -148,11 +299,15 @@ fileInput.addEventListener("change",()=>{
     fileInput.value="";
     return;
   }
+  if(!/\.json$/i.test(file.name)&&file.type!=="application/json"){
+    setStatus("Please choose a JSON file.","invalid");
+    fileInput.value="";
+    return;
+  }
   const reader=new FileReader();
   reader.onload=()=>{
     document.querySelector("#fileName").textContent=file.name;
-    documentInput.value=String(reader.result||"");
-    inspectDocument();
+    setDocumentValue(String(reader.result||""));
   };
   reader.onerror=()=>setStatus("Could not read this file.","invalid");
   reader.readAsText(file);
@@ -174,7 +329,7 @@ downloadButton.addEventListener("click",()=>{
   link.href=url;
   link.download="edited.json";
   link.click();
-  URL.revokeObjectURL(url);
+  setTimeout(()=>URL.revokeObjectURL(url),1000);
 });
 
 const mainNav=document.querySelector("#mainNav");

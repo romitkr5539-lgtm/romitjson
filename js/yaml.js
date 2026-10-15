@@ -6,6 +6,13 @@ const fileInput=document.querySelector("#fileInput");
 const copyButton=document.querySelector("#copyBtn");
 const downloadButton=document.querySelector("#downloadBtn");
 const stats=document.querySelector("#yamlStats");
+let YAMLLib=null;
+const yamlModulePromise=import("https://cdn.jsdelivr.net/npm/yaml@2.9.1/browser/index.js").then((module)=>{
+  YAMLLib=module.default ?? module;
+}).catch((error)=>{
+  console.error("Failed to load YAML library:",error);
+  YAMLLib=null;
+});
 let yamlText="";
 
 function byteCount(text){
@@ -17,41 +24,54 @@ function setStatus(text,type=""){
   status.className="formatter-status yaml-status"+(type?" "+type:"");
 }
 
-function yamlString(value){
-  const ambiguous=/^(?:~|null|true|false|yes|no|on|off|y|n|\.inf|[-+]?\.nan)$/i.test(value);
-  const numberLike=/^[+-]?(?:\d[\d_]*(?:\.[\d_]*)?|\.[\d_]+)(?:[eE][+-]?\d[\d_]*)?$/.test(value)||/^0[xob][0-9a-f_]+$/i.test(value);
-  const dateLike=/^\d{4}-\d{2}-\d{2}(?:$|[Tt ])/i.test(value);
-  const needsQuotes=value===""||value.trim()!==value||ambiguous||numberLike||dateLike||/[:#\[\]{},&*!|>'"%@`\n\r\t]/.test(value)||/^[-?]\s/.test(value)||/\s#/.test(value);
-  return needsQuotes?JSON.stringify(value):value;
-}
-
-function yamlKey(key){
-  return yamlString(key);
-}
-
-function isCollection(value){
-  return value!==null&&typeof value==="object";
-}
-
-function yamlValue(value,indent=0){
-  const pad=" ".repeat(indent);
-  if(value===null)return pad+"null";
-  if(typeof value==="string")return pad+yamlString(value);
-  if(typeof value!=="object")return pad+String(value);
-  if(Array.isArray(value)){
-    if(value.length===0)return pad+"[]";
-    return value.map(item=>{
-      if(isCollection(item)&&(Array.isArray(item)?item.length>0:Object.keys(item).length>0))return pad+"-\n"+yamlValue(item,indent+2);
-      return pad+"- "+yamlValue(item,indent+2).trimStart();
-    }).join("\n");
+function deepEqual(left,right){
+  if(Object.is(left,right))return true;
+  if(left===null||right===null||typeof left!=="object"||typeof right!=="object")return false;
+  if(Array.isArray(left)!==Array.isArray(right))return false;
+  if(Array.isArray(left)&&Array.isArray(right)){
+    if(left.length!==right.length)return false;
+    return left.every((item,index)=>deepEqual(item,right[index]));
   }
-  const entries=Object.entries(value);
-  if(entries.length===0)return pad+"{}";
-  return entries.map(([key,item])=>{
-    const prefix=pad+yamlKey(key)+":";
-    if(isCollection(item)&&(Array.isArray(item)?item.length>0:Object.keys(item).length>0))return prefix+"\n"+yamlValue(item,indent+2);
-    return prefix+" "+yamlValue(item,indent+2).trimStart();
-  }).join("\n");
+  const leftKeys=Object.keys(left);
+  const rightKeys=Object.keys(right);
+  if(leftKeys.length!==rightKeys.length)return false;
+  return leftKeys.every(key=>Object.prototype.hasOwnProperty.call(right,key)&&deepEqual(left[key],right[key]));
+}
+
+function hasUnsafeInteger(value){
+  if(typeof value==="number"){
+    return Number.isInteger(value)&&!Number.isSafeInteger(value);
+  }
+  if(Array.isArray(value)){
+    return value.some(hasUnsafeInteger);
+  }
+  if(value&&typeof value==="object"){
+    return Object.values(value).some(hasUnsafeInteger);
+  }
+  return false;
+}
+
+async function serializeYaml(value){
+  await yamlModulePromise;
+  if(!YAMLLib){
+    throw new Error("YAML library failed to load. Please refresh the page and try again.");
+  }
+
+  const yamlString=YAMLLib.stringify(value,{
+    indent:2,
+    lineWidth:0,
+    singleQuote:false,
+    doubleQuotedAsJSON:true,
+    sortMapEntries:false,
+    blockQuote:"literal"
+  });
+
+  const parsed=YAMLLib.parse(yamlString);
+  if(!deepEqual(parsed,value)){
+    throw new Error("The generated YAML did not round-trip back into the same JSON structure.");
+  }
+
+  return yamlString;
 }
 
 function rootType(value){
@@ -68,7 +88,7 @@ function resetOutput(){
   stats.hidden=true;
 }
 
-function convert(){
+async function convert(){
   const source=input.value;
   inputSize.textContent=source.length.toLocaleString()+" characters";
   if(!source.trim()){
@@ -78,14 +98,19 @@ function convert(){
   }
   try{
     const value=JSON.parse(source);
-    yamlText=yamlValue(value);
+    const hasUnsafeNumbers=hasUnsafeInteger(value);
+    yamlText=await serializeYaml(value);
     output.textContent=yamlText;
     copyButton.disabled=false;
     downloadButton.disabled=false;
     document.querySelector("#rootType").textContent=rootType(value);
     document.querySelector("#yamlSize").textContent=byteCount(yamlText).toLocaleString()+" bytes";
     stats.hidden=false;
-    setStatus("Valid JSON. Converted to YAML.","success");
+    if(hasUnsafeNumbers){
+      setStatus("Valid JSON. Converted to YAML, but some integers exceed JavaScript's safe range and may lose precision in the browser.","success");
+    }else{
+      setStatus("Valid JSON. Converted to YAML and verified by a YAML round-trip.","success");
+    }
     document.querySelector("#outputTitle").scrollIntoView({behavior:"smooth",block:"start"});
   }catch(error){
     resetOutput();
@@ -112,6 +137,12 @@ fileInput.addEventListener("change",()=>{
   if(file.size>10485760){
     resetOutput();
     setStatus("File exceeds the 10MB limit.","error");
+    fileInput.value="";
+    return;
+  }
+  if(!/\.json$/i.test(file.name)&&file.type!=="application/json"){
+    resetOutput();
+    setStatus("Please choose a JSON file.","error");
     fileInput.value="";
     return;
   }
@@ -147,7 +178,7 @@ downloadButton.addEventListener("click",()=>{
   link.href=url;
   link.download="converted.yaml";
   link.click();
-  URL.revokeObjectURL(url);
+  setTimeout(()=>URL.revokeObjectURL(url),1000);
 });
 
 const mainNav=document.querySelector("#mainNav");
