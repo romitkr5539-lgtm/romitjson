@@ -1,15 +1,159 @@
 <!doctype html>
 <html lang="en">
 <head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>JSON to YAML | RomitJSON</title>
-  <meta name="robots" content="noindex,follow">
-  <link rel="canonical" href="https://romitjson.com/yaml.html">
-  <meta http-equiv="refresh" content="0;url=../yaml.html">
-  <script>window.location.replace("../yaml.html");</script>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>JSON to YAML Converter Online</title>
+<meta name="description" content="Convert valid JSON to YAML with two-space indentation. Review the generated output, check its data round-trip, then copy it or download a .yaml file.">
+<meta name="robots" content="index,follow">
+<link rel="canonical" href="https://romitjson.com/json-to-yaml/">
+<meta property="og:type" content="website"><meta property="og:site_name" content="RomitJSON"><meta property="og:locale" content="en_US"><meta property="og:title" content="JSON to YAML Converter Online"><meta property="og:description" content="Convert valid JSON to YAML with two-space indentation. Review the generated output, check its data round-trip, then copy it or download a .yaml file."><meta property="og:url" content="https://romitjson.com/json-to-yaml/">
+<meta name="twitter:card" content="summary"><meta name="twitter:title" content="JSON to YAML Converter Online"><meta name="twitter:description" content="Convert valid JSON to YAML with two-space indentation. Review the generated output, check its data round-trip, then copy it or download a .yaml file.">
+<meta name="theme-color" content="#071613">
+<link rel="stylesheet" href="../css/style.css">
+<link rel="stylesheet" href="../css/formatter.css">
+<link rel="stylesheet" href="../css/yaml.css">
+<link rel="stylesheet" href="../css/tool-seo.css">
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-DKWQGJ7VQ6"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-DKWQGJ7VQ6');
+</script><link rel="icon" type="image/svg+xml" href="/favicon.svg">
 </head>
-<body>
-  <p>Opening <a href="../yaml.html">JSON to YAML</a> on RomitJSON…</p>
+<body class="dark">
+<header class="site-header"><div class="nav-wrap">
+<a class="brand" href="../index.html#home" aria-label="RomitJSON home"><span class="brand-mark">{ }</span><span>Romit<span class="brand-accent">JSON</span></span></a>
+<nav id="mainNav" aria-label="Main navigation">
+<a href="../index.html#home">Home</a>
+<a href="../datasets/">Datasets</a>
+<a href="../learn/">Learn JSON</a>
+<div class="nav-dropdown"><button class="nav-drop-btn" aria-expanded="false">View &amp; Edit <span>▾</span></button><div class="nav-drop-menu">
+<a href="../json-viewer/"><b class="ndm-green">◉</b><span><strong>JSON Viewer</strong><small>Browse JSON as a tree</small></span></a>
+<a href="../json-tree-viewer/"><b class="ndm-cyan">◈</b><span><strong>JSON Tree Viewer</strong><small>Explore nested JSON</small></span></a>
+<a href="../json-path-finder/"><b class="ndm-blue">$</b><span><strong>JSONPath Finder</strong><small>Find and query data paths</small></span></a>
+<a href="../json-editor/"><b class="ndm-blue">✎</b><span><strong>JSON Editor</strong><small>Edit and inspect JSON</small></span></a></div></div>
+<div class="nav-dropdown"><button class="nav-drop-btn" aria-expanded="false">Validate <span>▾</span></button><div class="nav-drop-menu">
+<a href="../json-validator/"><b class="ndm-green">✓</b><span><strong>JSON Validator</strong><small>Find syntax errors</small></span></a>
+<a href="../json-repair/"><b class="ndm-orange">⌁</b><span><strong>JSON Repair</strong><small>Fix common syntax issues</small></span></a>
+<a href="../json-schema-validator/"><b class="ndm-violet">✓</b><span><strong>JSON Schema Validator</strong><small>Check data against a schema</small></span></a>
+<a href="../json-compare/"><b class="ndm-violet">⇄</b><span><strong>JSON Compare</strong><small>Find document differences</small></span></a></div></div>
+<div class="nav-dropdown"><button class="nav-drop-btn" aria-expanded="false">Convert <span>▾</span></button><div class="nav-drop-menu">
+<a href="../json-to-csv/"><b class="ndm-violet">{ }</b><span><strong>JSON → CSV</strong><small>Convert arrays to CSV</small></span></a>
+<a href="../json-to-excel/"><b class="ndm-green">XLS</b><span><strong>JSON → Excel</strong><small>Export workbook data</small></span></a>
+<a href="../json-to-sql/"><b class="ndm-orange">SQL</b><span><strong>JSON → SQL</strong><small>Generate table and insert SQL</small></span></a>
+<a class="active" href="../json-to-yaml/" aria-current="page"><b class="ndm-purple">YML</b><span><strong>JSON → YAML</strong><small>Create YAML data</small></span></a>
+<a href="../json-to-xml/"><b class="ndm-orange">&lt;/&gt;</b><span><strong>JSON → XML</strong><small>Create XML data</small></span></a></div></div>
+<div class="nav-dropdown"><button class="nav-drop-btn" aria-expanded="false">Generate <span>▾</span></button><div class="nav-drop-menu">
+<a href="../json-pretty-printer/"><b class="ndm-cyan">¶</b><span><strong>JSON Pretty Printer</strong><small>Beautify JSON output</small></span></a>
+<a href="../json-to-typescript/"><b class="ndm-blue">TS</b><span><strong>JSON → TypeScript</strong><small>Generate interfaces</small></span></a>
+<a href="../json-to-java/"><b class="ndm-orange">J</b><span><strong>JSON → Java</strong><small>Generate Java model classes</small></span></a>
+<a href="../json-to-python/"><b class="ndm-blue">Py</b><span><strong>JSON → Python</strong><small>Generate Python models</small></span></a>
+<a href="../json-schema-generator/"><b class="ndm-violet">{ }</b><span><strong>JSON Schema Generator</strong><small>Generate a schema from JSON</small></span></a>
+<a href="../json-minifier/"><b class="ndm-red">↘</b><span><strong>JSON Minifier</strong><small>Reduce JSON size</small></span></a></div></div>
+<a href="../tools.html">All tools</a>
+<a href="../about.html">About</a><a href="../contact.html">Contact</a></nav>
+<div class="header-actions"><button class="menu-btn" id="menuBtn" type="button" aria-controls="mainNav" aria-expanded="false">Menu</button></div>
+</div></header>
+<main class="formatter-main yaml-main">
+<section class="formatter-intro">
+<label>JSON TOOL / CONVERTER</label>
+<h1>JSON to YAML Converter</h1>
+<p>Convert JSON objects and arrays into readable YAML for configuration files, application settings, and compatible development workflows.</p>
+</section>
+<section class="formatter-tool yaml-tool" aria-label="JSON to YAML converter">
+<div class="formatter-toolbar yaml-toolbar">
+<div class="yaml-actions"><button class="secondary-btn" id="openFileBtn" type="button">Open JSON</button><input id="fileInput" type="file" accept=".json,application/json" hidden><button class="secondary-btn" id="sampleBtn" type="button">Sample</button></div>
+<div class="yaml-actions"><button class="primary-btn" id="convertBtn" type="button">Convert to YAML</button><button class="secondary-btn" id="clearBtn" type="button">Clear</button></div>
+</div>
+<div class="formatter-grid yaml-grid">
+<section class="formatter-panel" aria-labelledby="inputTitle"><div class="formatter-panel-head"><h2 id="inputTitle">Input JSON</h2><span id="inputSize">0 characters</span></div><textarea id="jsonInput" spellcheck="false" aria-label="Input JSON" placeholder='Paste JSON here, for example: {"name":"RomitJSON"}'></textarea></section>
+<section class="formatter-panel output-panel" aria-labelledby="outputTitle"><div class="formatter-panel-head"><h2 id="outputTitle">YAML output</h2><div><button class="panel-action" id="copyBtn" type="button" disabled>Copy</button><button class="panel-action" id="downloadBtn" type="button" disabled>Download</button></div></div><pre id="yamlOutput" aria-label="YAML output">Your YAML output will appear here.</pre></section>
+</div>
+<dl class="yaml-stats" id="yamlStats" hidden><div><dt>Root type</dt><dd id="rootType">-</dd></div><div><dt>YAML size</dt><dd id="yamlSize">0 bytes</dd></div></dl>
+<p class="formatter-status" id="yamlStatus" role="status" aria-live="polite">Paste JSON or open a file to begin.</p>
+</section>
+<article class="tool-seo-content" aria-labelledby="yaml-guide-title">
+<h2 id="yaml-guide-title">Convert JSON into readable YAML</h2>
+<p>JSON is common in API responses and application data. YAML is often chosen for files people edit by hand, such as service settings and deployment configuration. This converter takes valid JSON and writes the same parsed data as YAML, so you can reuse an existing object or array in a workflow that accepts YAML.</p>
+<p>Paste JSON or open a local <code>.json</code> file, select <strong>Convert to YAML</strong>, then review the output before copying or downloading the <code>.yaml</code> file. The converter uses two-space indentation and shows the root data type and output size.</p>
+
+<h2>Example: JSON object and array in YAML</h2>
+<p>Here is a JSON document with an object, a Boolean, a number, and an array:</p>
+<pre><code>{
+  "service": {
+    "name": "catalog",
+    "enabled": true
+  },
+  "retries": 3,
+  "regions": ["us-east-1", "eu-west-1"],
+  "note": "deploy after review"
+}</code></pre>
+<p>The YAML representation uses indentation for the nested object and hyphens for array items:</p>
+<pre><code>service:
+  name: catalog
+  enabled: true
+retries: 3
+regions:
+  - us-east-1
+  - eu-west-1
+note: deploy after review</code></pre>
+<p>YAML indentation is part of the structure. Use spaces rather than tabs to indent YAML, and keep the output intact when pasting it into another file.</p>
+
+<h2>How to convert JSON to YAML</h2>
+<ol>
+<li>Paste valid JSON into the input, or select <strong>Open JSON</strong> to choose a local file. The file picker accepts files up to 50 MiB.</li>
+<li>Select <strong>Convert to YAML</strong>. The converter parses the JSON and creates YAML output.</li>
+<li>Review the output and the status message. The tool parses the generated YAML and checks that it represents the same data as the parsed JSON.</li>
+<li>Select <strong>Copy</strong> or <strong>Download</strong> to use the result.</li>
+</ol>
+<p>If you edit the input after converting, the old output is cleared. Convert again to create an updated YAML result. Large files may take longer to parse and can use substantial browser memory.</p>
+
+<h2>What the converter checks—and what it cannot check</h2>
+<p>The round-trip check confirms that the generated YAML parses back to the same structure using the converter's YAML library. It does not verify that a Kubernetes manifest, CI workflow, application config, or other target file meets that product's schema or version rules. Run the output through the target application's own validator before deploying or relying on it.</p>
+<p>JSON must be valid before conversion. Standard JSON does not allow comments, single-quoted strings, unquoted keys, or trailing commas. If the input is rejected, use the <a href="../json-validator/">JSON Validator</a> to find syntax issues before trying again.</p>
+
+<h2>Data types and numeric precision</h2>
+<p>JSON objects become YAML mappings, arrays become sequences, and strings, numbers, Booleans, and <code>null</code> are serialized as YAML values. YAML parsers can differ in how they interpret plain scalars, so check important values in the system that will read the file—especially strings that resemble dates, numbers, or Boolean words.</p>
+<p>The converter warns when it finds an integer outside JavaScript's safe range. Such values may already have lost precision when the browser parses the JSON. If a long number is an identifier rather than a quantity, represent it as a quoted string in the source. Check high-precision decimals as well.</p>
+
+<h2>Does converting JSON to YAML add comments?</h2>
+<p>No. JSON has no comment syntax, so a conversion cannot preserve comments that are not in the input or invent explanations for configuration values. Add comments to the YAML afterward if your team or target format needs them.</p>
+
+<h2>Where is my JSON processed?</h2>
+<p>The converter parses the input in your browser. It loads its YAML conversion library from jsDelivr, but the JSON document is not included in that library request. The page needs access to jsDelivr for the conversion library to load; see the <a href="../privacy.html">privacy information</a> for details.</p>
+
+<h2>JSON to YAML and related tools</h2>
+<p>Use YAML when the receiving tool expects it; keep JSON when an API or application requires JSON. If you need to change the source data first, use the <a href="../json-editor/">JSON Editor</a>. The <a href="../json-formatter/">JSON Formatter</a> can make JSON easier to inspect, and <a href="../json-to-csv/">JSON to CSV</a> is useful when you need tabular data.</p>
+
+<h2>Frequently asked questions</h2>
+<details><summary>Is JSON to YAML conversion lossless?</summary><p>The converter checks that its generated YAML parses back to the same structure as the JSON value parsed in the browser. Very large integers can lose precision in JavaScript before conversion, and another YAML parser may interpret some plain values differently. Review important values in the target system.</p></details>
+<details><summary>Can I convert nested objects and arrays?</summary><p>Yes. Nested objects are represented with indentation, and array values appear as YAML sequence items with hyphens.</p></details>
+<details><summary>Can I convert a JSON file?</summary><p>Yes. Choose <strong>Open JSON</strong> and select a <code>.json</code> file up to 50 MiB. You can also paste JSON into the input area.</p></details>
+<details><summary>Why did conversion fail?</summary><p>The input may not be valid JSON, or the YAML library may not have loaded. Check the JSON syntax and the status message, then try again when the conversion library is available.</p></details>
+<details><summary>Does the converter support YAML comments?</summary><p>The output contains the data represented by the JSON. It does not add comments; add any needed comments to the YAML afterward.</p></details>
+<details><summary>Is the generated YAML ready for my configuration file?</summary><p>It may be a starting point, but a successful conversion only checks the data round-trip. Validate it with the target application's schema, version, and rules before using it.</p></details>
+</article>
+</main>
+<footer class="site-footer">
+<div class="footer-inner">
+<div class="footer-link-grid">
+<section class="footer-column" aria-labelledby="footer-tools-title"><h2 id="footer-tools-title">JSON TOOLS</h2><a href="../json-formatter/">JSON Formatter</a><a href="../json-pretty-printer/">JSON Pretty Printer</a><a href="../json-validator/">JSON Validator</a><a href="../json-repair/">JSON Repair</a><a href="../json-schema-validator/">JSON Schema Validator</a><a href="../json-schema-generator/">JSON Schema Generator</a><a href="../json-viewer/">JSON Viewer</a><a href="../json-tree-viewer/">JSON Tree Viewer</a><a href="../json-path-finder/">JSONPath Finder</a><a href="../json-editor/">JSON Editor</a><a class="footer-all-link" href="../tools.html">All tools <span aria-hidden="true">&#8599;</span></a></section>
+<section class="footer-column" aria-labelledby="footer-converters-title"><h2 id="footer-converters-title">CONVERTERS</h2><a href="../json-to-csv/">JSON to CSV</a><a href="../json-to-excel/">JSON to Excel</a><a href="../json-to-sql/">JSON to SQL</a><a href="../json-to-yaml/">JSON to YAML</a><a href="../json-to-xml/">JSON to XML</a><a href="../json-to-typescript/">JSON to TypeScript</a><a href="../json-to-java/">JSON to Java</a><a href="../json-to-python/">JSON to Python</a><a class="footer-all-link" href="../tools.html">All tools <span aria-hidden="true">&#8599;</span></a></section>
+<section class="footer-column" aria-labelledby="footer-more-title"><h2 id="footer-more-title">MORE TOOLS</h2><a href="../json-minifier/">JSON Minifier</a><a href="../json-compare/">JSON Compare</a><a class="footer-all-link" href="../tools.html">All tools <span aria-hidden="true">&#8599;</span></a></section>
+<section class="footer-column" aria-labelledby="footer-learn-title"><h2 id="footer-learn-title">LEARN</h2><a href="../learn/">Learn JSON tutorials</a><a href="../faq.html">Frequently asked questions</a><a href="../about.html">About RomitJSON</a></section>
+<section class="footer-column" aria-labelledby="footer-company-title"><h2 id="footer-company-title">COMPANY</h2><a href="../contact.html">Contact</a><a href="../privacy.html">Privacy policy</a></section>
+</div>
+<div class="footer-about"><div><span class="footer-eyebrow">MADE FOR DEVELOPERS</span><p>Format, validate, inspect, and transform JSON with practical tools for your daily development workflow.</p></div><div class="footer-actions"><a class="footer-cta" href="../tools.html">Explore tools <span aria-hidden="true">&#8599;</span></a><a class="footer-cta" href="../learn/">Learn JSON <span aria-hidden="true">&#8599;</span></a></div></div>
+<div class="footer-bottom">
+<p class="footer-copyright">© <span id="year"></span> RomitJSON. All rights reserved.</p>
+<p class="footer-note">Made with ❤️ for developers.</p>
+<nav class="footer-legal" aria-label="Footer navigation"><a href="../about.html">About</a><a href="../privacy.html">Privacy</a><a href="../contact.html">Contact</a></nav>
+</div>
+</div>
+</footer>
+<script src="../js/yaml.js"></script>
 </body>
 </html>
