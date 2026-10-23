@@ -1,15 +1,157 @@
 <!doctype html>
 <html lang="en">
 <head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>JSON to Excel | RomitJSON</title>
-  <meta name="robots" content="noindex,follow">
-  <link rel="canonical" href="https://romitjson.com/csv.html">
-  <meta http-equiv="refresh" content="0;url=../csv.html">
-  <script>window.location.replace("../csv.html");</script>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>JSON to Excel Converter – Export Data to XLSX</title>
+<meta name="description" content="Convert JSON to Excel (.xlsx) in your browser. Flatten nested objects, preview rows, choose a worksheet name, and download a single-sheet workbook.">
+<meta name="author" content="Romit Kr Yadav">
+<meta name="robots" content="index,follow,max-image-preview:large,max-snippet:-1,max-video-preview:-1">
+<link rel="canonical" href="https://romitjson.com/json-to-excel/">
+<meta property="og:type" content="website"><meta property="og:site_name" content="RomitJSON"><meta property="og:title" content="JSON to Excel Converter – Export Data to XLSX"><meta property="og:description" content="Convert JSON to Excel (.xlsx) in your browser. Flatten nested objects, preview rows, choose a worksheet name, and download a single-sheet workbook."><meta property="og:url" content="https://romitjson.com/json-to-excel/">
+<meta name="twitter:card" content="summary"><meta name="twitter:title" content="JSON to Excel Converter – Export Data to XLSX"><meta name="twitter:description" content="Convert JSON to Excel (.xlsx) in your browser. Flatten nested objects, preview rows, choose a worksheet name, and download a single-sheet workbook.">
+<meta name="theme-color" content="#10b995">
+<meta property="og:locale" content="en_US">
+<link rel="stylesheet" href="../css/style.css">
+<link rel="stylesheet" href="../css/formatter.css">
+<link rel="stylesheet" href="../css/excel.css">
+<link rel="stylesheet" href="../css/tool-seo.css">
+<script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"WebPage","@id":"https://romitjson.com/json-to-excel/#webpage","url":"https://romitjson.com/json-to-excel/","name":"JSON to Excel Converter Online | RomitJSON","description":"Convert JSON to Excel (.xlsx) in your browser. Flatten nested objects, preview rows, choose a worksheet name, and download a single-sheet workbook.","isPartOf":{"@id":"https://romitjson.com/#website"},"inLanguage":"en"},{"@type":"WebApplication","@id":"https://romitjson.com/json-to-excel/#webapp","name":"RomitJSON JSON to Excel Converter","url":"https://romitjson.com/json-to-excel/","applicationCategory":"DeveloperApplication","operatingSystem":"Any","browserRequirements":"Requires JavaScript and a modern web browser.","offers":{"@type":"Offer","price":"0","priceCurrency":"USD"},"description":"Browser-based JSON to Excel converter that creates a single-sheet XLSX workbook with options for flattening nested objects and including headers."}]}</script>
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-DKWQGJ7VQ6"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-DKWQGJ7VQ6');
+</script><link rel="icon" type="image/svg+xml" href="/favicon.svg">
 </head>
-<body>
-  <p>Opening <a href="../csv.html">JSON to Excel</a> on RomitJSON…</p>
+<body class="dark">
+<header class="site-header"><div class="nav-wrap">
+<a class="brand" href="../index.html#home" aria-label="RomitJSON home"><span class="brand-mark">{ }</span><span>Romit<span class="brand-accent">JSON</span></span></a>
+<nav id="mainNav" aria-label="Main navigation">
+<a href="../index.html#home">Home</a><a href="../datasets/">Datasets</a><a href="../learn/">Learn JSON</a>
+<div class="nav-dropdown"><button class="nav-drop-btn" aria-expanded="false">View &amp; Edit <span>▾</span></button><div class="nav-drop-menu">
+<a href="../json-viewer/"><b class="ndm-green">◉</b><span><strong>JSON Viewer</strong><small>Browse JSON as a tree</small></span></a>
+<a href="../json-tree-viewer/"><b class="ndm-cyan">◈</b><span><strong>JSON Tree Viewer</strong><small>Explore nested JSON</small></span></a>
+<a href="../json-path-finder/"><b class="ndm-blue">$</b><span><strong>JSONPath Finder</strong><small>Find and query data paths</small></span></a>
+<a href="../json-editor/"><b class="ndm-blue">✎</b><span><strong>JSON Editor</strong><small>Edit and inspect JSON</small></span></a></div></div>
+<div class="nav-dropdown"><button class="nav-drop-btn" aria-expanded="false">Validate <span>▾</span></button><div class="nav-drop-menu">
+<a href="../json-validator/"><b class="ndm-green">✓</b><span><strong>JSON Validator</strong><small>Find syntax errors</small></span></a>
+<a href="../json-repair/"><b class="ndm-orange">⌁</b><span><strong>JSON Repair</strong><small>Fix common syntax issues</small></span></a>
+<a href="../json-schema-validator/"><b class="ndm-violet">✓</b><span><strong>JSON Schema Validator</strong><small>Check data against a schema</small></span></a>
+<a href="../json-compare/"><b class="ndm-violet">⇄</b><span><strong>JSON Compare</strong><small>Find document differences</small></span></a></div></div>
+<div class="nav-dropdown"><button class="nav-drop-btn" aria-expanded="false">Convert <span>▾</span></button><div class="nav-drop-menu">
+<a href="../json-to-csv/"><b class="ndm-violet">{ }</b><span><strong>JSON → CSV</strong><small>Convert arrays to CSV</small></span></a>
+<a href="../json-to-excel/" aria-current="page"><b class="ndm-green">XLS</b><span><strong>JSON → Excel</strong><small>Export workbook data</small></span></a>
+<a href="../json-to-sql/"><b class="ndm-orange">SQL</b><span><strong>JSON → SQL</strong><small>Generate table and insert SQL</small></span></a>
+<a href="../json-to-yaml/"><b class="ndm-purple">YML</b><span><strong>JSON → YAML</strong><small>Create YAML data</small></span></a>
+<a href="../json-to-xml/"><b class="ndm-orange">&lt;/&gt;</b><span><strong>JSON → XML</strong><small>Create XML data</small></span></a></div></div>
+<div class="nav-dropdown"><button class="nav-drop-btn" aria-expanded="false">Generate <span>▾</span></button><div class="nav-drop-menu">
+<a href="../json-pretty-printer/"><b class="ndm-cyan">¶</b><span><strong>JSON Pretty Printer</strong><small>Beautify JSON output</small></span></a>
+<a href="../json-to-typescript/"><b class="ndm-blue">TS</b><span><strong>JSON → TypeScript</strong><small>Generate interfaces</small></span></a>
+<a href="../json-to-java/"><b class="ndm-orange">J</b><span><strong>JSON → Java</strong><small>Generate Java model classes</small></span></a>
+<a href="../json-to-python/"><b class="ndm-blue">Py</b><span><strong>JSON → Python</strong><small>Generate Python models</small></span></a>
+<a href="../json-schema-generator/"><b class="ndm-violet">{ }</b><span><strong>JSON Schema Generator</strong><small>Generate a schema from JSON</small></span></a>
+<a href="../json-minifier/"><b class="ndm-red">↘</b><span><strong>JSON Minifier</strong><small>Reduce JSON size</small></span></a></div></div>
+<a href="../tools.html">All tools</a><a href="../about.html">About</a><a href="../contact.html">Contact</a></nav>
+<div class="header-actions"><button class="menu-btn" id="menuBtn" type="button" aria-controls="mainNav" aria-expanded="false">Menu</button></div>
+</div></header>
+<main class="formatter-main excel-main">
+<section class="formatter-intro">
+<label>JSON TOOL / CONVERTER</label>
+<h1>JSON to Excel Converter</h1>
+<p>Convert JSON records into a previewable Excel worksheet and download them as an .xlsx workbook. Flatten nested objects, include or omit headers, set a worksheet name, and copy the preview as tab-separated values.</p>
+<nav class="excel-related" aria-label="Related JSON tools"><a href="../json-to-csv/">JSON to CSV</a><a href="../json-to-sql/">JSON to SQL</a><a href="../json-to-yaml/">JSON to YAML</a><a href="../json-validator/">JSON Validator</a></nav>
+</section>
+<section class="formatter-tool excel-tool" aria-label="JSON to Excel converter">
+<div class="formatter-toolbar excel-toolbar">
+<label class="sheet-setting" for="sheetName"><span>Sheet name</span><input id="sheetName" type="text" value="Sheet1" maxlength="31" autocomplete="off"></label>
+<div class="excel-actions"><button class="secondary-btn" id="openFileBtn" type="button">Open JSON</button><input id="fileInput" type="file" accept=".json,application/json" hidden><button class="secondary-btn" id="sampleBtn" type="button">Sample</button><button class="secondary-btn" id="pasteBtn" type="button">Paste</button></div>
+<div class="excel-actions"><button class="primary-btn" id="convertBtn" type="button">Prepare workbook</button><button class="secondary-btn" id="clearBtn" type="button">Clear</button></div>
+</div>
+<section class="excel-settings" aria-label="Excel export options">
+<label class="checkbox-row"><input id="includeHeader" type="checkbox" checked><span>Include header row</span></label>
+<label class="checkbox-row"><input id="flattenNested" type="checkbox" checked><span>Flatten nested objects</span></label>
+<label class="checkbox-row"><input id="spreadsheetSafe" type="checkbox" checked><span>Spreadsheet-safe values</span></label>
+<label class="file-name-setting" for="fileName"><span>File name</span><input id="fileName" type="text" value="json-export" maxlength="80" autocomplete="off"></label>
+</section>
+<div class="formatter-grid excel-grid">
+<section class="formatter-panel" aria-labelledby="inputTitle"><div class="formatter-panel-head"><h2 id="inputTitle">Input JSON</h2><span id="inputSize">0 characters</span></div><textarea id="jsonInput" spellcheck="false" aria-label="Input JSON" placeholder='Paste an array of objects, for example: [{"name":"Ada","role":"Engineer","active":true}]'></textarea></section>
+<section class="formatter-panel output-panel" aria-labelledby="outputTitle"><div class="formatter-panel-head"><h2 id="outputTitle">Excel preview</h2><div><button class="panel-action" id="downloadBtn" type="button" disabled>Download</button><button class="panel-action" id="copyBtn" type="button" disabled>Copy as TSV</button></div></div><div id="excelOutput" class="excel-preview" role="region" aria-label="Excel spreadsheet preview" tabindex="0"><p class="excel-empty">Your Excel preview will appear here.</p></div></section>
+</div>
+<dl class="excel-stats" id="excelStats" hidden><div><dt>Rows</dt><dd id="rowCount">0</dd></div><div><dt>Columns</dt><dd id="columnCount">0</dd></div><div><dt>File size</dt><dd id="fileSize">0 bytes</dd></div></dl>
+<p class="formatter-status" id="excelStatus" role="status" aria-live="polite">Paste JSON or open a file to begin.</p>
+</section>
+<article class="tool-seo-content" aria-labelledby="excel-guide-title">
+<h2 id="excel-guide-title">Convert JSON to Excel (XLSX)</h2>
+<p>JSON is a common format for API responses and application data, while Excel is built for reviewing information in rows and columns. This JSON to Excel converter turns a JSON object or an array of records into a previewable worksheet and a downloadable <code>.xlsx</code> workbook. It is useful for checking exports, sharing records with spreadsheet users, or preparing a simple table for further analysis.</p>
+<p>Paste valid JSON or open a JSON file, choose whether to include headers and flatten nested objects, set the worksheet and file names, then select <strong>Prepare workbook</strong>. Review the row and column preview before downloading. The conversion runs in your browser; your JSON is not uploaded for workbook creation.</p>
+
+<h2>How to Convert JSON to an Excel Workbook</h2>
+<ol><li>Paste JSON into the input panel or select <strong>Open JSON</strong> to load a file.</li><li>Choose whether to include a header row and flatten nested objects.</li><li>Leave <strong>Spreadsheet-safe values</strong> on for its default array and formula-like string handling, or turn it off to keep arrays as JSON text.</li><li>Enter a worksheet name and the base file name if you want to change the defaults.</li><li>Select <strong>Prepare workbook</strong> and inspect the preview, row count, and column count.</li><li>Select <strong>Download</strong> to save an <code>.xlsx</code> file, or <strong>Copy as TSV</strong> to paste the preview into a spreadsheet.</li></ol>
+<p>The input must be valid JSON. If it will not parse, check it with the <a href="../json-validator/">JSON Validator</a> first.</p>
+
+<h2>Example: Nested JSON in Excel Columns</h2>
+<p>With nested-object flattening enabled, an object such as <code>customer</code> becomes separate columns. The default spreadsheet-safe setting joins array items in one cell:</p>
+<h3>Input JSON</h3>
+<pre><code>[
+  {"orderId":"00073","status":"open","customer":{"name":"Mina Patel","city":"Pune"},"tags":["priority","email"]},
+  {"orderId":"00074","status":"closed","customer":{"name":"Luis Chen","city":"Austin"},"tags":["refund"]}
+]</code></pre>
+<h3>Worksheet preview</h3>
+<pre><code>orderId | status | customer.name | customer.city | tags
+00073   | open   | Mina Patel    | Pune          | priority; email
+00074   | closed | Luis Chen     | Austin        | refund</code></pre>
+<p>The dotted headers show where nested values came from. The preview also makes it easier to catch a missing field or an unexpected column before saving the workbook.</p>
+
+<h2>How the Converter Maps JSON to a Worksheet</h2>
+<h3>Rows and headers</h3>
+<p>An array of objects is the best fit for a spreadsheet: each object becomes one row, and the converter gathers columns from the keys it finds across those objects. If a record is missing a key, that cell is blank. A single object becomes one row. The <strong>Include header row</strong> option controls whether property names appear before the data.</p>
+<h3>Nested objects and arrays</h3>
+<p>When <strong>Flatten nested objects</strong> is on, nested object paths become headers such as <code>customer.city</code>. Turn it off to keep a nested object as JSON text in one cell. Arrays do not expand into extra rows, columns, or worksheets. With <strong>Spreadsheet-safe values</strong> on, array items are joined in one cell with a semicolon and a space. Turn that option off to keep an array in JSON notation instead.</p>
+<p>If an API wraps a record list inside a property—for example, <code>{"data":[...]}</code> or <code>{"results":[...]}</code>—this converter does not automatically select that inner list. It treats the top-level object as one record. For a clean table, extract the array and convert that array of records.</p>
+<h3>Value types</h3>
+<p>Cell values are written as text, including numbers and booleans. This helps keep identifiers such as <code>00073</code> intact, but a numeric-looking cell may not work directly in Excel formulas or numeric sorting. Convert the relevant column to numbers in Excel if you need calculations. The workbook is a tabular export, not a lossless copy of JSON types and nesting.</p>
+
+<h2>Worksheet, File Name, and Spreadsheet-Safe Settings</h2>
+<ul>
+<li><strong>Worksheet name:</strong> The default is <code>Sheet1</code>. You can enter up to 31 characters; use a valid Excel sheet name.</li>
+<li><strong>File name:</strong> Set the base name before downloading. The converter creates an <code>.xlsx</code> file and normalizes unsupported filename characters.</li>
+<li><strong>Spreadsheet-safe values:</strong> This option is enabled by default. It joins arrays with semicolons and prefixes strings beginning with whitespace or <code>=</code>, <code>+</code>, <code>-</code>, or <code>@</code> with an apostrophe. This changes some exported text and is a precaution, not a guarantee about how every spreadsheet handles the value.</li>
+<li><strong>Copy as TSV:</strong> Copies the preview as tab-separated text, which is handy for pasting directly into an existing spreadsheet.</li>
+</ul>
+<p>This tool creates one worksheet of plain tabular data. It does not create multiple sheets from separate JSON collections or add Excel formulas, charts, or cell styling. If the JSON contains unrelated tables, prepare each table separately or use a workflow designed for multi-sheet workbooks.</p>
+
+<h2>Frequently Asked Questions</h2>
+<details><summary>Can I convert a single JSON object to Excel?</summary><p>Yes. A standalone object is converted as one row. With the header option enabled, its property names appear above the row.</p></details>
+<details><summary>Can I convert a JSON array to Excel?</summary><p>Yes. An array of objects is the recommended input: every object becomes a row, and keys found across the records become columns.</p></details>
+<details><summary>Does the converter create multiple worksheets?</summary><p>No. Each conversion creates one worksheet. A JSON object containing several arrays is treated as one record rather than as instructions to create separate sheets.</p></details>
+<details><summary>Will Excel keep numbers as numbers?</summary><p>No. This converter writes cell values as text. That preserves text identifiers such as postal codes with leading zeros, but numeric columns may need to be converted to numbers in Excel before using formulas or numeric sorting.</p></details>
+<details><summary>Does the converter upload my JSON?</summary><p>No. JSON parsing and workbook creation happen in your browser, and the data is not uploaded for conversion. See the <a href="../privacy.html">RomitJSON privacy information</a> for more about the site.</p></details>
+<details><summary>Can I paste the result into a spreadsheet without downloading?</summary><p>Yes. Choose <strong>Copy as TSV</strong>, then paste into Excel or another spreadsheet. The copied content includes the header row only when that option is enabled.</p></details>
+
+<h2>Related JSON Tools</h2>
+<p>Use the <a href="../json-to-csv/">JSON to CSV Converter</a> when you need delimited text, the <a href="../json-formatter/">JSON Formatter</a> to inspect or tidy the source, the <a href="../json-validator/">JSON Validator</a> to check its syntax, or the <a href="../json-viewer/">JSON Viewer</a> to explore nested fields.</p>
+</article>
+</main>
+<footer class="site-footer">
+<div class="footer-inner"><div class="footer-link-grid">
+<section class="footer-column" aria-labelledby="footer-tools-title"><h2 id="footer-tools-title">JSON TOOLS</h2><a href="../json-formatter/">JSON Formatter</a><a href="../json-pretty-printer/">JSON Pretty Printer</a><a href="../json-validator/">JSON Validator</a><a href="../json-repair/">JSON Repair</a><a href="../json-schema-validator/">JSON Schema Validator</a><a href="../json-schema-generator/">JSON Schema Generator</a><a href="../json-viewer/">JSON Viewer</a><a href="../json-tree-viewer/">JSON Tree Viewer</a><a href="../json-path-finder/">JSONPath Finder</a><a href="../json-editor/">JSON Editor</a><a class="footer-all-link" href="../tools.html">All tools <span aria-hidden="true">&#8599;</span></a></section>
+<section class="footer-column" aria-labelledby="footer-converters-title"><h2 id="footer-converters-title">CONVERTERS</h2><a href="../json-to-csv/">JSON to CSV</a><a href="../json-to-excel/" aria-current="page">JSON to Excel</a><a href="../json-to-sql/">JSON to SQL</a><a href="../json-to-yaml/">JSON to YAML</a><a href="../json-to-xml/">JSON to XML</a><a href="../json-to-typescript/">JSON to TypeScript</a><a href="../json-to-java/">JSON to Java</a><a href="../json-to-python/">JSON to Python</a><a class="footer-all-link" href="../tools.html">All tools <span aria-hidden="true">&#8599;</span></a></section>
+<section class="footer-column" aria-labelledby="footer-more-title"><h2 id="footer-more-title">MORE TOOLS</h2><a href="../json-minifier/">JSON Minifier</a><a href="../json-compare/">JSON Compare</a><a class="footer-all-link" href="../tools.html">All tools <span aria-hidden="true">&#8599;</span></a></section>
+<section class="footer-column" aria-labelledby="footer-learn-title"><h2 id="footer-learn-title">LEARN</h2><a href="../learn/">Learn JSON tutorials</a><a href="../faq.html">Frequently asked questions</a><a href="../about.html">About RomitJSON</a></section>
+<section class="footer-column" aria-labelledby="footer-company-title"><h2 id="footer-company-title">COMPANY</h2><a href="../contact.html">Contact</a><a href="../privacy.html">Privacy policy</a></section>
+</div>
+<div class="footer-about"><div><span class="footer-eyebrow">MADE FOR DEVELOPERS</span><p>Format, validate, inspect, and transform JSON with practical tools for your daily development workflow.</p></div><div class="footer-actions"><a class="footer-cta" href="../tools.html">Explore tools <span aria-hidden="true">&#8599;</span></a><a class="footer-cta" href="../learn/">Learn JSON <span aria-hidden="true">&#8599;</span></a></div></div>
+<div class="footer-bottom"><p class="footer-copyright">&copy; <span id="year"></span> RomitJSON. All rights reserved.</p><p class="footer-note">Made with &#10084; for developers.</p><nav class="footer-legal" aria-label="Footer navigation"><a href="../about.html">About</a><a href="../privacy.html">Privacy</a><a href="../contact.html">Contact</a></nav></div>
+</div></footer>
+<script src="https://cdn.jsdelivr.net/npm/xlsx@0.18.5/dist/xlsx.full.min.js"></script>
+
+<script src="../js/excel.js"></script>
 </body>
 </html>
+
+
+
+
