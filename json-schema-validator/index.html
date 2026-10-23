@@ -1,15 +1,190 @@
 <!doctype html>
 <html lang="en">
 <head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>JSON Schema Validator | RomitJSON</title>
-  <meta name="robots" content="noindex,follow">
-  <link rel="canonical" href="https://romitjson.com/schemavalidator.html">
-  <meta http-equiv="refresh" content="0;url=../schemavalidator.html">
-  <script>window.location.replace("../schemavalidator.html");</script>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>JSON Schema Validator – Validate JSON Data</title>
+<meta name="description" content="Validate JSON data against a Draft 2020-12 JSON Schema. Check required fields, types, formats, and constraints in your browser with this online schema validator.">
+<meta name="author" content="Romit Kr Yadav">
+<meta name="robots" content="index,follow,max-image-preview:large,max-snippet:-1,max-video-preview:-1">
+<link rel="canonical" href="https://romitjson.com/json-schema-validator/">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="RomitJSON">
+<meta property="og:title" content="JSON Schema Validator – Validate JSON Data">
+<meta property="og:description" content="Validate JSON data against a Draft 2020-12 JSON Schema. Check required fields, types, formats, and constraints in your browser with this online schema validator.">
+<meta property="og:url" content="https://romitjson.com/json-schema-validator/">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="JSON Schema Validator – Validate JSON Data">
+<meta name="twitter:description" content="Validate JSON data against a Draft 2020-12 JSON Schema. Check required fields, types, formats, and constraints in your browser with this online schema validator.">
+<meta name="theme-color" content="#10b995">
+<meta property="og:locale" content="en_US">
+<link rel="stylesheet" href="../css/style.css">
+<link rel="stylesheet" href="../css/formatter.css">
+<link rel="stylesheet" href="../css/schema-validator.css">
+<link rel="stylesheet" href="../css/tool-seo.css">
+<script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"WebPage","@id":"https://romitjson.com/json-schema-validator/#webpage","url":"https://romitjson.com/json-schema-validator/","name":"JSON Schema Validator: Draft 2020-12 | RomitJSON","description":"Validate JSON data against a Draft 2020-12 JSON Schema. Check required fields, types, formats, and constraints in your browser with this online schema validator.","isPartOf":{"@id":"https://romitjson.com/#website"},"inLanguage":"en"},{"@type":"WebApplication","@id":"https://romitjson.com/json-schema-validator/#webapp","name":"RomitJSON JSON Schema Validator","url":"https://romitjson.com/json-schema-validator/","applicationCategory":"DeveloperApplication","operatingSystem":"Any","browserRequirements":"Requires JavaScript and a modern web browser.","offers":{"@type":"Offer","price":"0","priceCurrency":"USD"},"description":"Browser-based JSON Schema Draft 2020-12 validator with local reference support."}]}</script>
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-DKWQGJ7VQ6"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-DKWQGJ7VQ6');
+</script><link rel="icon" type="image/svg+xml" href="/favicon.svg">
 </head>
-<body>
-  <p>Opening <a href="../schemavalidator.html">JSON Schema Validator</a> on RomitJSON…</p>
+<body class="dark">
+<header class="site-header"><div class="nav-wrap">
+<a class="brand" href="../index.html#home" aria-label="RomitJSON home"><span class="brand-mark">{ }</span><span>Romit<span class="brand-accent">JSON</span></span></a>
+<nav id="mainNav" aria-label="Main navigation">
+<a href="../index.html#home">Home</a>
+<a href="../datasets/">Datasets</a>
+<a href="../learn/">Learn JSON</a>
+<div class="nav-dropdown"><button class="nav-drop-btn" aria-expanded="false">View &amp; Edit <span>▾</span></button><div class="nav-drop-menu">
+<a href="../json-viewer/"><b class="ndm-green">◉</b><span><strong>JSON Viewer</strong><small>Browse JSON as a tree</small></span></a>
+<a href="../json-tree-viewer/"><b class="ndm-cyan">◈</b><span><strong>JSON Tree Viewer</strong><small>Explore nested JSON</small></span></a>
+<a href="../json-path-finder/"><b class="ndm-blue">$</b><span><strong>JSONPath Finder</strong><small>Find and query data paths</small></span></a>
+<a href="../json-editor/"><b class="ndm-blue">✎</b><span><strong>JSON Editor</strong><small>Edit and inspect JSON</small></span></a></div></div>
+<div class="nav-dropdown"><button class="nav-drop-btn" aria-expanded="false">Validate <span>▾</span></button><div class="nav-drop-menu">
+<a href="../json-validator/"><b class="ndm-green">✓</b><span><strong>JSON Validator</strong><small>Find syntax errors</small></span></a>
+<a href="../json-repair/"><b class="ndm-orange">⌁</b><span><strong>JSON Repair</strong><small>Fix common syntax issues</small></span></a>
+<a href="../json-schema-validator/" aria-current="page"><b class="ndm-violet">✓</b><span><strong>JSON Schema Validator</strong><small>Check data against a schema</small></span></a>
+<a href="../json-compare/"><b class="ndm-violet">⇄</b><span><strong>JSON Compare</strong><small>Find document differences</small></span></a></div></div>
+<div class="nav-dropdown"><button class="nav-drop-btn" aria-expanded="false">Convert <span>▾</span></button><div class="nav-drop-menu">
+<a href="../json-to-csv/"><b class="ndm-violet">{ }</b><span><strong>JSON → CSV</strong><small>Convert arrays to CSV</small></span></a>
+<a href="../json-to-excel/"><b class="ndm-green">XLS</b><span><strong>JSON → Excel</strong><small>Export workbook data</small></span></a>
+<a href="../json-to-sql/"><b class="ndm-orange">SQL</b><span><strong>JSON → SQL</strong><small>Generate table and insert SQL</small></span></a>
+<a href="../json-to-yaml/"><b class="ndm-purple">YML</b><span><strong>JSON → YAML</strong><small>Create YAML data</small></span></a>
+<a href="../json-to-xml/"><b class="ndm-orange">&lt;/&gt;</b><span><strong>JSON → XML</strong><small>Create XML data</small></span></a></div></div>
+<div class="nav-dropdown"><button class="nav-drop-btn" aria-expanded="false">Generate <span>▾</span></button><div class="nav-drop-menu">
+<a href="../json-pretty-printer/"><b class="ndm-cyan">¶</b><span><strong>JSON Pretty Printer</strong><small>Beautify JSON output</small></span></a>
+<a href="../json-to-typescript/"><b class="ndm-blue">TS</b><span><strong>JSON → TypeScript</strong><small>Generate interfaces</small></span></a>
+<a href="../json-to-java/"><b class="ndm-orange">J</b><span><strong>JSON → Java</strong><small>Generate Java model classes</small></span></a>
+<a href="../json-to-python/"><b class="ndm-blue">Py</b><span><strong>JSON → Python</strong><small>Generate Python models</small></span></a>
+<a href="../json-schema-generator/"><b class="ndm-violet">{ }</b><span><strong>JSON Schema Generator</strong><small>Generate a schema from JSON</small></span></a>
+<a href="../json-minifier/"><b class="ndm-red">↘</b><span><strong>JSON Minifier</strong><small>Reduce JSON size</small></span></a></div></div>
+<a href="../tools.html">All tools</a>
+<a href="../about.html">About</a><a href="../contact.html">Contact</a></nav>
+<div class="header-actions"><button class="menu-btn" id="menuBtn" aria-controls="mainNav" aria-expanded="false">Menu</button></div>
+</div></header>
+
+<main class="schema-main">
+  <section class="formatter-intro">
+    <label>JSON TOOL / SCHEMA VALIDATOR</label>
+    <h1>JSON Schema Validator Online</h1>
+    <p>Check that JSON data matches a schema, including required properties, types, formats, and value constraints. Validation runs in your browser using JSON Schema Draft 2020-12.</p>
+    <p><a href="../json-schema-generator/">Generate a JSON Schema from sample JSON</a></p>
+  </section>
+
+  <section class="schema-tool" aria-label="JSON Schema validator">
+    <div class="schema-toolbar">
+      <div class="schema-toolbar-note"><strong>Draft 2020-12</strong><span>Local references supported; remote references are not fetched.</span></div>
+      <div class="schema-actions">
+        <button class="secondary-btn" id="sampleBtn" type="button">Load sample</button>
+        <button class="primary-btn" id="validateBtn" type="button" disabled>Validate JSON</button>
+        <button class="secondary-btn" id="clearBtn" type="button">Clear</button>
+      </div>
+    </div>
+    <div class="schema-editors">
+      <section class="schema-panel" aria-labelledby="dataTitle">
+        <div class="schema-panel-head">
+          <h2 id="dataTitle">JSON data</h2>
+          <div><button class="panel-action" id="openDataBtn" type="button">Open data</button><input id="dataFileInput" type="file" accept=".json,application/json" hidden></div>
+        </div>
+        <textarea id="dataInput" spellcheck="false" aria-label="JSON data" placeholder='{"name":"RomitJSON","active":true}'></textarea>
+      </section>
+      <section class="schema-panel" aria-labelledby="schemaTitle">
+        <div class="schema-panel-head">
+          <h2 id="schemaTitle">JSON Schema</h2>
+          <div><button class="panel-action" id="openSchemaBtn" type="button">Open schema</button><input id="schemaFileInput" type="file" accept=".json,application/json" hidden></div>
+        </div>
+        <textarea id="schemaInput" spellcheck="false" aria-label="JSON Schema" placeholder='{"$schema":"https://json-schema.org/draft/2020-12/schema","type":"object"}'></textarea>
+      </section>
+    </div>
+    <section class="schema-result" aria-labelledby="resultTitle">
+      <div class="schema-result-head">
+        <h2 id="resultTitle">Validation result</h2>
+        <span id="resultSummary" role="status" aria-live="polite">Load or enter JSON data and a schema.</span>
+      </div>
+      <ul id="errorList" class="schema-errors" aria-live="polite"></ul>
+    </section>
+  </section>
+
+  <article class="tool-seo-content" aria-labelledby="schema-guide-title">
+<h2 id="schema-guide-title">Validate JSON Data Against a Schema</h2>
+<p>Valid JSON is not automatically valid for your API or application. A JSON parser checks syntax; a JSON Schema validator checks whether a parsed value follows rules written in a schema. Those rules can describe the expected structure, types, required properties, allowed values, and limits for strings, numbers, and arrays.</p>
+<p>Enter or open both the JSON data and a JSON Schema, then select <strong>Validate JSON</strong>. This page supports JSON Schema Draft 2020-12, checks common formats, and reports failing data paths alongside the schema rules that produced the errors. Validation happens in your browser.</p>
+
+<h2>How to Use the JSON Schema Validator</h2>
+<ol>
+<li>Paste JSON into the <strong>JSON data</strong> field, or select <strong>Open data</strong> to load a <code>.json</code> file.</li>
+<li>Paste a Draft 2020-12 schema into <strong>JSON Schema</strong>, or select <strong>Open schema</strong> to load a schema file.</li>
+<li>Select <strong>Validate JSON</strong>. Use <strong>Load sample</strong> to see a working data-and-schema pair.</li>
+<li>Read the result. A valid result means the data conforms to the schema you supplied; an invalid result lists the reported paths and rules to review.</li>
+</ol>
+<p>Both the data and schema must be valid JSON text before schema validation can run. The page reports malformed data, malformed schema syntax, schema compilation problems, and data validation failures separately.</p>
+
+<h2>What Can a JSON Schema Check?</h2>
+<p>Schema keywords let you describe the shape and constraints of data. For example, <code>type</code> sets a value’s type, <code>required</code> lists object properties that must be present, and <code>properties</code> defines rules for named fields. Other common keywords include <code>enum</code> for an allowed set of values, <code>minimum</code> and <code>maximum</code> for numbers, <code>minLength</code> and <code>maxLength</code> for strings, and <code>items</code> for array elements.</p>
+<p>Here is a small schema for a customer record:</p>
+<pre><code>{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "type": "object",
+  "required": ["email", "age"],
+  "properties": {
+    "email": { "type": "string", "format": "email" },
+    "age": { "type": "integer", "minimum": 18 }
+  },
+  "additionalProperties": false
+}</code></pre>
+<p>This schema requires an email address and an integer age of at least 18. It also rejects fields other than <code>email</code> and <code>age</code>. Without <code>required</code>, properties described under <code>properties</code> are optional; without <code>additionalProperties: false</code>, extra fields are allowed by default. Add only the restrictions your data contract needs.</p>
+
+<h2>Read Validation Errors</h2>
+<p>Each reported error includes the data location (<code>instancePath</code>) and the schema location (<code>schemaPath</code>). For example, <code>/items/2/price</code> points to the <code>price</code> property in the third item of an <code>items</code> array. These paths use JSON Pointer style, so they help you locate the value in the original document. The validator shows up to 100 errors to keep the result manageable.</p>
+<p>If the result says the schema could not be compiled, check that the schema itself is valid and uses Draft 2020-12 keywords. For instance, tuple-style array rules from older drafts may need to be rewritten with the Draft 2020-12 keywords <code>prefixItems</code> and <code>items</code>. See the official <a href="https://json-schema.org/draft/2020-12">Draft 2020-12 specification</a> for the full vocabulary.</p>
+
+<h2>JSON Syntax Validation vs. JSON Schema Validation</h2>
+<p>A <a href="../json-validator/">JSON Validator</a> checks whether text follows JSON syntax, such as using double quotes and correctly placed commas and brackets. A JSON Schema Validator checks additional rules that you define. The data must parse as JSON first, then it can be checked against the schema.</p>
+<p>A successful result does not prove that the data will meet every business or application requirement. It only confirms the rules expressed in the supplied schema. If your API has additional conditions, include them in the schema where possible or check them in your application.</p>
+
+<h2>Draft Version and Reference Support</h2>
+<p>This tool uses JSON Schema Draft 2020-12. Set <code>"$schema": "https://json-schema.org/draft/2020-12/schema"</code> at the top of a schema to make its intended draft explicit. Local references within the supplied schema are supported, including definitions under <code>$defs</code>. Remote <code>$ref</code> URLs are not downloaded, so include the referenced definitions in the schema document before validating.</p>
+<p>Common formats such as <code>email</code>, <code>date</code>, and <code>uri</code> are checked by this validator. Format behavior can vary between validators and configurations; the underlying JSON Schema specification separates format annotation from format assertion. See the <a href="https://ajv.js.org/guide/formats.html">Ajv format documentation</a> for details on the format checks used by this page.</p>
+
+<h2>Privacy and Input Limits</h2>
+<p>Each JSON data input and schema can be up to 10 MiB. The page parses and validates them in your browser and does not send them to RomitJSON. It loads the Ajv validator libraries from esm.sh, so your browser needs a connection to retrieve those scripts; that library request is separate from your JSON input. Avoid using secrets or confidential data in online tools unless their handling fits your requirements.</p>
+
+<h2>Frequently Asked Questions</h2>
+<details><summary>What is the difference between JSON Schema and JSON?</summary><p>JSON is a text format for structured data. JSON Schema is a separate JSON document that describes rules for checking the structure and values of JSON data.</p></details>
+<details><summary>Which JSON Schema draft does this validator support?</summary><p>This tool supports Draft 2020-12. Older drafts may use different keywords and can fail to compile as a 2020-12 schema.</p></details>
+<details><summary>Does the required keyword make every property required?</summary><p>No. List required property names in the schema’s <code>required</code> array. Properties described under <code>properties</code> are optional unless they are also listed as required.</p></details>
+<details><summary>Can I use a remote $ref?</summary><p>No. Remote schema references are not fetched. Use local references and include the definitions they point to in the schema you provide.</p></details>
+<details><summary>Why does valid JSON fail schema validation?</summary><p>The text may be valid JSON while a value has the wrong type, a required field is missing, a number is outside its allowed range, or another schema rule is not met. Follow the reported data path and review the corresponding keyword.</p></details>
+<details><summary>Does a valid result guarantee that my application accepts the data?</summary><p>No. It confirms that the data matches the supplied schema. Your application may enforce additional rules that are not represented there.</p></details>
+
+<h2>Related JSON Tools</h2>
+<p>Need to create a schema first? Use the <a href="../json-schema-generator/">JSON Schema Generator</a> to infer a starting schema from sample JSON, then review its rules before relying on it. To check only JSON syntax, use the <a href="../json-validator/">JSON Validator</a>. For a readable view of nested data, open the <a href="../json-viewer/">JSON Viewer</a>.</p>
+</article>
+</main>
+
+<footer class="site-footer">
+<div class="footer-inner">
+<div class="footer-link-grid">
+<section class="footer-column" aria-labelledby="footer-tools-title"><h2 id="footer-tools-title">JSON TOOLS</h2><a href="../json-formatter/">JSON Formatter</a><a href="../json-pretty-printer/">JSON Pretty Printer</a><a href="../json-validator/">JSON Validator</a><a href="../json-repair/">JSON Repair</a><a href="../json-schema-validator/" aria-current="page">JSON Schema Validator</a><a href="../json-schema-generator/">JSON Schema Generator</a><a href="../json-viewer/">JSON Viewer</a><a href="../json-tree-viewer/">JSON Tree Viewer</a><a href="../json-path-finder/">JSONPath Finder</a><a href="../json-editor/">JSON Editor</a><a class="footer-all-link" href="../tools.html">All tools <span aria-hidden="true">&#8599;</span></a></section>
+<section class="footer-column" aria-labelledby="footer-converters-title"><h2 id="footer-converters-title">CONVERTERS</h2><a href="../json-to-csv/">JSON to CSV</a><a href="../json-to-excel/">JSON to Excel</a><a href="../json-to-sql/">JSON to SQL</a><a href="../json-to-yaml/">JSON to YAML</a><a href="../json-to-xml/">JSON to XML</a><a href="../json-to-typescript/">JSON to TypeScript</a><a href="../json-to-java/">JSON to Java</a><a href="../json-to-python/">JSON to Python</a><a class="footer-all-link" href="../tools.html">All tools <span aria-hidden="true">&#8599;</span></a></section>
+<section class="footer-column" aria-labelledby="footer-more-title"><h2 id="footer-more-title">MORE TOOLS</h2><a href="../json-minifier/">JSON Minifier</a><a href="../json-compare/">JSON Compare</a><a class="footer-all-link" href="../tools.html">All tools <span aria-hidden="true">&#8599;</span></a></section>
+<section class="footer-column" aria-labelledby="footer-learn-title"><h2 id="footer-learn-title">LEARN</h2><a href="../learn/">Learn JSON tutorials</a><a href="../faq.html">Frequently asked questions</a><a href="../about.html">About RomitJSON</a></section>
+<section class="footer-column" aria-labelledby="footer-company-title"><h2 id="footer-company-title">COMPANY</h2><a href="../contact.html">Contact</a><a href="../privacy.html">Privacy policy</a></section>
+</div>
+<div class="footer-about"><div><span class="footer-eyebrow">MADE FOR DEVELOPERS</span><p>Format, validate, inspect, and transform JSON with practical tools for your daily development workflow.</p></div><div class="footer-actions"><a class="footer-cta" href="../tools.html">Explore tools <span aria-hidden="true">&#8599;</span></a><a class="footer-cta" href="../learn/">Learn JSON <span aria-hidden="true">&#8599;</span></a></div></div>
+<div class="footer-bottom">
+<p class="footer-copyright"><span id="year"></span> RomitJSON. All rights reserved.</p>
+<p class="footer-note">Made with ❤️ for developers.</p>
+<nav class="footer-legal" aria-label="Footer navigation"><a href="../about.html">About</a><a href="../privacy.html">Privacy</a><a href="../contact.html">Contact</a></nav>
+</div>
+</div>
+</footer>
+<script src="../js/schema-validator.js"></script>
 </body>
 </html>
+
+
