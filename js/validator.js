@@ -11,7 +11,7 @@ const validatorLineNumbers=document.querySelector(".line-number-panel");
 const inputPanel=document.querySelector(".validator-input-panel");
 const pasteModal=document.querySelector("#pasteModal");
 const pasteArea=document.querySelector("#pasteArea");
-const maxFileBytes=10*1024*1024;
+const maxFileBytes=50*1024*1024;
 const maxLiveValidationBytes=1024*1024;
 let validationTimer;
 
@@ -218,8 +218,8 @@ function validateJson(){
   }
   const byteSize=new Blob([source]).size;
   if(byteSize>maxFileBytes){
-    resetResult("Input exceeds the 10 MiB size limit.");
-    setStatus("Input exceeds the 10 MiB size limit. Remove some data before validating.","error");
+    resetResult("Input exceeds the 50 MiB size limit.");
+    setStatus("Input exceeds the 50 MiB size limit. Remove some data before validating.","error");
     return;
   }
   const started=performance.now();
@@ -295,7 +295,7 @@ function handleInputChange(){
     return;
   }
   if(bytes>maxFileBytes){
-    setStatus("Input exceeds the 10 MiB size limit.","error");
+    setStatus("Input exceeds the 50 MiB size limit.","error");
     return;
   }
   if(!document.querySelector("#liveValidation").checked){
@@ -321,7 +321,7 @@ fileInput.addEventListener("change",()=>{
   const file=fileInput.files[0];
   if(!file)return;
   if(file.size>maxFileBytes){
-    fileInput.value="";setStatus("File exceeds the 10 MiB size limit. Existing input was kept unchanged.","error");return;
+    fileInput.value="";setStatus("File exceeds the 50 MiB size limit. Existing input was kept unchanged.","error");return;
   }
   if(!/\.json$/i.test(file.name)&&file.type!=="application/json"){
     fileInput.value="";setStatus("Please choose a .json file. Existing input was kept unchanged.","error");return;

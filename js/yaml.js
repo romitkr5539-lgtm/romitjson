@@ -134,9 +134,9 @@ document.querySelector("#openFileBtn").addEventListener("click",()=>fileInput.cl
 fileInput.addEventListener("change",()=>{
   const file=fileInput.files[0];
   if(!file)return;
-  if(file.size>10485760){
+  if(file.size>50*1024*1024){
     resetOutput();
-    setStatus("File exceeds the 10MB limit.","error");
+    setStatus("File exceeds the 50 MiB limit.","error");
     fileInput.value="";
     return;
   }

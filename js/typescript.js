@@ -245,10 +245,10 @@ function generate(){
 }
 
 function loadJsonFile(file){
-  if(file.size>10485760){
+  if(file.size>50*1024*1024){
     resetOutput(false);
     fileName.textContent="";
-    setStatus("File exceeds the 10MB limit.","error");
+    setStatus("File exceeds the 50 MiB limit.","error");
     fileInput.value="";
     return;
   }

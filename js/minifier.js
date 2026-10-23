@@ -7,7 +7,7 @@ const downloadButton=document.querySelector("#downloadBtn");
 const fileInput=document.querySelector("#fileInput");
 const stats=document.querySelector("#minifierStats");
 const inputPanel=input.closest(".formatter-panel");
-const maxInputBytes=10*1024*1024;
+const maxInputBytes=50*1024*1024;
 const maxAutoBytes=1024*1024;
 let minifiedText="";
 let formattedText="";
@@ -96,7 +96,7 @@ function minifyJson(){
   }
   if(byteCount(source)>maxInputBytes){
     clearResult();
-    setStatus("Input exceeds the 10 MiB size limit.","error");
+    setStatus("Input exceeds the 50 MiB size limit.","error");
     return;
   }
   try{
@@ -149,7 +149,7 @@ document.querySelector("#sampleBtn").addEventListener("click",()=>{
 document.querySelector("#openFileBtn").addEventListener("click",()=>fileInput.click());
 fileInput.addEventListener("change",()=>{
   const file=fileInput.files[0];if(!file)return;
-  if(file.size>maxInputBytes){fileInput.value="";setStatus("File exceeds the 10 MiB limit. Existing input was kept unchanged.","error");return}
+  if(file.size>maxInputBytes){fileInput.value="";setStatus("File exceeds the 50 MiB limit. Existing input was kept unchanged.","error");return}
   if(!/\.json$/i.test(file.name)&&file.type!=="application/json"){
     fileInput.value="";setStatus("Please choose a JSON file. Existing input was kept unchanged.","error");return;
   }
@@ -160,7 +160,7 @@ fileInput.addEventListener("change",()=>{
 input.addEventListener("input",()=>{
   clearTimeout(autoTimer);updateInputSize();clearResult();
   if(!input.value.trim()){setStatus("Paste JSON or open a file to begin.");return}
-  if(byteCount(input.value)>maxInputBytes){setStatus("Input exceeds the 10 MiB limit.","error");return}
+  if(byteCount(input.value)>maxInputBytes){setStatus("Input exceeds the 50 MiB limit.","error");return}
   if(!document.querySelector("#autoMinify").checked){setStatus("Input changed. Minify again to update the output.");return}
   if(byteCount(input.value)>maxAutoBytes){setStatus("Auto Minify is paused above 1 MiB. Use Minify JSON when ready.","error");return}
   setStatus("Auto Minifying…");

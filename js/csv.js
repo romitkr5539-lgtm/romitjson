@@ -152,6 +152,37 @@ function createCsv(data,settings){
   return {headers,rows:outputRows, csv};
 }
 
+function renderCsvTable(rows,hasHeader){
+  const table=document.createElement("table");
+  table.className="csv-preview-table";
+  table.setAttribute("aria-label","Converted CSV table");
+  const body=document.createElement("tbody");
+  const start=hasHeader?1:0;
+  if(hasHeader&&rows.length){
+    const head=document.createElement("thead");
+    const headerRow=document.createElement("tr");
+    for(const value of rows[0]){
+      const cell=document.createElement("th");
+      cell.scope="col";
+      cell.textContent=String(value);
+      headerRow.append(cell);
+    }
+    head.append(headerRow);
+    table.append(head);
+  }
+  for(let index=start;index<rows.length;index++){
+    const row=document.createElement("tr");
+    for(const value of rows[index]){
+      const cell=document.createElement("td");
+      cell.textContent=String(value);
+      row.append(cell);
+    }
+    body.append(row);
+  }
+  table.append(body);
+  output.replaceChildren(table);
+}
+
 function resetOutput(){
   csvText="";
   output.textContent="Your CSV output will appear here.";
@@ -178,7 +209,7 @@ function convert(){
     return;
   }
   csvText=csv;
-  output.textContent=csvText;
+  renderCsvTable(rows,settings.includeHeader);
   copyButton.disabled=false;
   downloadButton.disabled=false;
   document.querySelector("#rowCount").textContent=(settings.includeHeader?Math.max(rows.length-1,0):rows.length).toLocaleString();
@@ -228,7 +259,7 @@ document.querySelector("#openFileBtn").addEventListener("click",()=>fileInput.cl
 fileInput.addEventListener("change",()=>{
   const file=fileInput.files[0];
   if(!file)return;
-  if(file.size>10485760){resetOutput();setStatus("File exceeds the 10MB limit.","error");fileInput.value="";return}
+  if(file.size>50*1024*1024){resetOutput();setStatus("File exceeds the 50 MiB limit.","error");fileInput.value="";return}
   if(!/\.json$/i.test(file.name)&&file.type!=="application/json"){resetOutput();setStatus("Please choose a JSON file.","error");fileInput.value="";return}
   const reader=new FileReader();
   reader.onload=()=>{input.value=String(reader.result||"");inputSize.textContent=input.value.length.toLocaleString()+" characters";convert();};

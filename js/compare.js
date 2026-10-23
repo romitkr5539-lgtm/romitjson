@@ -8,7 +8,7 @@ const countLabel=document.querySelector("#differenceCount");
 const status=document.querySelector("#compareStatus");
 const copyButton=document.querySelector("#copyReportBtn");
 const maxDifferences=1000;
-const maxInputBytes=5*1024*1024;
+const maxInputBytes=50*1024*1024;
 const maxDepth=500;
 let reportText="";
 let leftData,rightData,leftNumberTokens=new Map(),rightNumberTokens=new Map(),leftOrders=new Map(),rightOrders=new Map();
@@ -313,9 +313,9 @@ function clearReport(message="Add two JSON documents and compare them."){
 function compareJson(){
   clearReport();
   let left,right;
-  try{if(byteLength(firstInput.value)>maxInputBytes)throw new Error("JSON A exceeds the 5 MiB comparison limit.");if(!firstInput.value.trim())throw new Error("JSON A is empty.");left=JSON.parse(firstInput.value);const metadata=scanMetadata(firstInput.value);leftNumberTokens=metadata.numbers;leftOrders=metadata.orders}
+  try{if(byteLength(firstInput.value)>maxInputBytes)throw new Error("JSON A exceeds the 50 MiB comparison limit.");if(!firstInput.value.trim())throw new Error("JSON A is empty.");left=JSON.parse(firstInput.value);const metadata=scanMetadata(firstInput.value);leftNumberTokens=metadata.numbers;leftOrders=metadata.orders}
   catch(error){summary.textContent=error.message;summary.classList.add("error");setStatus("Could not compare JSON A: "+error.message,"error");return}
-  try{if(byteLength(secondInput.value)>maxInputBytes)throw new Error("JSON B exceeds the 5 MiB comparison limit.");if(!secondInput.value.trim())throw new Error("JSON B is empty.");right=JSON.parse(secondInput.value);const metadata=scanMetadata(secondInput.value);rightNumberTokens=metadata.numbers;rightOrders=metadata.orders}
+  try{if(byteLength(secondInput.value)>maxInputBytes)throw new Error("JSON B exceeds the 50 MiB comparison limit.");if(!secondInput.value.trim())throw new Error("JSON B is empty.");right=JSON.parse(secondInput.value);const metadata=scanMetadata(secondInput.value);rightNumberTokens=metadata.numbers;rightOrders=metadata.orders}
   catch(error){summary.textContent=error.message;summary.classList.add("error");setStatus("Could not compare JSON B: "+error.message,"error");return}
   let ignored=[];
   try{ignored=document.querySelector("#ignoredPaths").value.split(/\r?\n/).map(value=>value.trim()).filter(Boolean).map(parseJsonPath)}
@@ -358,7 +358,7 @@ document.querySelector("#clearBtn").addEventListener("click",()=>{
 });
 function openJsonFile(fileInput,target,sizeLabel){
   const file=fileInput.files[0];if(!file)return;
-  if(file.size>maxInputBytes){fileInput.value="";setStatus("File exceeds the 5 MiB comparison limit. Existing input was kept.","error");return}
+  if(file.size>maxInputBytes){fileInput.value="";setStatus("File exceeds the 50 MiB comparison limit. Existing input was kept.","error");return}
   if(!/\.json$/i.test(file.name)&&file.type!=="application/json"){fileInput.value="";setStatus("Please choose a JSON file. Existing input was kept.","error");return}
   const reader=new FileReader();
   reader.onload=()=>{target.value=String(reader.result||"");fileInput.value="";updateInputSize(target,sizeLabel);clearReport("File loaded. Compare again to update results.");setStatus(file.name+" loaded locally.")};

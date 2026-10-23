@@ -7,7 +7,7 @@ const expandButton=document.querySelector("#expandAllBtn");
 const collapseButton=document.querySelector("#collapseAllBtn");
 const inputLineNumbers=document.querySelector("#inputLineNumbers");
 const maxTreeNodes=5000;
-const maxFileBytes=10*1024*1024;
+const maxFileBytes=50*1024*1024;
 const maxSearchNodes=100000;
 const childPageSize=150;
 let parsedData;
@@ -169,6 +169,21 @@ function viewJson(){
 }
 
 document.querySelector("#viewBtn").addEventListener("click",viewJson);
+const fullscreenButton=document.querySelector("#fullscreenBtn");
+const viewerTool=document.querySelector(".viewer-tool");
+fullscreenButton.addEventListener("click",async()=>{
+  try{
+    if(document.fullscreenElement===viewerTool)await document.exitFullscreen();
+    else await viewerTool.requestFullscreen();
+  }catch(error){
+    setStatus("Could not change full-screen mode: "+error.message,"error");
+  }
+});
+document.addEventListener("fullscreenchange",()=>{
+  const isFullscreen=document.fullscreenElement===viewerTool;
+  fullscreenButton.textContent=isFullscreen?"Exit full screen":"Full screen";
+  fullscreenButton.setAttribute("aria-label",isFullscreen?"Exit full screen":"Enter full screen");
+});
 document.querySelector("#clearBtn").addEventListener("click",()=>{
   input.value="";
   searchInput.value="";
@@ -183,8 +198,8 @@ document.querySelector("#openFileBtn").addEventListener("click",()=>fileInput.cl
 fileInput.addEventListener("change",()=>{
   const file=fileInput.files[0];
   if(!file)return;
-  if(file.size>10485760){
-    clearViewer("File exceeds the 10 MiB size limit.","error");
+  if(file.size>maxFileBytes){
+    clearViewer("File exceeds the 50 MiB size limit.","error");
     fileInput.value="";
     return;
   }
@@ -594,7 +609,7 @@ function renderTable(sortKey=tableSort.key,sortDirection=tableSort.direction){
 function viewJson(){
   updateInputLineNumbers();
   const source=input.value;
-  if(new Blob([source]).size>maxFileBytes){clearViewer("Input exceeds the 10 MiB size limit.","error");return}
+  if(new Blob([source]).size>maxFileBytes){clearViewer("Input exceeds the 50 MiB size limit.","error");return}
   if(!source.trim()){clearViewer("Paste JSON or open a file, then select View JSON.");return}
   try{
     parsedData=JSON.parse(source);hasParsedData=true;originalSource=source;tableSort={key:"",direction:1};
@@ -703,4 +718,14 @@ function attachViewerEnhancements(){
 }
 
 attachViewerEnhancements();
-document.querySelector("#year").textContent=new Date().getFullYear();
+try{
+  const datasetInput=sessionStorage.getItem("romitjson:formatter-input");
+  if(datasetInput!==null){
+    sessionStorage.removeItem("romitjson:formatter-input");
+    input.value=datasetInput;
+    viewJson();
+  }
+}catch(error){
+  setStatus("Could not load the prepared dataset from this browser tab: "+error.message,"error");
+}
+document.querySelector("#year").textContent = new Date().getFullYear();

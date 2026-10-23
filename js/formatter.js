@@ -6,7 +6,7 @@ const downloadButton=document.querySelector("#downloadBtn");
 const fileInput=document.querySelector("#fileInput");
 const inputLineNumbers=document.querySelector("#inputLineNumbers");
 const outputLineNumbers=document.querySelector("#outputLineNumbers");
-const inputPanel=input.closest(".formatter-panel");
+const inputPanel=input&&input.closest(".formatter-panel");
 const codeOutputWrap=document.querySelector("#codeOutputWrap");
 const treeOutput=document.querySelector("#jsonTree");
 const searchInput=document.querySelector("#formatterSearch");
@@ -17,7 +17,7 @@ const expandAllButton=document.querySelector("#expandAllBtn");
 const collapseAllButton=document.querySelector("#collapseAllBtn");
 const pasteModal=document.querySelector("#pasteModal");
 const pasteArea=document.querySelector("#pasteArea");
-const maxInputBytes=10*1024*1024;
+const maxInputBytes=50*1024*1024;
 const maxNestingDepth=500;
 let formattedText="";
 let parsedValue;
@@ -26,7 +26,6 @@ let activeMatchIndex=-1;
 let statsTimer;
 let outputMode="code";
 let numberTokens=new Map();
-let objectKeyOrders=new Map();
 
 function updateLineNumbers(panel,text){
   if(!panel)return;
@@ -78,7 +77,6 @@ function formatBytes(bytes){
 
 function collectJsonMetadata(source){
   const tokens=new Map();
-  const keyOrders=new Map();
   let index=0;
   const skipWhitespace=()=>{while(index<source.length&&/\s/.test(source[index]))index++};
   function readString(){
@@ -96,10 +94,8 @@ function collectJsonMetadata(source){
     if(character==="{"){
       index++;
       skipWhitespace();
-      const keys=[];
       while(source[index]!=="}"){
         const key=readString();
-        keys.push(key);
         skipWhitespace();
         index++;
         readValue(propertyPath(path,key,false),depth+1);
@@ -109,7 +105,6 @@ function collectJsonMetadata(source){
         skipWhitespace();
       }
       index++;
-      keyOrders.set(path,[...new Set(keys)]);
     }else if(character==="["){
       index++;
       skipWhitespace();
@@ -135,35 +130,17 @@ function collectJsonMetadata(source){
     }
   }
   readValue("$");
-  return{tokens,keyOrders};
+  return tokens;
 }
 
-function objectEntries(value,path,sorted=false){
-  const keys=sorted?Object.keys(value).sort((left,right)=>left.localeCompare(right)):(objectKeyOrders.get(path)||Object.keys(value));
-  const currentKeys=keys.filter(key=>Object.hasOwn(value,key));
-  const seen=new Set(currentKeys);
-  for(const key of Object.keys(value))if(!seen.has(key)){currentKeys.push(key);seen.add(key)}
-  return currentKeys.map(key=>[key,value[key]]);
-}
-
-function serializeJson(value,tokens,indentUnit="",depth=0,path="$",compact=false,sorted=false){
-  if(depth>maxNestingDepth)throw new RangeError("JSON nesting exceeds the 500-level formatter limit.");
-  if(value===null||typeof value!=="object"){
-    if(typeof value==="number")return tokens.get(path)||JSON.stringify(value);
-    return JSON.stringify(value);
+function sortJsonKeys(value){
+  if(Array.isArray(value))return value.map(sortJsonKeys);
+  if(value===null||typeof value!=="object")return value;
+  const sorted=Object.create(null);
+  for(const key of Object.keys(value).sort((left,right)=>left.localeCompare(right))){
+    sorted[key]=sortJsonKeys(value[key]);
   }
-  const isArray=Array.isArray(value);
-  const entries=isArray?value.map((item,index)=>[String(index),item]):objectEntries(value,path,sorted);
-  if(!entries.length)return isArray?"[]":"{}";
-  const childIndent=compact?"":indentUnit.repeat(depth+1);
-  const currentIndent=compact?"":indentUnit.repeat(depth);
-  const separator=compact?",":",\n";
-  const members=entries.map(([key,item])=>{
-    const childPath=propertyPath(path,key,isArray);
-    const serialized=serializeJson(item,tokens,indentUnit,depth+1,childPath,compact,sorted);
-    return isArray?childIndent+serialized:childIndent+JSON.stringify(key)+(compact?":":": ")+serialized;
-  });
-  return isArray?"["+(compact?members.join(separator):"\n"+members.join(separator)+"\n"+currentIndent)+"]":"{"+(compact?members.join(separator):"\n"+members.join(separator)+"\n"+currentIndent)+"}";
+  return sorted;
 }
 
 function updateStatistics(source,value,formatted="",minified=""){
@@ -236,6 +213,7 @@ function renderTree(value,query=searchInput.value){
     row.className="tree-row";
     const isArray=Array.isArray(item);
     const isObject=item!==null&&typeof item==="object";
+    const hasChildren=isObject&&(isArray?item.length>0:Object.keys(item).length>0);
     const keyText=String(key);
     const valueText=isArray?"Array ("+item.length+")":isObject?"Object ("+Object.keys(item).length+")":typeof item==="number"?(numberTokens.get(path)||JSON.stringify(item)):JSON.stringify(item);
     const keyMatches=Boolean(query)&&keyText.toLocaleLowerCase().includes(query.toLocaleLowerCase());
@@ -243,9 +221,9 @@ function renderTree(value,query=searchInput.value){
     const toggle=document.createElement("button");
     toggle.type="button";
     toggle.className="tree-toggle";
-    toggle.disabled=!isObject;
-    toggle.setAttribute("aria-label",isObject?"Collapse "+keyText:"Value");
-    toggle.textContent=isObject?"▾":"";
+    toggle.disabled=!hasChildren;
+    toggle.setAttribute("aria-label",hasChildren?"Collapse "+keyText:isObject?"Empty "+(isArray?"array":"object"):"Value");
+    toggle.textContent=hasChildren?"▾":"";
     row.append(toggle);
     const keyElement=document.createElement("span");
     keyElement.className="tree-key";
@@ -287,6 +265,9 @@ function renderTree(value,query=searchInput.value){
     note.textContent="Tree view limited to the first 10,000 nodes. The formatted JSON is complete.";
     treeOutput.append(note);
   }
+  const hasExpandableNodes=treeOutput.querySelector(".tree-toggle:not(:disabled)")!==null;
+  expandAllButton.disabled=!hasExpandableNodes;
+  collapseAllButton.disabled=!hasExpandableNodes;
   updateMatchControls();
 }
 
@@ -331,7 +312,6 @@ function clearFormattedOutput(placeholder=""){
   formattedText="";
   parsedValue=undefined;
   numberTokens=new Map();
-  objectKeyOrders=new Map();
   output.textContent=placeholder;
   delete output.dataset.raw;
   updateLineNumbers(outputLineNumbers,placeholder);
@@ -364,19 +344,18 @@ function formatJson(){
   if(byteLength(source)>maxInputBytes){
     clearFormattedOutput("Input exceeds the size limit.");
     updateStatistics(source,undefined);
-    setStatus("Input exceeds the 10 MiB size limit.","error");
+    setStatus("Input exceeds the 50 MiB size limit.","error");
     return;
   }
   try{
-    let value=JSON.parse(source);
-    const metadata=collectJsonMetadata(source);
-    numberTokens=metadata.tokens;
-    objectKeyOrders=metadata.keyOrders;
+    const parsed=JSON.parse(source);
+    numberTokens=collectJsonMetadata(source);
     const sortEnabled=document.querySelector("#sortKeys").checked;
     const indent=document.querySelector("#indentSize").value;
-    const indentUnit=indent==="tab"?"\t":" ".repeat(Number(indent));
-    const formatted=serializeJson(value,numberTokens,indentUnit,0,"$",false,sortEnabled);
-    const minified=serializeJson(value,numberTokens,"",0,"$",true,sortEnabled);
+    const value=sortEnabled?sortJsonKeys(parsed):parsed;
+    const indentation=indent==="tab"?"\t":Number(indent);
+    const formatted=JSON.stringify(value,null,indentation);
+    const minified=JSON.stringify(value);
     output.innerHTML=colorizeJson(formatted);
     output.dataset.raw=formatted;
     formattedText=formatted;
@@ -385,13 +364,10 @@ function formatJson(){
     copyButton.disabled=false;
     downloadButton.disabled=false;
     searchInput.disabled=false;
-    expandAllButton.disabled=false;
-    collapseAllButton.disabled=false;
     updateStatistics(source,value,formatted,minified);
     renderTree(value,searchInput.value);
     setOutputMode(outputMode);
     setStatus("Valid JSON. Formatted output is ready.","success");
-    document.querySelector("#outputTitle").scrollIntoView({behavior:"smooth",block:"start"});
   }catch(error){
     clearFormattedOutput("");
     updateStatistics(source,undefined);
@@ -403,6 +379,20 @@ function formatJson(){
 }
 
 document.querySelector("#formatBtn").addEventListener("click",formatJson);
+const fullscreenButton=document.querySelector("#fullscreenBtn");
+fullscreenButton.addEventListener("click",async()=>{
+  try{
+    if(document.fullscreenElement===document.querySelector(".formatter-tool"))await document.exitFullscreen();
+    else await document.querySelector(".formatter-tool").requestFullscreen();
+  }catch(error){
+    setStatus("Could not change full-screen mode: "+error.message,"error");
+  }
+});
+document.addEventListener("fullscreenchange",()=>{
+  const isFullscreen=document.fullscreenElement===document.querySelector(".formatter-tool");
+  fullscreenButton.textContent=isFullscreen?"Exit full screen":"Full screen";
+  fullscreenButton.setAttribute("aria-label",isFullscreen?"Exit full screen":"Enter full screen");
+});
 document.querySelector("#clearBtn").addEventListener("click",()=>{
   input.value="";
   updateLineNumbers(inputLineNumbers,input.value);
@@ -412,7 +402,11 @@ document.querySelector("#clearBtn").addEventListener("click",()=>{
   input.focus();
 });
 document.querySelector("#sampleBtn").addEventListener("click",()=>{
-  input.value=JSON.stringify({name:"RomitJSON",tools:["format","validate","convert"],private:true},null,2);
+  input.value=JSON.stringify({
+    user:{id:42,name:"Romit",role:"Web Developer",active:true},
+    skills:["HTML","CSS","JavaScript"],
+    preferences:{theme:"dark",notifications:false}
+  });
   updateLineNumbers(inputLineNumbers,input.value);
   formatJson();
 });
@@ -424,7 +418,7 @@ function updateInputState(){
   updateStatistics(source,undefined);
   clearTimeout(statsTimer);
   if(byteLength(source)>maxInputBytes){
-    setStatus("Input exceeds the 10 MiB size limit.","error");
+    setStatus("Input exceeds the 50 MiB size limit.","error");
     return;
   }
   setStatus(source.trim()?"Input changed. Format again to refresh the output.":"Paste JSON or open a file to begin.");
@@ -432,15 +426,25 @@ function updateInputState(){
   statsTimer=setTimeout(()=>{
     if(input.value!==source)return;
     try{
-      const value=JSON.parse(source);
-      const metadata=collectJsonMetadata(source);
-      numberTokens=metadata.tokens;
-      objectKeyOrders=metadata.keyOrders;
+      const parsed=JSON.parse(source);
       const sortEnabled=document.querySelector("#sortKeys").checked;
-      updateStatistics(source,value,"",serializeJson(value,numberTokens,"",0,"$",true,sortEnabled));
+      const value=sortEnabled?sortJsonKeys(parsed):parsed;
+      updateStatistics(source,value,"",JSON.stringify(value));
     }
     catch(error){updateStatistics(source,undefined)}
   },180);
+}
+
+try{
+  const datasetInput=sessionStorage.getItem("romitjson:formatter-input");
+  if(datasetInput!==null){
+    sessionStorage.removeItem("romitjson:formatter-input");
+    input.value=datasetInput;
+    updateInputState();
+    if(input.value.trim())formatJson();
+  }
+}catch(error){
+  setStatus("Could not load the prepared dataset from this browser tab: "+error.message,"error");
 }
 
 input.addEventListener("input",updateInputState);
@@ -448,10 +452,10 @@ document.querySelector("#openFileBtn").addEventListener("click",()=>fileInput.cl
 fileInput.addEventListener("change",()=>{
   const file=fileInput.files[0];
   if(!file)return;
-  if(file.size>10485760){
+  if(file.size>maxInputBytes){
     clearFormattedOutput("");
     updateStatistics(input.value,undefined);
-    setStatus("File exceeds the 10 MiB size limit.","error");
+    setStatus("File exceeds the 50 MiB size limit.","error");
     fileInput.value="";
     return;
   }
@@ -465,12 +469,19 @@ fileInput.addEventListener("change",()=>{
   const reader=new FileReader();
   reader.onload=()=>{
     input.value=String(reader.result||"");
+    fileInput.value="";
     updateInputState();
+    if(!input.value.trim()){
+      setStatus("The selected JSON file is empty.","error");
+      input.focus();
+      return;
+    }
     setStatus(file.name+" loaded. Formatting JSON...");
     formatJson();
     input.focus();
   };
   reader.onerror=()=>{
+    fileInput.value="";
     clearFormattedOutput("");
     updateStatistics(input.value,undefined);
     setStatus("Could not read this file.","error");
@@ -531,6 +542,7 @@ searchInput.addEventListener("input",()=>{
 previousMatchButton.addEventListener("click",()=>moveMatch(-1));
 nextMatchButton.addEventListener("click",()=>moveMatch(1));
 expandAllButton.addEventListener("click",()=>{
+  setOutputMode("tree");
   treeOutput.querySelectorAll(".tree-toggle:not(:disabled)").forEach(toggle=>{
     toggle.setAttribute("aria-expanded","true");
     toggle.textContent="▾";
@@ -539,6 +551,7 @@ expandAllButton.addEventListener("click",()=>{
   });
 });
 collapseAllButton.addEventListener("click",()=>{
+  setOutputMode("tree");
   treeOutput.querySelectorAll(".tree-toggle:not(:disabled)").forEach(toggle=>{
     toggle.setAttribute("aria-expanded","false");
     toggle.textContent="▸";
@@ -576,7 +589,10 @@ downloadButton.addEventListener("click",()=>{
   }catch(error){setStatus("Could not create the JSON download.","error")}
 });
 input.addEventListener("keydown",event=>{
-  if((event.ctrlKey||event.metaKey)&&event.key==="Enter")formatJson();
+  if((event.ctrlKey||event.metaKey)&&event.key==="Enter"){
+    event.preventDefault();
+    formatJson();
+  }
 });
 document.addEventListener("keydown",event=>{
   if(event.key!=="Escape")return;
@@ -591,17 +607,20 @@ document.addEventListener("keydown",event=>{
 
 const mainNav=document.querySelector("#mainNav");
 const menuButton=document.querySelector("#menuBtn");
-menuButton.addEventListener("click",()=>{
-  const isOpen=mainNav.classList.toggle("open");
-  menuButton.setAttribute("aria-expanded",String(isOpen));
-});
+if(mainNav && menuButton){
+  menuButton.addEventListener("click",()=>{
+    const isOpen=mainNav.classList.toggle("open");
+    menuButton.setAttribute("aria-expanded",String(isOpen));
+  });
+}
 document.querySelectorAll(".nav-drop-btn").forEach(button=>button.addEventListener("click",event=>{
   event.stopPropagation();
   const dropdown=button.parentElement;
   document.querySelectorAll(".nav-dropdown").forEach(item=>{
     if(item!==dropdown){
       item.classList.remove("open");
-      item.querySelector(".nav-drop-btn").setAttribute("aria-expanded","false");
+      const itemButton=item.querySelector(".nav-drop-btn");
+      if(itemButton)itemButton.setAttribute("aria-expanded","false");
     }
   });
   const isOpen=dropdown.classList.toggle("open");
@@ -611,17 +630,21 @@ document.addEventListener("click",event=>{
   if(!event.target.closest(".nav-dropdown")){
     document.querySelectorAll(".nav-dropdown").forEach(item=>{
       item.classList.remove("open");
-      item.querySelector(".nav-drop-btn").setAttribute("aria-expanded","false");
+      const itemButton=item.querySelector(".nav-drop-btn");
+      if(itemButton)itemButton.setAttribute("aria-expanded","false");
     });
   }
 });
-document.querySelectorAll("#mainNav a").forEach(link=>link.addEventListener("click",event=>{
-  const tool=link.dataset.tool;
-  if(tool){
-    event.preventDefault();
-    window.location.href="index.html?tool="+encodeURIComponent(tool)+"#workspace";
-  }
-  mainNav.classList.remove("open");
-  menuButton.setAttribute("aria-expanded","false");
-}));
-document.querySelector("#year").textContent=new Date().getFullYear();
+if(mainNav){
+  document.querySelectorAll("#mainNav a").forEach(link=>link.addEventListener("click",event=>{
+    const tool=link.dataset.tool;
+    if(tool){
+      event.preventDefault();
+      window.location.href="index.html?tool="+encodeURIComponent(tool)+"#workspace";
+    }
+    mainNav.classList.remove("open");
+    if(menuButton)menuButton.setAttribute("aria-expanded","false");
+  }));
+}
+const year=document.querySelector("#year");
+if(year)year.textContent=new Date().getFullYear();
