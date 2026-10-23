@@ -3,17 +3,25 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<title>JSON Validator Online – Validate JSON | RomitJSON</title>
-<meta name="description" content="Validate JSON online with RomitJSON. Check JSON syntax, identify common formatting errors, and troubleshoot invalid JSON data.">
+<title>JSON Validator Online – Check JSON Syntax</title>
+<meta name="description" content="Validate JSON online with RomitJSON. Check syntax, understand common errors, and review line and column details when available.">
 <meta name="robots" content="index,follow">
 <link rel="canonical" href="https://romitjson.com/json-validator/">
-<meta property="og:type" content="website"><meta property="og:site_name" content="RomitJSON"><meta property="og:title" content="JSON Validator Online – Validate JSON | RomitJSON"><meta property="og:description" content="Validate JSON online with RomitJSON. Check JSON syntax, identify common formatting errors, and troubleshoot invalid JSON data."><meta property="og:url" content="https://romitjson.com/json-validator/">
-<meta name="twitter:card" content="summary"><meta name="twitter:title" content="JSON Validator Online – Validate JSON | RomitJSON"><meta name="twitter:description" content="Validate JSON online with RomitJSON. Check JSON syntax, identify common formatting errors, and troubleshoot invalid JSON data.">
+<meta property="og:type" content="website"><meta property="og:site_name" content="RomitJSON"><meta property="og:title" content="JSON Validator Online – Check JSON Syntax"><meta property="og:description" content="Validate JSON online with RomitJSON. Check syntax, understand common errors, and review line and column details when available."><meta property="og:url" content="https://romitjson.com/json-validator/">
+<meta name="twitter:card" content="summary"><meta name="twitter:title" content="JSON Validator Online – Check JSON Syntax"><meta name="twitter:description" content="Validate JSON online with RomitJSON. Check syntax, understand common errors, and review line and column details when available.">
 <meta name="theme-color" content="#071613">
 <link rel="stylesheet" href="../css/style.css">
 <link rel="stylesheet" href="../css/formatter.css">
 <link rel="stylesheet" href="../css/validator.css">
 <link rel="stylesheet" href="../css/tool-seo.css">
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-DKWQGJ7VQ6"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-DKWQGJ7VQ6');
+</script><link rel="icon" type="image/svg+xml" href="/favicon.svg">
 </head>
 <body class="dark">
 <header class="site-header"><div class="nav-wrap">
@@ -21,30 +29,39 @@
 <nav id="mainNav" aria-label="Main navigation">
 <a href="../index.html#home">Home</a>
 <a href="../datasets/">Datasets</a>
+<a href="../learn/">Learn JSON</a>
 <div class="nav-dropdown"><button class="nav-drop-btn" aria-expanded="false">View &amp; Edit <span>▾</span></button><div class="nav-drop-menu">
 <a href="../json-viewer/"><b class="ndm-green">◉</b><span><strong>JSON Viewer</strong><small>Browse JSON as a tree</small></span></a>
+<a href="../json-tree-viewer/"><b class="ndm-cyan">◈</b><span><strong>JSON Tree Viewer</strong><small>Explore nested JSON</small></span></a>
+<a href="../json-path-finder/"><b class="ndm-blue">$</b><span><strong>JSONPath Finder</strong><small>Find and query data paths</small></span></a>
 <a href="../json-editor/"><b class="ndm-blue">✎</b><span><strong>JSON Editor</strong><small>Edit and inspect JSON</small></span></a></div></div>
 <div class="nav-dropdown"><button class="nav-drop-btn" aria-expanded="false">Validate <span>▾</span></button><div class="nav-drop-menu">
-<a href="../json-validator/" aria-current="page"><b class="ndm-green">✓</b><span><strong>JSON Validator</strong><small>Find syntax errors</small></span></a>
+<a class="active" href="../json-validator/" aria-current="page"><b class="ndm-green">✓</b><span><strong>JSON Validator</strong><small>Find syntax errors</small></span></a>
 <a href="../json-repair/"><b class="ndm-orange">⌁</b><span><strong>JSON Repair</strong><small>Fix common syntax issues</small></span></a>
 <a href="../json-schema-validator/"><b class="ndm-violet">✓</b><span><strong>JSON Schema Validator</strong><small>Check data against a schema</small></span></a>
-<a href="../json-path-finder/"><b class="ndm-blue">$</b><span><strong>JSONPath Finder</strong><small>Find and query data paths</small></span></a>
 <a href="../json-compare/"><b class="ndm-violet">⇄</b><span><strong>JSON Compare</strong><small>Find document differences</small></span></a></div></div>
 <div class="nav-dropdown"><button class="nav-drop-btn" aria-expanded="false">Convert <span>▾</span></button><div class="nav-drop-menu">
 <a href="../json-to-csv/"><b class="ndm-violet">{ }</b><span><strong>JSON → CSV</strong><small>Convert arrays to CSV</small></span></a>
+<a href="../json-to-excel/"><b class="ndm-green">XLS</b><span><strong>JSON → Excel</strong><small>Export workbook data</small></span></a>
+<a href="../json-to-sql/"><b class="ndm-orange">SQL</b><span><strong>JSON → SQL</strong><small>Generate table and insert SQL</small></span></a>
 <a href="../json-to-yaml/"><b class="ndm-purple">YML</b><span><strong>JSON → YAML</strong><small>Create YAML data</small></span></a>
 <a href="../json-to-xml/"><b class="ndm-orange">&lt;/&gt;</b><span><strong>JSON → XML</strong><small>Create XML data</small></span></a></div></div>
 <div class="nav-dropdown"><button class="nav-drop-btn" aria-expanded="false">Generate <span>▾</span></button><div class="nav-drop-menu">
+<a href="../json-pretty-printer/"><b class="ndm-cyan">¶</b><span><strong>JSON Pretty Printer</strong><small>Beautify JSON output</small></span></a>
 <a href="../json-to-typescript/"><b class="ndm-blue">TS</b><span><strong>JSON → TypeScript</strong><small>Generate interfaces</small></span></a>
+<a href="../json-to-java/"><b class="ndm-orange">J</b><span><strong>JSON → Java</strong><small>Generate Java model classes</small></span></a>
+<a href="../json-to-python/"><b class="ndm-blue">Py</b><span><strong>JSON → Python</strong><small>Generate Python models</small></span></a>
+<a href="../json-schema-generator/"><b class="ndm-violet">{ }</b><span><strong>JSON Schema Generator</strong><small>Generate a schema from JSON</small></span></a>
 <a href="../json-minifier/"><b class="ndm-red">↘</b><span><strong>JSON Minifier</strong><small>Reduce JSON size</small></span></a></div></div>
-<a href="../index.html#about">About</a><a href="../contact.html">Contact</a></nav>
-<div class="header-actions"><button class="menu-btn" id="menuBtn" aria-controls="mainNav" aria-expanded="false">Menu</button></div>
+<a href="../tools.html">All tools</a>
+<a href="../about.html">About</a><a href="../contact.html">Contact</a></nav>
+<div class="header-actions"><button class="menu-btn" id="menuBtn">Menu</button></div>
 </div></header>
 <main class="formatter-main validator-main">
 <section class="formatter-intro">
 <label>JSON TOOL / VALIDATOR</label>
 <h1>JSON Validator Online</h1>
-<p>Check whether your JSON follows valid JSON syntax with the RomitJSON JSON Validator. Find common syntax problems and review helpful error details in your browser.</p>
+<p>Validate JSON online in your browser. Paste text or open a .json file to check syntax and review useful error details.</p>
 </section>
 <section class="formatter-tool validator-tool" aria-label="JSON validator">
 <div class="formatter-toolbar validator-toolbar">
@@ -69,109 +86,125 @@
 </div>
 </section>
 </div>
-<p class="formatter-status" id="validatorStatus" role="status" aria-live="polite">Your JSON stays in this browser.</p>
+<p class="formatter-status" id="validatorStatus" role="status" aria-live="polite">JSON parsing and selected-file reading happen in this browser. Avoid entering sensitive information.</p>
 </section>
 <article class="tool-seo-content" aria-labelledby="validator-guide-title">
-<h2 id="validator-guide-title">JSON Validator Online</h2>
-<p>Check whether your JSON follows valid JSON syntax with the RomitJSON JSON Validator. JSON errors can prevent API requests, configuration files, and applications from working as expected. A JSON syntax checker helps identify problems so you can correct the input and try again.</p>
-<p>Paste your JSON into the validator. Turn on Live validation to check changes as you edit, or select <strong>Validate JSON</strong> to run a check. When input is invalid, review the error category, message, and source location when available, then correct the syntax and validate again.</p>
+<h2 id="validator-guide-title">What Is a JSON Validator?</h2>
+<p>A JSON validator checks whether text follows the syntax rules of JSON (JavaScript Object Notation). JSON is a common format for exchanging structured data between applications, APIs, and services. A validator parses the text and reports whether its structure is valid JSON, helping you catch mistakes before using the data in a request, configuration, or program.</p>
+<p>The RomitJSON JSON Validator checks syntax such as quoted property names, commas, brackets, braces, string escapes, and supported values. If the input is invalid, the result may include an error category, a parser message, and a line or column when the browser provides a useful location. Fix the indicated syntax and validate the JSON again.</p>
+<p>Syntax validation checks that the document can be parsed as JSON. It does not confirm that the document contains every field your application expects, or that the values meet your business rules. Use JSON Schema or application-specific checks when you need to verify structure and meaning.</p>
 
 <h2>How to Validate JSON Online</h2>
-<ol><li>Copy the JSON data you want to check.</li><li>Paste it into the JSON Validator input area, or select <strong>Open JSON</strong> to load a file.</li><li>Leave Live validation on to check edits automatically, or select <strong>Validate JSON</strong>.</li><li>If the JSON is invalid, review the error details and correct the syntax.</li><li>Validate the updated JSON again.</li></ol>
-<p>The validator processes your input locally in your browser. It can show an error category, a suggested correction, and line or column context when the browser provides a useful location.</p>
-
-<h2>What Is a JSON Validator?</h2>
-<p>A JSON validator checks whether text follows JSON syntax rules. It checks quotation marks, commas, braces, brackets, and valid JSON values. For example, this is valid JSON:</p>
-<pre><code>{
-  "name": "Romit",
-  "role": "Developer",
-  "active": true
-}</code></pre>
-<p>This example is invalid because the property name and string value use single quotes instead of double quotes:</p>
-<pre><code>{
-  'name': 'Romit'
-}</code></pre>
-<p>Standard JSON requires double quotation marks around property names and string values. A JSON error checker can help locate syntax problems like this.</p>
+<ol><li>Paste JSON into the input editor, or select <strong>Open JSON</strong> to choose a <code>.json</code> file.</li><li>Leave <strong>Live validation</strong> enabled to check smaller edits automatically. You can also select <strong>Validate JSON</strong> to start a manual check.</li><li>Review the result. Valid input is marked <strong>Valid JSON</strong>; invalid input includes an error explanation and location when available.</li><li>Correct the syntax in the editor, then run validation again to confirm the document parses.</li><li>If the document must follow a particular structure, check it with an appropriate JSON Schema Validator as a separate step.</li></ol>
+<p>Live validation pauses for inputs larger than 1 MiB so that editing remains responsive. Select <strong>Validate JSON</strong> to check those inputs manually. The validator accepts input up to 50 MiB. You can also load a sample to see the result format, clear the editor, copy the input, or download it as a JSON file.</p>
 
 <h2>Common JSON Syntax Errors</h2>
-<h3>1. Missing commas</h3>
-<p>JSON object properties must be separated by commas.</p>
-<pre><code>Invalid:
-{
-  "name": "Romit"
-  "role": "Developer"
-}
-
-Correct:
-{
-  "name": "Romit",
+<p>JSON has a strict syntax. A small typo can make an otherwise useful document invalid. These examples show frequent problems and how to correct them.</p>
+<h3>1. Missing commas between properties or values</h3>
+<p>Use a comma between each property in an object and between each item in an array. Do not omit the comma between adjacent entries.</p>
+<p><strong>Invalid JSON</strong></p><pre><code>{
+  "name": "Aarav"
   "role": "Developer"
 }</code></pre>
-<h3>2. Trailing commas</h3>
-<p>Standard JSON does not allow a comma after the final property in an object or the final item in an array.</p>
-<pre><code>Invalid: {"name":"Romit",}
-Correct: {"name":"Romit"}</code></pre>
-<h3>3. Incorrect quotation marks</h3>
-<p>Property names and string values must use double quotes.</p>
-<pre><code>Invalid: {"city": 'Patna'}
-Correct: {"city": "Patna"}</code></pre>
-<h3>4. Missing closing braces or brackets</h3>
-<p>Every JSON object must have matching braces, and every array must have matching brackets.</p>
-<pre><code>Invalid:
-{
-  "skills": ["JavaScript", "HTML"
-}
+<p><strong>Correct JSON</strong></p><pre><code>{
+  "name": "Aarav",
+  "role": "Developer"
+}</code></pre>
+<p>The missing comma belongs after the value <code>"Aarav"</code>.</p>
 
-Correct:
-{
+<h3>2. Single quotes instead of double quotes</h3>
+<p>JSON requires double quotation marks around property names and string values. Single-quoted strings that work in some programming languages are not valid JSON.</p>
+<p><strong>Invalid JSON</strong></p><pre><code>{'city': 'Patna'}</code></pre>
+<p><strong>Correct JSON</strong></p><pre><code>{"city": "Patna"}</code></pre>
+
+<h3>3. Trailing commas</h3>
+<p>A comma separates entries, so it cannot follow the last property in an object or the last item in an array.</p>
+<p><strong>Invalid JSON</strong></p><pre><code>{"name": "Aarav",}</code></pre>
+<p><strong>Correct JSON</strong></p><pre><code>{"name": "Aarav"}</code></pre>
+<p>Remove the comma immediately before the closing brace or bracket.</p>
+
+<h3>4. Missing or mismatched braces and brackets</h3>
+<p>Every object opened with <code>{</code> must close with <code>}</code>, and every array opened with <code>[</code> must close with <code>]</code>. Nested structures need a matching closing character for each opening character.</p>
+<p><strong>Invalid JSON</strong></p><pre><code>{
+  "skills": ["JavaScript", "HTML"
+}</code></pre>
+<p><strong>Correct JSON</strong></p><pre><code>{
   "skills": ["JavaScript", "HTML"]
 }</code></pre>
-<h3>5. Invalid values</h3>
-<p>JSON supports strings, numbers, objects, arrays, <code>true</code>, <code>false</code>, and <code>null</code>. <code>True</code>, <code>False</code>, and <code>None</code> are not valid JSON values; use the lowercase JSON literals instead.</p>
-<h3>6. Invalid escape sequences</h3>
-<p>Special characters inside JSON strings must be escaped correctly. An unescaped double quote inside a string can make the JSON invalid.</p>
-<pre><code>Invalid: {"message": "He said "hello""}
-Correct: {"message": "He said \"hello\""}</code></pre>
 
-<h2>JSON Validator vs. JSON Formatter</h2>
-<p>A JSON validator and a JSON formatter solve different problems. Validation checks syntax; formatting adds indentation and line breaks to improve readability. A JSON document can be valid but difficult to read, or neatly indented and still contain invalid syntax.</p>
-<div class="tool-seo-table-wrap"><table class="tool-seo-table"><thead><tr><th scope="col">Tool</th><th scope="col">What it does</th></tr></thead><tbody><tr><th scope="row">JSON Validator</th><td>Checks whether JSON syntax is valid</td></tr><tr><th scope="row">JSON Formatter</th><td>Adds indentation and line breaks to improve readability</td></tr><tr><th scope="row">JSON Viewer</th><td>Helps inspect and understand JSON data</td></tr><tr><th scope="row">JSON Minifier</th><td>Removes unnecessary whitespace from JSON text</td></tr></tbody></table></div>
-<p>Use the <a href="../json-formatter/">JSON Formatter</a> to make valid JSON easier to read, the <a href="../json-viewer/">JSON Viewer</a> to explore nested data, or the <a href="../json-minifier/">JSON Minifier</a> to remove unnecessary whitespace.</p>
-<p>Syntax validation does not confirm that data matches your application's expected fields, data types, or business rules. Those checks may require JSON Schema or application-specific validation.</p>
+<h3>5. Invalid values and capitalization</h3>
+<p>JSON values can be strings, numbers, objects, arrays, the lowercase Boolean literals <code>true</code> and <code>false</code>, or <code>null</code>. Capitalized values from other languages, such as Python's <code>True</code> or <code>None</code>, are not JSON values.</p>
+<p><strong>Invalid JSON</strong></p><pre><code>{
+  "active": True,
+  "nickname": None
+}</code></pre>
+<p><strong>Correct JSON</strong></p><pre><code>{
+  "active": true,
+  "nickname": null
+}</code></pre>
+<p>JavaScript's <code>undefined</code> and the non-standard numeric values <code>NaN</code> and <code>Infinity</code> are not valid JSON values either. Use a supported JSON value instead.</p>
 
-<h2>How to Fix JSON Validation Errors</h2>
-<p>When validation fails, start with the reported error message and location, if available:</p>
-<ul><li>Check the line and character position mentioned in the error.</li><li>Look for missing commas or extra commas.</li><li>Confirm that property names and strings use double quotes.</li><li>Match every opening brace and bracket with its closing character.</li><li>Check string escape sequences and JSON value names.</li><li>Run validation again after making corrections.</li></ul>
-<p>Some parsers report the point where they first detect a problem, which may be later than the actual mistake. If the reported position looks correct but the cause is unclear, inspect the preceding characters as well.</p>
+<h3>6. Incorrect string escaping</h3>
+<p>Strings begin and end with double quotes. To include a double quote or a backslash inside a string, escape it with a backslash. JSON also supports escapes such as <code>\n</code> for a line break and <code>\t</code> for a tab.</p>
+<p><strong>Invalid JSON</strong></p><pre><code>{"message": "He said "hello""}</code></pre>
+<p><strong>Correct JSON</strong></p><pre><code>{"message": "He said \"hello\""}</code></pre>
+<p>The <code>\"</code> sequence represents a quotation mark inside a JSON string.</p>
+
+<h3>7. Comments and invalid number formats</h3>
+<p>Standard JSON does not support line comments, block comments, or leading zeros on ordinary numbers. A value such as <code>007</code> must be written as <code>7</code>. If a configuration format needs comments, check whether the consuming tool accepts an extension such as JSONC; JSONC is not standard JSON.</p>
+<p><strong>Invalid JSON</strong></p><pre><code>{
+  "port": 3000, // server port
+  "code": 007
+}</code></pre>
+<p><strong>Correct JSON</strong></p><pre><code>{
+  "port": 3000,
+  "code": 7
+}</code></pre>
+
+<h2>JSON Syntax Rules to Remember</h2>
+<ul><li>Write object property names and string values in double quotes.</li><li>Separate properties and array items with commas, without a comma after the final entry.</li><li>Use a colon between each property name and its value.</li><li>Close every object and array with the matching brace or bracket.</li><li>Write <code>true</code>, <code>false</code>, and <code>null</code> in lowercase.</li><li>Escape quotation marks, backslashes, and control characters inside strings.</li><li>Use valid JSON number syntax; do not use leading zeros, <code>NaN</code>, or <code>Infinity</code>.</li><li>A JSON document may have an object, array, string, number, Boolean, or <code>null</code> as its top-level value.</li></ul>
+
+<h2>JSON Validator vs. JSON Formatter vs. JSON Schema Validator</h2>
+<p>These tools address different steps in working with JSON. A JSON validator checks whether text follows JSON syntax. A JSON formatter makes valid JSON easier to read. A JSON Schema Validator checks whether a valid JSON document matches defined structural rules.</p>
+<div class="tool-seo-table-wrap"><table class="tool-seo-table"><thead><tr><th scope="col">Tool</th><th scope="col">Main purpose</th></tr></thead><tbody><tr><th scope="row">JSON Validator</th><td>Check syntax and identify parsing errors</td></tr><tr><th scope="row">JSON Formatter</th><td>Format valid JSON with consistent indentation</td></tr><tr><th scope="row">JSON Schema Validator</th><td>Check required fields, types, and other supported schema constraints</td></tr><tr><th scope="row">JSON Repair</th><td>Attempt supported corrections to malformed JSON-like input</td></tr></tbody></table></div>
+<p>Use the <a href="../json-formatter/">JSON Formatter</a> to improve readability, the <a href="../json-viewer/">JSON Viewer</a> to inspect nested data, or the <a href="../json-schema-validator/">JSON Schema Validator</a> to check a document against a schema.</p>
+<p>If the input contains common JSON-like syntax mistakes, <a href="../json-repair/">JSON Repair</a> can attempt supported corrections. Review repaired output carefully before using it, because automatic repair may not know the intended meaning of your data.</p>
+
+<h2>How to Troubleshoot a JSON Validation Error</h2>
+<p>Start with the error category and parser message. If the validator reports a line or column, inspect that position and the nearby text. Some parsers point to where they detected a problem, which may be just after the character or value that caused it.</p>
+<ul><li>For an error near a closing brace or bracket, look for a missing value, an extra comma, or a structure that was not closed.</li><li>For an error near a property name, check for double quotes and a colon before the value.</li><li>For an error inside a string, check the opening and closing quotes and escape any internal quotation marks or backslashes.</li><li>For an error near a Boolean or null value, check spelling and lowercase capitalization.</li><li>After fixing the first reported issue, validate again. One syntax error can hide later errors until it is corrected.</li></ul>
+<p>A valid JSON result confirms syntax only. If the application still rejects the data, check the expected property names, required fields, value types, and allowed ranges. Those requirements belong to the application or its schema.</p>
 
 <h2>Frequently Asked Questions</h2>
-<details><summary>What does a JSON validator do?</summary><p>A JSON validator checks whether text follows JSON syntax rules. It helps identify errors such as missing commas, invalid quotation marks, and unmatched braces.</p></details>
-<details><summary>How do I validate JSON online?</summary><p>Paste your JSON into the validator and select <strong>Validate JSON</strong>, or leave Live validation on while you edit. If the syntax is invalid, correct the reported problem and check the data again.</p></details>
-<details><summary>Why is my JSON invalid?</summary><p>Common causes include missing commas, trailing commas, single quotes, unmatched braces or brackets, invalid escape sequences, and unsupported values such as <code>undefined</code>.</p></details>
-<details><summary>Can a JSON validator fix errors automatically?</summary><p>This validator reports syntax problems and offers guidance when possible; it does not automatically rewrite invalid input. Correct the input and validate it again.</p></details>
-<details><summary>Is valid JSON guaranteed to work in my application?</summary><p>No. Valid JSON only confirms that the data follows JSON syntax. Your application may also require particular fields, data types, or values.</p></details>
-<details><summary>What is the difference between JSON validation and JSON Schema validation?</summary><p>Basic JSON validation checks syntax. JSON Schema validation checks whether a document conforms to defined rules, such as required properties, permitted types, and value constraints.</p></details>
-<details><summary>Can I validate a JSON API response?</summary><p>Yes. If you can copy an API response in JSON format, you can check its syntax here. Avoid including passwords, access tokens, private keys, or confidential data.</p></details>
-<details><summary>Is it safe to use an online JSON validator?</summary><p>Privacy depends on the implementation. This validator processes input in your browser. Review the <a href="../privacy.html">privacy information</a> and avoid entering secrets or confidential information into any tool unless you understand its data handling.</p></details>
+<details><summary>What does a JSON validator do?</summary><p>A JSON validator parses text to check whether it follows JSON syntax. It can help locate issues such as missing commas, single quotes, unmatched brackets, invalid values, and incorrect string escapes.</p></details>
+<details><summary>How do I validate JSON online?</summary><p>Paste JSON into the RomitJSON validator or select <strong>Open JSON</strong> to load a file. Live validation checks smaller edits automatically; select <strong>Validate JSON</strong> to run a manual check. Review any reported error, correct the input, and validate it again.</p></details>
+<details><summary>Why is my JSON invalid?</summary><p>Common causes include missing commas or colons, single quotes, trailing commas, unmatched braces or brackets, unescaped quotation marks, comments, and unsupported values such as <code>undefined</code>.</p></details>
+<details><summary>Can a JSON validator fix errors automatically?</summary><p>A validator identifies syntax problems but does not determine what you intended to write. For supported automatic corrections, try <a href="../json-repair/">JSON Repair</a> and review the result before using it.</p></details>
+<details><summary>Is valid JSON guaranteed to work in my application?</summary><p>No. Valid JSON means the document follows JSON syntax. An application may also require specific fields, types, values, or business rules. Use JSON Schema validation or application-specific checks for those requirements.</p></details>
+<details><summary>What is the difference between JSON validation and JSON Schema validation?</summary><p>JSON syntax validation checks whether a document can be parsed. JSON Schema validation checks whether a parsed document meets defined constraints, such as required properties, permitted types, and value limits.</p></details>
+<details><summary>Can I validate a JSON API response?</summary><p>Yes. Copy the JSON response body and paste it into the validator. For sensitive responses, use a trusted environment and avoid entering passwords, access tokens, private keys, or confidential information into an online tool.</p></details>
+<details><summary>Does RomitJSON upload the JSON I validate?</summary><p>This page's validator code parses the text with the browser's JSON parser and reads a selected file with the browser's file-reading API; that code does not send the JSON input to a server. This describes the validator code on this page and does not make a broader claim about all site infrastructure or unrelated services. Review the <a href="../privacy.html">Privacy Policy</a> for the site's data-handling information, and avoid entering sensitive information unless you have confirmed that the tool meets your needs.</p></details>
+<details><summary>Why does the validator report a line or column?</summary><p>When the browser provides a useful error position, the validator converts it to a line and column to help you inspect the surrounding text. The reported position may show where parsing failed rather than the exact character that introduced the problem.</p></details>
+<details><summary>What is the maximum JSON file size?</summary><p>The validator accepts input up to 50 MiB. Live validation pauses for input over 1 MiB; select <strong>Validate JSON</strong> to check a larger input manually.</p></details>
 
 <h2>Related JSON Tools</h2>
-<p>Use the validator to check syntax, the <a href="../json-schema-validator/">JSON Schema Validator</a> to check data against structural rules, the <a href="../json-formatter/">JSON Formatter</a> to improve readability, and the <a href="../json-viewer/">JSON Viewer</a> to inspect JSON data. Browse the <a href="../index.html#all-tools">complete JSON toolbox</a> for other tools.</p>
+<p>Use this JSON validator to check syntax, then choose the next tool for your task: format valid data with the <a href="../json-formatter/">JSON Formatter</a>, inspect nested structures with the <a href="../json-viewer/">JSON Viewer</a>, check data rules with the <a href="../json-schema-validator/">JSON Schema Validator</a>, or explore other options in the <a href="../index.html#all-tools">JSON toolbox</a>.</p>
 </article>
 </main>
 <div class="validator-paste-modal" id="pasteModal" aria-hidden="true" hidden><div class="validator-paste-panel" role="dialog" aria-modal="true" aria-labelledby="pasteTitle"><button type="button" class="paste-close" id="closePasteBtn" aria-label="Close paste dialog">×</button><h2 id="pasteTitle">Paste JSON</h2><textarea id="pasteArea" placeholder='{"name":"example"}'></textarea><div><button type="button" class="secondary-btn" id="cancelPasteBtn">Cancel</button><button type="button" class="primary-btn" id="usePasteBtn">Use JSON</button></div></div></div>
 <footer class="site-footer">
 <div class="footer-inner">
 <div class="footer-link-grid">
-<section class="footer-column" aria-labelledby="footer-tools-title"><h2 id="footer-tools-title">JSON TOOLS</h2><a href="../json-formatter/">JSON Formatter</a><a href="../json-validator/">JSON Validator</a><a href="../json-repair/">JSON Repair</a><a href="../json-schema-validator/">JSON Schema Validator</a><a href="../json-viewer/">JSON Viewer</a><a href="../json-tree-viewer/">JSON Tree Viewer</a><a href="../json-path-finder/">JSONPath Finder</a><a href="../json-editor/">JSON Editor</a></section>
-<section class="footer-column" aria-labelledby="footer-converters-title"><h2 id="footer-converters-title">CONVERTERS</h2><a href="../json-to-csv/">JSON to CSV</a><a href="../json-to-yaml/">JSON to YAML</a><a href="../json-to-xml/">JSON to XML</a><a href="../json-to-typescript/">JSON to TypeScript</a></section>
-<section class="footer-column" aria-labelledby="footer-more-title"><h2 id="footer-more-title">MORE TOOLS</h2><a href="../json-minifier/">JSON Minifier</a><a href="../json-compare/">JSON Compare</a><a class="footer-all-link" href="../index.html#tools">All tools <span aria-hidden="true">&#8599;</span></a></section>
-<section class="footer-column" aria-labelledby="footer-learn-title"><h2 id="footer-learn-title">LEARN</h2><a href="../faq.html">Frequently asked questions</a><a href="../about.html">About RomitJSON</a></section>
+<section class="footer-column" aria-labelledby="footer-tools-title"><h2 id="footer-tools-title">JSON TOOLS</h2><a href="../json-formatter/">JSON Formatter</a><a href="../json-pretty-printer/">JSON Pretty Printer</a><a href="../json-validator/" aria-current="page">JSON Validator</a><a href="../json-repair/">JSON Repair</a><a href="../json-schema-validator/">JSON Schema Validator</a><a href="../json-schema-generator/">JSON Schema Generator</a><a href="../json-viewer/">JSON Viewer</a><a href="../json-tree-viewer/">JSON Tree Viewer</a><a href="../json-path-finder/">JSONPath Finder</a><a href="../json-editor/">JSON Editor</a><a class="footer-all-link" href="../tools.html">All tools <span aria-hidden="true">&#8599;</span></a></section>
+<section class="footer-column" aria-labelledby="footer-converters-title"><h2 id="footer-converters-title">CONVERTERS</h2><a href="../json-to-csv/">JSON to CSV</a><a href="../json-to-excel/">JSON to Excel</a><a href="../json-to-sql/">JSON to SQL</a><a href="../json-to-yaml/">JSON to YAML</a><a href="../json-to-xml/">JSON to XML</a><a href="../json-to-typescript/">JSON to TypeScript</a><a href="../json-to-java/">JSON to Java</a><a href="../json-to-python/">JSON to Python</a><a class="footer-all-link" href="../tools.html">All tools <span aria-hidden="true">&#8599;</span></a></section>
+<section class="footer-column" aria-labelledby="footer-more-title"><h2 id="footer-more-title">MORE TOOLS</h2><a href="../json-minifier/">JSON Minifier</a><a href="../json-compare/">JSON Compare</a><a class="footer-all-link" href="../tools.html">All tools <span aria-hidden="true">&#8599;</span></a></section>
+<section class="footer-column" aria-labelledby="footer-learn-title"><h2 id="footer-learn-title">LEARN</h2><a href="../learn/">Learn JSON tutorials</a><a href="../faq.html">Frequently asked questions</a><a href="../about.html">About RomitJSON</a></section>
 <section class="footer-column" aria-labelledby="footer-company-title"><h2 id="footer-company-title">COMPANY</h2><a href="../contact.html">Contact</a><a href="../privacy.html">Privacy policy</a></section>
 </div>
 <div class="footer-about"><div><span class="footer-eyebrow">MADE FOR DEVELOPERS</span><p>Format, validate, inspect, and transform JSON with practical tools for your daily development workflow.</p></div><div class="footer-actions"><a class="footer-cta" href="../tools.html">Explore tools <span aria-hidden="true">&#8599;</span></a><a class="footer-cta" href="../learn/">Learn JSON <span aria-hidden="true">&#8599;</span></a></div></div>
 <div class="footer-bottom">
-<p class="footer-copyright">? <span id="year"></span> RomitJSON. All rights reserved.</p>
-<p class="footer-note">JSON tools that work right in your browser.</p>
+<p class="footer-copyright"><span id="year"></span> RomitJSON. All rights reserved.</p>
+<p class="footer-note">Made with ❤️ for developers.</p>
 <nav class="footer-legal" aria-label="Footer navigation"><a href="../about.html">About</a><a href="../privacy.html">Privacy</a><a href="../contact.html">Contact</a></nav>
 </div>
 </div>
@@ -179,3 +212,6 @@ Correct: {"message": "He said \"hello\""}</code></pre>
 <script src="../js/validator.js"></script>
 </body>
 </html>
+
+
+
