@@ -1,15 +1,164 @@
 <!doctype html>
 <html lang="en">
 <head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>JSON to SQL | RomitJSON</title>
-  <meta name="robots" content="noindex,follow">
-  <link rel="canonical" href="https://romitjson.com/typescript.html">
-  <meta http-equiv="refresh" content="0;url=../typescript.html">
-  <script>window.location.replace("../typescript.html");</script>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>JSON to SQL Converter – SQLite, MySQL and PostgreSQL</title>
+<meta name="description" content="Generate CREATE TABLE and INSERT SQL from JSON for SQLite, MySQL, or PostgreSQL. Choose a table name, select statements, and flatten nested objects.">
+<meta name="author" content="Romit Kr Yadav">
+<meta name="robots" content="index,follow,max-image-preview:large,max-snippet:-1,max-video-preview:-1">
+<link rel="canonical" href="https://romitjson.com/json-to-sql/">
+<meta property="og:type" content="website"><meta property="og:site_name" content="RomitJSON"><meta property="og:title" content="JSON to SQL Converter – SQLite, MySQL and PostgreSQL"><meta property="og:description" content="Generate CREATE TABLE and INSERT SQL from JSON for SQLite, MySQL, or PostgreSQL. Choose a table name, select statements, and flatten nested objects."><meta property="og:url" content="https://romitjson.com/json-to-sql/">
+<meta name="twitter:card" content="summary"><meta name="twitter:title" content="JSON to SQL Converter – SQLite, MySQL and PostgreSQL"><meta name="twitter:description" content="Generate CREATE TABLE and INSERT SQL from JSON for SQLite, MySQL, or PostgreSQL. Choose a table name, select statements, and flatten nested objects.">
+<meta name="theme-color" content="#10b995">
+<meta property="og:locale" content="en_US">
+<link rel="stylesheet" href="../css/style.css">
+<link rel="stylesheet" href="../css/formatter.css">
+<link rel="stylesheet" href="../css/sql.css">
+<link rel="stylesheet" href="../css/tool-seo.css">
+<script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"WebPage","@id":"https://romitjson.com/json-to-sql/#webpage","url":"https://romitjson.com/json-to-sql/","name":"JSON to SQL Converter Online | RomitJSON","description":"Generate CREATE TABLE and INSERT SQL from JSON for SQLite, MySQL, or PostgreSQL. Choose a table name, select statements, and flatten nested objects.","isPartOf":{"@id":"https://romitjson.com/#website"},"inLanguage":"en"},{"@type":"WebApplication","@id":"https://romitjson.com/json-to-sql/#webapp","name":"RomitJSON JSON to SQL Converter","url":"https://romitjson.com/json-to-sql/","applicationCategory":"DeveloperApplication","operatingSystem":"Any","browserRequirements":"Requires JavaScript and a modern web browser.","offers":{"@type":"Offer","price":"0","priceCurrency":"USD"},"description":"Browser-based JSON to SQL converter that generates CREATE TABLE and INSERT statements for SQLite, MySQL, or PostgreSQL."}]}</script>
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-DKWQGJ7VQ6"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-DKWQGJ7VQ6');
+</script><link rel="icon" type="image/svg+xml" href="/favicon.svg">
 </head>
-<body>
-  <p>Opening <a href="../typescript.html">JSON to SQL</a> on RomitJSON…</p>
+<body class="dark">
+<header class="site-header"><div class="nav-wrap">
+<a class="brand" href="../index.html#home" aria-label="RomitJSON home"><span class="brand-mark">{ }</span><span>Romit<span class="brand-accent">JSON</span></span></a>
+<nav id="mainNav" aria-label="Main navigation">
+<a href="../index.html#home">Home</a><a href="../datasets/">Datasets</a><a href="../learn/">Learn JSON</a>
+<div class="nav-dropdown"><button class="nav-drop-btn" aria-expanded="false">View &amp; Edit <span>▾</span></button><div class="nav-drop-menu">
+<a href="../json-viewer/"><b class="ndm-green">◉</b><span><strong>JSON Viewer</strong><small>Browse JSON as a tree</small></span></a>
+<a href="../json-tree-viewer/"><b class="ndm-cyan">◈</b><span><strong>JSON Tree Viewer</strong><small>Explore nested JSON</small></span></a>
+<a href="../json-path-finder/"><b class="ndm-blue">$</b><span><strong>JSONPath Finder</strong><small>Find and query data paths</small></span></a>
+<a href="../json-editor/"><b class="ndm-blue">✎</b><span><strong>JSON Editor</strong><small>Edit and inspect JSON</small></span></a></div></div>
+<div class="nav-dropdown"><button class="nav-drop-btn" aria-expanded="false">Validate <span>▾</span></button><div class="nav-drop-menu">
+<a href="../json-validator/"><b class="ndm-green">✓</b><span><strong>JSON Validator</strong><small>Find syntax errors</small></span></a>
+<a href="../json-repair/"><b class="ndm-orange">⌁</b><span><strong>JSON Repair</strong><small>Fix common syntax issues</small></span></a>
+<a href="../json-schema-validator/"><b class="ndm-violet">✓</b><span><strong>JSON Schema Validator</strong><small>Check data against a schema</small></span></a>
+<a href="../json-compare/"><b class="ndm-violet">⇄</b><span><strong>JSON Compare</strong><small>Find document differences</small></span></a></div></div>
+<div class="nav-dropdown"><button class="nav-drop-btn" aria-expanded="false">Convert <span>▾</span></button><div class="nav-drop-menu">
+<a href="../json-to-csv/"><b class="ndm-violet">{ }</b><span><strong>JSON → CSV</strong><small>Convert arrays to CSV</small></span></a>
+<a href="../json-to-excel/"><b class="ndm-green">XLS</b><span><strong>JSON → Excel</strong><small>Export workbook data</small></span></a>
+<a href="../json-to-sql/" aria-current="page"><b class="ndm-orange">SQL</b><span><strong>JSON → SQL</strong><small>Generate table and insert SQL</small></span></a>
+<a href="../json-to-yaml/"><b class="ndm-purple">YML</b><span><strong>JSON → YAML</strong><small>Create YAML data</small></span></a>
+<a href="../json-to-xml/"><b class="ndm-orange">&lt;/&gt;</b><span><strong>JSON → XML</strong><small>Create XML data</small></span></a></div></div>
+<div class="nav-dropdown"><button class="nav-drop-btn" aria-expanded="false">Generate <span>▾</span></button><div class="nav-drop-menu">
+<a href="../json-pretty-printer/"><b class="ndm-cyan">¶</b><span><strong>JSON Pretty Printer</strong><small>Beautify JSON output</small></span></a>
+<a href="../json-to-typescript/"><b class="ndm-blue">TS</b><span><strong>JSON → TypeScript</strong><small>Generate interfaces</small></span></a>
+<a href="../json-to-java/"><b class="ndm-orange">J</b><span><strong>JSON → Java</strong><small>Generate Java model classes</small></span></a>
+<a href="../json-to-python/"><b class="ndm-blue">Py</b><span><strong>JSON → Python</strong><small>Generate Python models</small></span></a>
+<a href="../json-schema-generator/"><b class="ndm-violet">{ }</b><span><strong>JSON Schema Generator</strong><small>Generate a schema from JSON</small></span></a>
+<a href="../json-minifier/"><b class="ndm-red">↘</b><span><strong>JSON Minifier</strong><small>Reduce JSON size</small></span></a></div></div>
+<a href="../tools.html">All tools</a><a href="../about.html">About</a><a href="../contact.html">Contact</a></nav>
+<div class="header-actions"><button class="menu-btn" id="menuBtn" type="button" aria-controls="mainNav" aria-expanded="false">Menu</button></div>
+</div></header>
+<main class="formatter-main sql-main">
+<section class="formatter-intro">
+<label>JSON TOOL / CONVERTER</label>
+<h1>JSON to SQL Converter</h1>
+<p>Generate SQL for SQLite, MySQL, or PostgreSQL from valid JSON. Set a table name, choose whether to include CREATE TABLE and INSERT statements, and review the inferred columns before copying or downloading the SQL.</p>
+<nav class="sql-related" aria-label="Related JSON tools"><a href="../json-to-csv/">JSON to CSV</a><a href="../json-to-excel/">JSON to Excel</a><a href="../json-validator/">JSON Validator</a></nav>
+</section>
+<section class="formatter-tool sql-tool" aria-label="JSON to SQL converter">
+<div class="formatter-toolbar sql-toolbar">
+<label class="sql-setting" for="tableName"><span>Table name</span><input id="tableName" type="text" value="records" maxlength="63" autocomplete="off"></label>
+<label class="sql-setting" for="dialectSelect"><span>SQL dialect</span><select id="dialectSelect"><option value="sqlite">SQLite</option><option value="mysql">MySQL</option><option value="postgresql">PostgreSQL</option></select></label>
+<div class="sql-actions"><button class="secondary-btn" id="openFileBtn" type="button">Open JSON</button><input id="fileInput" type="file" accept=".json,application/json" hidden><button class="secondary-btn" id="sampleBtn" type="button">Sample</button><button class="secondary-btn" id="pasteBtn" type="button">Paste</button></div>
+<div class="sql-actions"><button class="primary-btn" id="convertBtn" type="button">Generate SQL</button><button class="secondary-btn" id="clearBtn" type="button">Clear</button></div>
+</div>
+<section class="sql-settings" aria-label="SQL generation options">
+<label class="checkbox-row"><input id="createTable" type="checkbox" checked><span>Include CREATE TABLE</span></label>
+<label class="checkbox-row"><input id="insertStatements" type="checkbox" checked><span>Include INSERT statements</span></label>
+<label class="checkbox-row"><input id="flattenNested" type="checkbox" checked><span>Flatten nested objects</span></label>
+</section>
+<div class="formatter-grid sql-grid">
+<section class="formatter-panel" aria-labelledby="inputTitle"><div class="formatter-panel-head"><h2 id="inputTitle">Input JSON</h2><span id="inputSize">0 characters</span></div><textarea id="jsonInput" spellcheck="false" aria-label="Input JSON" placeholder='Paste an array of records, for example: [{"name":"Ada","active":true}]'></textarea></section>
+<section class="formatter-panel output-panel" aria-labelledby="outputTitle"><div class="formatter-panel-head"><h2 id="outputTitle">SQL output</h2><div><button class="panel-action" id="copyBtn" type="button" disabled>Copy</button><button class="panel-action" id="downloadBtn" type="button" disabled>Download</button></div></div><pre id="sqlOutput" aria-label="Generated SQL">Your SQL output will appear here.</pre></section>
+</div>
+<dl class="sql-stats" id="sqlStats" hidden><div><dt>Rows</dt><dd id="rowCount">0</dd></div><div><dt>Columns</dt><dd id="columnCount">0</dd></div><div><dt>SQL size</dt><dd id="sqlSize">0 bytes</dd></div></dl>
+<p class="formatter-status" id="sqlStatus" role="status" aria-live="polite">Paste JSON or open a file to begin.</p>
+<details class="sql-help"><summary>SQL mapping and safety</summary><p>Arrays of objects are converted to rows, and a single object becomes one row. With flattening enabled, nested objects become dot-path columns; arrays and unflattened objects are stored as JSON text. SQL identifiers are quoted for the selected dialect and string literals escape single quotes. Review inferred column types and generated statements before running them in a database. This tool generates SQL text only; it does not connect to a database.</p></details>
+</section>
+<article class="tool-seo-content" aria-labelledby="sql-guide-title">
+<h2 id="sql-guide-title">Convert JSON to SQL Statements</h2>
+<p>When an API or application gives you records as JSON but a database needs rows, a converter can draft the table definition and insert statements. This JSON to SQL converter supports SQLite, MySQL, and PostgreSQL. It infers columns and types from the input, lets you choose a table name, and can generate a <code>CREATE TABLE</code> statement, an <code>INSERT</code> statement, or both.</p>
+<p>Paste valid JSON or open a JSON file, select the database dialect, and review the generated SQL before using it. The conversion runs in your browser; this tool creates SQL text but does not connect to or change a database.</p>
+
+<h2>How to Convert JSON to SQL</h2>
+<ol><li>Paste JSON into the input area, choose <strong>Open JSON</strong>, or load the sample.</li><li>Select SQLite, MySQL, or PostgreSQL to match the database where the SQL will run.</li><li>Enter a table name using letters, numbers, or underscores. It must begin with a letter or underscore.</li><li>Choose whether to include the table definition, insert data, and flatten nested objects. At least one SQL statement option must be selected.</li><li>Select <strong>Generate SQL</strong>. Check the SQL, row and column counts, and inferred types before copying or downloading the output.</li></ol>
+<p>If the input is rejected as invalid JSON, check its syntax with the <a href="../json-validator/">JSON Validator</a> and try again.</p>
+
+<h2>Example: JSON Records to PostgreSQL</h2>
+<p>This example uses an array of customers, the PostgreSQL dialect, the table name <code>customers</code>, and both statement options. With flattening enabled, <code>profile.city</code> becomes a column. The array in <code>tags</code> stays JSON text in a text column.</p>
+<h3>Input JSON</h3>
+<pre><code>[
+  {"id": 101, "name": "Mina Patel", "active": true, "profile": {"city": "Pune"}, "tags": ["beta", "email"]},
+  {"id": 102, "name": "O'Neil", "active": false, "profile": {"city": "Austin"}, "tags": ["new"]}
+]</code></pre>
+<h3>Generated SQL</h3>
+<pre><code>CREATE TABLE "customers" (
+  "id" INTEGER,
+  "name" TEXT,
+  "active" BOOLEAN,
+  "profile.city" TEXT,
+  "tags" TEXT
+);
+
+INSERT INTO "customers" ("id", "name", "active", "profile.city", "tags")
+VALUES
+  (101, 'Mina Patel', TRUE, 'Pune', '["beta","email"]'),
+  (102, 'O''Neil', FALSE, 'Austin', '["new"]');</code></pre>
+<p>The generated values match the selected PostgreSQL dialect. The apostrophe in <code>O'Neil</code> is doubled inside the SQL string literal. Select another dialect to generate its corresponding identifier quotes, boolean values, and column types.</p>
+
+<h2>Supported SQL Dialects and Inferred Types</h2>
+<p>The converter chooses a type from the values observed in each column. Common mappings include:</p>
+<div class="tool-seo-table-wrap"><table class="tool-seo-table"><thead><tr><th scope="col">JSON values</th><th scope="col">SQLite</th><th scope="col">MySQL</th><th scope="col">PostgreSQL</th></tr></thead><tbody><tr><th scope="row">Whole numbers</th><td>INTEGER</td><td>INTEGER</td><td>INTEGER</td></tr><tr><th scope="row">Decimal numbers</th><td>REAL</td><td>DOUBLE</td><td>DOUBLE PRECISION</td></tr><tr><th scope="row">Booleans</th><td>INTEGER (1 or 0)</td><td>TINYINT(1)</td><td>BOOLEAN</td></tr><tr><th scope="row">Strings and nested values</th><td>TEXT</td><td>TEXT</td><td>TEXT</td></tr></tbody></table></div>
+<p>When a column mixes strings with numbers, or mixes booleans with another type, it is treated as text so the different values can be represented. Whole numbers and decimals together use the dialect’s decimal-number type. Nulls and missing fields are emitted as <code>NULL</code>; they do not determine a column type. If a column contains only nulls, its inferred type is text.</p>
+
+<h2>How JSON Structure Maps to SQL Columns</h2>
+<h3>Arrays of objects</h3>
+<p>An array of objects is the clearest input for a relational table: each object becomes a row and property names across the records become columns. A property missing from a particular object is inserted as <code>NULL</code>. One <code>INSERT</code> statement contains all input rows, rather than separate inserts for each record.</p>
+<h3>Single objects and primitive values</h3>
+<p>A single object becomes one row. A top-level primitive, or each primitive in a top-level array, is placed in a column named <code>value</code>. An array of arrays is treated as values in that column; it is not automatically expanded into several SQL columns.</p>
+<h3>Nested objects and arrays</h3>
+<p>With <strong>Flatten nested objects</strong> enabled, nested objects are expanded into dotted column names such as <code>profile.city</code>. Turn flattening off to keep each nested object as JSON text in one column. Arrays inside records are also stored as JSON text; the converter does not expand array items into rows or create related tables.</p>
+<p>If an API response wraps a list under a key such as <code>data</code> or <code>results</code>, this tool treats the wrapper as a record and stores the array in that field as JSON text. It does not automatically unwrap the inner array. Extract the list of records first if you want each item to become a database row.</p>
+
+<h2>Review the SQL Before Running It</h2>
+<ul><li><strong>Check the inferred schema:</strong> Type inference uses the values provided, not a database schema or business rules. It does not add primary keys, unique constraints, <code>NOT NULL</code> constraints, indexes, defaults, or relationships between tables.</li><li><strong>Keep exact identifiers:</strong> JSON numbers are parsed as JavaScript numbers. Very large integers can lose precision before SQL is generated. If an ID, account number, or other value must preserve every digit, represent it as a JSON string.</li><li><strong>Check the destination:</strong> Confirm the table name is available and that the selected dialect matches the database version and configuration where you will run the SQL.</li><li><strong>Plan for large batches:</strong> All records are written into one multi-row <code>INSERT</code> statement. For a large export, split the input into smaller batches if your database has query or packet-size limits.</li><li><strong>Review values and permissions:</strong> Inspect the generated statements and run them in the intended database or a safe development environment. The converter does not execute or validate SQL against your database.</li></ul>
+<p>Identifiers are quoted for the selected dialect, and single quotes inside string values are escaped. Those safeguards help create well-formed output, but inferred SQL is still a starting point: review it for your schema, database rules, and data requirements before execution.</p>
+
+<h2>Frequently Asked Questions</h2>
+<details><summary>Which SQL databases does the converter support?</summary><p>It generates SQL for SQLite, MySQL, and PostgreSQL. Choose the dialect that matches your destination database before generating the statements.</p></details>
+<details><summary>Can I generate only INSERT statements?</summary><p>Yes. Turn off <strong>Include CREATE TABLE</strong> and leave <strong>Include INSERT statements</strong> on. You can also generate only a table definition, or include both. At least one option must remain selected.</p></details>
+<details><summary>How are nested JSON objects converted?</summary><p>By default, nested objects are flattened into dotted column names such as <code>profile.city</code>. Turn off flattening to store each object as JSON text in a column. Nested arrays remain JSON text either way.</p></details>
+<details><summary>What happens to null or missing properties?</summary><p>They become SQL <code>NULL</code>. If a field is missing from one object but present in others, the column is still included and the missing row receives <code>NULL</code>.</p></details>
+<details><summary>Does the tool connect to my database?</summary><p>No. It generates SQL text in your browser for you to review, copy, or download. You choose where and whether to run it.</p></details>
+<details><summary>Is the generated SQL ready to run without changes?</summary><p>It is a useful starting point, but review the inferred types, table name, null behavior, large numeric values, and database-specific requirements first. The converter does not know your existing schema or constraints.</p></details>
+
+<h2>Related JSON Tools</h2>
+<p>Use the <a href="../json-validator/">JSON Validator</a> to check input syntax, the <a href="../json-formatter/">JSON Formatter</a> to make records easier to inspect, or the <a href="../json-to-csv/">JSON to CSV Converter</a> and <a href="../json-to-excel/">JSON to Excel Converter</a> when you need spreadsheet output.</p>
+</article>
+</main>
+<footer class="site-footer">
+<div class="footer-inner"><div class="footer-link-grid">
+<section class="footer-column" aria-labelledby="footer-tools-title"><h2 id="footer-tools-title">JSON TOOLS</h2><a href="../json-formatter/">JSON Formatter</a><a href="../json-pretty-printer/">JSON Pretty Printer</a><a href="../json-validator/">JSON Validator</a><a href="../json-repair/">JSON Repair</a><a href="../json-schema-validator/">JSON Schema Validator</a><a href="../json-schema-generator/">JSON Schema Generator</a><a href="../json-viewer/">JSON Viewer</a><a href="../json-tree-viewer/">JSON Tree Viewer</a><a href="../json-path-finder/">JSONPath Finder</a><a href="../json-editor/">JSON Editor</a><a class="footer-all-link" href="../tools.html">All tools <span aria-hidden="true">&#8599;</span></a></section>
+<section class="footer-column" aria-labelledby="footer-converters-title"><h2 id="footer-converters-title">CONVERTERS</h2><a href="../json-to-csv/">JSON to CSV</a><a href="../json-to-excel/">JSON to Excel</a><a href="../json-to-sql/" aria-current="page">JSON to SQL</a><a href="../json-to-yaml/">JSON to YAML</a><a href="../json-to-xml/">JSON to XML</a><a href="../json-to-typescript/">JSON to TypeScript</a><a href="../json-to-java/">JSON to Java</a><a href="../json-to-python/">JSON to Python</a><a class="footer-all-link" href="../tools.html">All tools <span aria-hidden="true">&#8599;</span></a></section>
+<section class="footer-column" aria-labelledby="footer-more-title"><h2 id="footer-more-title">MORE TOOLS</h2><a href="../json-minifier/">JSON Minifier</a><a href="../json-compare/">JSON Compare</a><a class="footer-all-link" href="../tools.html">All tools <span aria-hidden="true">&#8599;</span></a></section>
+<section class="footer-column" aria-labelledby="footer-learn-title"><h2 id="footer-learn-title">LEARN</h2><a href="../learn/">Learn JSON tutorials</a><a href="../faq.html">Frequently asked questions</a><a href="../about.html">About RomitJSON</a></section>
+<section class="footer-column" aria-labelledby="footer-company-title"><h2 id="footer-company-title">COMPANY</h2><a href="../contact.html">Contact</a><a href="../privacy.html">Privacy policy</a></section>
+</div>
+<div class="footer-about"><div><span class="footer-eyebrow">MADE FOR DEVELOPERS</span><p>Format, validate, inspect, and transform JSON with practical tools for your daily development workflow.</p></div><div class="footer-actions"><a class="footer-cta" href="../tools.html">Explore tools <span aria-hidden="true">&#8599;</span></a><a class="footer-cta" href="../learn/">Learn JSON <span aria-hidden="true">&#8599;</span></a></div></div>
+<div class="footer-bottom"><p class="footer-copyright">&copy; <span id="year"></span> RomitJSON. All rights reserved.</p><p class="footer-note">Made with &#10084; for developers.</p><nav class="footer-legal" aria-label="Footer navigation"><a href="../about.html">About</a><a href="../privacy.html">Privacy</a><a href="../contact.html">Contact</a></nav></div>
+</div></footer>
+<script src="../js/sql.js"></script>
 </body>
 </html>
+
+
+
