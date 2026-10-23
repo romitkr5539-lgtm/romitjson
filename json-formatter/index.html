@@ -1,15 +1,184 @@
 <!doctype html>
 <html lang="en">
 <head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>JSON Formatter | RomitJSON</title>
-  <meta name="robots" content="noindex,follow">
-  <link rel="canonical" href="https://romitjson.com/formatter.html">
-  <meta http-equiv="refresh" content="0;url=../formatter.html">
-  <script>window.location.replace("../formatter.html");</script>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>JSON Formatter Online – Format and Beautify JSON</title>
+<meta name="description" content="Format JSON online with 2-space, 4-space, or tab indentation. Sort keys, search a tree view, inspect JSON statistics, then copy or download the result.">
+<meta name="robots" content="index,follow">
+<link rel="canonical" href="https://romitjson.com/json-formatter/">
+<meta property="og:type" content="website"><meta property="og:site_name" content="RomitJSON"><meta property="og:title" content="JSON Formatter Online – Format and Beautify JSON"><meta property="og:description" content="Format JSON online with 2-space, 4-space, or tab indentation. Sort keys, search a tree view, inspect JSON statistics, then copy or download the result."><meta property="og:url" content="https://romitjson.com/json-formatter/">
+<meta name="twitter:card" content="summary"><meta name="twitter:title" content="JSON Formatter Online – Format and Beautify JSON"><meta name="twitter:description" content="Format JSON online with 2-space, 4-space, or tab indentation. Sort keys, search a tree view, inspect JSON statistics, then copy or download the result.">
+<meta name="theme-color" content="#071613">
+<link rel="stylesheet" href="../css/style.css">
+<link rel="stylesheet" href="../css/formatter.css">
+<link rel="stylesheet" href="../css/tool-seo.css">
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-DKWQGJ7VQ6"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-DKWQGJ7VQ6');
+</script><link rel="icon" type="image/svg+xml" href="/favicon.svg">
 </head>
-<body>
-  <p>Opening <a href="../formatter.html">JSON Formatter</a> on RomitJSON…</p>
+<body class="dark">
+<header class="site-header"><div class="nav-wrap">
+<a class="brand" href="../index.html#home" aria-label="RomitJSON home"><span class="brand-mark">{ }</span><span>Romit<span class="brand-accent">JSON</span></span></a>
+<nav id="mainNav" aria-label="Main navigation">
+<a href="../index.html#home">Home</a>
+<a href="../datasets/">Datasets</a>
+<a href="../learn/">Learn JSON</a>
+<div class="nav-dropdown"><button class="nav-drop-btn" aria-expanded="false">View &amp; Edit <span>▾</span></button><div class="nav-drop-menu">
+<a href="../json-viewer/"><b class="ndm-green">◉</b><span><strong>JSON Viewer</strong><small>Browse JSON as a tree</small></span></a>
+<a href="../json-tree-viewer/"><b class="ndm-cyan">◈</b><span><strong>JSON Tree Viewer</strong><small>Explore nested JSON</small></span></a>
+<a href="../json-path-finder/"><b class="ndm-blue">$</b><span><strong>JSONPath Finder</strong><small>Find and query data paths</small></span></a>
+<a href="../json-editor/"><b class="ndm-blue">✎</b><span><strong>JSON Editor</strong><small>Edit and inspect JSON</small></span></a></div></div>
+<div class="nav-dropdown"><button class="nav-drop-btn" aria-expanded="false">Validate <span>▾</span></button><div class="nav-drop-menu">
+<a href="../json-validator/"><b class="ndm-green">✓</b><span><strong>JSON Validator</strong><small>Find syntax errors</small></span></a>
+<a href="../json-repair/"><b class="ndm-orange">⌁</b><span><strong>JSON Repair</strong><small>Fix common syntax issues</small></span></a>
+<a href="../json-schema-validator/"><b class="ndm-violet">✓</b><span><strong>JSON Schema Validator</strong><small>Check data against a schema</small></span></a>
+<a href="../json-compare/"><b class="ndm-violet">⇄</b><span><strong>JSON Compare</strong><small>Find document differences</small></span></a></div></div>
+<div class="nav-dropdown"><button class="nav-drop-btn" aria-expanded="false">Convert <span>▾</span></button><div class="nav-drop-menu">
+<a href="../json-to-csv/"><b class="ndm-violet">{ }</b><span><strong>JSON → CSV</strong><small>Convert arrays to CSV</small></span></a>
+<a href="../json-to-excel/"><b class="ndm-green">XLS</b><span><strong>JSON → Excel</strong><small>Export workbook data</small></span></a>
+<a href="../json-to-sql/"><b class="ndm-orange">SQL</b><span><strong>JSON → SQL</strong><small>Generate table and insert SQL</small></span></a>
+<a href="../json-to-yaml/"><b class="ndm-purple">YML</b><span><strong>JSON → YAML</strong><small>Create YAML data</small></span></a>
+<a href="../json-to-xml/"><b class="ndm-orange">&lt;/&gt;</b><span><strong>JSON → XML</strong><small>Create XML data</small></span></a></div></div>
+<div class="nav-dropdown"><button class="nav-drop-btn" aria-expanded="false">Generate <span>▾</span></button><div class="nav-drop-menu">
+<a href="../json-pretty-printer/"><b class="ndm-cyan">¶</b><span><strong>JSON Pretty Printer</strong><small>Beautify JSON output</small></span></a>
+<a href="../json-to-typescript/"><b class="ndm-blue">TS</b><span><strong>JSON → TypeScript</strong><small>Generate interfaces</small></span></a>
+<a href="../json-to-java/"><b class="ndm-orange">J</b><span><strong>JSON → Java</strong><small>Generate Java model classes</small></span></a>
+<a href="../json-to-python/"><b class="ndm-blue">Py</b><span><strong>JSON → Python</strong><small>Generate Python models</small></span></a>
+<a href="../json-schema-generator/"><b class="ndm-violet">{ }</b><span><strong>JSON Schema Generator</strong><small>Generate a schema from JSON</small></span></a>
+<a href="../json-minifier/"><b class="ndm-red">↘</b><span><strong>JSON Minifier</strong><small>Reduce JSON size</small></span></a></div></div>
+<a href="../tools.html">All tools</a>
+<a href="../about.html">About</a><a href="../contact.html">Contact</a></nav>
+<div class="header-actions"><button class="menu-btn" id="menuBtn" aria-controls="mainNav" aria-expanded="false">Menu</button></div>
+</div></header>
+<main class="formatter-main">
+<section class="formatter-intro">
+<label>JSON TOOL / FORMATTER</label>
+<h1>JSON Formatter Online</h1>
+<p>Format JSON online with RomitJSON to make unformatted data easier to read. Clear indentation and line breaks reveal the structure of objects, arrays, and nested values while processing stays in your browser.</p>
+</section>
+<section class="formatter-tool" aria-label="JSON formatter">
+<div class="formatter-toolbar">
+<div class="format-settings"><label class="indent-setting" for="indentSize"><span>Indentation</span><select id="indentSize"><option value="2">2 spaces</option><option value="4">4 spaces</option><option value="tab">Tabs</option></select></label><label class="sort-setting"><input id="sortKeys" type="checkbox"><span>Sort keys A-Z</span></label></div>
+<div class="formatter-actions"><button class="primary-btn" id="formatBtn" type="button">Format JSON</button><button class="secondary-btn" id="fullscreenBtn" type="button" aria-label="Enter full screen">Full screen</button><button class="secondary-btn" id="clearBtn" type="button">Clear</button></div>
+</div>
+<div class="formatter-grid">
+<section class="formatter-panel" aria-labelledby="inputTitle">
+<div class="formatter-panel-head"><h2 id="inputTitle">Input JSON</h2><div><button class="panel-action" id="sampleBtn" type="button">Sample</button><button class="panel-action" id="pasteBtn" type="button">Paste</button><button class="panel-action" id="openFileBtn" type="button">Open file</button><input id="fileInput" type="file" accept=".json,application/json" hidden></div></div>
+<div class="numbered-code-wrap">
+<div class="line-number-panel" id="inputLineNumbers" aria-hidden="true"></div>
+<textarea id="jsonInput" spellcheck="false" aria-label="Input JSON" placeholder='Paste JSON here, for example: {"name":"RomitJSON"}'></textarea>
+</div>
+<p id="dropHint" class="drop-hint">Drop a .json file here, or use Paste / Open file.</p>
+</section>
+<section class="formatter-panel" aria-labelledby="outputTitle">
+<div class="formatter-panel-head output-head"><h2 id="outputTitle">Formatted output</h2><div class="output-actions"><div class="view-switch" role="group" aria-label="Output view"><button type="button" class="panel-action active" id="codeViewBtn" aria-pressed="true">Code</button><button type="button" class="panel-action" id="treeViewBtn" aria-pressed="false">Tree</button></div><button class="panel-action" id="copyBtn" type="button" disabled>Copy</button><button class="panel-action" id="downloadBtn" type="button" disabled>Download .json</button></div></div>
+<div class="formatter-searchbar"><label class="visually-hidden" for="formatterSearch">Search JSON keys and values</label><input id="formatterSearch" type="search" placeholder="Search keys and values" disabled><button class="panel-action" id="previousMatchBtn" type="button" aria-label="Previous match" disabled>↑</button><button class="panel-action" id="nextMatchBtn" type="button" aria-label="Next match" disabled>↓</button><span id="matchCount" role="status">0 matches</span><button class="panel-action" id="copyPathBtn" type="button" disabled>Copy path</button><button class="panel-action" id="expandAllBtn" type="button" disabled>Expand all</button><button class="panel-action" id="collapseAllBtn" type="button" disabled>Collapse all</button></div>
+<div class="numbered-code-wrap" id="codeOutputWrap">
+<div class="line-number-panel" id="outputLineNumbers" aria-hidden="true">1</div>
+<pre id="jsonOutput" aria-label="Formatted JSON output">Your formatted JSON will appear here.</pre>
+</div>
+<div id="jsonTree" class="formatter-tree" aria-label="JSON tree" hidden></div>
+</section>
+</div>
+<dl class="formatter-stats" id="formatterStats" aria-label="JSON statistics"><div><dt>Input size</dt><dd id="inputBytes">0 bytes</dd></div><div><dt>Formatted size</dt><dd id="formattedBytes">0 bytes</dd></div><div><dt>Minified size</dt><dd id="minifiedBytes">0 bytes</dd></div><div><dt>Object keys</dt><dd id="objectKeyCount">0</dd></div><div><dt>Array items</dt><dd id="arrayItemCount">0</dd></div><div><dt>Max depth</dt><dd id="maxDepth">0</dd></div></dl>
+<p class="formatter-status" id="formatterStatus" role="status" aria-live="polite">Paste JSON or open a file to begin.</p>
+</section>
+<article class="tool-seo-content" aria-labelledby="formatting-guide-title">
+<h2 id="formatting-guide-title">Format JSON for Easier Reading</h2>
+<p>Compact JSON is useful for sending data, but it is awkward to inspect when an entire response sits on one line. This JSON formatter adds line breaks and indentation so you can follow objects, arrays, and nested values. Paste text or open a <code>.json</code> file, choose an indentation style, and select <strong>Format JSON</strong>.</p>
+<p>The output is shown as syntax-highlighted code or as an expandable tree. You can search keys and values in the tree, copy a matching property path, check basic size and structure statistics, then copy or download the formatted file. The guide below explains what each option does and where formatting needs extra care.</p>
+
+<h2>How to Use the JSON Formatter</h2>
+<ol><li>Paste JSON into the input panel, select <strong>Open file</strong>, or drop a <code>.json</code> file into the input area. Use <strong>Sample</strong> if you want to try the controls with example data.</li><li>Choose <strong>2 spaces</strong>, <strong>4 spaces</strong>, or <strong>Tabs</strong> under Indentation.</li><li>Leave <strong>Sort keys A-Z</strong> off to keep the input's property order, or turn it on to sort object keys recursively.</li><li>Select <strong>Format JSON</strong>. If the input cannot be parsed, the status message reports an error and a line and column when available.</li><li>Review the result in <strong>Code</strong> or <strong>Tree</strong> view. Copy or download the output when it is ready.</li></ol>
+<p>Use <strong>Full screen</strong> for a wider workspace. In Tree view, search for a key or value, move between matches, expand or collapse nested branches, and copy the selected property's path. The statistics below the editors show input, formatted, and minified sizes, plus object-key count, array-item count, and maximum depth.</p>
+
+<h2>JSON Formatting Example</h2>
+<p>Here is a compact API-style object before and after formatting. The line breaks make it easier to see that <code>retry</code> is a nested object and that <code>enabled</code> is a Boolean.</p>
+<h3>Before formatting</h3>
+<pre><code>{"service":"orders","retry":{"limit":3,"backoff":"exponential"},"enabled":true}</code></pre>
+<h3>After formatting with two spaces</h3>
+<pre><code>{
+  "service": "orders",
+  "retry": {
+    "limit": 3,
+    "backoff": "exponential"
+  },
+  "enabled": true
+}</code></pre>
+<p>The values are easier to scan, but indentation is only a presentation choice. The JSON data is still intended to represent the same object.</p>
+
+<h2>What Does a JSON Formatter Do?</h2>
+<p>A JSON formatter, sometimes called a JSON beautifier or pretty printer, parses JSON text and writes it with consistent whitespace. The JSON syntax itself is defined in <a href="https://www.rfc-editor.org/rfc/rfc8259">RFC 8259</a>. Indentation shows which properties belong to each object and which values belong to each array. This makes formatted JSON easier to read in API responses, configuration files, logs, test fixtures, and code reviews.</p>
+<p>Formatting is different from editing the data. It does not explain what a field means, check whether your application requires it, or repair malformed JSON. This formatter also offers an optional key-sorting setting; because sorting changes the text order, leave that setting off when you want to preserve the input order for review.</p>
+
+<h2>Choose an Indentation Style</h2>
+<p>Two spaces are a common choice for readable JSON in web projects. Four spaces create a wider indent that some teams prefer for configuration or examples. Tabs let an editor or viewer control how wide each indentation level appears. Pick the style that fits your project or team; changing indentation does not make JSON more or less valid.</p>
+<p>For generated files or code reviews, use the same indentation consistently so unrelated whitespace changes do not make a diff harder to inspect.</p>
+
+<h2>What Does “Sort Keys A-Z” Change?</h2>
+<p>When enabled, <strong>Sort keys A-Z</strong> sorts object property names recursively. It does not sort array items. Sorting can make two documents easier to compare when their objects contain the same data in different property orders, but it changes the text and can create a large diff. Keep it off when you only want to add indentation or when preserving the original order is useful to your workflow.</p>
+<p>The JSON standard describes objects as unordered collections, so property order is not a reliable way to express priority or sequence. If order matters to your application, represent that sequence as an array and check how the application handles the data. See <a href="https://www.rfc-editor.org/rfc/rfc8259#section-4">RFC 8259, section 4</a>.</p>
+
+<h2>Formatting, Validation, Minification, and Repair</h2>
+<p>These tools solve related but different problems:</p>
+<div class="tool-seo-table-wrap"><table class="tool-seo-table"><thead><tr><th scope="col">Tool or action</th><th scope="col">What it does</th></tr></thead><tbody><tr><th scope="row">JSON Formatter</th><td>Adds indentation and line breaks to valid JSON</td></tr><tr><th scope="row">JSON Validator</th><td>Checks JSON syntax and helps locate parsing errors</td></tr><tr><th scope="row">JSON Minifier</th><td>Removes unnecessary whitespace to make JSON text more compact</td></tr><tr><th scope="row">JSON Repair</th><td>Attempts supported corrections to malformed JSON-like text</td></tr><tr><th scope="row">JSON Schema Validator</th><td>Checks a parsed JSON document against defined structural rules</td></tr></tbody></table></div>
+<p>This formatter needs valid JSON to produce output. If it reports a syntax error, use the <a href="../json-validator/">JSON Validator</a> to review the error details. For common JSON-like mistakes, <a href="../json-repair/">JSON Repair</a> can attempt a correction; inspect the result because a repair tool cannot know what you intended. Use the <a href="../json-minifier/">JSON Minifier</a> when you want compact output, or the <a href="../json-schema-validator/">JSON Schema Validator</a> to check required fields and value types.</p>
+
+<h2>Important Data Checks Before You Rely on the Output</h2>
+<p>Formatting is not always a byte-for-byte-preserving operation. This tool uses the browser's JavaScript JSON parser and serializer. The default format changes whitespace, and a number's written form may also change; for example, an exponent such as <code>1e2</code> can be written as <code>100</code>.</p>
+<p>JavaScript represents JSON numbers with its Number type, which cannot represent every integer exactly. Values outside the safe-integer range can lose precision when parsed and written again; see <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number/MAX_SAFE_INTEGER">MDN’s Number.MAX_SAFE_INTEGER reference</a>. If a value is an identifier, account number, or other exact digit string, consider storing it as a quoted string in the source data and check the output before using it. Exact decimal values also deserve care when precision matters.</p>
+<p>Duplicate property names need attention too. RFC 8259 says object names should be unique and notes that duplicate-name handling varies between implementations. This formatter uses JavaScript JSON.parse, where the later value replaces the earlier one in the parsed object. The formatter cannot preserve both duplicate entries. See <a href="https://www.rfc-editor.org/rfc/rfc8259#section-4">RFC 8259, section 4</a> and the <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/JSON/parse">MDN JSON.parse reference</a>. Review such input before formatting if every occurrence matters.</p>
+<p>With <strong>Sort keys A-Z</strong> enabled, object property order also changes. If you need to preserve the exact original text, use a text editor instead of formatting the input.</p>
+
+<h2>Limits and Large JSON Files</h2>
+<p>The formatter accepts input up to 50 MiB and handles nesting up to 500 levels. Tree view displays up to 10,000 nodes; if a document has more, the formatted code remains complete even though the tree view is limited. Large inputs may take longer to parse or render, depending on the device and browser.</p>
+<p>The size statistics describe text size before or after formatting and the size of a compact serialization; they are not a guarantee of the final HTTP request size, since network headers, compression, and application behavior are separate.</p>
+
+<h2>Privacy and Local File Handling</h2>
+<p>The formatter's page code parses pasted JSON in the browser and reads a selected file with the browser's file-reading API. The formatter script does not send the input text to a server. This describes the formatter code on this page; for information about broader site data handling, review the <a href="../privacy.html">Privacy Policy</a>. Avoid placing passwords, tokens, private keys, or confidential records into an online tool unless you have confirmed that it meets your requirements.</p>
+
+<h2>Frequently Asked Questions</h2>
+<details><summary>How do I format JSON online?</summary><p>Paste valid JSON or open a <code>.json</code> file, choose two spaces, four spaces, or tabs, and select <strong>Format JSON</strong>. Then review the code or tree output and copy or download it.</p></details>
+<details><summary>Does formatting JSON change the data?</summary><p>Formatting adds whitespace, but parsing and serializing can also normalize number text and remove earlier values from duplicate property names. Sorting keys changes object order. Review the output when exact values or text order matter.</p></details>
+<details><summary>Can I format invalid JSON?</summary><p>This formatter needs input that the browser can parse as JSON. Correct the syntax with help from the <a href="../json-validator/">JSON Validator</a>, or try <a href="../json-repair/">JSON Repair</a> for supported corrections and review its result.</p></details>
+<details><summary>What indentation should I use?</summary><p>Use the convention required by your project. Two spaces are common in web examples, while four spaces or tabs may fit another team's style. Indentation does not affect JSON validity.</p></details>
+<details><summary>What happens when I sort JSON keys?</summary><p>The formatter sorts object property names A–Z recursively. Array items stay in their original order. Sorting changes the text and can make diffs larger, so leave it off when you only need readable indentation.</p></details>
+<details><summary>Can I use this formatter for API responses?</summary><p>Yes. Paste a JSON response or open a saved response file to inspect its structure. Remove credentials and personal information before sharing output, and check exact numeric values if precision matters.</p></details>
+<details><summary>Can I search for a key in a large JSON document?</summary><p>Yes. After formatting, switch to Tree view and search keys or values. Use the match controls to move between results and copy the selected property's path. Tree rendering is limited to 10,000 nodes; the formatted code remains available for the complete input.</p></details>
+<details><summary>What is the maximum file size?</summary><p>The formatter accepts input up to 50 MiB. Very large or deeply nested documents may take longer to process; nesting beyond 500 levels is not supported by this formatter.</p></details>
+
+<h2>Related JSON Tools</h2>
+<p>Format readable JSON here, check syntax with the <a href="../json-validator/">JSON Validator</a>, inspect nested data with the <a href="../json-viewer/">JSON Viewer</a>, or browse the <a href="../index.html#tools">JSON tools</a> for conversion, comparison, and schema workflows.</p>
+</article>
+</main>
+<div class="paste-modal" id="pasteModal" aria-hidden="true" hidden><div class="paste-modal-panel" role="dialog" aria-modal="true" aria-labelledby="pasteTitle"><button type="button" class="paste-modal-close" id="closePasteBtn" aria-label="Close paste dialog">×</button><h2 id="pasteTitle">Paste JSON</h2><textarea id="pasteArea" placeholder='{"name":"example"}'></textarea><div class="paste-modal-actions"><button type="button" class="secondary-btn" id="cancelPasteBtn">Cancel</button><button type="button" class="primary-btn" id="usePasteBtn">Use JSON</button></div></div></div>
+<footer class="site-footer">
+<div class="footer-inner">
+<div class="footer-link-grid">
+<section class="footer-column" aria-labelledby="footer-tools-title"><h2 id="footer-tools-title">JSON TOOLS</h2><a href="../json-formatter/" aria-current="page">JSON Formatter</a><a href="../json-pretty-printer/">JSON Pretty Printer</a><a href="../json-validator/">JSON Validator</a><a href="../json-repair/">JSON Repair</a><a href="../json-schema-validator/">JSON Schema Validator</a><a href="../json-schema-generator/">JSON Schema Generator</a><a href="../json-viewer/">JSON Viewer</a><a href="../json-tree-viewer/">JSON Tree Viewer</a><a href="../json-path-finder/">JSONPath Finder</a><a href="../json-editor/">JSON Editor</a><a class="footer-all-link" href="../tools.html">All tools <span aria-hidden="true">&#8599;</span></a></section>
+<section class="footer-column" aria-labelledby="footer-converters-title"><h2 id="footer-converters-title">CONVERTERS</h2><a href="../json-to-csv/">JSON to CSV</a><a href="../json-to-excel/">JSON to Excel</a><a href="../json-to-sql/">JSON to SQL</a><a href="../json-to-yaml/">JSON to YAML</a><a href="../json-to-xml/">JSON to XML</a><a href="../json-to-typescript/">JSON to TypeScript</a><a href="../json-to-java/">JSON to Java</a><a href="../json-to-python/">JSON to Python</a><a class="footer-all-link" href="../tools.html">All tools <span aria-hidden="true">&#8599;</span></a></section>
+<section class="footer-column" aria-labelledby="footer-more-title"><h2 id="footer-more-title">MORE TOOLS</h2><a href="../json-minifier/">JSON Minifier</a><a href="../json-compare/">JSON Compare</a><a class="footer-all-link" href="../tools.html">All tools <span aria-hidden="true">&#8599;</span></a></section>
+<section class="footer-column" aria-labelledby="footer-learn-title"><h2 id="footer-learn-title">LEARN</h2><a href="../learn/">Learn JSON tutorials</a><a href="../faq.html">Frequently asked questions</a><a href="../about.html">About RomitJSON</a></section>
+<section class="footer-column" aria-labelledby="footer-company-title"><h2 id="footer-company-title">COMPANY</h2><a href="../contact.html">Contact</a><a href="../privacy.html">Privacy policy</a></section>
+</div>
+<div class="footer-about"><div><span class="footer-eyebrow">MADE FOR DEVELOPERS</span><p>Format, validate, inspect, and transform JSON with practical tools for your daily development workflow.</p></div><div class="footer-actions"><a class="footer-cta" href="../tools.html">Explore tools <span aria-hidden="true">&#8599;</span></a><a class="footer-cta" href="../learn/">Learn JSON <span aria-hidden="true">&#8599;</span></a></div></div>
+<div class="footer-bottom">
+<p class="footer-copyright"><span id="year"></span> RomitJSON. All rights reserved.</p>
+<p class="footer-note">Made with ❤️ for developers.</p>
+<nav class="footer-legal" aria-label="Footer navigation"><a href="../about.html">About</a><a href="../privacy.html">Privacy</a><a href="../contact.html">Contact</a></nav>
+</div>
+</div>
+</footer>
+<script src="../js/formatter.js"></script>
 </body>
 </html>
+
+
+
+
