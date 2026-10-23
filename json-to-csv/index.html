@@ -1,15 +1,160 @@
 <!doctype html>
 <html lang="en">
 <head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>JSON to CSV | RomitJSON</title>
-  <meta name="robots" content="noindex,follow">
-  <link rel="canonical" href="https://romitjson.com/csv.html">
-  <meta http-equiv="refresh" content="0;url=../csv.html">
-  <script>window.location.replace("../csv.html");</script>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>JSON to CSV Converter – Export Data as CSV</title>
+<meta name="description" content="Convert JSON arrays or objects to CSV. Flatten nested fields, choose a delimiter and column order, and decide how arrays appear in each cell.">
+<meta name="author" content="Romit Kr Yadav">
+<meta name="robots" content="index,follow,max-image-preview:large,max-snippet:-1,max-video-preview:-1">
+<link rel="canonical" href="https://romitjson.com/json-to-csv/">
+<meta property="og:type" content="website"><meta property="og:site_name" content="RomitJSON"><meta property="og:title" content="JSON to CSV Converter – Export Data as CSV"><meta property="og:description" content="Convert JSON arrays or objects to CSV. Flatten nested fields, choose a delimiter and column order, and decide how arrays appear in each cell."><meta property="og:url" content="https://romitjson.com/json-to-csv/">
+<meta name="twitter:card" content="summary"><meta name="twitter:title" content="JSON to CSV Converter – Export Data as CSV"><meta name="twitter:description" content="Convert JSON arrays or objects to CSV. Flatten nested fields, choose a delimiter and column order, and decide how arrays appear in each cell.">
+<meta name="theme-color" content="#10b995">
+<meta property="og:locale" content="en_US">
+<link rel="stylesheet" href="../css/style.css">
+<link rel="stylesheet" href="../css/formatter.css">
+<link rel="stylesheet" href="../css/csv.css">
+<link rel="stylesheet" href="../css/tool-seo.css">
+<script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"WebPage","@id":"https://romitjson.com/json-to-csv/#webpage","url":"https://romitjson.com/json-to-csv/","name":"JSON to CSV Converter Online | RomitJSON","description":"Convert JSON arrays or objects to CSV. Flatten nested fields, choose a delimiter and column order, and decide how arrays appear in each cell.","isPartOf":{"@id":"https://romitjson.com/#website"},"inLanguage":"en"},{"@type":"WebApplication","@id":"https://romitjson.com/json-to-csv/#webapp","name":"RomitJSON JSON to CSV Converter","url":"https://romitjson.com/json-to-csv/","applicationCategory":"DeveloperApplication","operatingSystem":"Any","browserRequirements":"Requires JavaScript and a modern web browser.","offers":{"@type":"Offer","price":"0","priceCurrency":"USD"},"description":"Browser-based JSON to CSV converter with options for flattening nested objects, choosing delimiters, and ordering columns."}]}</script>
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-DKWQGJ7VQ6"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-DKWQGJ7VQ6');
+</script><link rel="icon" type="image/svg+xml" href="/favicon.svg">
 </head>
-<body>
-  <p>Opening <a href="../csv.html">JSON to CSV</a> on RomitJSON…</p>
+<body class="dark">
+<header class="site-header"><div class="nav-wrap">
+<a class="brand" href="../index.html#home" aria-label="RomitJSON home"><span class="brand-mark">{ }</span><span>Romit<span class="brand-accent">JSON</span></span></a>
+<nav id="mainNav" aria-label="Main navigation">
+<a href="../index.html#home">Home</a><a href="../datasets/">Datasets</a><a href="../learn/">Learn JSON</a>
+<div class="nav-dropdown"><button class="nav-drop-btn" aria-expanded="false">View &amp; Edit <span>▾</span></button><div class="nav-drop-menu">
+<a href="../json-viewer/"><b class="ndm-green">◉</b><span><strong>JSON Viewer</strong><small>Browse JSON as a tree</small></span></a>
+<a href="../json-tree-viewer/"><b class="ndm-cyan">◈</b><span><strong>JSON Tree Viewer</strong><small>Explore nested JSON</small></span></a>
+<a href="../json-path-finder/"><b class="ndm-blue">$</b><span><strong>JSONPath Finder</strong><small>Find and query data paths</small></span></a>
+<a href="../json-editor/"><b class="ndm-blue">✎</b><span><strong>JSON Editor</strong><small>Edit and inspect JSON</small></span></a></div></div>
+<div class="nav-dropdown"><button class="nav-drop-btn" aria-expanded="false">Validate <span>▾</span></button><div class="nav-drop-menu">
+<a href="../json-validator/"><b class="ndm-green">✓</b><span><strong>JSON Validator</strong><small>Find syntax errors</small></span></a>
+<a href="../json-repair/"><b class="ndm-orange">⌁</b><span><strong>JSON Repair</strong><small>Fix common syntax issues</small></span></a>
+<a href="../json-schema-validator/"><b class="ndm-violet">✓</b><span><strong>JSON Schema Validator</strong><small>Check data against a schema</small></span></a>
+<a href="../json-compare/"><b class="ndm-violet">⇄</b><span><strong>JSON Compare</strong><small>Find document differences</small></span></a></div></div>
+<div class="nav-dropdown"><button class="nav-drop-btn" aria-expanded="false">Convert <span>▾</span></button><div class="nav-drop-menu">
+<a href="../json-to-csv/" aria-current="page"><b class="ndm-violet">{ }</b><span><strong>JSON → CSV</strong><small>Convert arrays to CSV</small></span></a>
+<a href="../json-to-excel/"><b class="ndm-green">XLS</b><span><strong>JSON → Excel</strong><small>Export workbook data</small></span></a>
+<a href="../json-to-sql/"><b class="ndm-orange">SQL</b><span><strong>JSON → SQL</strong><small>Generate table and insert SQL</small></span></a>
+<a href="../json-to-yaml/"><b class="ndm-purple">YML</b><span><strong>JSON → YAML</strong><small>Create YAML data</small></span></a>
+<a href="../json-to-xml/"><b class="ndm-orange">&lt;/&gt;</b><span><strong>JSON → XML</strong><small>Create XML data</small></span></a></div></div>
+<div class="nav-dropdown"><button class="nav-drop-btn" aria-expanded="false">Generate <span>▾</span></button><div class="nav-drop-menu">
+<a href="../json-pretty-printer/"><b class="ndm-cyan">¶</b><span><strong>JSON Pretty Printer</strong><small>Beautify JSON output</small></span></a>
+<a href="../json-to-typescript/"><b class="ndm-blue">TS</b><span><strong>JSON → TypeScript</strong><small>Generate interfaces</small></span></a>
+<a href="../json-to-java/"><b class="ndm-orange">J</b><span><strong>JSON → Java</strong><small>Generate Java model classes</small></span></a>
+<a href="../json-to-python/"><b class="ndm-blue">Py</b><span><strong>JSON → Python</strong><small>Generate Python models</small></span></a>
+<a href="../json-schema-generator/"><b class="ndm-violet">{ }</b><span><strong>JSON Schema Generator</strong><small>Generate a schema from JSON</small></span></a>
+<a href="../json-minifier/"><b class="ndm-red">↘</b><span><strong>JSON Minifier</strong><small>Reduce JSON size</small></span></a></div></div>
+<a href="../tools.html">All tools</a><a href="../about.html">About</a><a href="../contact.html">Contact</a></nav>
+<div class="header-actions"><button class="menu-btn" id="menuBtn" type="button" aria-controls="mainNav" aria-expanded="false">Menu</button></div>
+</div></header>
+<main class="formatter-main csv-main">
+<section class="formatter-intro">
+<label>JSON TOOL / CONVERTER</label>
+<h1>JSON to CSV Converter</h1>
+<p>Convert JSON to CSV online with RomitJSON. Transform JSON records into spreadsheet-ready rows and columns for analysis, reporting, and compatible spreadsheet applications.</p>
+</section>
+<section class="formatter-tool csv-tool" aria-label="JSON to CSV converter">
+<div class="formatter-toolbar csv-toolbar">
+<div class="csv-actions"><button class="secondary-btn" id="openFileBtn" type="button">Open JSON</button><input id="fileInput" type="file" accept=".json,application/json" hidden><button class="secondary-btn" id="sampleBtn" type="button">Sample</button><button class="secondary-btn" id="pasteBtn" type="button">Paste</button><button class="secondary-btn" id="copyInputBtn" type="button">Copy input</button></div>
+<div class="csv-actions"><button class="primary-btn" id="convertBtn" type="button">Convert to CSV</button><button class="secondary-btn" id="clearBtn" type="button">Clear</button></div>
+</div>
+<section class="csv-settings" aria-label="CSV export options">
+<label for="delimiterSelect">Delimiter<select id="delimiterSelect"><option value=",">Comma</option><option value=";">Semicolon</option><option value="\t">Tab</option></select></label>
+<label class="checkbox-row"><input id="headerRow" type="checkbox" checked><span>Header row</span></label>
+<label class="checkbox-row"><input id="flattenNested" type="checkbox" checked><span>Flatten nested objects</span></label>
+<label for="arrayMode">Nested arrays<select id="arrayMode"><option value="stringify">Stringify each value</option><option value="join">Join with ;</option></select></label>
+<label class="checkbox-row"><input id="includeBom" type="checkbox"><span>UTF-8 BOM for Excel</span></label>
+<label class="checkbox-row"><input id="spreadsheetSafe" type="checkbox"><span>Spreadsheet-safe output</span></label>
+<label for="columnOrder">Column order<input id="columnOrder" type="text" placeholder="name,role,active"></label>
+</section>
+<div class="formatter-grid csv-grid">
+<section class="formatter-panel" aria-labelledby="inputTitle"><div class="formatter-panel-head"><h2 id="inputTitle">Input JSON</h2><span id="inputSize">0 characters</span></div><textarea id="jsonInput" spellcheck="false" aria-label="Input JSON" placeholder='Paste an array of objects, for example: [{"name":"Ada","active":true}]'></textarea></section>
+<section class="formatter-panel output-panel" aria-labelledby="outputTitle"><div class="formatter-panel-head"><h2 id="outputTitle">CSV output</h2><div><button class="panel-action" id="copyBtn" type="button" disabled>Copy</button><button class="panel-action" id="downloadBtn" type="button" disabled>Download</button></div></div><div id="csvOutput" class="csv-table-wrap" aria-label="CSV output">Your CSV output will appear here.</div></section>
+</div>
+<dl class="csv-stats" id="csvStats" hidden><div><dt>Rows</dt><dd id="rowCount">0</dd></div><div><dt>Columns</dt><dd id="columnCount">0</dd></div><div><dt>CSV size</dt><dd id="csvSize">0 bytes</dd></div></dl>
+<p class="formatter-status" id="csvStatus" role="status" aria-live="polite">Paste JSON or open a file to begin.</p>
+</section>
+<article class="tool-seo-content" aria-labelledby="csv-guide-title">
+<h2 id="csv-guide-title">Convert JSON to CSV for Spreadsheets and Data Analysis</h2>
+<p>JSON is a natural format for API responses and application data, but spreadsheets work best with rows and columns. This JSON to CSV converter turns a JSON array of records or a single object into a table you can copy or download. You can choose the delimiter, decide how nested values appear, and set the column order before exporting.</p>
+<p>Paste valid JSON or open a <code>.json</code> file, choose the options that fit the application you will use, and select <strong>Convert to CSV</strong>. Check the table preview and row and column counts, then copy the CSV or download it as <code>converted.csv</code>. Conversion happens in your browser; the JSON is not uploaded for conversion.</p>
+
+<h2>How to Convert JSON to CSV</h2>
+<ol><li>Paste JSON into the input box, choose <strong>Open JSON</strong>, or use the sample to see the output format.</li><li>Choose a delimiter: comma, semicolon, or tab.</li><li>Set whether to include a header row and flatten nested objects. Choose how arrays should appear in a cell.</li><li>Optionally add a preferred column order, enable the UTF-8 BOM for Excel, or turn on spreadsheet-safe output.</li><li>Select <strong>Convert to CSV</strong>. Review the preview, then copy or download the result.</li></ol>
+<p>The input must be valid JSON. If conversion stops with a syntax error, use the <a href="../json-validator/">JSON Validator</a> to locate formatting problems before trying again.</p>
+
+<h2>Example: Flattening Nested JSON into CSV</h2>
+<p>For an array of support tickets, each object becomes a row. With <strong>Flatten nested objects</strong> enabled, fields inside an object become columns with dotted names:</p>
+<h3>Input JSON</h3>
+<pre><code>[
+  {"id": 1042, "status": "open", "customer": {"name": "Mina Patel", "city": "Pune"}},
+  {"id": 1043, "status": "closed", "customer": {"name": "Luis Chen", "city": "Austin"}}
+]</code></pre>
+<h3>CSV output</h3>
+<pre><code>id,status,customer.name,customer.city
+1042,open,Mina Patel,Pune
+1043,closed,Luis Chen,Austin</code></pre>
+<p>This layout makes nested values easy to filter or sort in a spreadsheet. If you turn flattening off, the nested customer object is kept as JSON text inside one cell instead.</p>
+
+<h2>What Happens to Different JSON Values?</h2>
+<h3>Arrays of objects</h3>
+<p>An array of objects is the most convenient shape for a table: each item becomes a row, and the properties found across the records become columns. If one record lacks a property that another has, the corresponding CSV cell is blank. A standalone object is treated as one data row.</p>
+<h3>Nested objects</h3>
+<p>Flattening turns nested paths into column names, such as <code>customer.city</code>. This is useful when you need to work with individual fields. If you need to preserve the nested structure in a cell, switch flattening off; the object is then written as JSON text. CSV cannot preserve JSON nesting as a table structure, so consider whether the destination can accept a flattened representation.</p>
+<h3>Arrays inside a record</h3>
+<p>Nested arrays stay in a single cell; they do not create extra rows or columns. <strong>Stringify each value</strong> keeps the array in JSON notation, for example <code>["email","phone"]</code>. <strong>Join with ;</strong> puts its items into one semicolon-separated value. Joining is convenient for simple lists, but if an item itself contains a semicolon, the result can be ambiguous. Keep the JSON-stringified option when preserving the array boundaries matters.</p>
+<h3>Nulls, missing keys, and inconsistent records</h3>
+<p>Null values and missing properties appear as empty cells. The converter builds its headers from keys found in the records, so records with different fields still line up under one set of columns. An empty array or a structure with no exportable fields produces no CSV table.</p>
+
+<h2>Choose CSV Options for the Destination</h2>
+<ul>
+<li><strong>Delimiter:</strong> Use comma for standard CSV, semicolon for software configured to use it as a list separator, or tab when you need tab-separated text.</li>
+<li><strong>Header row:</strong> Keep it on when column names will help you or the receiving system identify fields. Turn it off when the destination expects data rows only.</li>
+<li><strong>Column order:</strong> Enter existing header names separated by commas or new lines, such as <code>id,customer.name,status</code>. Listed columns move to the front; other columns follow in their original discovery order. Names must match the generated headers.</li>
+<li><strong>UTF-8 BOM for Excel:</strong> Add a byte order mark that can help some Excel versions detect UTF-8 text when opening a CSV. If text still looks incorrect, import the file and select UTF-8 as the encoding.</li>
+<li><strong>Spreadsheet-safe output:</strong> Prefixes string values beginning with whitespace, <code>=</code>, <code>+</code>, <code>-</code>, or <code>@</code> with an apostrophe. This can reduce the chance that spreadsheet software interprets those strings as formulas. It changes the exported text, so review it before using the CSV in another system.</li>
+</ul>
+<p>Fields containing the selected delimiter, a quotation mark, or a line break are enclosed in double quotes; quotation marks inside those fields are doubled. This keeps ordinary CSV records readable by compatible importers. Still, check the preview when your destination has a strict import format.</p>
+
+<h2>Before You Import the CSV</h2>
+<p>CSV is a table, not a complete copy of the original JSON. It does not carry JSON types such as number, boolean, or null in a way every spreadsheet will preserve, and nested structures need to be flattened or stored as text. Spreadsheet applications may also remove leading zeros, reformat long numbers, recognize dates, or interpret formula-like values. For identifiers such as postal codes, account numbers, or IDs, import the relevant columns as text if their exact characters must remain unchanged.</p>
+<p>For large files, the file picker accepts JSON files up to 50 MiB. Large inputs can still take time and memory to parse in a browser. If a file is too large to handle comfortably, split it into smaller records before converting.</p>
+
+<h2>Frequently Asked Questions</h2>
+<details><summary>Can I convert a single JSON object to CSV?</summary><p>Yes. The object becomes one data row. With the header-row option on, its property names appear in the first CSV row.</p></details>
+<details><summary>How are CSV columns chosen?</summary><p>The converter collects property names across the input records. With nested-object flattening enabled, nested paths become headers such as <code>customer.city</code>. You can move known columns to the front with the Column order field.</p></details>
+<details><summary>Can I convert nested JSON to CSV without losing the full object?</summary><p>You can keep a nested object as JSON text in a cell by turning off flattening. This preserves its contents as text, though spreadsheet software may treat the cell as a string rather than a structured object.</p></details>
+<details><summary>Will the CSV open correctly in Excel?</summary><p>Excel can open or import CSV files. The UTF-8 BOM option may help some versions display non-English text correctly. During import, check encoding and set identifier columns to text to avoid unwanted reformatting.</p></details>
+<details><summary>Does the converter upload my JSON?</summary><p>No. The conversion runs in your browser, and the input is not uploaded for conversion. Avoid pasting sensitive data into any page unless you are comfortable with its privacy practices; see the <a href="../privacy.html">RomitJSON privacy information</a>.</p></details>
+<details><summary>Why are some values surrounded by quotation marks?</summary><p>A field is quoted when it contains the selected delimiter, a quotation mark, or a line break. Any quotation mark inside that field is doubled so compatible CSV readers can parse it.</p></details>
+
+<h2>Related JSON Tools</h2>
+<p>Use the <a href="../json-formatter/">JSON Formatter</a> to make JSON easier to read, the <a href="../json-validator/">JSON Validator</a> to check syntax, the <a href="../json-viewer/">JSON Viewer</a> to inspect nested data, or <a href="../json-compare/">JSON Compare</a> to identify differences between two documents.</p>
+</article>
+</main>
+<footer class="site-footer">
+<div class="footer-inner"><div class="footer-link-grid">
+<section class="footer-column" aria-labelledby="footer-tools-title"><h2 id="footer-tools-title">JSON TOOLS</h2><a href="../json-formatter/">JSON Formatter</a><a href="../json-pretty-printer/">JSON Pretty Printer</a><a href="../json-validator/">JSON Validator</a><a href="../json-repair/">JSON Repair</a><a href="../json-schema-validator/">JSON Schema Validator</a><a href="../json-schema-generator/">JSON Schema Generator</a><a href="../json-viewer/">JSON Viewer</a><a href="../json-tree-viewer/">JSON Tree Viewer</a><a href="../json-path-finder/">JSONPath Finder</a><a href="../json-editor/">JSON Editor</a><a class="footer-all-link" href="../tools.html">All tools <span aria-hidden="true">&#8599;</span></a></section>
+<section class="footer-column" aria-labelledby="footer-converters-title"><h2 id="footer-converters-title">CONVERTERS</h2><a href="../json-to-csv/" aria-current="page">JSON to CSV</a><a href="../json-to-excel/">JSON to Excel</a><a href="../json-to-sql/">JSON to SQL</a><a href="../json-to-yaml/">JSON to YAML</a><a href="../json-to-xml/">JSON to XML</a><a href="../json-to-typescript/">JSON to TypeScript</a><a href="../json-to-java/">JSON to Java</a><a href="../json-to-python/">JSON to Python</a><a class="footer-all-link" href="../tools.html">All tools <span aria-hidden="true">&#8599;</span></a></section>
+<section class="footer-column" aria-labelledby="footer-more-title"><h2 id="footer-more-title">MORE TOOLS</h2><a href="../json-minifier/">JSON Minifier</a><a href="../json-compare/">JSON Compare</a><a class="footer-all-link" href="../tools.html">All tools <span aria-hidden="true">&#8599;</span></a></section>
+<section class="footer-column" aria-labelledby="footer-learn-title"><h2 id="footer-learn-title">LEARN</h2><a href="../learn/">Learn JSON tutorials</a><a href="../faq.html">Frequently asked questions</a><a href="../about.html">About RomitJSON</a></section>
+<section class="footer-column" aria-labelledby="footer-company-title"><h2 id="footer-company-title">COMPANY</h2><a href="../contact.html">Contact</a><a href="../privacy.html">Privacy policy</a></section>
+</div>
+<div class="footer-about"><div><span class="footer-eyebrow">MADE FOR DEVELOPERS</span><p>Format, validate, inspect, and transform JSON with practical tools for your daily development workflow.</p></div><div class="footer-actions"><a class="footer-cta" href="../tools.html">Explore tools <span aria-hidden="true">&#8599;</span></a><a class="footer-cta" href="../learn/">Learn JSON <span aria-hidden="true">&#8599;</span></a></div></div>
+<div class="footer-bottom"><p class="footer-copyright">&copy; <span id="year"></span> RomitJSON. All rights reserved.</p><p class="footer-note">Made with &#10084; for developers.</p><nav class="footer-legal" aria-label="Footer navigation"><a href="../about.html">About</a><a href="../privacy.html">Privacy</a><a href="../contact.html">Contact</a></nav></div>
+</div></footer>
+<script src="../js/csv.js"></script>
 </body>
 </html>
+
+
