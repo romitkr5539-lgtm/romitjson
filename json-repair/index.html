@@ -1,15 +1,186 @@
 <!doctype html>
 <html lang="en">
 <head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>JSON Repair | RomitJSON</title>
-  <meta name="robots" content="noindex,follow">
-  <link rel="canonical" href="https://romitjson.com/repair.html">
-  <meta http-equiv="refresh" content="0;url=../repair.html">
-  <script>window.location.replace("../repair.html");</script>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>JSON Repair Tool – Fix Common JSON Errors</title>
+<meta name="description" content="Repair JSON-like text by removing comments, fixing quotes and unquoted keys, trimming trailing commas, and closing unmatched brackets. Review each change.">
+<meta name="author" content="Romit Kr Yadav">
+<meta name="robots" content="index,follow,max-image-preview:large,max-snippet:-1,max-video-preview:-1">
+<link rel="canonical" href="https://romitjson.com/json-repair/">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="RomitJSON">
+<meta property="og:title" content="JSON Repair Tool – Fix Common JSON Errors">
+<meta property="og:description" content="Repair JSON-like text by removing comments, fixing quotes and unquoted keys, trimming trailing commas, and closing unmatched brackets. Review each change.">
+<meta property="og:url" content="https://romitjson.com/json-repair/">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="JSON Repair Tool – Fix Common JSON Errors">
+<meta name="twitter:description" content="Repair JSON-like text by removing comments, fixing quotes and unquoted keys, trimming trailing commas, and closing unmatched brackets. Review each change.">
+<meta name="theme-color" content="#10b995">
+<meta property="og:locale" content="en_US">
+<link rel="stylesheet" href="../css/style.css">
+<link rel="stylesheet" href="../css/formatter.css">
+<link rel="stylesheet" href="../css/json-repair.css">
+<link rel="stylesheet" href="../css/tool-seo.css">
+<script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"WebPage","@id":"https://romitjson.com/json-repair/#webpage","url":"https://romitjson.com/json-repair/","name":"JSON Repair Tool Online – Fix Common JSON Errors | RomitJSON","description":"Repair JSON-like text by removing comments, fixing quotes and unquoted keys, trimming trailing commas, and closing unmatched brackets. Review each change.","isPartOf":{"@id":"https://romitjson.com/#website"},"inLanguage":"en"},{"@type":"WebApplication","@id":"https://romitjson.com/json-repair/#webapp","name":"RomitJSON JSON Repair","url":"https://romitjson.com/json-repair/","applicationCategory":"DeveloperApplication","operatingSystem":"Any","browserRequirements":"Requires JavaScript and a modern web browser.","offers":{"@type":"Offer","price":"0","priceCurrency":"USD"},"description":"Browser-based repair tool for selected JSON-like syntax errors, with a list of corrections."}]}</script>
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-DKWQGJ7VQ6"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-DKWQGJ7VQ6');
+</script><link rel="icon" type="image/svg+xml" href="/favicon.svg">
 </head>
-<body>
-  <p>Opening <a href="../repair.html">JSON Repair</a> on RomitJSON…</p>
+<body class="dark">
+<header class="site-header"><div class="nav-wrap">
+<a class="brand" href="../index.html#home" aria-label="RomitJSON home"><span class="brand-mark">{ }</span><span>Romit<span class="brand-accent">JSON</span></span></a>
+<nav id="mainNav" aria-label="Main navigation">
+<a href="../index.html#home">Home</a>
+<a href="../datasets/">Datasets</a>
+<a href="../learn/">Learn JSON</a>
+<div class="nav-dropdown"><button class="nav-drop-btn" aria-expanded="false">View &amp; Edit <span>▾</span></button><div class="nav-drop-menu">
+<a href="../json-viewer/"><b class="ndm-green">◉</b><span><strong>JSON Viewer</strong><small>Browse JSON as a tree</small></span></a>
+<a href="../json-tree-viewer/"><b class="ndm-cyan">◈</b><span><strong>JSON Tree Viewer</strong><small>Explore nested JSON</small></span></a>
+<a href="../json-path-finder/"><b class="ndm-blue">$</b><span><strong>JSONPath Finder</strong><small>Find and query data paths</small></span></a>
+<a href="../json-editor/"><b class="ndm-blue">✎</b><span><strong>JSON Editor</strong><small>Edit and inspect JSON</small></span></a></div></div>
+<div class="nav-dropdown"><button class="nav-drop-btn" aria-expanded="false">Validate <span>▾</span></button><div class="nav-drop-menu">
+<a href="../json-validator/"><b class="ndm-green">✓</b><span><strong>JSON Validator</strong><small>Find syntax errors</small></span></a>
+<a href="../json-repair/" aria-current="page"><b class="ndm-orange">⌁</b><span><strong>JSON Repair</strong><small>Fix common syntax issues</small></span></a>
+<a href="../json-schema-validator/"><b class="ndm-violet">✓</b><span><strong>JSON Schema Validator</strong><small>Check data against a schema</small></span></a>
+<a href="../json-compare/"><b class="ndm-violet">⇄</b><span><strong>JSON Compare</strong><small>Find document differences</small></span></a></div></div>
+<div class="nav-dropdown"><button class="nav-drop-btn" aria-expanded="false">Convert <span>▾</span></button><div class="nav-drop-menu">
+<a href="../json-to-csv/"><b class="ndm-violet">{ }</b><span><strong>JSON → CSV</strong><small>Convert arrays to CSV</small></span></a>
+<a href="../json-to-excel/"><b class="ndm-green">XLS</b><span><strong>JSON → Excel</strong><small>Export workbook data</small></span></a>
+<a href="../json-to-sql/"><b class="ndm-orange">SQL</b><span><strong>JSON → SQL</strong><small>Generate table and insert SQL</small></span></a>
+<a href="../json-to-yaml/"><b class="ndm-purple">YML</b><span><strong>JSON → YAML</strong><small>Create YAML data</small></span></a>
+<a href="../json-to-xml/"><b class="ndm-orange">&lt;/&gt;</b><span><strong>JSON → XML</strong><small>Create XML data</small></span></a></div></div>
+<div class="nav-dropdown"><button class="nav-drop-btn" aria-expanded="false">Generate <span>▾</span></button><div class="nav-drop-menu">
+<a href="../json-pretty-printer/"><b class="ndm-cyan">¶</b><span><strong>JSON Pretty Printer</strong><small>Beautify JSON output</small></span></a>
+<a href="../json-to-typescript/"><b class="ndm-blue">TS</b><span><strong>JSON → TypeScript</strong><small>Generate interfaces</small></span></a>
+<a href="../json-to-java/"><b class="ndm-orange">J</b><span><strong>JSON → Java</strong><small>Generate Java model classes</small></span></a>
+<a href="../json-to-python/"><b class="ndm-blue">Py</b><span><strong>JSON → Python</strong><small>Generate Python models</small></span></a>
+<a href="../json-schema-generator/"><b class="ndm-violet">{ }</b><span><strong>JSON Schema Generator</strong><small>Generate a schema from JSON</small></span></a>
+<a href="../json-minifier/"><b class="ndm-red">↘</b><span><strong>JSON Minifier</strong><small>Reduce JSON size</small></span></a></div></div>
+<a href="../tools.html">All tools</a>
+<a href="../about.html">About</a><a href="../contact.html">Contact</a></nav>
+<div class="header-actions"><button class="menu-btn" id="menuBtn" type="button" aria-controls="mainNav" aria-expanded="false">Menu</button></div>
+</div></header>
+
+<main class="repair-main">
+  <section class="formatter-intro">
+    <label>JSON TOOL / REPAIR</label>
+    <h1>JSON Repair Tool Online</h1>
+    <p>Fix common JSON syntax mistakes and inspect the repaired result. Repairs run locally in your browser, and the tool lists the changes it made.</p>
+  </section>
+
+  <section class="repair-tool" aria-label="JSON repair tool">
+    <div class="repair-toolbar">
+      <div class="repair-actions">
+        <button class="secondary-btn" id="sampleBtn" type="button">Load sample</button>
+        <button class="secondary-btn" id="openFileBtn" type="button">Open JSON</button>
+        <input id="fileInput" type="file" accept=".json,application/json" hidden>
+      </div>
+      <div class="repair-actions">
+        <button class="primary-btn" id="repairBtn" type="button">Repair JSON</button>
+        <button class="secondary-btn" id="clearBtn" type="button">Clear</button>
+      </div>
+    </div>
+    <div class="repair-grid">
+      <section class="repair-panel" aria-labelledby="inputTitle">
+        <div class="repair-panel-head"><h2 id="inputTitle">Input JSON</h2></div>
+        <textarea id="jsonInput" spellcheck="false" aria-label="Input JSON" placeholder="Paste JSON or JSON-like text here"></textarea>
+      </section>
+      <section class="repair-panel" aria-labelledby="outputTitle">
+        <div class="repair-panel-head">
+          <h2 id="outputTitle">Repaired JSON</h2>
+          <div><button class="panel-action" id="copyBtn" type="button" disabled>Copy</button><button class="panel-action" id="downloadBtn" type="button" disabled>Download .json</button></div>
+        </div>
+        <pre id="jsonOutput" aria-label="Repaired JSON output">Repaired JSON will appear here.</pre>
+      </section>
+    </div>
+    <section class="repair-changes" aria-labelledby="changesTitle">
+      <h2 id="changesTitle">Repair details</h2>
+      <ul id="changeList"><li>No repairs performed yet.</li></ul>
+    </section>
+    <p id="repairStatus" class="repair-status" role="status" aria-live="polite">Paste JSON or open a file to begin.</p>
+  </section>
+
+  <article class="tool-seo-content" aria-labelledby="repair-guide-title">
+<h2 id="repair-guide-title">Repair Common JSON Syntax Mistakes</h2>
+<p>JSON is strict about quotes, commas, and delimiters, so a small formatting mistake can stop an otherwise useful payload from parsing. This JSON Repair tool applies a short list of clear syntax corrections to JSON-like text, then checks the result with a JSON parser. It shows the changes it made so you can review the repaired document before copying or downloading it.</p>
+<p>Paste the text or open a local <code>.json</code> file and select <strong>Repair JSON</strong>. If the input is already valid, the tool reports that no repair was needed. If the remaining text cannot be parsed, it shows an error instead of presenting it as repaired JSON.</p>
+
+<h2>What This JSON Repair Tool Can Fix</h2>
+<div class="tool-seo-table-wrap"><table class="tool-seo-table"><thead><tr><th scope="col">Input issue</th><th scope="col">Repair applied</th><th scope="col">Example</th></tr></thead><tbody>
+<tr><th scope="row">Comments</th><td>Removes line and block comments outside quoted strings</td><td><code>// note</code> or <code>/* note */</code></td></tr>
+<tr><th scope="row">Single-quoted strings</th><td>Converts single-quoted strings to JSON double quotes</td><td><code>{'name': 'Asha'}</code> becomes <code>{"name":"Asha"}</code></td></tr>
+<tr><th scope="row">Unquoted object keys</th><td>Adds quotes around recognizable bare keys followed by a colon</td><td><code>{name: "Asha"}</code> becomes <code>{"name":"Asha"}</code></td></tr>
+<tr><th scope="row">Trailing commas</th><td>Removes a comma immediately before a closing brace or bracket</td><td><code>[1, 2,]</code> becomes <code>[1, 2]</code></td></tr>
+<tr><th scope="row">Unmatched opening delimiters at the end</th><td>Adds closing braces or brackets when their order is consistent</td><td><code>{"items": [1, 2</code> can be closed as <code>{"items": [1, 2]}</code></td></tr>
+<tr><th scope="row">Leading byte-order mark</th><td>Removes a leading BOM before parsing</td><td>Useful when a text file begins with a byte-order mark</td></tr>
+</tbody></table></div>
+
+<h2>Example: Repair a Truncated JSON-Like Snippet</h2>
+<p>Suppose a response ends before its brackets are closed and uses JavaScript-style comments, an unquoted key, and single quotes:</p>
+<pre><code>{
+  // display preference
+  theme: 'dark',
+  tabs: ['home', 'profile',
+</code></pre>
+<p>The tool removes the comment, quotes the key and strings, closes the unmatched array and object, then checks whether the result parses. The repair details list the corrections; the formatted output shows the repaired text. The tool does not invent missing fields or decide whether <code>"dark"</code> is the right value for your application.</p>
+
+<h2>How to Repair Invalid JSON</h2>
+<ol>
+<li>Paste JSON-like text into <strong>Input JSON</strong>, select <strong>Open JSON</strong> to choose a file, or load the sample.</li>
+<li>Select <strong>Repair JSON</strong>.</li>
+<li>Review <strong>Repair details</strong> to see which correction types were applied.</li>
+<li>Check the formatted result against the original data and your application’s expectations.</li>
+<li>Copy or download the repaired JSON only after confirming that it says what you intend.</li>
+</ol>
+<p>The output is formatted with indentation after it passes JSON parsing. Formatting makes the result easier to read, but it does not validate required fields, data types, or business rules.</p>
+
+<h2>What It Cannot Safely Guess</h2>
+<p>This is a syntax repair tool, not a general-purpose recovery system. It does not add missing commas or values, finish an unterminated string, reorder mismatched braces, extract JSON from surrounding prose or Markdown fences, or convert Python values such as <code>True</code>, <code>False</code>, and <code>None</code>. Those cases can be ambiguous: a missing comma may leave several possible interpretations, and an incomplete string may have lost meaningful data.</p>
+<p>If the tool cannot produce text accepted by the JSON parser, check the reported error and correct the remaining issue manually. After repair, compare important output with the source; changing quote styles or removing comments can affect how JSON-like text is interpreted.</p>
+
+<h2>JSON Repair vs. JSON Validation</h2>
+<p>A <a href="../json-validator/">JSON Validator</a> checks whether text is already valid JSON and helps identify syntax errors. A repair tool attempts a defined set of corrections and shows the resulting changes. Use repair when the input contains supported JSON-like syntax; use validation when you want to check a document without changing it. A valid JSON document can still have the wrong structure for your application, which requires a schema or application-specific checks.</p>
+
+<h2>Privacy and Input Limit</h2>
+<p>Input can be up to 10 MiB. The repair logic runs in your browser without a third-party repair library, and the page does not upload the input to RomitJSON. Avoid entering passwords, access tokens, private keys, or confidential records into online tools unless their handling fits your requirements.</p>
+
+<h2>Frequently Asked Questions</h2>
+<details><summary>Will this tool repair every invalid JSON file?</summary><p>No. It handles a specific set of syntax issues: comments, single-quoted strings, recognizable unquoted keys, trailing commas, a leading BOM, and unmatched opening braces or brackets at the end. Other errors may need manual correction.</p></details>
+<details><summary>Can it add missing commas or values?</summary><p>No. The tool does not guess where a missing comma belongs or what a missing value should be. Review the error and edit the input when a repair would require guessing.</p></details>
+<details><summary>Does JSON Repair change my data?</summary><p>It can change how JSON-like text is interpreted when it converts quotes or removes comments. Review the listed corrections and compare the output with your intended data before using it.</p></details>
+<details><summary>What happens if my JSON is already valid?</summary><p>The tool reports that no repair was needed and returns a formatted version of the parsed JSON.</p></details>
+<details><summary>Does repair confirm that the data is correct for my app?</summary><p>No. It confirms only that the repaired output parses as JSON. Use a schema or application checks to validate required fields and values.</p></details>
+
+<h2>Related JSON Tools</h2>
+<p>Use the <a href="../json-validator/">JSON Validator</a> to check syntax without editing the input, the <a href="../json-formatter/">JSON Formatter</a> to make valid JSON easier to read, or the <a href="../json-schema-validator/">JSON Schema Validator</a> to check data against a schema.</p>
+</article>
+</main>
+
+<footer class="site-footer">
+<div class="footer-inner">
+<div class="footer-link-grid">
+<section class="footer-column" aria-labelledby="footer-tools-title"><h2 id="footer-tools-title">JSON TOOLS</h2><a href="../json-formatter/">JSON Formatter</a><a href="../json-pretty-printer/">JSON Pretty Printer</a><a href="../json-validator/">JSON Validator</a><a href="../json-repair/" aria-current="page">JSON Repair</a><a href="../json-schema-validator/">JSON Schema Validator</a><a href="../json-schema-generator/">JSON Schema Generator</a><a href="../json-viewer/">JSON Viewer</a><a href="../json-tree-viewer/">JSON Tree Viewer</a><a href="../json-path-finder/">JSONPath Finder</a><a href="../json-editor/">JSON Editor</a><a class="footer-all-link" href="../tools.html">All tools <span aria-hidden="true">&#8599;</span></a></section>
+<section class="footer-column" aria-labelledby="footer-converters-title"><h2 id="footer-converters-title">CONVERTERS</h2><a href="../json-to-csv/">JSON to CSV</a><a href="../json-to-excel/">JSON to Excel</a><a href="../json-to-sql/">JSON to SQL</a><a href="../json-to-yaml/">JSON to YAML</a><a href="../json-to-xml/">JSON to XML</a><a href="../json-to-typescript/">JSON to TypeScript</a><a href="../json-to-java/">JSON to Java</a><a href="../json-to-python/">JSON to Python</a><a class="footer-all-link" href="../tools.html">All tools <span aria-hidden="true">&#8599;</span></a></section>
+<section class="footer-column" aria-labelledby="footer-more-title"><h2 id="footer-more-title">MORE TOOLS</h2><a href="../json-minifier/">JSON Minifier</a><a href="../json-compare/">JSON Compare</a><a class="footer-all-link" href="../tools.html">All tools <span aria-hidden="true">&#8599;</span></a></section>
+<section class="footer-column" aria-labelledby="footer-learn-title"><h2 id="footer-learn-title">LEARN</h2><a href="../learn/">Learn JSON tutorials</a><a href="../faq.html">Frequently asked questions</a><a href="../about.html">About RomitJSON</a></section>
+<section class="footer-column" aria-labelledby="footer-company-title"><h2 id="footer-company-title">COMPANY</h2><a href="../contact.html">Contact</a><a href="../privacy.html">Privacy policy</a></section>
+</div>
+<div class="footer-about"><div><span class="footer-eyebrow">MADE FOR DEVELOPERS</span><p>Format, validate, inspect, and transform JSON with practical tools for your daily development workflow.</p></div><div class="footer-actions"><a class="footer-cta" href="../tools.html">Explore tools <span aria-hidden="true">&#8599;</span></a><a class="footer-cta" href="../learn/">Learn JSON <span aria-hidden="true">&#8599;</span></a></div></div>
+<div class="footer-bottom">
+<p class="footer-copyright"><span id="year"></span> RomitJSON. All rights reserved.</p>
+<p class="footer-note">Made with ❤️ for developers.</p>
+<nav class="footer-legal" aria-label="Footer navigation"><a href="../about.html">About</a><a href="../privacy.html">Privacy</a><a href="../contact.html">Contact</a></nav>
+</div>
+</div>
+</footer>
+<script src="../js/json-repair.js"></script>
 </body>
 </html>
+
+
