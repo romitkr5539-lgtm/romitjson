@@ -1,15 +1,170 @@
 <!doctype html>
 <html lang="en">
 <head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>JSON to XML | RomitJSON</title>
-  <meta name="robots" content="noindex,follow">
-  <link rel="canonical" href="https://romitjson.com/xml.html">
-  <meta http-equiv="refresh" content="0;url=../xml.html">
-  <script>window.location.replace("../xml.html");</script>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>JSON to XML Converter Online</title>
+<meta name="description" content="Convert JSON to typed XML online. Choose a root element, indentation, and XML declaration, then preview, copy, or download the result after XML parsing.">
+<meta name="robots" content="index,follow">
+<link rel="canonical" href="https://romitjson.com/json-to-xml/">
+<meta property="og:type" content="website"><meta property="og:site_name" content="RomitJSON"><meta property="og:locale" content="en_US"><meta property="og:title" content="JSON to XML Converter Online"><meta property="og:description" content="Convert JSON to typed XML online. Choose a root element, indentation, and XML declaration, then preview, copy, or download the result after XML parsing."><meta property="og:url" content="https://romitjson.com/json-to-xml/">
+<meta name="twitter:card" content="summary"><meta name="twitter:title" content="JSON to XML Converter Online"><meta name="twitter:description" content="Convert JSON to typed XML online. Choose a root element, indentation, and XML declaration, then preview, copy, or download the result after XML parsing.">
+<meta name="theme-color" content="#071613">
+<link rel="stylesheet" href="../css/style.css">
+<link rel="stylesheet" href="../css/formatter.css">
+<link rel="stylesheet" href="../css/xml.css">
+<link rel="stylesheet" href="../css/tool-seo.css">
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-DKWQGJ7VQ6"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-DKWQGJ7VQ6');
+</script><link rel="icon" type="image/svg+xml" href="/favicon.svg">
 </head>
-<body>
-  <p>Opening <a href="../xml.html">JSON to XML</a> on RomitJSON…</p>
+<body class="dark">
+<header class="site-header"><div class="nav-wrap">
+<a class="brand" href="../index.html#home" aria-label="RomitJSON home"><span class="brand-mark">{ }</span><span>Romit<span class="brand-accent">JSON</span></span></a>
+<nav id="mainNav" aria-label="Main navigation">
+<a href="../index.html#home">Home</a>
+<a href="../datasets/">Datasets</a>
+<a href="../learn/">Learn JSON</a>
+<div class="nav-dropdown"><button class="nav-drop-btn" aria-expanded="false">View &amp; Edit <span>▾</span></button><div class="nav-drop-menu">
+<a href="../json-viewer/"><b class="ndm-green">◉</b><span><strong>JSON Viewer</strong><small>Browse JSON as a tree</small></span></a>
+<a href="../json-tree-viewer/"><b class="ndm-cyan">◈</b><span><strong>JSON Tree Viewer</strong><small>Explore nested JSON</small></span></a>
+<a href="../json-path-finder/"><b class="ndm-blue">$</b><span><strong>JSONPath Finder</strong><small>Find and query data paths</small></span></a>
+<a href="../json-editor/"><b class="ndm-blue">✎</b><span><strong>JSON Editor</strong><small>Edit and inspect JSON</small></span></a></div></div>
+<div class="nav-dropdown"><button class="nav-drop-btn" aria-expanded="false">Validate <span>▾</span></button><div class="nav-drop-menu">
+<a href="../json-validator/"><b class="ndm-green">✓</b><span><strong>JSON Validator</strong><small>Find syntax errors</small></span></a>
+<a href="../json-repair/"><b class="ndm-orange">⌁</b><span><strong>JSON Repair</strong><small>Fix common syntax issues</small></span></a>
+<a href="../json-schema-validator/"><b class="ndm-violet">✓</b><span><strong>JSON Schema Validator</strong><small>Check data against a schema</small></span></a>
+<a href="../json-compare/"><b class="ndm-violet">⇄</b><span><strong>JSON Compare</strong><small>Find document differences</small></span></a></div></div>
+<div class="nav-dropdown"><button class="nav-drop-btn" aria-expanded="false">Convert <span>▾</span></button><div class="nav-drop-menu">
+<a href="../json-to-csv/"><b class="ndm-violet">{ }</b><span><strong>JSON → CSV</strong><small>Convert arrays to CSV</small></span></a>
+<a href="../json-to-excel/"><b class="ndm-green">XLS</b><span><strong>JSON → Excel</strong><small>Export workbook data</small></span></a>
+<a href="../json-to-sql/"><b class="ndm-orange">SQL</b><span><strong>JSON → SQL</strong><small>Generate table and insert SQL</small></span></a>
+<a href="../json-to-yaml/"><b class="ndm-purple">YML</b><span><strong>JSON → YAML</strong><small>Create YAML data</small></span></a>
+<a class="active" href="../json-to-xml/" aria-current="page"><b class="ndm-orange">&lt;/&gt;</b><span><strong>JSON → XML</strong><small>Create XML data</small></span></a></div></div>
+<div class="nav-dropdown"><button class="nav-drop-btn" aria-expanded="false">Generate <span>▾</span></button><div class="nav-drop-menu">
+<a href="../json-pretty-printer/"><b class="ndm-cyan">¶</b><span><strong>JSON Pretty Printer</strong><small>Beautify JSON output</small></span></a>
+<a href="../json-to-typescript/"><b class="ndm-blue">TS</b><span><strong>JSON → TypeScript</strong><small>Generate interfaces</small></span></a>
+<a href="../json-to-java/"><b class="ndm-orange">J</b><span><strong>JSON → Java</strong><small>Generate Java model classes</small></span></a>
+<a href="../json-to-python/"><b class="ndm-blue">Py</b><span><strong>JSON → Python</strong><small>Generate Python models</small></span></a>
+<a href="../json-schema-generator/"><b class="ndm-violet">{ }</b><span><strong>JSON Schema Generator</strong><small>Generate a schema from JSON</small></span></a>
+<a href="../json-minifier/"><b class="ndm-red">↘</b><span><strong>JSON Minifier</strong><small>Reduce JSON size</small></span></a></div></div>
+<a href="../tools.html">All tools</a>
+<a href="../about.html">About</a><a href="../contact.html">Contact</a></nav>
+<div class="header-actions"><button class="menu-btn" id="menuBtn" type="button" aria-controls="mainNav" aria-expanded="false">Menu</button></div>
+</div></header>
+<main class="formatter-main xml-main">
+<section class="formatter-intro">
+<label>JSON TOOL / CONVERTER</label>
+<h1>JSON to XML Converter</h1>
+<p>Convert JSON objects, arrays, and values into typed XML for data exchange, integrations, and applications that support this mapping.</p>
+<nav class="xml-related" aria-label="Related JSON tools"><a href="../json-formatter/">JSON Formatter</a><a href="../json-validator/">JSON Validator</a></nav>
+</section>
+<section class="formatter-tool xml-tool" aria-label="JSON to XML converter">
+<div class="formatter-toolbar xml-toolbar">
+<label class="root-setting" for="rootName"><span>Root element</span><input id="rootName" type="text" value="root" maxlength="80" autocomplete="off" aria-describedby="rootHelp"></label>
+<div class="xml-actions"><button class="secondary-btn" id="openFileBtn" type="button">Open JSON</button><input id="fileInput" type="file" accept=".json,application/json" hidden><button class="secondary-btn" id="pasteBtn" type="button">Paste</button><button class="secondary-btn" id="sampleBtn" type="button">Sample</button></div>
+<div class="xml-actions"><button class="primary-btn" id="convertBtn" type="button">Convert to XML</button><button class="secondary-btn" id="clearBtn" type="button">Clear</button></div>
+</div>
+<p class="xml-root-help" id="rootHelp">Use a letter or underscore first, followed by letters, numbers, dots, hyphens or underscores. Names beginning with XML are reserved.</p>
+<div class="xml-settings" aria-label="XML output options">
+<label for="indentWidth">Indentation<select id="indentWidth"><option value="2" selected>2 spaces</option><option value="4">4 spaces</option></select></label>
+<label class="xml-check"><input id="prettyPrint" type="checkbox" checked><span>Pretty print</span></label>
+<label class="xml-check"><input id="xmlDeclaration" type="checkbox" checked><span>XML declaration</span></label>
+</div>
+<div class="formatter-grid xml-grid">
+<section class="formatter-panel xml-input-panel" aria-labelledby="inputTitle"><div class="formatter-panel-head"><h2 id="inputTitle">Input JSON</h2><span id="inputSize">0 characters</span></div><span class="xml-file-name" id="inputFileName" aria-live="polite"></span><textarea id="jsonInput" spellcheck="false" aria-label="Input JSON" placeholder='Paste JSON here, for example: {"name":"RomitJSON"}'></textarea></section>
+<section class="formatter-panel output-panel" aria-labelledby="outputTitle"><div class="formatter-panel-head"><h2 id="outputTitle">XML output</h2><div><button class="panel-action" id="copyButton" type="button" disabled>Copy</button><button class="panel-action" id="downloadButton" type="button" disabled>Download</button></div></div><pre id="xmlOutput" aria-label="XML output">Your XML output will appear here.</pre></section>
+</div>
+<dl class="xml-stats" id="xmlStats" hidden><div><dt>Root type</dt><dd id="rootType">-</dd></div><div><dt>XML size</dt><dd id="xmlSize">0 bytes</dd></div></dl>
+<p class="formatter-status" id="xmlStatus" role="status" aria-live="polite">Paste JSON or open a file to begin.</p>
+<details class="xml-help"><summary>XML mapping and type preservation</summary><p>Every element has a <code>type</code> attribute: object properties use <code>&lt;property name="..."&gt;</code>, and ordered array entries use <code>&lt;item&gt;</code>. Types distinguish strings, numbers, booleans, null, objects and arrays; empty collections remain distinct. Keys are stored as escaped attribute values, so arbitrary JSON keys do not need XML-safe names. The configured root element contains the root value directly. XML 1.0-invalid characters are rejected. Browsers exposing JSON source text preserve numeric lexemes; older browsers parse through JavaScript numbers and reject unsafe or non-finite values. Decimal precision on those browsers follows JavaScript number semantics.</p><p>This is a documented typed mapping, not a general XML-to-JSON converter. Arbitrary XML has no unique JSON representation.</p></details>
+</section>
+<article class="tool-seo-content" aria-labelledby="xml-guide-title">
+<h2 id="xml-guide-title">Convert JSON to XML with an explicit type mapping</h2>
+<p>Use this JSON to XML converter when a service or workflow needs XML instead of JSON. Because JSON and XML organize data differently, the converter uses a documented mapping: objects become nested <code>property</code> elements, array entries become ordered <code>item</code> elements, and every element carries a <code>type</code> attribute.</p>
+<p>Paste valid JSON or open a local <code>.json</code> file. Choose a root element name, indentation, and whether to include an XML declaration. The converter checks the generated document with the browser's XML parser before enabling Copy and Download.</p>
+
+<h2>Example: JSON object converted to XML</h2>
+<p>With the default root name, this JSON:</p>
+<pre><code>{
+  "name": "Catalog",
+  "enabled": true,
+  "retries": 3
+}</code></pre>
+<p>becomes typed XML:</p>
+<pre><code>&lt;?xml version="1.0" encoding="UTF-8"?&gt;
+&lt;root type="object"&gt;
+  &lt;property name="name" type="string"&gt;Catalog&lt;/property&gt;
+  &lt;property name="enabled" type="boolean"&gt;true&lt;/property&gt;
+  &lt;property name="retries" type="number"&gt;3&lt;/property&gt;
+&lt;/root&gt;</code></pre>
+<p>The <code>type</code> attributes keep values such as the string <code>"3"</code> distinct from the number <code>3</code>. JSON keys are stored in the <code>name</code> attribute, so keys do not have to be valid XML element names.</p>
+
+<h2>How to convert JSON to XML</h2>
+<ol>
+<li>Paste JSON into the input area, choose <strong>Open JSON</strong>, or drop a JSON file into the input panel. The file limit is 50 MiB.</li>
+<li>Set a root element name. It must start with a letter or underscore; later characters may include letters, numbers, dots, hyphens, or underscores. Names beginning with <code>xml</code> are reserved.</li>
+<li>Choose two- or four-space indentation, and select whether to pretty print and include the XML declaration.</li>
+<li>Select <strong>Convert to XML</strong>. Check the status and the displayed root type and output size.</li>
+<li>Copy the XML or download it as <code>converted.xml</code>.</li>
+</ol>
+
+<h2>How JSON values are represented</h2>
+<ul>
+<li><strong>Objects:</strong> Each key-value pair becomes a <code>property</code> element with the original key in its <code>name</code> attribute.</li>
+<li><strong>Arrays:</strong> Each value becomes an <code>item</code> element. The order of array items is preserved.</li>
+<li><strong>Strings, numbers, and booleans:</strong> Values are written as escaped text with a type attribute.</li>
+<li><strong>Null and empty collections:</strong> Null, an empty object, and an empty array remain distinct through their type attributes, even when represented by self-closing elements.</li>
+<li><strong>Root values:</strong> The selected root element wraps the document's top-level value, whether it is an object, array, or scalar.</li>
+</ul>
+<p>Text and attribute values are escaped for XML. Characters that XML 1.0 does not allow cause conversion to stop with an error instead of producing an invalid document.</p>
+
+<h2>This mapping is not an application-specific XML schema</h2>
+<p>The output is well-formed typed XML, but it is not automatically a SOAP message, RSS feed, configuration vocabulary, or XML document for a particular API. Some systems require exact element names, attributes, namespaces, ordering, or an XML Schema. Adapt the output to that contract and validate it with the receiving application before using it.</p>
+<p>The converter checks that a browser can parse the generated XML. Well-formedness means the tags and document structure are valid XML; it does not mean the content matches a system's schema or business rules.</p>
+
+<h2>Numbers and browser compatibility</h2>
+<p>Some browsers expose the original text of JSON numbers to the converter, allowing the XML output to retain their numeric spelling. If a browser cannot preserve an integer outside JavaScript's safe range, the converter rejects it rather than silently writing a rounded value. Decimal precision on those browsers follows JavaScript number behavior. For identifiers, consider storing digits as a JSON string when the consuming system expects text.</p>
+
+<h2>Where is the JSON processed?</h2>
+<p>The converter reads the pasted text or selected file in your browser and uses the browser's built-in XML parser to check the output. The conversion script does not send the JSON to a server. Avoid entering credentials or confidential records into any website unless you trust its data handling.</p>
+
+<h2>JSON to XML and related tools</h2>
+<p>Use the <a href="../json-validator/">JSON Validator</a> to check JSON syntax before conversion, or the <a href="../json-editor/">JSON Editor</a> to change the source data. The <a href="../json-to-yaml/">JSON to YAML Converter</a> is useful when the receiving system expects YAML. Choose the target format required by the application that will read the data.</p>
+
+<h2>Frequently asked questions</h2>
+<details><summary>Can I convert nested JSON objects and arrays?</summary><p>Yes. Nested objects become nested <code>property</code> elements, and arrays become ordered <code>item</code> elements.</p></details>
+<details><summary>Why does the output include a root element?</summary><p>XML needs one document element. The converter wraps the top-level JSON value in the root name you choose, which defaults to <code>root</code>.</p></details>
+<details><summary>Can I use the result with any XML application?</summary><p>Not necessarily. The result uses this converter's typed mapping. Check the receiving application's required element names, namespaces, schema, and version.</p></details>
+<details><summary>Does the converter check my XML schema?</summary><p>No. It parses the generated document to check that it is well-formed XML. Schema validation must be done against the rules for the target system.</p></details>
+<details><summary>Can JSON be converted back from this XML?</summary><p>A converter that understands these <code>type</code>, <code>property</code>, and <code>item</code> conventions can reconstruct the corresponding JSON structure. Arbitrary XML does not have one universally correct JSON representation.</p></details>
+<details><summary>Does the converter preserve large numbers?</summary><p>It preserves numeric text when the browser exposes the original JSON number token. In browsers without that support, unsafe integers are rejected to avoid silent rounding. Review precision-sensitive decimals as well.</p></details>
+<details><summary>Can I change the root element and formatting?</summary><p>Yes. Enter a valid root name, select two or four spaces, and toggle pretty printing or the XML declaration. Changing an option clears the old output until you convert again.</p></details>
+<details><summary>Is my JSON uploaded?</summary><p>The conversion script processes your JSON in the browser and does not send the document to a server. Do not paste sensitive data into a website unless you are comfortable with its data handling.</p></details>
+</article>
+</main>
+<footer class="site-footer">
+<div class="footer-inner">
+<div class="footer-link-grid">
+<section class="footer-column" aria-labelledby="footer-tools-title"><h2 id="footer-tools-title">JSON TOOLS</h2><a href="../json-formatter/">JSON Formatter</a><a href="../json-pretty-printer/">JSON Pretty Printer</a><a href="../json-validator/">JSON Validator</a><a href="../json-repair/">JSON Repair</a><a href="../json-schema-validator/">JSON Schema Validator</a><a href="../json-schema-generator/">JSON Schema Generator</a><a href="../json-viewer/">JSON Viewer</a><a href="../json-tree-viewer/">JSON Tree Viewer</a><a href="../json-path-finder/">JSONPath Finder</a><a href="../json-editor/">JSON Editor</a><a class="footer-all-link" href="../tools.html">All tools <span aria-hidden="true">&#8599;</span></a></section>
+<section class="footer-column" aria-labelledby="footer-converters-title"><h2 id="footer-converters-title">CONVERTERS</h2><a href="../json-to-csv/">JSON to CSV</a><a href="../json-to-excel/">JSON to Excel</a><a href="../json-to-sql/">JSON to SQL</a><a href="../json-to-yaml/">JSON to YAML</a><a href="../json-to-xml/">JSON to XML</a><a href="../json-to-typescript/">JSON to TypeScript</a><a href="../json-to-java/">JSON to Java</a><a href="../json-to-python/">JSON to Python</a><a class="footer-all-link" href="../tools.html">All tools <span aria-hidden="true">&#8599;</span></a></section>
+<section class="footer-column" aria-labelledby="footer-more-title"><h2 id="footer-more-title">MORE TOOLS</h2><a href="../json-minifier/">JSON Minifier</a><a href="../json-compare/">JSON Compare</a><a class="footer-all-link" href="../tools.html">All tools <span aria-hidden="true">&#8599;</span></a></section>
+<section class="footer-column" aria-labelledby="footer-learn-title"><h2 id="footer-learn-title">LEARN</h2><a href="../learn/">Learn JSON tutorials</a><a href="../faq.html">Frequently asked questions</a><a href="../about.html">About RomitJSON</a></section>
+<section class="footer-column" aria-labelledby="footer-company-title"><h2 id="footer-company-title">COMPANY</h2><a href="../contact.html">Contact</a><a href="../privacy.html">Privacy policy</a></section>
+</div>
+<div class="footer-about"><div><span class="footer-eyebrow">MADE FOR DEVELOPERS</span><p>Format, validate, inspect, and transform JSON with practical tools for your daily development workflow.</p></div><div class="footer-actions"><a class="footer-cta" href="../tools.html">Explore tools <span aria-hidden="true">&#8599;</span></a><a class="footer-cta" href="../learn/">Learn JSON <span aria-hidden="true">&#8599;</span></a></div></div>
+<div class="footer-bottom">
+<p class="footer-copyright">© <span id="year"></span> RomitJSON. All rights reserved.</p>
+<p class="footer-note">Made with ❤️ for developers.</p>
+<nav class="footer-legal" aria-label="Footer navigation"><a href="../about.html">About</a><a href="../privacy.html">Privacy</a><a href="../contact.html">Contact</a></nav>
+</div>
+</div>
+</footer>
+<script src="../js/xml.js"></script>
 </body>
 </html>
