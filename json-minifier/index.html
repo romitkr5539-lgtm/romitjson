@@ -1,15 +1,167 @@
 <!doctype html>
 <html lang="en">
 <head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>JSON Minifier | RomitJSON</title>
-  <meta name="robots" content="noindex,follow">
-  <link rel="canonical" href="https://romitjson.com/minifier.html">
-  <meta http-equiv="refresh" content="0;url=../minifier.html">
-  <script>window.location.replace("../minifier.html");</script>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>JSON Minifier Online – Compress JSON</title>
+<meta name="description" content="Minify JSON online with RomitJSON. Remove unnecessary whitespace from JSON to create compact output for APIs, configuration files, and development workflows.">
+<meta name="robots" content="index,follow">
+<link rel="canonical" href="https://romitjson.com/json-minifier/">
+<meta property="og:type" content="website"><meta property="og:site_name" content="RomitJSON"><meta property="og:title" content="JSON Minifier Online – Compress JSON"><meta property="og:description" content="Minify JSON online with RomitJSON. Remove unnecessary whitespace from JSON to create compact output for APIs, configuration files, and development workflows."><meta property="og:url" content="https://romitjson.com/json-minifier/">
+<meta name="twitter:card" content="summary"><meta name="twitter:title" content="JSON Minifier Online – Compress JSON"><meta name="twitter:description" content="Minify JSON online with RomitJSON. Remove unnecessary whitespace from JSON to create compact output for APIs, configuration files, and development workflows.">
+<meta name="theme-color" content="#071613">
+<link rel="stylesheet" href="../css/style.css">
+<link rel="stylesheet" href="../css/formatter.css">
+<link rel="stylesheet" href="../css/minifier.css">
+<link rel="stylesheet" href="../css/tool-seo.css">
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-DKWQGJ7VQ6"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-DKWQGJ7VQ6');
+</script><link rel="icon" type="image/svg+xml" href="/favicon.svg">
 </head>
-<body>
-  <p>Opening <a href="../minifier.html">JSON Minifier</a> on RomitJSON…</p>
+<body class="dark">
+<header class="site-header"><div class="nav-wrap">
+<a class="brand" href="../index.html#home" aria-label="RomitJSON home"><span class="brand-mark">{ }</span><span>Romit<span class="brand-accent">JSON</span></span></a>
+<nav id="mainNav" aria-label="Main navigation">
+<a href="../index.html#home">Home</a>
+<a href="../datasets/">Datasets</a>
+<div class="nav-dropdown"><button class="nav-drop-btn" aria-expanded="false">View &amp; Edit <span>▾</span></button><div class="nav-drop-menu">
+<a href="../json-viewer/"><b class="ndm-green">◉</b><span><strong>JSON Viewer</strong><small>Browse JSON as a tree</small></span></a>
+<a href="../json-editor/"><b class="ndm-blue">✎</b><span><strong>JSON Editor</strong><small>Edit and inspect JSON</small></span></a></div></div>
+<div class="nav-dropdown"><button class="nav-drop-btn" aria-expanded="false">Validate <span>▾</span></button><div class="nav-drop-menu">
+<a href="../json-validator/"><b class="ndm-green">✓</b><span><strong>JSON Validator</strong><small>Find syntax errors</small></span></a>
+<a href="../json-compare/"><b class="ndm-violet">⇄</b><span><strong>JSON Compare</strong><small>Find document differences</small></span></a></div></div>
+<div class="nav-dropdown"><button class="nav-drop-btn" aria-expanded="false">Convert <span>▾</span></button><div class="nav-drop-menu">
+<a href="../json-to-csv/"><b class="ndm-violet">{ }</b><span><strong>JSON → CSV</strong><small>Convert arrays to CSV</small></span></a>
+<a href="../json-to-yaml/"><b class="ndm-purple">YML</b><span><strong>JSON → YAML</strong><small>Create YAML data</small></span></a>
+<a href="../json-to-xml/"><b class="ndm-orange">&lt;/&gt;</b><span><strong>JSON → XML</strong><small>Create XML data</small></span></a></div></div>
+<div class="nav-dropdown"><button class="nav-drop-btn" aria-expanded="false">Generate <span>▾</span></button><div class="nav-drop-menu">
+<a href="../json-to-typescript/"><b class="ndm-blue">TS</b><span><strong>JSON → TypeScript</strong><small>Generate interfaces</small></span></a>
+<a href="../json-minifier/" aria-current="page"><b class="ndm-red">↘</b><span><strong>JSON Minifier</strong><small>Reduce JSON size</small></span></a></div></div>
+<a href="../index.html#about">About</a><a href="../contact.html">Contact</a></nav>
+<div class="header-actions"><button class="menu-btn" id="menuBtn" aria-controls="mainNav" aria-expanded="false">Menu</button></div>
+</div></header>
+<main class="formatter-main minifier-main">
+<section class="formatter-intro">
+<label>JSON TOOL / MINIFIER</label>
+<h1>JSON Minifier Online</h1>
+<p>Remove insignificant JSON whitespace while preserving the original tokens and values. This is not gzip or Brotli compression; processing stays in your browser.</p>
+</section>
+<section class="formatter-tool minifier-tool" aria-label="JSON minifier">
+<div class="formatter-toolbar minifier-toolbar">
+<div class="minifier-actions"><button class="secondary-btn" id="openFileBtn" type="button">Open JSON</button><input id="fileInput" type="file" accept=".json,application/json" hidden><button class="secondary-btn" id="sampleBtn" type="button">Sample</button><button class="secondary-btn" id="pasteBtn" type="button">Paste</button><button class="secondary-btn" id="copyInputBtn" type="button" disabled>Copy input</button></div>
+<div class="minifier-actions"><label class="auto-minify-setting"><input id="autoMinify" type="checkbox"><span>Auto Minify</span></label><button class="primary-btn" id="minifyBtn" type="button">Minify JSON</button><button class="secondary-btn" id="formatOutputBtn" type="button" disabled>Format output</button><button class="secondary-btn" id="clearBtn" type="button">Clear</button></div>
+</div>
+<div class="formatter-grid minifier-grid">
+<section class="formatter-panel" aria-labelledby="inputTitle">
+<div class="formatter-panel-head"><h2 id="inputTitle">Input JSON</h2><div class="minifier-input-meta"><span id="fileName">Untitled JSON</span><span id="inputSize">0 bytes</span></div></div>
+<textarea id="jsonInput" spellcheck="false" aria-label="Input JSON" placeholder='Paste JSON here, for example: {"name":"RomitJSON"}'></textarea>
+<p class="minifier-file-hint">Drop a .json file here, or choose Open JSON. Processing stays in this browser.</p>
+</section>
+<section class="formatter-panel output-panel" aria-labelledby="outputTitle">
+<div class="formatter-panel-head"><h2 id="outputTitle">Minified output</h2><div><button class="panel-action" id="copyBtn" type="button" disabled>Copy output</button><button class="panel-action" id="downloadBtn" type="button" disabled>Download .min.json</button></div></div>
+<pre id="jsonOutput" aria-label="Minified JSON output">Your minified JSON will appear here.</pre>
+</section>
+</div>
+<dl id="minifierStats" class="minifier-stats" hidden><div><dt>Original size (UTF-8)</dt><dd id="originalSize">0 bytes</dd></div><div><dt>Minified size (UTF-8)</dt><dd id="minifiedSize">0 bytes</dd></div><div><dt>Bytes saved</dt><dd id="bytesSaved">0 bytes</dd></div><div><dt>Size reduction</dt><dd id="sizeSaved">0%</dd></div></dl>
+<p class="formatter-status" id="minifierStatus" role="status" aria-live="polite">Paste JSON or open a file to begin.</p>
+<nav class="minifier-related-links" aria-label="Related JSON tools"><a href="../json-validator/">JSON Validator</a><a href="../json-formatter/">JSON Formatter</a></nav>
+</section>
+<article class="tool-seo-content" aria-labelledby="minifier-guide-title">
+<h2 id="minifier-guide-title">JSON Minifier Online</h2>
+<p>Minify JSON online with RomitJSON. JSON files often contain indentation, line breaks, and spaces that make the data easier for people to read. A JSON minifier removes unnecessary whitespace to produce a more compact representation.</p>
+<p>Minified JSON can be useful when preparing data for API requests, embedding JSON in applications, or reducing the size of JSON text stored or transferred as part of a workflow. Paste JSON into the minifier, select <strong>Minify JSON</strong>, and review the compact output and size statistics.</p>
+
+<h2>How to Minify JSON Online</h2>
+<ol><li>Copy the JSON data you want to minify.</li><li>Paste it into the JSON Minifier input area, or select <strong>Open JSON</strong> to load a file.</li><li>Select <strong>Minify JSON</strong>. You can also turn on Auto Minify to process smaller edits automatically.</li><li>Review the compact JSON and the original size, minified size, and bytes saved.</li><li>Copy the output or download the <code>.min.json</code> file.</li></ol>
+<p>The minifier checks that input is valid JSON before producing output. Correct syntax errors first if validation fails. Use <strong>Format output</strong> to switch to a readable preview; the downloadable result remains minified.</p>
+
+<h2>What Is a JSON Minifier?</h2>
+<p>A JSON minifier removes unnecessary whitespace from JSON text without intentionally changing its data values or structure. It removes spaces, tabs, and line breaks outside quoted strings while preserving meaningful characters inside strings.</p>
+<p>Formatted JSON may look like this:</p>
+<h3>Before minification</h3>
+<pre><code>{
+	"name": "Romit",
+	"role": "Developer",
+	"active": true,
+	"skills": [
+		"JavaScript",
+		"SEO"
+	]
+}</code></pre>
+<p>After minification, the same data can be represented as:</p>
+<h3>After minification</h3>
+<pre><code>{"name":"Romit","role":"Developer","active":true,"skills":["JavaScript","SEO"]}</code></pre>
+<p>The compact version uses fewer whitespace characters, making it smaller but less convenient to read manually.</p>
+
+<h2>Why Minify JSON?</h2>
+<h3>Create compact JSON output</h3>
+<p>Removing indentation and line breaks reduces the number of characters when that whitespace is unnecessary.</p>
+<h3>Prepare JSON for API requests</h3>
+<p>Some development workflows use compact JSON when sending request bodies or preparing data for integrations. Follow the format and content requirements of the receiving API.</p>
+<h3>Reduce text payload size</h3>
+<p>Minification can reduce the uncompressed size of JSON text. The amount saved depends on how much whitespace the original document contains. The size statistics show the actual reduction for your input.</p>
+<h3>Prepare JSON for configuration and application workflows</h3>
+<p>Compact JSON can be useful when a workflow expects JSON on one line. However, minification is not required for every configuration file; readable formatting is often better for files developers maintain manually.</p>
+
+<h2>JSON Minifier vs. JSON Formatter</h2>
+<p>A minifier and a formatter perform opposite presentation tasks:</p>
+<div class="tool-seo-table-wrap"><table class="tool-seo-table"><thead><tr><th scope="col">Tool</th><th scope="col">Purpose</th></tr></thead><tbody><tr><th scope="row">JSON Minifier</th><td>Removes unnecessary whitespace</td></tr><tr><th scope="row">JSON Formatter</th><td>Adds indentation and line breaks</td></tr><tr><th scope="row">JSON Validator</th><td>Checks JSON syntax</td></tr><tr><th scope="row">JSON Viewer</th><td>Helps inspect JSON data</td></tr><tr><th scope="row">JSON Editor</th><td>Allows you to modify JSON data</td></tr></tbody></table></div>
+<p>Use a minifier when you need compact JSON text. Use the <a href="../json-formatter/">JSON Formatter</a> when you need to read, debug, or maintain the data. You can also <a href="../json-validator/">validate JSON syntax</a> or inspect its structure with the <a href="../json-viewer/">JSON Viewer</a>.</p>
+
+<h2>Does Minifying JSON Change the Data?</h2>
+<p>A correct JSON minifier should preserve the JSON data while removing insignificant whitespace outside strings. These two documents represent the same data:</p>
+<pre><code>{
+	"city": "Patna",
+	"active": true
+}</code></pre>
+<pre><code>{"city":"Patna","active":true}</code></pre>
+<p>Whitespace inside a string is meaningful and must be preserved. For example, <code>"Hello World"</code> is not the same string as <code>"HelloWorld"</code>. A minifier must also preserve valid string escapes and the relationships between object properties and array items.</p>
+
+<h2>JSON Minification and Compression Are Different</h2>
+<p>Minification removes unnecessary characters from JSON text. Compression algorithms such as gzip or Brotli encode data in a different representation to reduce the amount transferred or stored. A minifier can reduce input size before compression, but total savings depend on the data and compression method.</p>
+<p>Minifying JSON does not encrypt it or make it secure. It changes the text's presentation, not its confidentiality.</p>
+
+<h2>Common JSON Minification Errors</h2>
+<ul><li><strong>Invalid JSON input:</strong> Check commas, quotation marks, braces, brackets, and value syntax. The minifier requires valid JSON.</li><li><strong>Whitespace inside strings:</strong> Spaces that belong to a string value must not be removed.</li><li><strong>Unexpected output changes:</strong> Review the result when working with important data, especially JSON with escaped characters or nested structures.</li><li><strong>Confusing minification with validation:</strong> Compact output is not proof that JSON meets an application's schema or requirements.</li></ul>
+
+<h2>Frequently Asked Questions</h2>
+<details><summary>What does a JSON minifier do?</summary><p>A JSON minifier removes unnecessary whitespace, such as indentation and line breaks, to create compact JSON text while preserving its intended data.</p></details>
+<details><summary>How do I minify JSON online?</summary><p>Paste your JSON into the minifier and select <strong>Minify JSON</strong>, or enable Auto Minify for smaller edits. Review the output, then copy or download it.</p></details>
+<details><summary>Does minifying JSON reduce file size?</summary><p>It reduces the text size when unnecessary whitespace is removed. The actual savings depend on the original JSON and how much whitespace it contains.</p></details>
+<details><summary>Is minified JSON valid JSON?</summary><p>Minified output can remain valid JSON if the input is valid and the minifier preserves syntax correctly. This tool parses input before producing output; validate again when correctness is important.</p></details>
+<details><summary>Does minification remove spaces inside strings?</summary><p>No. A correct minifier preserves spaces and other meaningful characters inside string values.</p></details>
+<details><summary>Is JSON minification the same as compression?</summary><p>No. Minification removes unnecessary whitespace from JSON text. Compression uses an encoding algorithm, such as gzip or Brotli, to reduce the representation's size.</p></details>
+<details><summary>Should I minify JSON before sending it to an API?</summary><p>It can be useful, but it is not always necessary. Many APIs accept formatted JSON, and HTTP compression may already reduce transfer size. Follow the API's requirements and measure performance when size matters.</p></details>
+<details><summary>Can I format minified JSON again?</summary><p>Yes. The <a href="../json-formatter/">JSON Formatter</a> can add indentation and line breaks to valid minified JSON, making it easier to read.</p></details>
+<details><summary>Is it safe to minify sensitive JSON online?</summary><p>Avoid pasting passwords, access tokens, private keys, or confidential information into a tool unless you have verified how it handles input. See the <a href="../privacy.html">RomitJSON privacy information</a>.</p></details>
+
+<h2>Related JSON Tools</h2>
+<p>Use the <a href="../json-formatter/">JSON Formatter</a> to make JSON easier to read, the <a href="../json-validator/">JSON Validator</a> to check syntax, the <a href="../json-viewer/">JSON Viewer</a> to inspect structures, or the <a href="../json-editor/">JSON Editor</a> to modify data. Choose the tool based on your task: minify for compact output, format for readability, validate for syntax checking, and edit to change data.</p>
+</article>
+</main>
+<div class="minifier-paste-modal" id="pasteModal" aria-hidden="true" hidden><div class="minifier-paste-panel" role="dialog" aria-modal="true" aria-labelledby="pasteTitle"><button type="button" class="minifier-paste-close" id="closePasteBtn" aria-label="Close paste dialog">×</button><h2 id="pasteTitle">Paste JSON</h2><textarea id="pasteArea" placeholder='{"name":"example"}'></textarea><div><button type="button" class="secondary-btn" id="cancelPasteBtn">Cancel</button><button type="button" class="primary-btn" id="usePasteBtn">Use JSON</button></div></div></div>
+<footer class="site-footer">
+<div class="footer-inner">
+<div class="footer-link-grid">
+<section class="footer-column" aria-labelledby="footer-tools-title"><h2 id="footer-tools-title">JSON TOOLS</h2><a href="../json-formatter/">JSON Formatter</a><a href="../json-validator/">JSON Validator</a><a href="../json-viewer/">JSON Viewer</a><a href="../json-editor/">JSON Editor</a></section>
+<section class="footer-column" aria-labelledby="footer-converters-title"><h2 id="footer-converters-title">CONVERTERS</h2><a href="../json-to-csv/">JSON to CSV</a><a href="../json-to-yaml/">JSON to YAML</a><a href="../json-to-xml/">JSON to XML</a><a href="../json-to-typescript/">JSON to TypeScript</a></section>
+<section class="footer-column" aria-labelledby="footer-more-title"><h2 id="footer-more-title">MORE TOOLS</h2><a href="../json-minifier/">JSON Minifier</a><a href="../json-compare/">JSON Compare</a><a class="footer-all-link" href="../index.html#tools">All tools <span aria-hidden="true">&#8599;</span></a></section>
+<section class="footer-column" aria-labelledby="footer-learn-title"><h2 id="footer-learn-title">LEARN</h2><a href="../faq.html">Frequently asked questions</a><a href="../about.html">About RomitJSON</a></section>
+<section class="footer-column" aria-labelledby="footer-company-title"><h2 id="footer-company-title">COMPANY</h2><a href="../contact.html">Contact</a><a href="../privacy.html">Privacy policy</a></section>
+</div>
+<div class="footer-about"><div><span class="footer-eyebrow">MADE FOR DEVELOPERS</span><p>Format, validate, inspect, and transform JSON with practical tools for your daily development workflow.</p></div><div class="footer-actions"><a class="footer-cta" href="../tools.html">Explore tools <span aria-hidden="true">&#8599;</span></a><a class="footer-cta" href="../learn/">Learn JSON <span aria-hidden="true">&#8599;</span></a></div></div>
+<div class="footer-bottom">
+<p class="footer-copyright">? <span id="year"></span> RomitJSON. All rights reserved.</p>
+<p class="footer-note">JSON tools that work right in your browser.</p>
+<nav class="footer-legal" aria-label="Footer navigation"><a href="../about.html">About</a><a href="../privacy.html">Privacy</a><a href="../contact.html">Contact</a></nav>
+</div>
+</div>
+</footer>
+<script src="../js/minifier.js"></script>
 </body>
 </html>
