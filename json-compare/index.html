@@ -1,15 +1,169 @@
 <!doctype html>
 <html lang="en">
 <head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>JSON Compare | RomitJSON</title>
-  <meta name="robots" content="noindex,follow">
-  <link rel="canonical" href="https://romitjson.com/compare.html">
-  <meta http-equiv="refresh" content="0;url=../compare.html">
-  <script>window.location.replace("../compare.html");</script>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>JSON Compare Tool – Find Differences Between JSON</title>
+<meta name="description" content="Compare two JSON documents by path. Find added, removed, changed, and type-changed values, with options for array order and matching objects by key.">
+<meta name="author" content="Romit Kr Yadav">
+<meta name="robots" content="index,follow,max-image-preview:large,max-snippet:-1,max-video-preview:-1">
+<link rel="canonical" href="https://romitjson.com/json-compare/">
+<meta property="og:type" content="website"><meta property="og:site_name" content="RomitJSON"><meta property="og:title" content="JSON Compare Tool – Find Differences Between JSON"><meta property="og:description" content="Compare two JSON documents by path. Find added, removed, changed, and type-changed values, with options for array order and matching objects by key."><meta property="og:url" content="https://romitjson.com/json-compare/">
+<meta name="twitter:card" content="summary"><meta name="twitter:title" content="JSON Compare Tool – Find Differences Between JSON"><meta name="twitter:description" content="Compare two JSON documents by path. Find added, removed, changed, and type-changed values, with options for array order and matching objects by key.">
+<meta name="theme-color" content="#10b995">
+<meta property="og:locale" content="en_US">
+<link rel="stylesheet" href="../css/style.css">
+<link rel="stylesheet" href="../css/formatter.css">
+<link rel="stylesheet" href="../css/compare.css">
+<link rel="stylesheet" href="../css/tool-seo.css">
+<script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"WebPage","@id":"https://romitjson.com/json-compare/#webpage","url":"https://romitjson.com/json-compare/","name":"JSON Compare Online – Compare JSON | RomitJSON","description":"Compare two JSON documents by path. Find added, removed, changed, and type-changed values, with options for array order and matching objects by key.","isPartOf":{"@id":"https://romitjson.com/#website"},"inLanguage":"en"},{"@type":"WebApplication","@id":"https://romitjson.com/json-compare/#webapp","name":"RomitJSON JSON Compare","url":"https://romitjson.com/json-compare/","applicationCategory":"DeveloperApplication","operatingSystem":"Any","browserRequirements":"Requires JavaScript and a modern web browser.","offers":{"@type":"Offer","price":"0","priceCurrency":"USD"},"description":"Browser-based JSON comparison tool for reviewing structural and value differences."}]}</script>
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-DKWQGJ7VQ6"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-DKWQGJ7VQ6');
+</script><link rel="icon" type="image/svg+xml" href="/favicon.svg">
 </head>
-<body>
-  <p>Opening <a href="../compare.html">JSON Compare</a> on RomitJSON…</p>
+<body class="dark">
+<header class="site-header"><div class="nav-wrap">
+<a class="brand" href="../index.html#home" aria-label="RomitJSON home"><span class="brand-mark">{ }</span><span>Romit<span class="brand-accent">JSON</span></span></a>
+<nav id="mainNav" aria-label="Main navigation">
+<a href="../index.html#home">Home</a>
+<a href="../datasets/">Datasets</a>
+<a href="../learn/">Learn JSON</a>
+<div class="nav-dropdown"><button class="nav-drop-btn" aria-expanded="false">View &amp; Edit <span>▾</span></button><div class="nav-drop-menu">
+<a href="../json-viewer/"><b class="ndm-green">◉</b><span><strong>JSON Viewer</strong><small>Browse JSON as a tree</small></span></a>
+<a href="../json-tree-viewer/"><b class="ndm-cyan">◈</b><span><strong>JSON Tree Viewer</strong><small>Explore nested JSON</small></span></a>
+<a href="../json-path-finder/"><b class="ndm-blue">$</b><span><strong>JSONPath Finder</strong><small>Find and query data paths</small></span></a>
+<a href="../json-editor/"><b class="ndm-blue">✎</b><span><strong>JSON Editor</strong><small>Edit and inspect JSON</small></span></a></div></div>
+<div class="nav-dropdown"><button class="nav-drop-btn" aria-expanded="false">Validate <span>▾</span></button><div class="nav-drop-menu">
+<a href="../json-validator/"><b class="ndm-green">✓</b><span><strong>JSON Validator</strong><small>Find syntax errors</small></span></a>
+<a href="../json-repair/"><b class="ndm-orange">⌁</b><span><strong>JSON Repair</strong><small>Fix common syntax issues</small></span></a>
+<a href="../json-schema-validator/"><b class="ndm-violet">✓</b><span><strong>JSON Schema Validator</strong><small>Check data against a schema</small></span></a>
+<a href="../json-compare/" aria-current="page"><b class="ndm-violet">⇄</b><span><strong>JSON Compare</strong><small>Find document differences</small></span></a></div></div>
+<div class="nav-dropdown"><button class="nav-drop-btn" aria-expanded="false">Convert <span>▾</span></button><div class="nav-drop-menu">
+<a href="../json-to-csv/"><b class="ndm-violet">{ }</b><span><strong>JSON → CSV</strong><small>Convert arrays to CSV</small></span></a>
+<a href="../json-to-excel/"><b class="ndm-green">XLS</b><span><strong>JSON → Excel</strong><small>Export workbook data</small></span></a>
+<a href="../json-to-sql/"><b class="ndm-orange">SQL</b><span><strong>JSON → SQL</strong><small>Generate table and insert SQL</small></span></a>
+<a href="../json-to-yaml/"><b class="ndm-purple">YML</b><span><strong>JSON → YAML</strong><small>Create YAML data</small></span></a>
+<a href="../json-to-xml/"><b class="ndm-orange">&lt;/&gt;</b><span><strong>JSON → XML</strong><small>Create XML data</small></span></a></div></div>
+<div class="nav-dropdown"><button class="nav-drop-btn" aria-expanded="false">Generate <span>▾</span></button><div class="nav-drop-menu">
+<a href="../json-pretty-printer/"><b class="ndm-cyan">¶</b><span><strong>JSON Pretty Printer</strong><small>Beautify JSON output</small></span></a>
+<a href="../json-to-typescript/"><b class="ndm-blue">TS</b><span><strong>JSON → TypeScript</strong><small>Generate interfaces</small></span></a>
+<a href="../json-to-java/"><b class="ndm-orange">J</b><span><strong>JSON → Java</strong><small>Generate Java model classes</small></span></a>
+<a href="../json-to-python/"><b class="ndm-blue">Py</b><span><strong>JSON → Python</strong><small>Generate Python models</small></span></a>
+<a href="../json-schema-generator/"><b class="ndm-violet">{ }</b><span><strong>JSON Schema Generator</strong><small>Generate a schema from JSON</small></span></a>
+<a href="../json-minifier/"><b class="ndm-red">↘</b><span><strong>JSON Minifier</strong><small>Reduce JSON size</small></span></a></div></div>
+<a href="../tools.html">All tools</a>
+<a href="../about.html">About</a><a href="../contact.html">Contact</a></nav>
+<div class="header-actions"><button class="menu-btn" id="menuBtn" aria-controls="mainNav" aria-expanded="false">Menu</button></div>
+</div></header>
+<main class="formatter-main compare-main">
+<section class="formatter-intro">
+<label>JSON TOOL / COMPARE</label>
+<h1>JSON Compare Online</h1>
+<p>Compare two JSON documents online with RomitJSON. Find added, removed, and changed values by path, with options for array order and matching objects by an identifier.</p>
+</section>
+<section class="formatter-tool compare-tool" aria-label="JSON comparison">
+<div class="formatter-toolbar compare-toolbar">
+<div class="compare-actions"><button class="secondary-btn" id="openFirstBtn" type="button">Open JSON A</button><input id="firstFile" type="file" accept=".json,application/json" hidden><button class="secondary-btn" id="openSecondBtn" type="button">Open JSON B</button><input id="secondFile" type="file" accept=".json,application/json" hidden><button class="secondary-btn" id="sampleBtn" type="button">Sample</button></div>
+<div class="compare-actions"><button class="primary-btn" id="compareBtn" type="button">Compare JSON</button><button class="secondary-btn" id="swapBtn" type="button">Swap sides</button><button class="secondary-btn" id="copyReportBtn" type="button" disabled>Copy report</button><button class="secondary-btn" id="downloadReportBtn" type="button" disabled>Download report</button><button class="secondary-btn" id="clearBtn" type="button">Clear both</button></div>
+</div>
+<section class="compare-options" aria-label="Comparison options"><label><input id="ignoreArrayOrder" type="checkbox"><span>Ignore array order</span><small>Compare arrays as multisets; duplicate counts still matter.</small></label><label><input id="matchArrayObjects" type="checkbox"><span>Match array objects by key</span><small>Use a unique identifier when both arrays contain objects.</small></label><label class="match-key-setting" for="arrayMatchKey"><span>Identifier key</span><input id="arrayMatchKey" type="text" value="id" disabled></label><label class="ignored-path-setting" for="ignoredPaths"><span>Ignore exact JSONPaths (one per line)</span><textarea id="ignoredPaths" rows="2" placeholder="$.metadata.updatedAt"></textarea></label></section>
+<div class="compare-input-grid">
+<section class="formatter-panel compare-input-panel" aria-labelledby="firstTitle"><div class="formatter-panel-head"><h2 id="firstTitle">JSON A</h2><span id="firstSize">0 characters</span></div><textarea id="firstInput" spellcheck="false" aria-label="First JSON document" placeholder='Paste the first JSON document'></textarea><p class="compare-file-hint">Drop a .json file here, or use Open JSON A.</p></section>
+<section class="formatter-panel compare-input-panel" aria-labelledby="secondTitle"><div class="formatter-panel-head"><h2 id="secondTitle">JSON B</h2><span id="secondSize">0 characters</span></div><textarea id="secondInput" spellcheck="false" aria-label="Second JSON document" placeholder='Paste the second JSON document'></textarea><p class="compare-file-hint">Drop a .json file here, or use Open JSON B.</p></section>
+</div>
+<section class="compare-results" aria-labelledby="resultsTitle">
+<div class="compare-results-head"><h2 id="resultsTitle">Differences</h2><span id="differenceCount">No comparison yet</span></div>
+<div id="compareSummary" class="compare-summary" aria-live="polite">Add two JSON documents and compare them.</div>
+<dl class="compare-counts" id="compareCounts" hidden><div><dt>Added</dt><dd id="addedCount">0</dd></div><div><dt>Removed</dt><dd id="removedCount">0</dd></div><div><dt>Changed</dt><dd id="changedCount">0</dd></div><div><dt>Type changes</dt><dd id="typeChangedCount">0</dd></div><div><dt>Total</dt><dd id="totalCount">0</dd></div></dl>
+<div class="compare-view-tabs" role="tablist" aria-label="Difference view"><button type="button" class="active" id="sideBySideBtn" role="tab" aria-selected="true">Side by side</button><button type="button" id="unifiedBtn" role="tab" aria-selected="false">Unified diff</button><button type="button" id="changesOnlyBtn" role="tab" aria-selected="false">Changes only</button></div>
+<div id="differenceList" class="difference-list" aria-live="polite"></div><pre id="unifiedOutput" class="unified-output" hidden></pre><div id="changesOnlyList" class="changes-only-list" hidden></div>
+</section>
+<p class="formatter-status" id="compareStatus" role="status" aria-live="polite">Your documents stay in this browser.</p>
+</section>
+<article class="tool-seo-content" aria-labelledby="compare-guide-title">
+<h2 id="compare-guide-title">Compare JSON Documents and Find What Changed</h2>
+<p>When an API response, configuration file, or test fixture changes, a text diff can show many lines of noise from indentation or formatting. A structural JSON comparison parses both documents and reports changes in their values and shape: fields added or removed, values changed, and values whose type changed. RomitJSON shows each difference with its JSON path and the value from JSON A and JSON B.</p>
+<p>Paste or open the earlier document as <strong>JSON A</strong> and the newer document as <strong>JSON B</strong>, then select <strong>Compare JSON</strong>. Choose how arrays should be compared before running the comparison if position or object identity matters.</p>
+
+<h2>How to Compare Two JSON Files</h2>
+<ol>
+<li>Enter the first document in JSON A and the second in JSON B. You can paste the text, use <strong>Open JSON A</strong> and <strong>Open JSON B</strong>, or drop a JSON file into either input.</li>
+<li>Select <strong>Compare JSON</strong>. Both documents must contain valid JSON.</li>
+<li>Review the added, removed, changed, and type-changed counts, then inspect the paths and old and new values.</li>
+<li>Switch between <strong>Side by side</strong>, <strong>Unified diff</strong>, and <strong>Changes only</strong> to read the report in the format that suits the review.</li>
+<li>Copy the report or download it as a text file if you need to save the findings.</li>
+</ol>
+
+<h2>Example: Find a Changed Value by Path</h2>
+<p>Suppose JSON A contains <code>"price": 499</code> and JSON B contains <code>"price": 599</code>. The comparison reports a changed value at <code>$.price</code>, with the old and new values shown separately. A nested change might appear at a path such as <code>$.products[1].price</code>, which points to the <code>price</code> field in the second item of the <code>products</code> array.</p>
+<pre><code>JSON A: { "product": { "price": 499 } }
+JSON B: { "product": { "price": 599 } }
+Difference: changed at $.product.price</code></pre>
+<p>The comparison follows the JSON structure, so whitespace and object property order alone do not count as changes. JSON objects are unordered collections, while arrays are ordered sequences in the JSON data model; this tool therefore compares arrays by position unless you choose another array option. See <a href="https://www.rfc-editor.org/rfc/rfc8259.html">RFC 8259</a> for the JSON data format.</p>
+
+<h2>Choose How Arrays Are Compared</h2>
+<p>Array comparison depends on what the items represent. If each position has meaning, keep the default comparison by index. If items may move, choose a mode that matches them by content or identifier.</p>
+<div class="tool-seo-table-wrap"><table class="tool-seo-table"><thead><tr><th scope="col">Option</th><th scope="col">How it compares arrays</th><th scope="col">Use it when</th></tr></thead><tbody>
+<tr><th scope="row">Default</th><td>Compares items at the same index</td><td>Position is meaningful, such as steps in an ordered workflow</td></tr>
+<tr><th scope="row">Ignore array order</th><td>Treats each array as a multiset; duplicate item counts still matter</td><td>The same items may appear in a different order</td></tr>
+<tr><th scope="row">Match array objects by key</th><td>Pairs object items using a chosen identifier, such as <code>id</code></td><td>Records can move but have a stable, unique identifier in both arrays</td></tr>
+</tbody></table></div>
+<p>For identifier matching, every item in both arrays needs that key with a unique, non-null primitive value. If an ID is missing, repeated, null, or an object, the tool warns you and compares that array by index instead. Check the warning before interpreting the paths: when records move, their indexes can differ between JSON A and JSON B.</p>
+
+<h2>Ignore Fields That Change on Every Run</h2>
+<p>Some fields, such as a generated timestamp or request ID, can obscure the changes you want to review. Enter one JSONPath per line in <strong>Ignore exact JSONPaths</strong>, for example <code>$.metadata.updatedAt</code>. The selected location and its nested values are excluded from the comparison. Use a specific path; this field is for paths to ignore, not a general search or wildcard query.</p>
+
+<h2>Understand the Difference Report</h2>
+<ul>
+<li><strong>Added:</strong> a property or array item appears in JSON B but not JSON A.</li>
+<li><strong>Removed:</strong> a property or array item appears in JSON A but not JSON B.</li>
+<li><strong>Changed:</strong> a value differs while its JSON type stays the same.</li>
+<li><strong>Type change:</strong> a value changes from one JSON type to another, such as a number becoming a string.</li>
+</ul>
+<p>Difference paths identify where a change occurs. If a path differs between the two documents, the report can show the JSON A and JSON B paths separately. The counts are per reported difference; type changes have their own count and are also included in the total. The tool shows the first 1,000 differences, so a capped report may not include every change in a very different pair of documents.</p>
+
+<h2>JSON Compare, JSON Validator, and JSON Formatter</h2>
+<p>A JSON comparison tool answers “what changed between these two documents?” A <a href="../json-validator/">JSON Validator</a> checks whether one document follows JSON syntax. A <a href="../json-formatter/">JSON Formatter</a> adds indentation to make JSON easier to read. Comparing valid JSON is useful when the structure matters; validating first helps when either input has a syntax error.</p>
+
+<h2>Input Limits and Privacy</h2>
+<p>Each input can be up to 50 MiB. The comparison runs in your browser, and deeply nested data is limited to 500 levels. Large files can take more time and browser memory to process. The result is capped at 1,000 differences; copy or download the report if you need a saved review.</p>
+
+<h2>Frequently Asked Questions</h2>
+<details><summary>Does JSON object key order affect the comparison?</summary><p>No. Object properties are compared by key, so changing their order or reformatting whitespace does not create a difference.</p></details>
+<details><summary>Are JSON arrays compared by position?</summary><p>Yes, by default. Choose <strong>Ignore array order</strong> to compare items as a multiset, or match arrays of objects by a unique identifier when records can move.</p></details>
+<details><summary>What happens when array IDs are missing or duplicated?</summary><p>The tool reports that matching is ambiguous and falls back to comparing that array by index. Add a unique, non-null primitive identifier to every item in both versions for identity-based matching.</p></details>
+<details><summary>Can I ignore timestamps or other changing fields?</summary><p>Yes. Add a specific JSONPath, such as <code>$.metadata.updatedAt</code>, in the ignore-path field. The selected path and its nested content are omitted from the comparison.</p></details>
+<details><summary>Why can’t the tool compare my JSON?</summary><p>Check that both inputs are valid JSON and no larger than 50 MiB. If an input is deeply nested, it may also exceed the 500-level comparison limit. Use the <a href="../json-validator/">JSON Validator</a> to check syntax errors.</p></details>
+<details><summary>Does JSON Compare modify either document?</summary><p>No. It reports differences and lets you copy or download the report; it does not merge or rewrite JSON A or JSON B.</p></details>
+
+<h2>Related JSON Tools</h2>
+<p>Use the <a href="../json-validator/">JSON Validator</a> to check syntax, the <a href="../json-viewer/">JSON Viewer</a> to explore nested structures, the <a href="../json-editor/">JSON Editor</a> to make changes, or the <a href="../json-schema-validator/">JSON Schema Validator</a> to check data against a defined structure.</p>
+</article>
+</main>
+<footer class="site-footer">
+<div class="footer-inner">
+<div class="footer-link-grid">
+<section class="footer-column" aria-labelledby="footer-tools-title"><h2 id="footer-tools-title">JSON TOOLS</h2><a href="../json-formatter/">JSON Formatter</a><a href="../json-pretty-printer/">JSON Pretty Printer</a><a href="../json-validator/">JSON Validator</a><a href="../json-repair/">JSON Repair</a><a href="../json-schema-validator/">JSON Schema Validator</a><a href="../json-schema-generator/">JSON Schema Generator</a><a href="../json-viewer/">JSON Viewer</a><a href="../json-tree-viewer/">JSON Tree Viewer</a><a href="../json-path-finder/">JSONPath Finder</a><a href="../json-editor/">JSON Editor</a><a class="footer-all-link" href="../tools.html">All tools <span aria-hidden="true">&#8599;</span></a></section>
+<section class="footer-column" aria-labelledby="footer-converters-title"><h2 id="footer-converters-title">CONVERTERS</h2><a href="../json-to-csv/">JSON to CSV</a><a href="../json-to-excel/">JSON to Excel</a><a href="../json-to-sql/">JSON to SQL</a><a href="../json-to-yaml/">JSON to YAML</a><a href="../json-to-xml/">JSON to XML</a><a href="../json-to-typescript/">JSON to TypeScript</a><a href="../json-to-java/">JSON to Java</a><a href="../json-to-python/">JSON to Python</a><a class="footer-all-link" href="../tools.html">All tools <span aria-hidden="true">&#8599;</span></a></section>
+<section class="footer-column" aria-labelledby="footer-more-title"><h2 id="footer-more-title">MORE TOOLS</h2><a href="../json-minifier/">JSON Minifier</a><a href="../json-compare/" aria-current="page">JSON Compare</a><a class="footer-all-link" href="../tools.html">All tools <span aria-hidden="true">&#8599;</span></a></section>
+<section class="footer-column" aria-labelledby="footer-learn-title"><h2 id="footer-learn-title">LEARN</h2><a href="../learn/">Learn JSON tutorials</a><a href="../faq.html">Frequently asked questions</a><a href="../about.html">About RomitJSON</a></section>
+<section class="footer-column" aria-labelledby="footer-company-title"><h2 id="footer-company-title">COMPANY</h2><a href="../contact.html">Contact</a><a href="../privacy.html">Privacy policy</a></section>
+</div>
+<div class="footer-about"><div><span class="footer-eyebrow">MADE FOR DEVELOPERS</span><p>Format, validate, inspect, and transform JSON with practical tools for your daily development workflow.</p></div><div class="footer-actions"><a class="footer-cta" href="../tools.html">Explore tools <span aria-hidden="true">&#8599;</span></a><a class="footer-cta" href="../learn/">Learn JSON <span aria-hidden="true">&#8599;</span></a></div></div>
+<div class="footer-bottom">
+<p class="footer-copyright"><span id="year"></span> RomitJSON. All rights reserved.</p>
+<p class="footer-note">Made with ❤️ for developers.</p>
+<nav class="footer-legal" aria-label="Footer navigation"><a href="../about.html">About</a><a href="../privacy.html">Privacy</a><a href="../contact.html">Contact</a></nav>
+</div>
+</div>
+</footer>
+<script src="../js/compare.js"></script>
 </body>
 </html>
+
+
