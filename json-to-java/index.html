@@ -1,15 +1,169 @@
 <!doctype html>
 <html lang="en">
 <head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>JSON to Java | RomitJSON</title>
-  <meta name="robots" content="noindex,follow">
-  <link rel="canonical" href="https://romitjson.com/typescript.html">
-  <meta http-equiv="refresh" content="0;url=../typescript.html">
-  <script>window.location.replace("../typescript.html");</script>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>JSON to Java Converter Online – Generate Models</title>
+<meta name="description" content="Convert JSON to Java records or classes online. Infer nested models and lists, set a package name, and optionally add Jackson annotations or BigDecimal.">
+<meta name="robots" content="index,follow">
+<link rel="canonical" href="https://romitjson.com/json-to-java/">
+<meta property="og:type" content="website"><meta property="og:site_name" content="RomitJSON"><meta property="og:locale" content="en_US"><meta property="og:title" content="JSON to Java Converter Online – Generate Models"><meta property="og:description" content="Convert JSON to Java records or classes online. Infer nested models and lists, set a package name, and optionally add Jackson annotations or BigDecimal."><meta property="og:url" content="https://romitjson.com/json-to-java/">
+<meta name="twitter:card" content="summary"><meta name="twitter:title" content="JSON to Java Converter Online – Generate Models"><meta name="twitter:description" content="Convert JSON to Java records or classes online. Infer nested models and lists, set a package name, and optionally add Jackson annotations or BigDecimal.">
+<meta name="theme-color" content="#071613">
+<link rel="stylesheet" href="../css/style.css">
+<link rel="stylesheet" href="../css/formatter.css">
+<link rel="stylesheet" href="../css/java.css">
+<link rel="stylesheet" href="../css/tool-seo.css">
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-DKWQGJ7VQ6"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-DKWQGJ7VQ6');
+</script><link rel="icon" type="image/svg+xml" href="/favicon.svg">
 </head>
-<body>
-  <p>Opening <a href="../typescript.html">JSON to Java</a> on RomitJSON…</p>
+<body class="dark">
+<header class="site-header"><div class="nav-wrap">
+<a class="brand" href="../index.html#home" aria-label="RomitJSON home"><span class="brand-mark">{ }</span><span>Romit<span class="brand-accent">JSON</span></span></a>
+<nav id="mainNav" aria-label="Main navigation">
+<a href="../index.html#home">Home</a>
+<a href="../datasets/">Datasets</a>
+<a href="../learn/">Learn JSON</a>
+<div class="nav-dropdown"><button class="nav-drop-btn" aria-expanded="false">View &amp; Edit <span>▾</span></button><div class="nav-drop-menu">
+<a href="../json-viewer/"><b class="ndm-green">◉</b><span><strong>JSON Viewer</strong><small>Browse JSON as a tree</small></span></a>
+<a href="../json-tree-viewer/"><b class="ndm-cyan">◈</b><span><strong>JSON Tree Viewer</strong><small>Explore nested JSON</small></span></a>
+<a href="../json-path-finder/"><b class="ndm-blue">$</b><span><strong>JSONPath Finder</strong><small>Find and query data paths</small></span></a>
+<a href="../json-editor/"><b class="ndm-blue">✎</b><span><strong>JSON Editor</strong><small>Edit and inspect JSON</small></span></a></div></div>
+<div class="nav-dropdown"><button class="nav-drop-btn" aria-expanded="false">Validate <span>▾</span></button><div class="nav-drop-menu">
+<a href="../json-validator/"><b class="ndm-green">✓</b><span><strong>JSON Validator</strong><small>Find syntax errors</small></span></a>
+<a href="../json-repair/"><b class="ndm-orange">⌁</b><span><strong>JSON Repair</strong><small>Fix common syntax issues</small></span></a>
+<a href="../json-schema-validator/"><b class="ndm-violet">✓</b><span><strong>JSON Schema Validator</strong><small>Check data against a schema</small></span></a>
+<a href="../json-compare/"><b class="ndm-violet">⇄</b><span><strong>JSON Compare</strong><small>Find document differences</small></span></a></div></div>
+<div class="nav-dropdown"><button class="nav-drop-btn" aria-expanded="false">Convert <span>▾</span></button><div class="nav-drop-menu">
+<a href="../json-to-csv/"><b class="ndm-violet">{ }</b><span><strong>JSON → CSV</strong><small>Convert arrays to CSV</small></span></a>
+<a href="../json-to-excel/"><b class="ndm-green">XLS</b><span><strong>JSON → Excel</strong><small>Export workbook data</small></span></a>
+<a href="../json-to-sql/"><b class="ndm-orange">SQL</b><span><strong>JSON → SQL</strong><small>Generate table and insert SQL</small></span></a>
+<a href="../json-to-yaml/"><b class="ndm-purple">YML</b><span><strong>JSON → YAML</strong><small>Create YAML data</small></span></a>
+<a href="../json-to-xml/"><b class="ndm-orange">&lt;/&gt;</b><span><strong>JSON → XML</strong><small>Create XML data</small></span></a></div></div>
+<div class="nav-dropdown"><button class="nav-drop-btn" aria-expanded="false">Generate <span>▾</span></button><div class="nav-drop-menu">
+<a href="../json-pretty-printer/"><b class="ndm-cyan">¶</b><span><strong>JSON Pretty Printer</strong><small>Beautify JSON output</small></span></a>
+<a href="../json-to-typescript/"><b class="ndm-blue">TS</b><span><strong>JSON → TypeScript</strong><small>Generate interfaces</small></span></a>
+<a href="../json-to-java/" aria-current="page"><b class="ndm-orange">J</b><span><strong>JSON → Java</strong><small>Generate Java model classes</small></span></a>
+<a href="../json-to-python/"><b class="ndm-blue">Py</b><span><strong>JSON → Python</strong><small>Generate Python models</small></span></a>
+<a href="../json-schema-generator/"><b class="ndm-violet">{ }</b><span><strong>JSON Schema Generator</strong><small>Generate a schema from JSON</small></span></a>
+<a href="../json-minifier/"><b class="ndm-red">↘</b><span><strong>JSON Minifier</strong><small>Reduce JSON size</small></span></a></div></div>
+<a href="../tools.html">All tools</a>
+<a href="../about.html">About</a><a href="../contact.html">Contact</a></nav>
+<div class="header-actions"><button class="menu-btn" id="menuBtn" aria-controls="mainNav" aria-expanded="false">Menu</button></div>
+</div></header>
+<main class="formatter-main java-main">
+<section class="formatter-intro">
+<label>JSON TOOL / GENERATOR</label>
+<h1>JSON to Java Converter</h1>
+<p>Generate Java records or classes from JSON with RomitJSON. Infer fields, nested types, and collections from sample data, and optionally include Java code that constructs the sample records.</p>
+<nav class="java-related" aria-label="Related JSON tools"><a href="../json-to-typescript/">JSON to TypeScript</a><a href="../json-validator/">JSON Validator</a></nav>
+</section>
+<section class="formatter-tool java-tool" aria-label="JSON to Java generator">
+<div class="formatter-toolbar java-toolbar">
+<label class="java-setting" for="className"><span>Root record/class name</span><input id="className" type="text" value="Person" maxlength="60" autocomplete="off"></label>
+<label class="java-setting" for="javaStyle"><span>Output style</span><select id="javaStyle"><option value="record" selected>Java records</option><option value="class">Java classes</option></select></label>
+<label class="java-setting" for="packageName"><span>Package name <small>(optional)</small></span><input id="packageName" type="text" placeholder="com.example.models" maxlength="180" autocomplete="off"></label>
+<div class="java-actions"><button class="secondary-btn" id="openFileBtn" type="button">Open JSON</button><input id="fileInput" type="file" accept=".json,application/json" hidden><button class="secondary-btn" id="pasteBtn" type="button">Paste</button><button class="secondary-btn" id="sampleBtn" type="button">Sample</button></div>
+<div class="java-actions"><button class="primary-btn" id="generateBtn" type="button">Generate Java</button><button class="secondary-btn" id="clearBtn" type="button">Clear</button></div>
+</div>
+<p class="java-help-text">Use a valid Java type name. Java records require Java 16 or newer. Arrays of objects are merged into one model shape.</p>
+<section class="java-settings" aria-label="Java generation options">
+<label class="java-check"><input id="includeSample" type="checkbox" checked><span>Include sample construction</span></label>
+<label class="java-check"><input id="jacksonAnnotations" type="checkbox" checked><span>Include Jackson <code>@JsonProperty</code> annotations</span></label>
+<label class="java-check"><input id="useBigDecimal" type="checkbox"><span>Use <code>BigDecimal</code> for decimal fields</span></label>
+</section>
+<div class="formatter-grid java-grid">
+<section class="formatter-panel java-input-panel" aria-labelledby="inputTitle"><div class="formatter-panel-head"><h2 id="inputTitle">Input JSON</h2><span id="inputSize">0 characters</span></div><textarea id="jsonInput" spellcheck="false" aria-label="Input JSON" placeholder='Paste an object or sample array, for example: {"name":"Ada","active":true}'></textarea></section>
+<section class="formatter-panel output-panel" aria-labelledby="outputTitle"><div class="formatter-panel-head"><h2 id="outputTitle">Java output</h2><div><button class="panel-action" id="copyButton" type="button" disabled>Copy</button><button class="panel-action" id="downloadButton" type="button" disabled>Download .java</button></div></div><pre id="javaOutput" aria-label="Generated Java code">Generated Java classes appear here.</pre></section>
+</div>
+<dl class="java-stats" id="javaStats" hidden><div><dt>Root type</dt><dd id="rootClassStat">Person</dd></div><div><dt>Model types</dt><dd id="classCount">0</dd></div><div><dt>Output size</dt><dd id="outputSize">0 bytes</dd></div></dl>
+<p class="formatter-status" id="javaStatus" role="status" aria-live="polite">Paste JSON or open a file to begin.</p>
+<details class="java-details"><summary>How Java types are inferred</summary><p>Strings map to <code>String</code>, decimal numbers to <code>Double</code> or optionally <code>BigDecimal</code>, and collections to <code>List&lt;T&gt;</code>. Records use primitive types such as <code>int</code> and <code>boolean</code> only when the value is present and non-null in every sample; otherwise they use wrappers such as <code>Integer</code> and <code>Boolean</code>. Class fields use wrapper types. Object values become nested records or classes, while empty arrays use <code>List&lt;Object&gt;</code> unless other samples provide an element type. Mixed or ambiguous values can fall back to <code>Object</code>. Record mode requires Java 16 or newer; generated sample construction uses <code>List.of</code> for arrays. Jackson annotations require the Jackson annotations dependency in your project.</p></details>
+</section>
+<article class="tool-seo-content" aria-labelledby="java-guide-title">
+<h2 id="java-guide-title">Generate Java Models from a JSON Sample</h2>
+<p>Use this JSON to Java converter to create a first draft of Java records or classes from an example payload. It is useful when you need model types for an API response, configuration file, webhook, or test fixture and want to avoid typing every field by hand. The output reflects the sample you provide, so treat it as a starting point and compare it with the API contract before using it in an application.</p>
+<p>Paste JSON or open a local JSON file, choose a root type name and optional package, select records or classes, and generate the code. The converter infers nested object types and Java lists. You can also add Jackson <code>@JsonProperty</code> annotations for renamed fields and choose <code>BigDecimal</code> for decimal-valued properties. The conversion runs in your browser; the input is not sent to a conversion service.</p>
+
+<h2>How to Convert JSON to Java</h2>
+<ol><li>Paste a valid JSON object or array, or select <strong>Open JSON</strong> to load a file.</li><li>Enter a root record or class name, such as <code>Person</code>. Use a valid Java identifier.</li><li>Choose <strong>Java records</strong> or <strong>Java classes</strong>. Add a package name such as <code>com.example.models</code> if your project uses one.</li><li>Choose whether to include the sample-construction code and Jackson property annotations. Enable <code>BigDecimal</code> if you want decimal fields represented with that type.</li><li>Select <strong>Generate Java</strong>. Review the imports, field types, nested models, and generated names before copying or downloading the source.</li></ol>
+
+<h2>Example: JSON to Java Record</h2>
+<p>For this sample, set the root name to <code>Person</code> and leave the output style set to records:</p>
+<h3>Input JSON</h3>
+<pre><code>{
+  "id": 101,
+  "name": "Ada Lovelace",
+  "active": true,
+  "profile": { "city": "London" },
+  "skills": ["mathematics", "logic"]
+}</code></pre>
+<h3>Generated model types</h3>
+<pre><code>import java.util.List;
+
+record Profile(String city) {}
+
+record Person(int id, String name, boolean active,
+              Profile profile, List&lt;String&gt; skills) {}</code></pre>
+<p>The converter creates a separate type for the nested <code>profile</code> object and uses <code>List&lt;String&gt;</code> for the skills array. If sample construction is enabled in record mode, the output also includes example code that creates the record from the supplied values.</p>
+
+<h2>Records or Classes: Which Output Should You Choose?</h2>
+<p>Choose records for compact data-carrier types when your project targets Java 16 or newer. Record components are final, and the generated sample code can show how to construct one. In this converter, record declarations are package-private; add <code>public</code> yourself if the type needs to be accessed from another package.</p>
+<p>Choose classes when you need mutable fields or are working with a codebase that uses ordinary classes. The generated root class has public fields and nested object types. It does not add custom constructors, getters, setters, or a JSON deserializer. A missing property and an explicit <code>null</code> can both leave a reference field null, so add validation if your application needs to tell those cases apart.</p>
+
+<h2>How JSON Values Map to Java Types</h2>
+<div class="tool-seo-table-wrap"><table class="tool-seo-table"><thead><tr><th scope="col">JSON example</th><th scope="col">Typical generated Java type</th><th scope="col">Review point</th></tr></thead><tbody><tr><th scope="row"><code>"Ada"</code></th><td><code>String</code></td><td>Date-like strings remain strings.</td></tr><tr><th scope="row"><code>true</code></th><td><code>boolean</code> or <code>Boolean</code></td><td>Records use the primitive when always present and non-null; nullable or missing sample fields use the wrapper.</td></tr><tr><th scope="row"><code>101</code></th><td><code>int</code>/<code>Integer</code> or <code>long</code>/<code>Long</code></td><td>Inferred from the sample number and whether it fits the integer range.</td></tr><tr><th scope="row"><code>12.75</code></th><td><code>double</code>/<code>Double</code> or <code>BigDecimal</code></td><td>Enable the BigDecimal option for decimal fields, then inspect precision.</td></tr><tr><th scope="row"><code>null</code></th><td><code>Object</code> or a nullable reference type</td><td>Java has no direct equivalent of a nullable primitive.</td></tr><tr><th scope="row"><code>["math", "logic"]</code></th><td><code>List&lt;String&gt;</code></td><td>Empty or mixed arrays can be inferred less specifically.</td></tr><tr><th scope="row"><code>{ "city": "London" }</code></th><td>A nested record or class</td><td>Nested type names are derived from their JSON property names.</td></tr></tbody></table></div>
+
+<h2>Optional Fields, Nulls, and Different Sample Shapes</h2>
+<p>JSON can omit a property or include it with the value <code>null</code>; those cases are not the same. When the input is an array of objects, the converter merges their fields. In record mode, a field missing from any sample record or set to <code>null</code> uses a reference type such as <code>Integer</code> or <code>Boolean</code> instead of a primitive. Java does not have an optional-property marker like TypeScript’s <code>?</code>, so check how your application should represent absent values.</p>
+<p>One example object cannot reveal fields that may appear in other responses. Include several representative records if the shape varies. If your API has distinct response variants, consider modeling those variants explicitly rather than relying on one merged sample. Class output also does not turn missing sample properties into optional fields; inspect primitive fields because their default values may conceal missing input.</p>
+
+<h2>Jackson Annotations and Package Names</h2>
+<p>Java identifiers cannot use every JSON property name. For example, the key <code>first-name</code> becomes the Java field <code>firstName</code>. With Jackson annotations enabled, the converter adds <code>@JsonProperty("first-name")</code> so Jackson can map the original key to that field. The annotation option only adds annotations where a JSON key needs a different Java identifier. Your project must include the Jackson annotations dependency, and annotations alone do not generate serialization or deserialization code.</p>
+<p>The optional package field adds a package declaration at the top of the output. Make sure it matches your project’s package structure and that the source file is placed in the corresponding directory.</p>
+
+<h2>Check Number Precision and Empty Arrays</h2>
+<p>Whole numbers are inferred as <code>int</code> or <code>long</code> when possible. Decimal numbers become <code>double</code> by default, or <code>BigDecimal</code> when that option is selected. Because JSON numbers are parsed in the browser before code generation, very large integers or high-precision decimals may already be rounded. Check the generated value if exact precision matters, especially for financial values or numeric identifiers.</p>
+<p>An empty array does not show what its element type should be, so it becomes <code>List&lt;Object&gt;</code> unless other samples provide an element type. Mixed arrays and values with incompatible shapes may also fall back to <code>Object</code>. Replace broad types with the domain model you actually expect.</p>
+
+<h2>Generated Java Is Not Runtime JSON Validation</h2>
+<p>The converter parses the example and writes model declarations. It does not check future responses, enforce business rules, or automatically deserialize JSON into the generated types. Connect the models to a JSON library such as Jackson using your project’s configuration, and add validation when incoming data must meet required constraints. For a machine-readable JSON contract, try the <a href="../json-schema-generator/">JSON Schema Generator</a> and review the inferred required fields and constraints.</p>
+
+<h2>Frequently Asked Questions</h2>
+<details><summary>Which Java version do generated records require?</summary><p>Java records require Java 16 or newer. Choose class output if your project targets an earlier Java version.</p></details>
+<details><summary>Can this converter generate Java classes instead of records?</summary><p>Yes. Select <strong>Java classes</strong> to generate a mutable root class with nested classes for object values.</p></details>
+<details><summary>How are nested JSON objects represented?</summary><p>Nested objects become separate named record or class types. Their names are derived from the JSON property names, and the parent model refers to them by type.</p></details>
+<details><summary>How are arrays converted?</summary><p>Arrays become <code>List&lt;T&gt;</code> fields when the converter can infer an element type. An empty array has no item example and falls back to <code>List&lt;Object&gt;</code>.</p></details>
+<details><summary>Do I need Jackson to use the generated code?</summary><p>No. Jackson annotations are optional. If you enable them, your project needs the Jackson annotations dependency. The generated code does not include a JSON mapper or deserializer.</p></details>
+<details><summary>Does the converter send my JSON to a server?</summary><p>No. The page parses the input and generates Java in your browser. For sensitive data, follow your organization’s handling rules and review the <a href="../privacy.html">privacy information</a>.</p></details>
+
+<h2>Related JSON Tools</h2>
+<p>Check source syntax with the <a href="../json-validator/">JSON Validator</a>, make the sample easier to read with the <a href="../json-formatter/">JSON Formatter</a>, or inspect nested values in the <a href="../json-viewer/">JSON Viewer</a>. If your project uses other model formats, try the <a href="../json-to-typescript/">JSON to TypeScript Converter</a>, <a href="../json-to-python/">JSON to Python Converter</a>, or <a href="../json-to-sql/">JSON to SQL Converter</a>.</p>
+</article>
+</main>
+<footer class="site-footer">
+<div class="footer-inner">
+<div class="footer-link-grid">
+<section class="footer-column" aria-labelledby="footer-tools-title"><h2 id="footer-tools-title">JSON TOOLS</h2><a href="../json-formatter/">JSON Formatter</a><a href="../json-pretty-printer/">JSON Pretty Printer</a><a href="../json-validator/">JSON Validator</a><a href="../json-repair/">JSON Repair</a><a href="../json-schema-validator/">JSON Schema Validator</a><a href="../json-schema-generator/">JSON Schema Generator</a><a href="../json-viewer/">JSON Viewer</a><a href="../json-tree-viewer/">JSON Tree Viewer</a><a href="../json-path-finder/">JSONPath Finder</a><a href="../json-editor/">JSON Editor</a><a class="footer-all-link" href="../tools.html">All tools <span aria-hidden="true">&#8599;</span></a></section>
+<section class="footer-column" aria-labelledby="footer-converters-title"><h2 id="footer-converters-title">CONVERTERS</h2><a href="../json-to-csv/">JSON to CSV</a><a href="../json-to-excel/">JSON to Excel</a><a href="../json-to-sql/">JSON to SQL</a><a href="../json-to-yaml/">JSON to YAML</a><a href="../json-to-xml/">JSON to XML</a><a href="../json-to-typescript/">JSON to TypeScript</a><a href="../json-to-java/">JSON to Java</a><a href="../json-to-python/">JSON to Python</a><a class="footer-all-link" href="../tools.html">All tools <span aria-hidden="true">&#8599;</span></a></section>
+<section class="footer-column" aria-labelledby="footer-more-title"><h2 id="footer-more-title">MORE TOOLS</h2><a href="../json-minifier/">JSON Minifier</a><a href="../json-compare/">JSON Compare</a><a class="footer-all-link" href="../tools.html">All tools <span aria-hidden="true">&#8599;</span></a></section>
+<section class="footer-column" aria-labelledby="footer-learn-title"><h2 id="footer-learn-title">LEARN</h2><a href="../learn/">Learn JSON tutorials</a><a href="../faq.html">Frequently asked questions</a><a href="../about.html">About RomitJSON</a></section>
+<section class="footer-column" aria-labelledby="footer-company-title"><h2 id="footer-company-title">COMPANY</h2><a href="../contact.html">Contact</a><a href="../privacy.html">Privacy policy</a></section>
+</div>
+<div class="footer-about"><div><span class="footer-eyebrow">MADE FOR DEVELOPERS</span><p>Format, validate, inspect, and transform JSON with practical tools for your daily development workflow.</p></div><div class="footer-actions"><a class="footer-cta" href="../tools.html">Explore tools <span aria-hidden="true">&#8599;</span></a><a class="footer-cta" href="../learn/">Learn JSON <span aria-hidden="true">&#8599;</span></a></div></div>
+<div class="footer-bottom">
+<p class="footer-copyright"><span id="year"></span> RomitJSON. All rights reserved.</p>
+<p class="footer-note">Made with ❤️ for developers.</p>
+<nav class="footer-legal" aria-label="Footer navigation"><a href="../about.html">About</a><a href="../privacy.html">Privacy</a><a href="../contact.html">Contact</a></nav>
+</div>
+</div>
+</footer>
+<script src="../js/java.js"></script>
 </body>
 </html>
