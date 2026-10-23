@@ -1,15 +1,193 @@
 <!doctype html>
 <html lang="en">
 <head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>JSON Path Finder | RomitJSON</title>
-  <meta name="robots" content="noindex,follow">
-  <link rel="canonical" href="https://romitjson.com/jsonpath.html">
-  <meta http-equiv="refresh" content="0;url=../jsonpath.html">
-  <script>window.location.replace("../jsonpath.html");</script>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>JSONPath Finder and Validator – Search JSON Data</title>
+<meta name="description" content="Find JSON paths by key or value, or run a JSONPath expression against your data. Inspect matching values and paths, with query errors separated from no matches.">
+<meta name="author" content="Romit Kr Yadav">
+<meta name="robots" content="index,follow,max-image-preview:large,max-snippet:-1,max-video-preview:-1">
+<link rel="canonical" href="https://romitjson.com/json-path-finder/">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="RomitJSON">
+<meta property="og:title" content="JSONPath Finder and Validator – Search JSON Data">
+<meta property="og:description" content="Find JSON paths by key or value, or run a JSONPath expression against your data. Inspect matching values and paths, with query errors separated from no matches.">
+<meta property="og:url" content="https://romitjson.com/json-path-finder/">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="JSONPath Finder and Validator – Search JSON Data">
+<meta name="twitter:description" content="Find JSON paths by key or value, or run a JSONPath expression against your data. Inspect matching values and paths, with query errors separated from no matches.">
+<meta name="theme-color" content="#10b995">
+<meta property="og:locale" content="en_US">
+<link rel="stylesheet" href="../css/style.css">
+<link rel="stylesheet" href="../css/formatter.css">
+<link rel="stylesheet" href="../css/json-path.css">
+<link rel="stylesheet" href="../css/tool-seo.css">
+<script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"WebPage","@id":"https://romitjson.com/json-path-finder/#webpage","url":"https://romitjson.com/json-path-finder/","name":"JSONPath Finder and Validator Online | RomitJSON","description":"Find JSON paths by key or value, or run a JSONPath expression against your data. Inspect matching values and paths, with query errors separated from no matches.","isPartOf":{"@id":"https://romitjson.com/#website"},"inLanguage":"en"},{"@type":"WebApplication","@id":"https://romitjson.com/json-path-finder/#webapp","name":"RomitJSON JSONPath Finder and Validator","url":"https://romitjson.com/json-path-finder/","applicationCategory":"DeveloperApplication","operatingSystem":"Any","browserRequirements":"Requires JavaScript and a modern web browser.","offers":{"@type":"Offer","price":"0","priceCurrency":"USD"},"description":"Browser-based JSONPath expression evaluator and key or value path finder."}]}</script>
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-DKWQGJ7VQ6"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-DKWQGJ7VQ6');
+</script><link rel="icon" type="image/svg+xml" href="/favicon.svg">
 </head>
-<body>
-  <p>Opening <a href="../jsonpath.html">JSON Path Finder</a> on RomitJSON…</p>
+<body class="dark">
+<header class="site-header"><div class="nav-wrap">
+<a class="brand" href="../index.html#home" aria-label="RomitJSON home"><span class="brand-mark">{ }</span><span>Romit<span class="brand-accent">JSON</span></span></a>
+<nav id="mainNav" aria-label="Main navigation">
+<a href="../index.html#home">Home</a>
+<a href="../datasets/">Datasets</a>
+<a href="../learn/">Learn JSON</a>
+<div class="nav-dropdown"><button class="nav-drop-btn" aria-expanded="false">View &amp; Edit <span>▾</span></button><div class="nav-drop-menu">
+<a href="../json-viewer/"><b class="ndm-green">◉</b><span><strong>JSON Viewer</strong><small>Browse JSON as a tree</small></span></a>
+<a href="../json-tree-viewer/"><b class="ndm-cyan">◈</b><span><strong>JSON Tree Viewer</strong><small>Explore nested JSON</small></span></a>
+<a href="../json-path-finder/" aria-current="page"><b class="ndm-blue">$</b><span><strong>JSONPath Finder</strong><small>Find and query data paths</small></span></a>
+<a href="../json-editor/"><b class="ndm-blue">✎</b><span><strong>JSON Editor</strong><small>Edit and inspect JSON</small></span></a></div></div>
+<div class="nav-dropdown"><button class="nav-drop-btn" aria-expanded="false">Validate <span>▾</span></button><div class="nav-drop-menu">
+<a href="../json-validator/"><b class="ndm-green">✓</b><span><strong>JSON Validator</strong><small>Find syntax errors</small></span></a>
+<a href="../json-repair/"><b class="ndm-orange">⌁</b><span><strong>JSON Repair</strong><small>Fix common syntax issues</small></span></a>
+<a href="../json-schema-validator/"><b class="ndm-violet">✓</b><span><strong>JSON Schema Validator</strong><small>Check data against a schema</small></span></a>
+<a href="../json-compare/"><b class="ndm-violet">⇄</b><span><strong>JSON Compare</strong><small>Find document differences</small></span></a></div></div>
+<div class="nav-dropdown"><button class="nav-drop-btn" aria-expanded="false">Convert <span>▾</span></button><div class="nav-drop-menu">
+<a href="../json-to-csv/"><b class="ndm-violet">{ }</b><span><strong>JSON → CSV</strong><small>Convert arrays to CSV</small></span></a>
+<a href="../json-to-excel/"><b class="ndm-green">XLS</b><span><strong>JSON → Excel</strong><small>Export workbook data</small></span></a>
+<a href="../json-to-sql/"><b class="ndm-orange">SQL</b><span><strong>JSON → SQL</strong><small>Generate table and insert SQL</small></span></a>
+<a href="../json-to-yaml/"><b class="ndm-purple">YML</b><span><strong>JSON → YAML</strong><small>Create YAML data</small></span></a>
+<a href="../json-to-xml/"><b class="ndm-orange">&lt;/&gt;</b><span><strong>JSON → XML</strong><small>Create XML data</small></span></a></div></div>
+<div class="nav-dropdown"><button class="nav-drop-btn" aria-expanded="false">Generate <span>▾</span></button><div class="nav-drop-menu">
+<a href="../json-pretty-printer/"><b class="ndm-cyan">¶</b><span><strong>JSON Pretty Printer</strong><small>Beautify JSON output</small></span></a>
+<a href="../json-to-typescript/"><b class="ndm-blue">TS</b><span><strong>JSON → TypeScript</strong><small>Generate interfaces</small></span></a>
+<a href="../json-to-java/"><b class="ndm-orange">J</b><span><strong>JSON → Java</strong><small>Generate Java model classes</small></span></a>
+<a href="../json-to-python/"><b class="ndm-blue">Py</b><span><strong>JSON → Python</strong><small>Generate Python models</small></span></a>
+<a href="../json-schema-generator/"><b class="ndm-violet">{ }</b><span><strong>JSON Schema Generator</strong><small>Generate a schema from JSON</small></span></a>
+<a href="../json-minifier/"><b class="ndm-red">↘</b><span><strong>JSON Minifier</strong><small>Reduce JSON size</small></span></a></div></div>
+<a href="../tools.html">All tools</a>
+<a href="../about.html">About</a><a href="../contact.html">Contact</a></nav>
+<div class="header-actions"><button class="menu-btn" id="menuBtn" aria-controls="mainNav" aria-expanded="false">Menu</button></div>
+</div></header>
+
+<main class="json-path-main">
+  <section class="formatter-intro">
+    <label>JSON TOOL / JSONPATH</label>
+    <h1>JSONPath Finder and Validator</h1>
+    <p>Find the path to any key or value, or run a JSONPath expression to test it and inspect matching data. Your JSON is processed in your browser.</p>
+  </section>
+
+  <section class="path-tool" aria-label="JSONPath finder and validator">
+    <div class="path-toolbar">
+      <div class="path-toolbar-note"><strong>JSONPath</strong><span>Use <code>$</code> for the root. Expressions run against your JSON data.</span></div>
+      <div class="path-actions">
+        <button class="secondary-btn" id="sampleBtn" type="button">Load sample</button>
+        <button class="primary-btn" id="runPathBtn" type="button" disabled>Validate &amp; Run</button>
+        <button class="secondary-btn" id="clearBtn" type="button">Clear</button>
+      </div>
+    </div>
+    <section class="path-data-panel" aria-labelledby="dataTitle">
+      <div class="path-panel-head">
+        <h2 id="dataTitle">JSON data</h2>
+        <div><button class="panel-action" id="openFileBtn" type="button">Open JSON</button><input id="fileInput" type="file" accept=".json,application/json" hidden></div>
+      </div>
+      <textarea id="jsonInput" spellcheck="false" aria-label="JSON data" placeholder='{"store":{"book":[{"title":"Example"}]}}'></textarea>
+    </section>
+    <div class="path-query-grid">
+      <section class="path-query-panel" aria-labelledby="expressionTitle">
+        <div class="path-panel-head"><h2 id="expressionTitle">JSONPath expression</h2><span>Example: <code>$.store.book[*].title</code></span></div>
+        <div class="path-query-row">
+          <label class="visually-hidden" for="pathInput">JSONPath expression to validate and run</label>
+          <input id="pathInput" type="text" spellcheck="false" value="$" placeholder="$.store.book[*].title" autocomplete="off">
+          <button class="panel-action" id="runQueryBtn" type="button" disabled>Run</button>
+        </div>
+        <p class="path-query-help">Supports JSONPath operators, filters, and unions. Use <kbd>Ctrl</kbd>+<kbd>Enter</kbd> to run.</p>
+      </section>
+      <section class="path-query-panel" aria-labelledby="findTitle">
+        <div class="path-panel-head"><h2 id="findTitle">Find paths by key or value</h2></div>
+        <div class="path-query-row">
+          <label class="visually-hidden" for="findInput">Text to find in JSON keys or values</label>
+          <input id="findInput" type="search" placeholder="For example, email or Patna" autocomplete="off">
+          <button class="panel-action" id="findBtn" type="button" disabled>Find</button>
+        </div>
+        <p class="path-query-help">Searches object keys and primitive values and returns their JSONPath locations.</p>
+      </section>
+    </div>
+    <section class="path-result" aria-labelledby="resultTitle">
+      <div class="path-result-head">
+        <h2 id="resultTitle">Results</h2>
+        <span id="resultSummary" role="status" aria-live="polite">Loading JSONPath engine…</span>
+      </div>
+      <ol id="resultList" class="path-results"></ol>
+    </section>
+  </section>
+
+  <article class="tool-seo-content" aria-labelledby="path-guide-title">
+<h2 id="path-guide-title">Find a JSONPath or Test an Expression</h2>
+<p>JSONPath is a query language for selecting values from a JSON document. Use the RomitJSON JSONPath Finder and Validator in either of two ways: search for text in keys and primitive values to discover their paths, or enter a JSONPath expression and run it against your data. Results show the matching value and its path, so you can see exactly what a query selects.</p>
+<p>Paste JSON or open a local <code>.json</code> file, then run a query or find a key or value. The page reports malformed JSON separately from an invalid expression. A valid expression that selects nothing is reported as a valid query with no matches.</p>
+
+<h2>How to Use the JSONPath Finder</h2>
+<ol>
+<li>Paste JSON into the data field, select <strong>Open JSON</strong> to choose a file, or use <strong>Load sample</strong>.</li>
+<li>To test a query, enter an expression in the JSONPath field and select <strong>Validate &amp; Run</strong> or <strong>Run</strong>. Press <kbd>Ctrl</kbd>+<kbd>Enter</kbd> while in the expression field to run it.</li>
+<li>To find a path without writing an expression, enter part of a key or a primitive value in <strong>Find paths by key or value</strong>, then select <strong>Find</strong>.</li>
+<li>Read each result’s path and value. If a query has no matches, check the expression and the actual structure and values in the JSON.</li>
+</ol>
+
+<h2>JSONPath Examples</h2>
+<p>Given a document with a <code>store</code> object and a <code>book</code> array, these expressions select different parts of the data:</p>
+<div class="tool-seo-table-wrap"><table class="tool-seo-table"><thead><tr><th scope="col">Expression</th><th scope="col">What it selects</th></tr></thead><tbody>
+<tr><td><code>$</code></td><td>The complete JSON document</td></tr>
+<tr><td><code>$.store.book[0].title</code></td><td>The title in the first book object (array indexes start at 0)</td></tr>
+<tr><td><code>$.store.book[*].title</code></td><td>The title from every book in the array</td></tr>
+<tr><td><code>$..price</code></td><td>Values under a <code>price</code> key at any depth</td></tr>
+<tr><td><code>$.store.book[?(@.price &lt; 10)].title</code></td><td>Titles of books whose price is below 10</td></tr>
+</tbody></table></div>
+<p>The first character, <code>$</code>, refers to the root of the JSON document. Dot notation follows ordinary property names; brackets select array indexes, quoted property names, or groups of matches. The wildcard <code>*</code> selects all children at that level, while recursive descent <code>..</code> searches deeper in the document. A filter such as <code>[?(@.price &lt; 10)]</code> tests each candidate item against a condition.</p>
+
+<h2>Find Paths Without Writing a Query</h2>
+<p>Use <strong>Find paths by key or value</strong> when you know a word or value but are unsure where it appears. The search is case-insensitive and matches part of an object key or a primitive value such as a string, number, Boolean, or <code>null</code>. It returns each matching location as a JSONPath and displays the corresponding value. For example, searching for <code>email</code> can reveal paths such as <code>$.users[2].email</code>.</p>
+<p>This search is different from running a JSONPath expression: it finds text in the document, while an expression can select data by its structure or filter conditions. The page displays up to 500 results for either workflow; additional matches are counted but omitted from the list.</p>
+
+<h2>JSONPath Errors and Empty Results</h2>
+<p>A query error and a query with no matches mean different things. An invalid expression has syntax the JSONPath engine cannot parse. A valid expression with no matches is well-formed but does not select any value in the current JSON. Check names and letter case, array indexes, nesting, and filter conditions before changing the expression.</p>
+<p>The JSON document must also be valid JSON. JSON requires double quotes around strings and property names and does not allow trailing commas or comments. If the page reports an invalid JSON error, use the <a href="../json-validator/">JSON Validator</a> to inspect the document syntax first.</p>
+
+<h2>Which JSONPath Syntax Does This Tool Use?</h2>
+<p>This page evaluates queries with JSONPath-Plus, including common selectors, wildcards, recursive descent, unions, and filters. JSONPath implementations can differ in their supported extensions and edge cases, so test an expression in the same runtime that will use it in production. The <a href="https://github.com/JSONPath-Plus/JSONPath">JSONPath-Plus documentation</a> describes this evaluator. The IETF’s <a href="https://www.rfc-editor.org/rfc/rfc9535.html">RFC 9535</a> defines a standard JSONPath query language; do not assume every implementation supports identical extensions.</p>
+
+<h2>Input Size and Privacy</h2>
+<p>JSON input can be up to 10 MiB. The page parses the document and evaluates searches in your browser; it does not send your JSON or query to RomitJSON. It loads the JSONPath library from esm.sh, so your browser needs an internet connection to retrieve that code. The page displays up to 500 matches, with a note when more results were found. Avoid entering secrets or confidential data into online tools unless their handling fits your requirements.</p>
+
+<h2>Frequently Asked Questions</h2>
+<details><summary>What does the dollar sign mean in a JSONPath?</summary><p><code>$</code> identifies the root of the JSON document. For example, <code>$.user.name</code> follows the <code>user</code> property from the root, then selects its <code>name</code> property.</p></details>
+<details><summary>Can I find a JSON path without knowing JSONPath syntax?</summary><p>Yes. Search for a key or primitive value in <strong>Find paths by key or value</strong>. The tool returns matching paths without requiring you to write a query.</p></details>
+<details><summary>Why does a valid JSONPath return no results?</summary><p>The expression may refer to a key, index, or value that is not present in the current document, or its filter may exclude every item. No matches do not necessarily mean that the expression is invalid.</p></details>
+<details><summary>Does this tool validate JSON syntax?</summary><p>It checks that the JSON can be parsed before running a query. For a dedicated syntax check and error details, use the <a href="../json-validator/">JSON Validator</a>.</p></details>
+<details><summary>How many results can I see?</summary><p>The page displays up to 500 result rows. If a query or search finds more, it tells you how many additional results were omitted.</p></details>
+
+<h2>Related JSON Tools</h2>
+<p>Use the <a href="../json-viewer/">JSON Viewer</a> to browse nested JSON as a tree, the <a href="../json-validator/">JSON Validator</a> to check syntax, or the <a href="../json-schema-validator/">JSON Schema Validator</a> to compare data against required fields, types, and other schema rules.</p>
+</article>
+</main>
+
+<footer class="site-footer">
+<div class="footer-inner">
+<div class="footer-link-grid">
+<section class="footer-column" aria-labelledby="footer-tools-title"><h2 id="footer-tools-title">JSON TOOLS</h2><a href="../json-formatter/">JSON Formatter</a><a href="../json-pretty-printer/">JSON Pretty Printer</a><a href="../json-validator/">JSON Validator</a><a href="../json-repair/">JSON Repair</a><a href="../json-schema-validator/">JSON Schema Validator</a><a href="../json-schema-generator/">JSON Schema Generator</a><a href="../json-viewer/">JSON Viewer</a><a href="../json-tree-viewer/">JSON Tree Viewer</a><a href="../json-path-finder/" aria-current="page">JSONPath Finder</a><a href="../json-editor/">JSON Editor</a><a class="footer-all-link" href="../tools.html">All tools <span aria-hidden="true">&#8599;</span></a></section>
+<section class="footer-column" aria-labelledby="footer-converters-title"><h2 id="footer-converters-title">CONVERTERS</h2><a href="../json-to-csv/">JSON to CSV</a><a href="../json-to-excel/">JSON to Excel</a><a href="../json-to-sql/">JSON to SQL</a><a href="../json-to-yaml/">JSON to YAML</a><a href="../json-to-xml/">JSON to XML</a><a href="../json-to-typescript/">JSON to TypeScript</a><a href="../json-to-java/">JSON to Java</a><a href="../json-to-python/">JSON to Python</a><a class="footer-all-link" href="../tools.html">All tools <span aria-hidden="true">&#8599;</span></a></section>
+<section class="footer-column" aria-labelledby="footer-more-title"><h2 id="footer-more-title">MORE TOOLS</h2><a href="../json-minifier/">JSON Minifier</a><a href="../json-compare/">JSON Compare</a><a class="footer-all-link" href="../tools.html">All tools <span aria-hidden="true">&#8599;</span></a></section>
+<section class="footer-column" aria-labelledby="footer-learn-title"><h2 id="footer-learn-title">LEARN</h2><a href="../learn/">Learn JSON tutorials</a><a href="../faq.html">Frequently asked questions</a><a href="../about.html">About RomitJSON</a></section>
+<section class="footer-column" aria-labelledby="footer-company-title"><h2 id="footer-company-title">COMPANY</h2><a href="../contact.html">Contact</a><a href="../privacy.html">Privacy policy</a></section>
+</div>
+<div class="footer-about"><div><span class="footer-eyebrow">MADE FOR DEVELOPERS</span><p>Format, validate, inspect, and transform JSON with practical tools for your daily development workflow.</p></div><div class="footer-actions"><a class="footer-cta" href="../tools.html">Explore tools <span aria-hidden="true">&#8599;</span></a><a class="footer-cta" href="../learn/">Learn JSON <span aria-hidden="true">&#8599;</span></a></div></div>
+<div class="footer-bottom">
+<p class="footer-copyright"><span id="year"></span> RomitJSON. All rights reserved.</p>
+<p class="footer-note">Made with ❤️ for developers.</p>
+<nav class="footer-legal" aria-label="Footer navigation"><a href="../about.html">About</a><a href="../privacy.html">Privacy</a><a href="../contact.html">Contact</a></nav>
+</div>
+</div>
+</footer>
+<script src="../js/json-path.js"></script>
 </body>
 </html>
+
+
