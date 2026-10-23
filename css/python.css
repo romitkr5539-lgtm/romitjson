@@ -1,0 +1,39 @@
+.python-main{padding-top:54px}
+.python-related{display:flex;gap:14px;margin-top:10px;font-size:11px;font-weight:700}
+.python-related a{color:var(--accent)}
+.python-toolbar{align-items:end;justify-content:flex-start;flex-wrap:wrap}
+.python-setting{display:flex;min-width:150px;flex-direction:column;gap:5px;color:var(--muted);font-size:10px;font-weight:800;letter-spacing:1px;text-transform:uppercase}
+.python-setting input,.python-setting select{min-height:38px;border:1px solid var(--line);border-radius:8px;padding:8px 10px;background:var(--bg);color:var(--text);font:13px/1.4 ui-monospace,SFMono-Regular,Consolas,monospace;text-transform:none;letter-spacing:0}
+.python-setting input:focus-visible,.python-setting select:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
+.python-actions{display:flex;align-items:center;gap:8px}
+.python-actions button{min-height:38px}
+.python-help-text{margin:0;padding:0 15px 8px;color:var(--muted);font-size:10px;line-height:1.5}
+.python-settings{display:flex;flex-wrap:wrap;gap:12px 24px;padding:11px 15px;border-bottom:1px solid var(--line);background:var(--surface)}
+.python-check{display:flex;align-items:center;gap:8px;color:var(--text);font-size:11px;font-weight:700}
+.python-check.is-disabled{opacity:.55}
+.python-check input{width:16px;height:16px;accent-color:var(--accent)}
+.python-grid .formatter-panel{min-width:0;min-height:480px}
+.python-grid textarea{width:100%;min-height:430px;flex:1;resize:vertical;border:0;outline:0;padding:16px;background:var(--editor-bg);color:var(--text);font:13px/1.6 ui-monospace,SFMono-Regular,Consolas,monospace}
+.python-grid textarea::placeholder{color:var(--muted);opacity:.8}
+.python-grid #pythonOutput{min-width:0;overflow:auto;white-space:pre;overflow-wrap:normal;color:#d8e2e8}
+.python-grid #pythonOutput .python-keyword{color:#c792ea;font-weight:750}
+.python-grid #pythonOutput .python-type{color:#82aaff}
+.python-grid #pythonOutput .python-string{color:#c3e88d}
+.python-grid #pythonOutput .python-number{color:#f78c6c}
+.python-grid #pythonOutput .python-punctuation{color:#89ddff}
+.python-grid #pythonOutput .python-comment{color:#7f8c98;font-style:italic}
+.python-stats{display:grid;grid-template-columns:repeat(3,1fr);margin:0;padding:12px 16px;border-top:1px solid var(--line)}
+.python-stats>div{display:flex;justify-content:space-between;gap:12px;padding:3px 14px;border-right:1px solid var(--line);font-size:11px}
+.python-stats>div:first-child{padding-left:0}
+.python-stats>div:last-child{border:0;padding-right:0}
+.python-stats dt{color:var(--muted)}
+.python-stats dd{margin:0;color:var(--text);font-weight:800}
+.python-status.error{color:var(--error)}
+.python-status.success{color:var(--accent)}
+.python-details{padding:12px 15px;border-top:1px solid var(--line);color:var(--muted);font-size:11px;line-height:1.65}
+.python-details summary{color:var(--text);font-weight:750;cursor:pointer}
+.python-details p{max-width:950px;margin:8px 0 0}
+.python-details code{color:var(--accent);font-family:ui-monospace,SFMono-Regular,Consolas,monospace}
+@media(max-width:900px){.python-toolbar{align-items:stretch}.python-setting{flex:1}.python-actions{flex:1}.python-actions button{flex:1}}
+@media(max-width:760px){.python-main{padding-top:38px}.python-toolbar{align-items:stretch;flex-direction:column}.python-setting input,.python-setting select{width:100%}.python-actions button{flex:1}.python-grid{grid-template-columns:1fr}.python-grid .formatter-panel{min-height:360px}.python-grid textarea,.python-grid #pythonOutput{min-height:300px}.python-stats{grid-template-columns:1fr;gap:5px;padding:10px 14px}.python-stats>div,.python-stats>div:first-child,.python-stats>div:last-child{padding:5px 0;border-right:0;border-bottom:1px solid var(--line)}.python-stats>div:last-child{border-bottom:0}}
+@media(max-width:380px){.python-grid .formatter-panel-head{padding:8px}.python-grid .formatter-panel-head h2{font-size:9px;letter-spacing:.8px}.python-settings{gap:10px 14px}.python-actions{flex-wrap:wrap}.python-actions button{min-width:calc(50% - 5px)}}

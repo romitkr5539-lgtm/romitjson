@@ -1,0 +1,178 @@
+.repair-main {
+  width: min(1120px, calc(100% - 44px));
+  margin: 0 auto;
+  padding: 64px 0 80px;
+}
+
+.repair-tool {
+  overflow: hidden;
+  border: 1px solid var(--line);
+  border-radius: 12px;
+  background: var(--surface);
+  box-shadow: var(--shadow);
+}
+
+.repair-toolbar,
+.repair-actions,
+.repair-panel-head,
+.repair-panel-head > div {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.repair-toolbar {
+  justify-content: space-between;
+  flex-wrap: wrap;
+  padding: 14px 16px;
+  border-bottom: 1px solid var(--line);
+}
+
+.repair-actions {
+  flex-wrap: wrap;
+}
+
+.repair-actions button {
+  min-height: 38px;
+}
+
+.repair-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 1px;
+  background: var(--line);
+}
+
+.repair-panel {
+  display: flex;
+  min-width: 0;
+  min-height: 440px;
+  flex-direction: column;
+  background: var(--surface);
+}
+
+.repair-panel-head {
+  min-height: 49px;
+  justify-content: space-between;
+  padding: 8px 13px;
+  border-bottom: 1px solid var(--line);
+}
+
+.repair-panel-head h2,
+.repair-changes h2 {
+  margin: 0;
+  color: var(--muted);
+  font-size: 10px;
+  font-weight: 850;
+  letter-spacing: 1.2px;
+  text-transform: uppercase;
+}
+
+.repair-panel-head > div {
+  flex-wrap: wrap;
+}
+
+.repair-panel textarea,
+.repair-panel pre {
+  width: 100%;
+  min-width: 0;
+  min-height: 390px;
+  flex: 1;
+  margin: 0;
+  border: 0;
+  padding: 16px;
+  background: var(--editor-bg);
+  color: var(--text);
+  font: 13px/1.6 ui-monospace, SFMono-Regular, Consolas, monospace;
+}
+
+.repair-panel textarea {
+  resize: vertical;
+  outline: 0;
+}
+
+.repair-panel pre {
+  overflow: auto;
+  white-space: pre-wrap;
+  overflow-wrap: anywhere;
+}
+
+.repair-changes {
+  padding: 14px 16px;
+  border-top: 1px solid var(--line);
+}
+
+.repair-changes ul {
+  display: grid;
+  gap: 6px;
+  margin: 10px 0 0;
+  padding-left: 20px;
+  color: var(--muted);
+  font-size: 12px;
+  line-height: 1.55;
+}
+
+.repair-status {
+  min-height: 38px;
+  margin: 0;
+  padding: 10px 14px;
+  color: var(--muted);
+  font-size: 12px;
+}
+
+.repair-status.error {
+  color: var(--error);
+}
+
+.repair-status.success {
+  color: var(--accent);
+}
+
+.repair-panel textarea:focus-visible,
+.repair-tool button:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 2px;
+}
+
+.repair-tool button:disabled {
+  opacity: 0.45;
+  cursor: not-allowed;
+}
+
+@media (max-width: 760px) {
+  .repair-main {
+    width: calc(100% - 28px);
+    padding: 38px 0 56px;
+  }
+
+  .repair-toolbar,
+  .repair-actions {
+    align-items: stretch;
+  }
+
+  .repair-actions {
+    width: 100%;
+  }
+
+  .repair-actions button {
+    flex: 1;
+  }
+
+  .repair-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .repair-panel {
+    min-height: 350px;
+  }
+
+  .repair-panel textarea,
+  .repair-panel pre {
+    min-height: 280px;
+  }
+
+  .repair-panel-head {
+    align-items: flex-start;
+    flex-wrap: wrap;
+  }
+}

@@ -1,0 +1,5 @@
+.tools-directory .tool-category{margin-top:28px}
+.tools-directory .tool-category-heading{margin-bottom:12px}
+.tools-directory .tool-category-heading h2{margin:0;color:var(--text);font-size:18px;line-height:1.35}
+.tools-directory .tool-category-heading p{margin:3px 0 0;color:var(--muted);font-size:12px}
+@media(max-width:760px){.tools-directory .tool-category{margin-top:24px}.tools-directory .tool-category-heading h2{font-size:16px}}

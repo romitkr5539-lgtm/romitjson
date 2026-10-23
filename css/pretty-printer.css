@@ -1,0 +1,191 @@
+.pretty-main {
+  width: min(1060px, calc(100% - 44px));
+  margin: 0 auto;
+  padding: 64px 0 80px;
+}
+
+.pretty-tool {
+  overflow: hidden;
+  border: 1px solid var(--line);
+  border-radius: 12px;
+  background: var(--surface);
+  box-shadow: var(--shadow);
+}
+
+.pretty-toolbar,
+.pretty-actions,
+.pretty-panel-head,
+.pretty-panel-head > div {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.pretty-toolbar {
+  justify-content: space-between;
+  padding: 14px 16px;
+  border-bottom: 1px solid var(--line);
+}
+
+.pretty-indent {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+  color: var(--muted);
+  font-size: 10px;
+  font-weight: 800;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+}
+
+.pretty-indent select {
+  min-width: 140px;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  padding: 9px 11px;
+  background: var(--bg);
+  color: var(--text);
+  font: inherit;
+  letter-spacing: 0;
+  text-transform: none;
+}
+
+.pretty-actions button {
+  min-height: 38px;
+}
+
+.pretty-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 1px;
+  background: var(--line);
+}
+
+.pretty-panel {
+  display: flex;
+  min-width: 0;
+  min-height: 480px;
+  flex-direction: column;
+  background: var(--surface);
+}
+
+.pretty-panel-head {
+  min-height: 49px;
+  justify-content: space-between;
+  padding: 8px 13px;
+  border-bottom: 1px solid var(--line);
+}
+
+.pretty-panel-head h2 {
+  margin: 0;
+  color: var(--muted);
+  font-size: 10px;
+  font-weight: 850;
+  letter-spacing: 1.2px;
+  text-transform: uppercase;
+}
+
+.pretty-panel-head > div {
+  flex-wrap: wrap;
+}
+
+.pretty-panel textarea,
+.pretty-panel pre {
+  width: 100%;
+  min-width: 0;
+  min-height: 430px;
+  flex: 1;
+  margin: 0;
+  border: 0;
+  padding: 16px;
+  background: var(--editor-bg);
+  color: var(--text);
+  font: 13px/1.6 ui-monospace, SFMono-Regular, Consolas, monospace;
+}
+
+.pretty-panel textarea {
+  resize: vertical;
+  outline: 0;
+}
+
+.pretty-panel pre {
+  overflow: auto;
+  white-space: pre;
+}
+
+.pretty-status {
+  min-height: 38px;
+  margin: 0;
+  padding: 10px 14px;
+  color: var(--muted);
+  font-size: 12px;
+}
+
+.pretty-status.error {
+  color: var(--error);
+}
+
+.pretty-status.success {
+  color: var(--accent);
+}
+
+.pretty-panel textarea:focus-visible,
+.pretty-indent select:focus-visible,
+.pretty-tool button:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 2px;
+}
+
+.pretty-tool button:disabled {
+  opacity: 0.45;
+  cursor: not-allowed;
+}
+
+@media (max-width: 760px) {
+  .pretty-main {
+    width: calc(100% - 28px);
+    padding: 38px 0 56px;
+  }
+
+  .pretty-toolbar {
+    align-items: stretch;
+    flex-direction: column;
+  }
+
+  .pretty-indent select {
+    width: 100%;
+  }
+
+  .pretty-actions button {
+    flex: 1;
+  }
+
+  .pretty-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .pretty-panel {
+    min-height: 360px;
+  }
+
+  .pretty-panel textarea,
+  .pretty-panel pre {
+    min-height: 300px;
+  }
+
+  .pretty-panel-head {
+    align-items: flex-start;
+    flex-wrap: wrap;
+  }
+}
+
+@media (max-width: 380px) {
+  .pretty-panel-head {
+    padding: 8px;
+  }
+
+  .pretty-panel-head h2 {
+    font-size: 9px;
+    letter-spacing: 0.8px;
+  }
+}
