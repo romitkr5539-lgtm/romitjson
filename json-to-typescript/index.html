@@ -1,15 +1,160 @@
 <!doctype html>
 <html lang="en">
 <head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>JSON to TypeScript | RomitJSON</title>
-  <meta name="robots" content="noindex,follow">
-  <link rel="canonical" href="https://romitjson.com/typescript.html">
-  <meta http-equiv="refresh" content="0;url=../typescript.html">
-  <script>window.location.replace("../typescript.html");</script>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>JSON to TypeScript Converter Online</title>
+<meta name="description" content="Convert JSON to TypeScript interfaces or type aliases online. Infer nested objects, arrays, nullable values, and optional fields from sample JSON.">
+<meta name="robots" content="index,follow">
+<link rel="canonical" href="https://romitjson.com/json-to-typescript/">
+<meta property="og:type" content="website"><meta property="og:site_name" content="RomitJSON"><meta property="og:title" content="JSON to TypeScript Converter Online"><meta property="og:description" content="Convert JSON to TypeScript interfaces or type aliases online. Infer nested objects, arrays, nullable values, and optional fields from sample JSON."><meta property="og:url" content="https://romitjson.com/json-to-typescript/">
+<meta name="twitter:card" content="summary"><meta name="twitter:title" content="JSON to TypeScript Converter Online"><meta name="twitter:description" content="Convert JSON to TypeScript interfaces or type aliases online. Infer nested objects, arrays, nullable values, and optional fields from sample JSON.">
+<meta name="theme-color" content="#071613">
+<link rel="stylesheet" href="../css/style.css">
+<link rel="stylesheet" href="../css/formatter.css">
+<link rel="stylesheet" href="../css/typescript.css">
+<link rel="stylesheet" href="../css/tool-seo.css">
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-DKWQGJ7VQ6"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-DKWQGJ7VQ6');
+</script><link rel="icon" type="image/svg+xml" href="/favicon.svg">
 </head>
-<body>
-  <p>Opening <a href="../typescript.html">JSON to TypeScript</a> on RomitJSON…</p>
+<body class="dark">
+<header class="site-header"><div class="nav-wrap">
+<a class="brand" href="../index.html#home" aria-label="RomitJSON home"><span class="brand-mark">{ }</span><span>Romit<span class="brand-accent">JSON</span></span></a>
+<nav id="mainNav" aria-label="Main navigation">
+<a href="../index.html#home">Home</a>
+<a href="../datasets/">Datasets</a>
+<a href="../learn/">Learn JSON</a>
+<div class="nav-dropdown"><button class="nav-drop-btn" aria-expanded="false">View &amp; Edit <span>▾</span></button><div class="nav-drop-menu">
+<a href="../json-viewer/"><b class="ndm-green">◉</b><span><strong>JSON Viewer</strong><small>Browse JSON as a tree</small></span></a>
+<a href="../json-tree-viewer/"><b class="ndm-cyan">◈</b><span><strong>JSON Tree Viewer</strong><small>Explore nested JSON</small></span></a>
+<a href="../json-path-finder/"><b class="ndm-blue">$</b><span><strong>JSONPath Finder</strong><small>Find and query data paths</small></span></a>
+<a href="../json-editor/"><b class="ndm-blue">✎</b><span><strong>JSON Editor</strong><small>Edit and inspect JSON</small></span></a></div></div>
+<div class="nav-dropdown"><button class="nav-drop-btn" aria-expanded="false">Validate <span>▾</span></button><div class="nav-drop-menu">
+<a href="../json-validator/"><b class="ndm-green">✓</b><span><strong>JSON Validator</strong><small>Find syntax errors</small></span></a>
+<a href="../json-repair/"><b class="ndm-orange">⌁</b><span><strong>JSON Repair</strong><small>Fix common syntax issues</small></span></a>
+<a href="../json-schema-validator/"><b class="ndm-violet">✓</b><span><strong>JSON Schema Validator</strong><small>Check data against a schema</small></span></a>
+<a href="../json-compare/"><b class="ndm-violet">⇄</b><span><strong>JSON Compare</strong><small>Find document differences</small></span></a></div></div>
+<div class="nav-dropdown"><button class="nav-drop-btn" aria-expanded="false">Convert <span>▾</span></button><div class="nav-drop-menu">
+<a href="../json-to-csv/"><b class="ndm-violet">{ }</b><span><strong>JSON → CSV</strong><small>Convert arrays to CSV</small></span></a>
+<a href="../json-to-excel/"><b class="ndm-green">XLS</b><span><strong>JSON → Excel</strong><small>Export workbook data</small></span></a>
+<a href="../json-to-sql/"><b class="ndm-orange">SQL</b><span><strong>JSON → SQL</strong><small>Generate table and insert SQL</small></span></a>
+<a href="../json-to-yaml/"><b class="ndm-purple">YML</b><span><strong>JSON → YAML</strong><small>Create YAML data</small></span></a>
+<a href="../json-to-xml/"><b class="ndm-orange">&lt;/&gt;</b><span><strong>JSON → XML</strong><small>Create XML data</small></span></a></div></div>
+<div class="nav-dropdown"><button class="nav-drop-btn" aria-expanded="false">Generate <span>▾</span></button><div class="nav-drop-menu">
+<a href="../json-pretty-printer/"><b class="ndm-cyan">¶</b><span><strong>JSON Pretty Printer</strong><small>Beautify JSON output</small></span></a>
+<a href="../json-to-typescript/" aria-current="page"><b class="ndm-blue">TS</b><span><strong>JSON → TypeScript</strong><small>Generate interfaces</small></span></a>
+<a href="../json-to-java/"><b class="ndm-orange">J</b><span><strong>JSON → Java</strong><small>Generate Java model classes</small></span></a>
+<a href="../json-to-python/"><b class="ndm-blue">Py</b><span><strong>JSON → Python</strong><small>Generate Python models</small></span></a>
+<a href="../json-schema-generator/"><b class="ndm-violet">{ }</b><span><strong>JSON Schema Generator</strong><small>Generate a schema from JSON</small></span></a>
+<a href="../json-minifier/"><b class="ndm-red">↘</b><span><strong>JSON Minifier</strong><small>Reduce JSON size</small></span></a></div></div>
+<a href="../tools.html">All tools</a>
+<a href="../about.html">About</a><a href="../contact.html">Contact</a></nav>
+<div class="header-actions"><button class="menu-btn" id="menuBtn" aria-controls="mainNav" aria-expanded="false">Menu</button></div>
+</div></header>
+<main class="formatter-main typescript-main">
+<section class="formatter-intro">
+<label>JSON TOOL / GENERATOR</label>
+<h1>JSON to TypeScript Converter</h1>
+<p>Convert JSON data into TypeScript declarations with RomitJSON. Generate a starting point for API responses, configuration objects, and other structured data, then review the inferred types for your project.</p>
+<nav class="typescript-related" aria-label="Related JSON tools"><a href="../json-formatter/">JSON Formatter</a><a href="../json-validator/">JSON Validator</a></nav>
+</section>
+<section class="formatter-tool typescript-tool" aria-label="JSON to TypeScript generator">
+<div class="formatter-toolbar typescript-toolbar">
+<label class="type-setting" for="typeName"><span>Root type name</span><input id="typeName" type="text" value="Root" maxlength="60" autocomplete="off" aria-describedby="typeNameHelp"></label>
+<label class="type-setting" for="declarationStyle"><span>Declaration</span><select id="declarationStyle"><option value="interface">Interfaces</option><option value="type">Type aliases</option></select></label>
+<div class="typescript-actions"><button class="secondary-btn" id="openFileBtn" type="button">Open JSON</button><input id="fileInput" type="file" accept=".json,application/json" hidden><button class="secondary-btn" id="pasteBtn" type="button">Paste</button><button class="secondary-btn" id="sampleBtn" type="button">Sample</button></div>
+<div class="typescript-actions"><button class="primary-btn" id="generateBtn" type="button">Generate types</button><button class="secondary-btn" id="clearBtn" type="button">Clear</button></div>
+</div>
+<p class="typescript-root-help" id="typeNameHelp">Use a valid TypeScript identifier. Arrays of objects are merged as supplied samples; inferred optional fields reflect only those samples.</p>
+<div class="typescript-settings" aria-label="TypeScript generation options">
+<label class="typescript-check"><input id="exportTypes" type="checkbox" checked><span>Export declarations</span></label>
+<label class="typescript-check"><input id="optionalProperties" type="checkbox" checked><span>Infer optional fields</span></label>
+<label for="emptyFallback">Empty array fallback<select id="emptyFallback"><option value="unknown" selected>unknown</option><option value="any">any</option></select></label>
+<label class="typescript-check"><input id="readonlyProperties" type="checkbox"><span>Readonly properties</span></label>
+</div>
+<div class="formatter-grid typescript-grid">
+<section class="formatter-panel typescript-input-panel" aria-labelledby="inputTitle"><div class="formatter-panel-head"><h2 id="inputTitle">Input JSON</h2><span id="inputSize">0 characters</span></div><span class="typescript-file-name" id="inputFileName" aria-live="polite"></span><textarea id="jsonInput" spellcheck="false" aria-label="Input JSON" placeholder='Paste an object or sample array, for example: {"name":"RomitJSON"}'></textarea></section>
+<section class="formatter-panel output-panel" aria-labelledby="outputTitle"><div class="formatter-panel-head"><h2 id="outputTitle">TypeScript output</h2><div><button class="panel-action" id="copyButton" type="button" disabled>Copy</button><button class="panel-action" id="downloadButton" type="button" disabled>Download</button></div></div><pre id="typescriptOutput" aria-label="Generated TypeScript">Generated TypeScript appears here.</pre></section>
+</div>
+<dl class="typescript-stats" id="typescriptStats" hidden><div><dt>Root type</dt><dd id="rootType">Root</dd></div><div><dt>Declarations</dt><dd id="declarationCount">0</dd></div><div><dt>Output size</dt><dd id="outputSize">0 bytes</dd></div></dl>
+<p class="formatter-status" id="typescriptStatus" role="status" aria-live="polite">Paste JSON or open a file to begin.</p>
+<details class="typescript-help"><summary>How inference works</summary><p>Arrays of objects are treated as examples of one shared shape. Fields missing from any supplied object are marked optional when that setting is enabled; explicit <code>null</code> remains nullable. Empty arrays use the selected fallback. Inference describes only the JSON you provide and cannot guarantee every runtime value.</p></details>
+</section>
+<article class="tool-seo-content" aria-labelledby="typescript-guide-title">
+<h2 id="typescript-guide-title">Generate TypeScript Types from JSON Samples</h2>
+<p>Use this JSON to TypeScript converter to turn a representative JSON object or array into TypeScript declarations. It can save the repetitive first pass when you are describing an API response, a configuration file, a webhook payload, or a test fixture. The result is a draft based on the values you provide, so compare it with the data contract before relying on it in an application.</p>
+<p>Paste JSON or open a local <code>.json</code> file, choose a root name and declaration style, and select <strong>Generate types</strong>. The tool builds types for nested objects and arrays, then lets you copy the result or download it as <code>types.ts</code>. Conversion runs in your browser; the page does not upload the JSON to a conversion service.</p>
+
+<h2>How to Use the JSON to TypeScript Converter</h2>
+<ol><li>Paste valid JSON into the input panel, or select <strong>Open JSON</strong> to choose a file.</li><li>Set a root type name such as <code>Person</code>. It must be a valid TypeScript identifier.</li><li>Choose <strong>Interfaces</strong> or <strong>Type aliases</strong>, then set export, optional-property, readonly, and empty-array options as needed.</li><li>Select <strong>Generate types</strong>. Check the output against representative values and your API or application contract.</li><li>Copy the declarations or download the generated <code>.ts</code> file.</li></ol>
+<p>For the most useful inference, provide examples that show meaningful variation in your data. In particular, include multiple objects when some records may omit fields.</p>
+
+<h2>Optional and Nullable Fields Are Different</h2>
+<p>This distinction matters when modeling API data. An optional property may be absent from an object; a nullable property is present with the value <code>null</code>. A field can be both optional and nullable. The converter can infer these cases from an array of sample objects when <strong>Infer optional fields</strong> is enabled.</p>
+<h3>Sample JSON</h3>
+<pre><code>[
+  { "id": 101, "name": "Ada", "active": true },
+  { "id": 202, "name": "Grace", "active": false, "nickname": null },
+  { "id": 303, "name": "Katherine", "active": true, "nickname": "Kat" }
+]</code></pre>
+<p>With the root name set to <code>Person</code>, the generated declarations include:</p>
+<pre><code>export interface PersonItem {
+  id: number;
+  name: string;
+  active: boolean;
+  nickname?: null | string;
+}
+
+export type Person = PersonItem[];</code></pre>
+<p><code>nickname?</code> reflects that the first sample object has no nickname property. The <code>null | string</code> union reflects the values where the property is present. If you provide only one object, the converter cannot infer that other properties might be absent; it only sees that one example.</p>
+
+<h2>What the Converter Infers</h2>
+<div class="tool-seo-table-wrap"><table class="tool-seo-table"><thead><tr><th scope="col">JSON sample</th><th scope="col">Typical TypeScript result</th><th scope="col">What to check</th></tr></thead><tbody><tr><th scope="row"><code>"Ada"</code></th><td><code>string</code></td><td>String formats such as dates remain strings.</td></tr><tr><th scope="row"><code>101</code></th><td><code>number</code></td><td>JSON numbers do not distinguish integers from decimals.</td></tr><tr><th scope="row"><code>true</code></th><td><code>boolean</code></td><td>Both JSON boolean values use this type.</td></tr><tr><th scope="row"><code>null</code></th><td><code>null</code> or a union containing <code>null</code></td><td>Null is a value, not the same as an absent property.</td></tr><tr><th scope="row"><code>["read", "write"]</code></th><td><code>string[]</code></td><td>An empty array needs an element-type fallback.</td></tr><tr><th scope="row"><code>{ "city": "Patna" }</code></th><td>A named object declaration</td><td>Nested object declarations are named from their property.</td></tr></tbody></table></div>
+<p>If sample values for a field have different JSON types, the generated declaration may use a union. Review each union to make sure it represents allowed data rather than inconsistent or accidental input.</p>
+
+<h2>Choose Interfaces, Type Aliases, and Generation Options</h2>
+<p>Select <strong>Interfaces</strong> when you want object declarations in the familiar interface form. Choose <strong>Type aliases</strong> if that style better matches your project. Both can describe object shapes; aliases also naturally express unions and primitive types. The tool may use a type alias for the root when the JSON root itself is an array or another non-object value.</p>
+<ul><li><strong>Root type name:</strong> Sets the top-level declaration name. Nested declaration names are derived from object property names.</li><li><strong>Export declarations:</strong> Adds <code>export</code> so declarations can be imported from another module.</li><li><strong>Infer optional fields:</strong> Marks fields absent from some objects in the supplied array as optional. Turn this off only when you intentionally want every observed field required.</li><li><strong>Empty array fallback:</strong> An empty array contains no element examples, so choose <code>unknown</code> or <code>any</code>. <code>unknown</code> keeps you responsible for narrowing the value before using it.</li><li><strong>Readonly properties:</strong> Adds <code>readonly</code> to properties when the generated shape should not be reassigned through that type.</li></ul>
+
+<h2>Use Generated Types as a Starting Point</h2>
+<p>JSON can show what happened in one response, but it cannot reveal every value a service may return. A sample with an empty array cannot tell you its eventual element type. A single number cannot express business rules such as “positive integer,” and a date string is still inferred as <code>string</code>. Confirm these constraints from the API documentation, schema, or application requirements and refine the declarations where needed.</p>
+<p>TypeScript declarations help tools check code during development, but they do not validate untrusted JSON at runtime. If an application needs to reject malformed API data, add a runtime validation step or use a schema and a compatible validator. Use the <a href="../json-schema-generator/">JSON Schema Generator</a> to create a schema draft from sample JSON, then review its rules before using it as a contract.</p>
+
+<h2>Frequently Asked Questions</h2>
+<details><summary>Can I convert a JSON array to TypeScript?</summary><p>Yes. Arrays of values become TypeScript array types. For an array of objects, the converter merges the supplied records into one item shape and can mark properties missing from some records as optional.</p></details>
+<details><summary>How can I infer optional properties?</summary><p>Include multiple representative objects in an array, with the optional property absent from at least one object, and leave <strong>Infer optional fields</strong> enabled. The inference only reflects the samples you provide.</p></details>
+<details><summary>Why does a property have both <code>?</code> and <code>null</code>?</summary><p>The question mark means the property may be absent. The <code>null</code> union means that, when present, its value may be null. These describe different cases.</p></details>
+<details><summary>What type does an empty JSON array get?</summary><p>An empty array contains no evidence about its item type. This converter uses the selected fallback, which is <code>unknown</code> by default or <code>any</code>.</p></details>
+<details><summary>Does this converter validate future API responses?</summary><p>No. It parses the JSON sample and generates static TypeScript declarations. Those declarations do not check future data at runtime; add runtime validation when your application needs it.</p></details>
+<details><summary>Is my JSON uploaded?</summary><p>No. This page parses and converts the input in your browser. For sensitive data, follow your organization’s data-handling rules and review the <a href="../privacy.html">privacy information</a>.</p></details>
+
+<h2>Related JSON Tools</h2>
+<p>Use the <a href="../json-formatter/">JSON Formatter</a> to make a sample easier to inspect, the <a href="../json-validator/">JSON Validator</a> to check its syntax, and the <a href="../json-viewer/">JSON Viewer</a> to explore nested values. For other outputs, try the <a href="../json-schema-generator/">JSON Schema Generator</a>, <a href="../json-to-csv/">JSON to CSV Converter</a>, <a href="../json-to-yaml/">JSON to YAML Converter</a>, or <a href="../json-to-xml/">JSON to XML Converter</a>.</p>
+</article>
+</main>
+<footer class="site-footer">
+<div class="footer-inner">
+<div class="footer-link-grid">
+<section class="footer-column" aria-labelledby="footer-tools-title"><h2 id="footer-tools-title">JSON TOOLS</h2><a href="../json-formatter/">JSON Formatter</a><a href="../json-pretty-printer/">JSON Pretty Printer</a><a href="../json-validator/">JSON Validator</a><a href="../json-repair/">JSON Repair</a><a href="../json-schema-validator/">JSON Schema Validator</a><a href="../json-schema-generator/">JSON Schema Generator</a><a href="../json-viewer/">JSON Viewer</a><a href="../json-tree-viewer/">JSON Tree Viewer</a><a href="../json-path-finder/">JSONPath Finder</a><a href="../json-editor/">JSON Editor</a><a class="footer-all-link" href="../tools.html">All tools <span aria-hidden="true">&#8599;</span></a></section>
+<section class="footer-column" aria-labelledby="footer-converters-title"><h2 id="footer-converters-title">CONVERTERS</h2><a href="../json-to-csv/">JSON to CSV</a><a href="../json-to-excel/">JSON to Excel</a><a href="../json-to-sql/">JSON to SQL</a><a href="../json-to-yaml/">JSON to YAML</a><a href="../json-to-xml/">JSON to XML</a><a href="../json-to-typescript/">JSON to TypeScript</a><a href="../json-to-java/">JSON to Java</a><a href="../json-to-python/">JSON to Python</a><a class="footer-all-link" href="../tools.html">All tools <span aria-hidden="true">&#8599;</span></a></section>
+<section class="footer-column" aria-labelledby="footer-more-title"><h2 id="footer-more-title">MORE TOOLS</h2><a href="../json-minifier/">JSON Minifier</a><a href="../json-compare/">JSON Compare</a><a class="footer-all-link" href="../tools.html">All tools <span aria-hidden="true">&#8599;</span></a></section>
+<section class="footer-column" aria-labelledby="footer-learn-title"><h2 id="footer-learn-title">LEARN</h2><a href="../learn/">Learn JSON tutorials</a><a href="../faq.html">Frequently asked questions</a><a href="../about.html">About RomitJSON</a></section>
+<section class="footer-column" aria-labelledby="footer-company-title"><h2 id="footer-company-title">COMPANY</h2><a href="../contact.html">Contact</a><a href="../privacy.html">Privacy policy</a></section>
+</div>
+<div class="footer-about"><div><span class="footer-eyebrow">MADE FOR DEVELOPERS</span><p>Format, validate, inspect, and transform JSON with practical tools for your daily development workflow.</p></div><div class="footer-actions"><a class="footer-cta" href="../tools.html">Explore tools <span aria-hidden="true">&#8599;</span></a><a class="footer-cta" href="../learn/">Learn JSON <span aria-hidden="true">&#8599;</span></a></div></div>
+<div class="footer-bottom">
+<p class="footer-copyright"><span id="year"></span> RomitJSON. All rights reserved.</p>
+<p class="footer-note">Made with ❤️ for developers.</p>
+<nav class="footer-legal" aria-label="Footer navigation"><a href="../about.html">About</a><a href="../privacy.html">Privacy</a><a href="../contact.html">Contact</a></nav>
+</div>
+</div>
+</footer>
+<script src="../js/typescript.js"></script>
 </body>
 </html>
