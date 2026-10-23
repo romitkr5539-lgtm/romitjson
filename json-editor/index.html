@@ -1,15 +1,165 @@
 <!doctype html>
 <html lang="en">
 <head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>JSON Editor | RomitJSON</title>
-  <meta name="robots" content="noindex,follow">
-  <link rel="canonical" href="https://romitjson.com/editor.html">
-  <meta http-equiv="refresh" content="0;url=../editor.html">
-  <script>window.location.replace("../editor.html");</script>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>JSON Editor Online – Edit and Validate JSON</title>
+<meta name="description" content="Edit JSON in your browser. Change values, find text, sort object keys, validate syntax, and format or download the result. Tree view helps inspect nested data.">
+<meta name="robots" content="index,follow">
+<link rel="canonical" href="https://romitjson.com/json-editor/">
+<meta property="og:type" content="website"><meta property="og:site_name" content="RomitJSON"><meta property="og:locale" content="en_US"><meta property="og:locale" content="en_US"><meta property="og:title" content="JSON Editor Online – Edit and Validate JSON"><meta property="og:description" content="Edit JSON in your browser. Change values, find text, sort object keys, validate syntax, and format or download the result. Tree view helps inspect nested data."><meta property="og:url" content="https://romitjson.com/json-editor/">
+<meta name="twitter:card" content="summary"><meta name="twitter:title" content="JSON Editor Online – Edit and Validate JSON"><meta name="twitter:description" content="Edit JSON in your browser. Change values, find text, sort object keys, validate syntax, and format or download the result. Tree view helps inspect nested data.">
+<meta name="theme-color" content="#071613">
+<link rel="stylesheet" href="../css/style.css">
+<link rel="stylesheet" href="../css/formatter.css">
+<link rel="stylesheet" href="../css/editor.css">
+<link rel="stylesheet" href="../css/tool-seo.css">
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-DKWQGJ7VQ6"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-DKWQGJ7VQ6');
+</script><link rel="icon" type="image/svg+xml" href="/favicon.svg">
 </head>
-<body>
-  <p>Opening <a href="../editor.html">JSON Editor</a> on RomitJSON…</p>
+<body class="dark">
+<header class="site-header"><div class="nav-wrap">
+<a class="brand" href="../index.html#home" aria-label="RomitJSON home"><span class="brand-mark">{ }</span><span>Romit<span class="brand-accent">JSON</span></span></a>
+<nav id="mainNav" aria-label="Main navigation">
+<a href="../index.html#home">Home</a>
+<a href="../datasets/">Datasets</a>
+<a href="../learn/">Learn JSON</a>
+<div class="nav-dropdown"><button class="nav-drop-btn" aria-expanded="false">View &amp; Edit <span>▾</span></button><div class="nav-drop-menu">
+<a href="../json-viewer/"><b class="ndm-green">◉</b><span><strong>JSON Viewer</strong><small>Browse JSON as a tree</small></span></a>
+<a href="../json-tree-viewer/"><b class="ndm-cyan">◈</b><span><strong>JSON Tree Viewer</strong><small>Explore nested JSON</small></span></a>
+<a href="../json-path-finder/"><b class="ndm-blue">$</b><span><strong>JSONPath Finder</strong><small>Find and query data paths</small></span></a>
+<a class="active" href="../json-editor/" aria-current="page"><b class="ndm-blue">✎</b><span><strong>JSON Editor</strong><small>Edit and inspect JSON</small></span></a></div></div>
+<div class="nav-dropdown"><button class="nav-drop-btn" aria-expanded="false">Validate <span>▾</span></button><div class="nav-drop-menu">
+<a href="../json-validator/"><b class="ndm-green">✓</b><span><strong>JSON Validator</strong><small>Find syntax errors</small></span></a>
+<a href="../json-repair/"><b class="ndm-orange">⌁</b><span><strong>JSON Repair</strong><small>Fix common syntax issues</small></span></a>
+<a href="../json-schema-validator/"><b class="ndm-violet">✓</b><span><strong>JSON Schema Validator</strong><small>Check data against a schema</small></span></a>
+<a href="../json-compare/"><b class="ndm-violet">⇄</b><span><strong>JSON Compare</strong><small>Find document differences</small></span></a></div></div>
+<div class="nav-dropdown"><button class="nav-drop-btn" aria-expanded="false">Convert <span>▾</span></button><div class="nav-drop-menu">
+<a href="../json-to-csv/"><b class="ndm-violet">{ }</b><span><strong>JSON → CSV</strong><small>Convert arrays to CSV</small></span></a>
+<a href="../json-to-excel/"><b class="ndm-green">XLS</b><span><strong>JSON → Excel</strong><small>Export workbook data</small></span></a>
+<a href="../json-to-sql/"><b class="ndm-orange">SQL</b><span><strong>JSON → SQL</strong><small>Generate table and insert SQL</small></span></a>
+<a href="../json-to-yaml/"><b class="ndm-purple">YML</b><span><strong>JSON → YAML</strong><small>Create YAML data</small></span></a>
+<a href="../json-to-xml/"><b class="ndm-orange">&lt;/&gt;</b><span><strong>JSON → XML</strong><small>Create XML data</small></span></a></div></div>
+<div class="nav-dropdown"><button class="nav-drop-btn" aria-expanded="false">Generate <span>▾</span></button><div class="nav-drop-menu">
+<a href="../json-pretty-printer/"><b class="ndm-cyan">¶</b><span><strong>JSON Pretty Printer</strong><small>Beautify JSON output</small></span></a>
+<a href="../json-to-typescript/"><b class="ndm-blue">TS</b><span><strong>JSON → TypeScript</strong><small>Generate interfaces</small></span></a>
+<a href="../json-to-java/"><b class="ndm-orange">J</b><span><strong>JSON → Java</strong><small>Generate Java model classes</small></span></a>
+<a href="../json-to-python/"><b class="ndm-blue">Py</b><span><strong>JSON → Python</strong><small>Generate Python models</small></span></a>
+<a href="../json-schema-generator/"><b class="ndm-violet">{ }</b><span><strong>JSON Schema Generator</strong><small>Generate a schema from JSON</small></span></a>
+<a href="../json-minifier/"><b class="ndm-red">↘</b><span><strong>JSON Minifier</strong><small>Reduce JSON size</small></span></a></div></div>
+<a href="../tools.html">All tools</a>
+<a href="../about.html">About</a><a href="../contact.html">Contact</a></nav>
+<div class="header-actions"><button class="menu-btn" id="menuBtn" type="button" aria-controls="mainNav" aria-expanded="false">Menu</button></div>
+</div></header>
+<main class="formatter-main editor-main">
+<section class="formatter-intro">
+<label>JSON TOOL / EDITOR</label>
+<h1>JSON Editor Online</h1>
+<p>Edit JSON online with RomitJSON. Update objects, arrays, keys, and values, then validate and format your data before copying or downloading it.</p>
+</section>
+<section class="formatter-tool editor-tool" aria-label="JSON editor">
+<div class="editor-commandbar" role="toolbar" aria-label="Editor tools">
+<div class="editor-command-group">
+<button type="button" id="undoBtn" aria-label="Undo" title="Undo" disabled>↶</button><button type="button" id="redoBtn" aria-label="Redo" title="Redo" disabled>↷</button>
+<button type="button" id="sortBtn" aria-label="Sort object keys" title="Sort object keys">⇅</button><button type="button" id="findBtn" aria-label="Find in JSON" title="Find in JSON">⌕</button>
+<button type="button" id="validateBtn" aria-label="Validate JSON" title="Validate JSON">✓</button><button type="button" id="printBtn" aria-label="Print JSON" title="Print JSON">▤</button><button type="button" id="fullscreenBtn" aria-label="Toggle fullscreen" title="Toggle fullscreen">⛶</button>
+</div>
+<div class="editor-command-group editor-settings">
+<label for="editorIndent">Indent</label><select id="editorIndent"><option value="2">2 spaces</option><option value="4">4 spaces</option><option value="tab">Tabs</option></select>
+<label for="editorView">View</label><select id="editorView"><option value="code">Code</option><option value="tree">Tree</option></select>
+</div>
+</div>
+<div class="editor-findbar" id="editorFindbar" hidden><label for="editorFind">Find</label><input id="editorFind" type="search" placeholder="Search JSON"><button type="button" id="findPrevious" aria-label="Previous match" title="Previous match">↑</button><button type="button" id="findNext" aria-label="Next match" title="Next match">↓</button><span id="findStatus" role="status"></span><button type="button" id="closeFind" aria-label="Close search" title="Close search">×</button></div>
+<div class="formatter-toolbar editor-toolbar">
+<div class="editor-actions"><button class="secondary-btn" id="openFileBtn" type="button">Open JSON</button><input id="fileInput" type="file" accept=".json,application/json" hidden><button class="secondary-btn" id="sampleBtn" type="button">Sample</button></div>
+<div class="editor-actions"><button class="secondary-btn" id="formatBtn" type="button" disabled>Format</button><button class="secondary-btn" id="copyBtn" type="button" disabled>Copy</button><button class="primary-btn" id="downloadBtn" type="button" disabled>Download</button><button class="secondary-btn" id="clearBtn" type="button">Clear</button></div>
+</div>
+<section class="editor-panel" aria-labelledby="documentTitle">
+<div class="formatter-panel-head"><h2 id="documentTitle">JSON document</h2><div class="document-meta"><span id="fileName">Untitled JSON</span><span id="lineCount">0 lines</span></div></div>
+<div class="editor-text-wrap">
+  <div class="line-number-panel" aria-hidden="true"></div>
+  <pre class="editor-text-overlay" aria-hidden="true"></pre>
+  <textarea id="jsonDocument" spellcheck="false" autocapitalize="off" autocomplete="off" aria-label="Editable JSON document" placeholder='Start typing JSON, or open a JSON file. Example: {"name":"RomitJSON"}'></textarea>
+  <div id="editorTree" class="editor-tree" aria-label="JSON tree" hidden></div>
+</div>
+</section>
+<div id="editorStatus" class="editor-status" role="status" aria-live="polite"><span id="statusMark" aria-hidden="true">•</span><span id="statusText">Ready. Your changes stay in this browser.</span></div>
+</section>
+<article class="tool-seo-content" aria-labelledby="editor-guide-title">
+<h2 id="editor-guide-title">Edit JSON text, then check the result</h2>
+<p>Use this JSON editor to change a setting, prepare test data, or update a copy of an API response. Work in Code view by editing the JSON text directly. The editor checks syntax as you type and lets you format, search, sort object keys, undo changes, and inspect valid data in Tree view.</p>
+<p>Open a local <code>.json</code> file or paste JSON into the document. When you are ready, copy the edited text or download it as <code>edited.json</code>. Editing happens in your browser; it does not update the original file or send a change back to the API that produced the data.</p>
+
+<h2>Make a change without changing the data type by accident</h2>
+<p>JSON values have types. The number <code>499</code> and the string <code>"499"</code> look similar, but an application can treat them differently. Keep quotes around text values, leave them off numbers and the values <code>true</code>, <code>false</code>, and <code>null</code>, and check the expected type before saving.</p>
+<pre><code>{
+  "product": "Notebook",
+  "price": 499,
+  "available": true
+}</code></pre>
+<p>If the price is meant to stay numeric, change its digits without adding quotation marks. To add a property, separate it from the neighboring property with a comma. To remove one, delete its key-value pair and check the comma before and after it.</p>
+
+<h2>How to use the JSON editor</h2>
+<ol>
+<li>Paste JSON in the document or choose <strong>Open JSON</strong> to load a local file. The file picker accepts JSON files up to 50 MiB.</li>
+<li>Edit the text in Code view. Use <strong>Find</strong> for a value or key in a longer document; use Undo or Redo to review recent edits.</li>
+<li>Check the status message. Valid JSON can be formatted, copied, or downloaded. If the syntax is invalid, the editor reports an error and highlights the approximate problem area.</li>
+<li>Choose two spaces, four spaces, or tabs for indentation. Select <strong>Format</strong> to reserialize valid JSON with that indentation.</li>
+<li>Copy the result or download it as <code>edited.json</code>. Keep a backup when changing an important configuration file.</li>
+</ol>
+
+<h2>What each editor control does</h2>
+<ul>
+<li><strong>Code and Tree views:</strong> Code is where you edit the JSON text. Tree view shows valid objects and arrays as collapsible branches for inspection; it is read-only.</li>
+<li><strong>Find:</strong> Search the text in either direction. The editor switches to Code view when you open Find.</li>
+<li><strong>Sort object keys:</strong> Sorts keys alphabetically in every object, including nested objects. It keeps array items in their existing order.</li>
+<li><strong>Validate:</strong> Checks whether the document uses valid JSON syntax. A valid result does not prove that the data matches your application's schema or requirements.</li>
+<li><strong>Format:</strong> Adds indentation and line breaks based on the selected setting.</li>
+<li><strong>Undo and Redo:</strong> Move through recent text changes so you can recover from an edit.</li>
+</ul>
+
+<h2>Why valid JSON can still fail in an application</h2>
+<p>Syntax validation catches problems such as missing commas, mismatched braces, unquoted keys, single-quoted strings, or trailing commas. It cannot tell whether a required field is missing, whether a value is allowed by your API, or whether a number is within the range your application expects. For those checks, validate the document against the relevant JSON Schema or application rules.</p>
+<p>For example, <code>{"enabled": "true"}</code> is valid JSON, but <code>enabled</code> is a string. An application that expects a Boolean may reject it or behave differently. After editing, check both the syntax and the meaning of changed fields.</p>
+
+<h2>Formatting and sorting can change the text representation</h2>
+<p>Format and Sort parse the document and serialize it again. They change whitespace; formatting may also normalize number text such as <code>1.0</code> or <code>1e3</code>. JavaScript cannot represent every very large integer or high-precision decimal exactly, so check numeric IDs and precision-sensitive values if you use these actions. Keep such values as quoted strings when they are identifiers, or use a parser that supports arbitrary-precision numbers.</p>
+
+<h2>JSON editor, formatter, and viewer</h2>
+<p>An editor changes the JSON text. A <a href="../json-formatter/">JSON Formatter</a> focuses on making valid JSON easier to read, while a <a href="../json-viewer/">JSON Viewer</a> helps inspect data in tree, code, or table form. Use the <a href="../json-validator/">JSON Validator</a> when you only need a syntax check.</p>
+
+<h2>Frequently asked questions</h2>
+<details><summary>Does the editor validate JSON as I type?</summary><p>Yes. It checks the document after edits and reports whether the syntax is valid. The Validate control runs the check on demand as well.</p></details>
+<details><summary>Can I edit JSON in Tree view?</summary><p>No. Tree view is for inspecting valid JSON. Switch to Code view to make changes to the document text.</p></details>
+<details><summary>Does sorting keys change array order?</summary><p>No. Sort object keys sorts keys alphabetically in objects, including nested objects. Items in arrays keep their original order.</p></details>
+<details><summary>Does a valid result mean my API will accept the JSON?</summary><p>Not necessarily. Syntax validation checks JSON grammar, not required fields, value ranges, or API-specific rules. Use the API's schema or documentation for those requirements.</p></details>
+<details><summary>Is my JSON uploaded when I edit it?</summary><p>The editor reads and processes the text in your browser. Its editing script does not transmit the JSON document to a server. Avoid entering secrets into any website unless you trust its data handling.</p></details>
+<details><summary>Will formatting preserve exact number text?</summary><p>Not always. Formatting and sorting parse and serialize the document, which can normalize number notation. JavaScript also has limits on exact numeric precision. Check large IDs and precision-sensitive numbers before using the result.</p></details>
+</article>
+</main>
+<footer class="site-footer">
+<div class="footer-inner">
+<div class="footer-link-grid">
+<section class="footer-column" aria-labelledby="footer-tools-title"><h2 id="footer-tools-title">JSON TOOLS</h2><a href="../json-formatter/">JSON Formatter</a><a href="../json-pretty-printer/">JSON Pretty Printer</a><a href="../json-validator/">JSON Validator</a><a href="../json-repair/">JSON Repair</a><a href="../json-schema-validator/">JSON Schema Validator</a><a href="../json-schema-generator/">JSON Schema Generator</a><a href="../json-viewer/">JSON Viewer</a><a href="../json-tree-viewer/">JSON Tree Viewer</a><a href="../json-path-finder/">JSONPath Finder</a><a href="../json-editor/">JSON Editor</a><a class="footer-all-link" href="../tools.html">All tools <span aria-hidden="true">&#8599;</span></a></section>
+<section class="footer-column" aria-labelledby="footer-converters-title"><h2 id="footer-converters-title">CONVERTERS</h2><a href="../json-to-csv/">JSON to CSV</a><a href="../json-to-excel/">JSON to Excel</a><a href="../json-to-sql/">JSON to SQL</a><a href="../json-to-yaml/">JSON to YAML</a><a href="../json-to-xml/">JSON to XML</a><a href="../json-to-typescript/">JSON to TypeScript</a><a href="../json-to-java/">JSON to Java</a><a href="../json-to-python/">JSON to Python</a><a class="footer-all-link" href="../tools.html">All tools <span aria-hidden="true">&#8599;</span></a></section>
+<section class="footer-column" aria-labelledby="footer-more-title"><h2 id="footer-more-title">MORE TOOLS</h2><a href="../json-minifier/">JSON Minifier</a><a href="../json-compare/">JSON Compare</a><a class="footer-all-link" href="../tools.html">All tools <span aria-hidden="true">&#8599;</span></a></section>
+<section class="footer-column" aria-labelledby="footer-learn-title"><h2 id="footer-learn-title">LEARN</h2><a href="../learn/">Learn JSON tutorials</a><a href="../faq.html">Frequently asked questions</a><a href="../about.html">About RomitJSON</a></section>
+<section class="footer-column" aria-labelledby="footer-company-title"><h2 id="footer-company-title">COMPANY</h2><a href="../contact.html">Contact</a><a href="../privacy.html">Privacy policy</a></section>
+</div>
+<div class="footer-about"><div><span class="footer-eyebrow">MADE FOR DEVELOPERS</span><p>Format, validate, inspect, and transform JSON with practical tools for your daily development workflow.</p></div><div class="footer-actions"><a class="footer-cta" href="../tools.html">Explore tools <span aria-hidden="true">&#8599;</span></a><a class="footer-cta" href="../learn/">Learn JSON <span aria-hidden="true">&#8599;</span></a></div></div>
+<div class="footer-bottom">
+<p class="footer-copyright">© <span id="year"></span> RomitJSON. All rights reserved.</p>
+<p class="footer-note">Made with ❤️ for developers.</p>
+<nav class="footer-legal" aria-label="Footer navigation"><a href="../about.html">About</a><a href="../privacy.html">Privacy</a><a href="../contact.html">Contact</a></nav>
+</div>
+</div>
+</footer>
+<script src="../js/editor.js"></script>
 </body>
 </html>
