@@ -1,0 +1,90 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>JSON Tools FAQ: Formatting, Validation and Conversion</title>
+<meta name="description" content="Get answers about JSON syntax errors, formatting, comparing files, converting JSON to CSV or YAML, file size limits, and browser privacy.">
+<meta name="robots" content="index,follow">
+<link rel="canonical" href="https://romitjson.com/faq.html">
+<meta name="theme-color" content="#071613">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="RomitJSON">
+<meta property="og:title" content="JSON Tools FAQ: Formatting, Validation and Conversion">
+<meta property="og:description" content="Get answers about JSON syntax errors, formatting, comparing files, converting JSON to CSV or YAML, file size limits, and browser privacy.">
+<meta property="og:url" content="https://romitjson.com/faq.html">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="JSON Tools FAQ: Formatting, Validation and Conversion">
+<meta name="twitter:description" content="Get answers about JSON syntax errors, formatting, comparing files, converting JSON to CSV or YAML, file size limits, and browser privacy.">
+<link rel="stylesheet" href="css/style.css">
+<link rel="stylesheet" href="css/content.css">
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-DKWQGJ7VQ6"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-DKWQGJ7VQ6');
+</script><link rel="icon" type="image/svg+xml" href="/favicon.svg">
+</head>
+<body class="dark">
+<header class="site-header"><div class="nav-wrap">
+<a class="brand" href="index.html" aria-label="RomitJSON home"><span class="brand-mark">{ }</span><span>Romit<span class="brand-accent">JSON</span></span></a>
+<nav id="mainNav" aria-label="Main navigation"><a href="index.html">Home</a><a href="index.html#all-tools">All tools</a><a href="datasets/">Datasets</a><a href="about.html">About</a><a href="faq.html" aria-current="page">FAQ</a><a href="contact.html">Contact</a></nav>
+<div class="header-actions"><button class="menu-btn" id="menuBtn" aria-controls="mainNav" aria-expanded="false">Menu</button></div>
+</div></header>
+<main class="content-main">
+<header class="content-hero"><label>HELP / JSON TOOLS</label><h1>Common questions.</h1><p>Quick answers for working with JSON in RomitJSON, from formatting and validation to privacy.</p></header>
+<section class="content-section content-faq" aria-label="Frequently asked questions">
+<details open><summary>What is JSON?</summary><p>JSON (JavaScript Object Notation) is a text format for representing structured data. It is commonly used by APIs, apps, and configuration files.</p></details>
+<details><summary>How do I format JSON online?</summary><p>Open the <a href="json-formatter/">JSON Formatter</a>, paste your data or open a JSON file, choose an indentation style, and format it. You can then copy or download the result.</p></details>
+<details><summary>How can I check whether JSON is valid?</summary><p>Use the <a href="json-validator/">JSON Validator</a> to parse the text and see a readable error when the syntax needs attention. Formatting also checks whether the input is valid JSON.</p></details>
+<details><summary>Does RomitJSON upload my JSON?</summary><p>The tools read and process the JSON you enter or open in your browser. The site does not send that JSON to a RomitJSON server. The YAML converter loads its conversion library from jsDelivr; see the <a href="privacy.html">privacy and data handling page</a> for details.</p></details>
+<details><summary>Can I compare two JSON files?</summary><p>Yes. Open <a href="json-compare/">JSON Compare</a>, add both documents, and review the differences in your browser.</p></details>
+<details><summary>Can I convert JSON to CSV, YAML, or XML?</summary><p>Yes. Use the <a href="json-to-csv/">JSON to CSV</a>, <a href="json-to-yaml/">JSON to YAML</a>, or <a href="json-to-xml/">JSON to XML</a> converter. Each page explains the available options before you download the result.</p></details>
+<details><summary>Can I generate TypeScript types from JSON?</summary><p>Use the <a href="json-to-typescript/">JSON to TypeScript converter</a> to create TypeScript declarations from a JSON example.</p></details>
+<details><summary>Why is my JSON invalid?</summary><p>Common causes include single quotes, unquoted object keys, trailing commas, missing commas or colons, and unclosed braces or brackets. JSON requires double-quoted strings and keys, with lowercase <code>true</code>, <code>false</code>, and <code>null</code>. Use the <a href="json-validator/">JSON Validator</a> to locate syntax errors.</p></details>
+<details><summary>Is valid JSON automatically valid for my API?</summary><p>No. A JSON syntax check confirms that the text can be parsed. API validation may also require a schema that defines allowed properties, data types, and required fields.</p></details>
+<details><summary>What is the maximum JSON file size?</summary><p>RomitJSON tools accept JSON files up to 50 MiB. Large documents may take longer to process and use more memory in your browser.</p></details>
+<details><summary>How do I convert JSON data to a spreadsheet?</summary><p>Use the <a href="json-to-csv/">JSON to CSV converter</a> for an array of objects. Choose how to handle nested fields, select a delimiter, and download the CSV for spreadsheet software.</p></details>
+<details><summary>Is RomitJSON free to use?</summary><p>Yes. The tools are free to use in a modern browser and do not require an account.</p></details>
+</section>
+<aside class="content-callout"><strong>Need a specific tool?</strong> Browse the <a href="index.html#all-tools">complete JSON toolbox</a>.</aside>
+</main>
+<footer class="site-footer">
+<div class="footer-inner">
+<div class="footer-link-grid">
+<section class="footer-column" aria-labelledby="footer-tools-title"><h2 id="footer-tools-title">JSON TOOLS</h2><a href="json-formatter/">JSON Formatter</a><a href="json-validator/">JSON Validator</a><a href="json-viewer/">JSON Viewer</a><a href="json-editor/">JSON Editor</a></section>
+<section class="footer-column" aria-labelledby="footer-converters-title"><h2 id="footer-converters-title">CONVERTERS</h2><a href="json-to-csv/">JSON to CSV</a><a href="json-to-yaml/">JSON to YAML</a><a href="json-to-xml/">JSON to XML</a><a href="json-to-typescript/">JSON to TypeScript</a></section>
+<section class="footer-column" aria-labelledby="footer-more-title"><h2 id="footer-more-title">MORE TOOLS</h2><a href="json-minifier/">JSON Minifier</a><a href="json-compare/">JSON Compare</a><a class="footer-all-link" href="index.html#tools">All tools <span aria-hidden="true">&#8599;</span></a></section>
+<section class="footer-column" aria-labelledby="footer-learn-title"><h2 id="footer-learn-title">LEARN</h2><a href="faq.html">Frequently asked questions</a><a href="about.html">About RomitJSON</a></section>
+<section class="footer-column" aria-labelledby="footer-company-title"><h2 id="footer-company-title">COMPANY</h2><a href="contact.html">Contact</a><a href="privacy.html">Privacy policy</a></section>
+</div>
+<div class="footer-about"><div><span class="footer-eyebrow">MADE FOR DEVELOPERS</span><p>Format, validate, inspect, and transform JSON with practical tools for your daily development workflow.</p></div><div class="footer-actions"><a class="footer-cta" href="tools.html">Explore tools <span aria-hidden="true">&#8599;</span></a><a class="footer-cta" href="learn/">Learn JSON <span aria-hidden="true">&#8599;</span></a></div></div>
+<div class="footer-bottom">
+<p class="footer-copyright">? <span id="year"></span> RomitJSON. All rights reserved.</p>
+<p class="footer-note">JSON tools that work right in your browser.</p>
+<nav class="footer-legal" aria-label="Footer navigation"><a href="about.html">About</a><a href="privacy.html">Privacy</a><a href="contact.html">Contact</a></nav>
+</div>
+</div>
+</footer>
+<script>
+const menuBtn = document.querySelector('#menuBtn');
+const mainNav = document.querySelector('#mainNav');
+const closeNav = () => {
+  mainNav.classList.remove('open');
+  menuBtn.setAttribute('aria-expanded', 'false');
+};
+menuBtn.addEventListener('click', () => {
+  const open = mainNav.classList.toggle('open');
+  menuBtn.setAttribute('aria-expanded', String(open));
+});
+document.addEventListener('click', (event) => {
+  if (!event.target.closest('#mainNav') && !event.target.closest('#menuBtn')) {
+    closeNav();
+  }
+});
+document.querySelector('#year').textContent = new Date().getFullYear();
+</script>
+</body>
+</html>

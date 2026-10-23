@@ -3,110 +3,120 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<title>About RomitJSON</title>
-<meta name="description" content="Learn about RomitJSON and how its browser-based JSON tools keep your data private while helping you format, validate, compare, and convert JSON.">
+<title>About RomitJSON: Online JSON Tools and Guides</title>
+<meta name="description" content="Learn how RomitJSON helps developers work with JSON through browser-based tools, practical guides, fictional datasets, and clear notes on data handling.">
 <meta name="robots" content="index,follow">
 <link rel="canonical" href="https://romitjson.com/about.html">
+<meta property="og:type" content="website"><meta property="og:site_name" content="RomitJSON"><meta property="og:locale" content="en_US"><meta property="og:title" content="About RomitJSON: Online JSON Tools and Guides"><meta property="og:description" content="Learn how RomitJSON helps developers work with JSON through browser-based tools, practical guides, fictional datasets, and clear notes on data handling."><meta property="og:url" content="https://romitjson.com/about.html">
+<meta name="twitter:card" content="summary"><meta name="twitter:title" content="About RomitJSON: Online JSON Tools and Guides"><meta name="twitter:description" content="Learn how RomitJSON helps developers work with JSON through browser-based tools, practical guides, fictional datasets, and clear notes on data handling.">
 <meta name="theme-color" content="#071613">
 <link rel="stylesheet" href="css/style.css">
 <link rel="stylesheet" href="css/about.css">
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-DKWQGJ7VQ6"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-DKWQGJ7VQ6');
+</script><link rel="icon" type="image/svg+xml" href="/favicon.svg">
 </head>
 <body class="dark">
 <header class="site-header"><div class="nav-wrap">
 <a class="brand" href="index.html#home" aria-label="RomitJSON home"><span class="brand-mark">{ }</span><span>Romit<span class="brand-accent">JSON</span></span></a>
 <nav id="mainNav" aria-label="Main navigation">
 <a href="index.html#home">Home</a>
-<div class="nav-dropdown"><button class="nav-drop-btn" aria-expanded="false">View &amp; Edit <span>▾</span></button><div class="nav-drop-menu">
-<a href="viewer.html"><b class="ndm-green">◉</b><span><strong>JSON Viewer</strong><small>Browse JSON as a tree</small></span></a>
-<a href="editor.html"><b class="ndm-blue">✎</b><span><strong>JSON Editor</strong><small>Edit and inspect JSON</small></span></a></div></div>
-<div class="nav-dropdown"><button class="nav-drop-btn" aria-expanded="false">Validate <span>▾</span></button><div class="nav-drop-menu">
-<a href="validator.html"><b class="ndm-green">✓</b><span><strong>JSON Validator</strong><small>Find syntax errors</small></span></a>
-<a href="compare.html"><b class="ndm-violet">⇄</b><span><strong>JSON Compare</strong><small>Find document differences</small></span></a></div></div>
-<div class="nav-dropdown"><button class="nav-drop-btn" aria-expanded="false">Convert <span>▾</span></button><div class="nav-drop-menu">
-<a href="csv.html"><b class="ndm-violet">{ }</b><span><strong>JSON → CSV</strong><small>Convert arrays to CSV</small></span></a>
-<a href="yaml.html"><b class="ndm-purple">YML</b><span><strong>JSON → YAML</strong><small>Create YAML data</small></span></a>
-<a href="xml.html"><b class="ndm-orange">&lt;/&gt;</b><span><strong>JSON → XML</strong><small>Create XML data</small></span></a></div></div>
-<div class="nav-dropdown"><button class="nav-drop-btn" aria-expanded="false">Generate <span>▾</span></button><div class="nav-drop-menu">
-<a href="typescript.html"><b class="ndm-blue">TS</b><span><strong>JSON → TypeScript</strong><small>Generate interfaces</small></span></a>
-<a href="minifier.html"><b class="ndm-red">↘</b><span><strong>JSON Minifier</strong><small>Reduce JSON size</small></span></a></div></div>
-<a href="about.html" aria-current="page">About</a></nav>
-<div class="header-actions"><button class="menu-btn" id="menuBtn" aria-controls="mainNav" aria-expanded="false">Menu</button></div>
-</div></header>
+<a href="datasets/">Datasets</a>
+<a href="learn/">Learn JSON</a>
+<div class="nav-dropdown"><button class="nav-drop-btn" type="button" aria-expanded="false">View &amp; Edit <span>▾</span></button><div class="nav-drop-menu">
+<a href="json-viewer/"><b class="ndm-green">◉</b><span><strong>JSON Viewer</strong><small>Browse JSON as a tree</small></span></a>
+<a href="json-tree-viewer/"><b class="ndm-cyan">◈</b><span><strong>JSON Tree Viewer</strong><small>Explore nested JSON</small></span></a>
+<a href="json-path-finder/"><b class="ndm-blue">$</b><span><strong>JSONPath Finder</strong><small>Find and query data paths</small></span></a>
+<a href="json-editor/"><b class="ndm-blue">✎</b><span><strong>JSON Editor</strong><small>Edit and inspect JSON</small></span></a></div></div>
+<div class="nav-dropdown"><button class="nav-drop-btn" type="button" aria-expanded="false">Validate <span>▾</span></button><div class="nav-drop-menu">
+<a href="json-validator/"><b class="ndm-green">✓</b><span><strong>JSON Validator</strong><small>Find syntax errors</small></span></a>
+<a href="json-repair/"><b class="ndm-orange">⌁</b><span><strong>JSON Repair</strong><small>Fix common syntax issues</small></span></a>
+<a href="json-schema-validator/"><b class="ndm-violet">✓</b><span><strong>JSON Schema Validator</strong><small>Check data against a schema</small></span></a>
+<a href="json-compare/"><b class="ndm-violet">⇄</b><span><strong>JSON Compare</strong><small>Find document differences</small></span></a></div></div>
+<div class="nav-dropdown"><button class="nav-drop-btn" type="button" aria-expanded="false">Convert <span>▾</span></button><div class="nav-drop-menu">
+<a href="json-to-csv/"><b class="ndm-violet">{ }</b><span><strong>JSON → CSV</strong><small>Convert arrays to CSV</small></span></a>
+<a href="json-to-excel/"><b class="ndm-green">XLS</b><span><strong>JSON → Excel</strong><small>Export workbook data</small></span></a>
+<a href="json-to-sql/"><b class="ndm-orange">SQL</b><span><strong>JSON → SQL</strong><small>Generate table and insert SQL</small></span></a>
+<a href="json-to-yaml/"><b class="ndm-purple">YML</b><span><strong>JSON → YAML</strong><small>Create YAML data</small></span></a>
+<a href="json-to-xml/"><b class="ndm-orange">&lt;/&gt;</b><span><strong>JSON → XML</strong><small>Create XML data</small></span></a></div></div>
+<div class="nav-dropdown"><button class="nav-drop-btn" type="button" aria-expanded="false">Generate <span>▾</span></button><div class="nav-drop-menu">
+<a href="json-pretty-printer/"><b class="ndm-cyan">¶</b><span><strong>JSON Pretty Printer</strong><small>Beautify JSON output</small></span></a>
+<a href="json-to-typescript/"><b class="ndm-blue">TS</b><span><strong>JSON → TypeScript</strong><small>Generate interfaces</small></span></a>
+<a href="json-to-java/"><b class="ndm-orange">J</b><span><strong>JSON → Java</strong><small>Generate Java model classes</small></span></a>
+<a href="json-to-python/"><b class="ndm-blue">Py</b><span><strong>JSON → Python</strong><small>Generate Python models</small></span></a>
+<a href="json-schema-generator/"><b class="ndm-violet">{ }</b><span><strong>JSON Schema Generator</strong><small>Generate a schema from JSON</small></span></a>
+<a href="json-minifier/"><b class="ndm-red">↘</b><span><strong>JSON Minifier</strong><small>Reduce JSON size</small></span></a></div></div>
+<a href="tools.html">All tools</a>
+<a class="active" href="about.html" aria-current="page">About</a><a href="contact.html">Contact</a></nav>
+<div class="header-actions"><button class="menu-btn" id="menuBtn" type="button" aria-controls="mainNav" aria-expanded="false">Menu</button></div>
+</div></header><main class="about-main">
+<section class="about-hero section"><div class="section-heading"><div>
+<label>ABOUT ROMITJSON</label>
+<h1>About RomitJSON</h1>
+<p>RomitJSON is a browser-based collection of JSON tools, practical learning guides, and fictional sample datasets. It is built around common tasks developers, learners, and testers face when reading or preparing structured data.</p>
+<p>Use the site to format a response so it is easier to inspect, find a syntax error, compare two documents, validate data against a schema, or convert records for another workflow. Each tool is focused on a specific job, with its own input and output requirements.</p>
+</div></div></section>
 
-<main class="about-main">
-<section class="about-hero section">
-<div class="section-heading">
-<div>
-<label>ABOUT</label>
-<h1>Built for fast, private JSON work.</h1>
-<p>RomitJSON gives you a clean browser-based toolbox for formatting, validating, comparing, converting, and generating JSON data without sending your files anywhere.</p>
-</div>
-</div>
-</section>
+<section class="story section" aria-labelledby="about-creator-title"><div class="section-heading"><div><label>THE CREATOR</label><h2 id="about-creator-title">Meet Romit Kr Yadav.</h2></div></div><div class="story-copy"><p>Romit is the independent web developer behind RomitJSON. He builds practical browser-based tools and guides to make everyday developer tasks easier to work through. <a href="romit-kr-yadav.html">Read more about Romit</a>.</p></div></section><section class="story section"><div class="section-heading"><div><label>WHY ROMITJSON</label><h2>One place for everyday JSON work.</h2></div></div>
+<div class="story-copy"><p>JSON appears in API responses, configuration files, test fixtures, and application data. The same document can be difficult to scan when it is minified, rejected because of one misplaced comma, or unsuitable for a system that expects a table or another format. RomitJSON brings focused tools and explanations together so you can choose the next step without treating these different problems as if they were the same.</p><p>The site also includes guides that explain the underlying format and datasets made from fictional examples. Use them to learn object and array structure, practice with nested values, or check how cases such as <code>null</code> and empty arrays behave. Sample records are illustrative; they are not real people, production data, or live API responses.</p></div></section>
 
-<section class="about-grid section">
-<div class="about-card feature-card">
-<span class="feature-icon green">ϟ</span>
-<h2>Local by design</h2>
-<p>Everything runs in the browser. Your JSON stays on your device while you format, validate, compare, or convert it.</p>
-</div>
-<div class="about-card feature-card">
-<span class="feature-icon blue">♙</span>
-<h2>Made for productivity</h2>
-<p>Move from raw JSON to readable output, clean CSV, YAML, XML, or TypeScript declarations in seconds.</p>
-</div>
-<div class="about-card feature-card">
-<span class="feature-icon purple">♧</span>
-<h2>No signup required</h2>
-<p>Open the tool, paste or load a file, and start working immediately. There is no account or subscription flow to slow you down.</p>
-</div>
-</section>
-
-<section class="story section">
-<div class="section-heading">
-<div>
-<label>WHY ROMITJSON</label>
-<h2>Simple tools for real JSON tasks.</h2>
-</div>
-</div>
-<div class="story-copy">
-<p>JSON is the backbone of modern apps, APIs, and config files. Whether you are debugging a payload, cleaning data, or generating code, the right tool should feel fast, clear, and non-intrusive.</p>
-<p>RomitJSON combines a compact set of helpers that are easy to use from any browser and reliable enough for everyday work. The goal is to keep the process tidy, local, and transparent.</p>
-</div>
-</section>
-
-<section class="principles section">
-<div class="section-heading">
-<div>
-<label>PRINCIPLES</label>
-<h2>What the project focuses on.</h2>
-</div>
-</div>
+<section class="principles section"><div class="section-heading"><div><label>TOOLS AND GUIDES</label><h2>Choose a tool for the task at hand.</h2></div></div>
 <div class="principles-grid">
-<div class="principle">
-<strong>Privacy first</strong>
-<p>Files are read locally and never uploaded to a server.</p>
-</div>
-<div class="principle">
-<strong>Fast feedback</strong>
-<p>Formatting, validation, and conversion are immediate and easy to review.</p>
-</div>
-<div class="principle">
-<strong>Clear output</strong>
-<p>Generated results are ready to copy, download, and share without extra cleanup.</p>
-</div>
-<div class="principle">
-<strong>Tooling breadth</strong>
-<p>From compare and viewer tools to TypeScript generation and XML conversion, the suite covers common JSON workflow tasks.</p>
-</div>
-</div>
-</section>
+<div class="principle"><strong><a href="json-formatter/">Format and inspect JSON</a></strong><p>Use the Formatter or Pretty Printer to add readable indentation. The Viewer and Tree Viewer help you follow nested objects and arrays; JSONPath Finder helps locate values by path.</p></div>
+<div class="principle"><strong><a href="json-validator/">Check and repair syntax</a></strong><p>The Validator reports whether text follows JSON syntax. JSON Repair can suggest or apply supported fixes to common JSON-like mistakes. Review repaired output before using it.</p></div>
+<div class="principle"><strong><a href="json-editor/">Edit and compare documents</a></strong><p>Make changes in the JSON Editor, then use JSON Compare to see how two documents differ. A difference report shows changes; it cannot decide whether they are correct for your application.</p></div>
+<div class="principle"><strong><a href="json-schema-validator/">Check a data shape</a></strong><p>JSON Schema Generator can create a starting schema from sample data. The Schema Validator checks an instance against rules you provide. Review generated rules and adapt them to the real contract.</p></div>
+<div class="principle"><strong><a href="json-to-csv/">Convert JSON for another workflow</a></strong><p>Convert compatible data to CSV, Excel, SQL, YAML, or XML. Converters have to map JSON’s nested structure into formats with different rules, so inspect the result and test it with the intended consumer.</p></div>
+<div class="principle"><strong><a href="learn/">Learn with practical guides</a></strong><p>Read about JSON syntax, formatting, common errors, schemas, APIs, and conversions. The guides explain what a tool can check and where its result still needs human review.</p></div>
+</div></section>
+
+<section class="story section"><div class="section-heading"><div><label>WHO IT'S FOR</label><h2>Useful at different stages of working with data.</h2></div></div>
+<div class="story-copy"><p><strong>Developers</strong> can inspect API responses, clean up configuration JSON, generate a draft type or schema, and prepare data for a documented integration.</p><p><strong>Students and new JSON users</strong> can learn the syntax with examples and see how objects, arrays, strings, numbers, booleans, and <code>null</code> fit together.</p><p><strong>QA testers, technical writers, and data teams</strong> can explore fictional datasets, check sample payloads, compare revisions, and prepare examples for tests or documentation.</p><p>You do not need an account to open the tools. For an important workflow, keep the original input and verify the output against the requirements of the system that will use it.</p></div></section>
+
+<section class="principles section"><div class="section-heading"><div><label>WHAT TO EXPECT</label><h2>Clear scope matters as much as a useful result.</h2></div></div>
+<div class="principles-grid"><div class="principle"><strong>Formatting is not validation</strong><p>Indentation makes valid JSON easier to read. A formatter cannot make an invalid document valid unless a separate repair feature is used.</p></div><div class="principle"><strong>Valid syntax is not a correct payload</strong><p>A JSON Validator checks syntax. It does not know whether a field is allowed by your API, whether a value is accurate, or whether business rules are satisfied.</p></div><div class="principle"><strong>Conversions may change representation</strong><p>CSV has no native nested objects or typed <code>null</code>; generated TypeScript reflects the sample it sees. Inspect converted output and test edge cases.</p></div><div class="principle"><strong>Use real requirements as the source of truth</strong><p>For schemas, API payloads, and generated code, compare results with the receiving service’s documentation or your project’s own contract.</p></div></div></section>
+
+<section class="story section"><div class="section-heading"><div><label>DATA HANDLING</label><h2>Know how the tools and contact form work.</h2></div></div>
+<div class="story-copy"><p>The current JSON tools process the JSON you enter in your browser; their code does not send that input to a RomitJSON server. Some tools request a JavaScript library from a content delivery service so the browser can run that feature. For example, the YAML and Excel converters load libraries from jsDelivr, while the Schema Validator and JSONPath Finder load libraries from esm.sh. According to the current implementation, those library requests do not include your JSON input.</p><p>The contact form is separate from the tools: submitted contact details are sent to FormSubmit for email forwarding. Website hosting may also process standard technical request information. Review the <a href="privacy.html">Privacy Policy</a> for the services, data handling, and important limitations. Avoid entering passwords, access tokens, private customer records, or other sensitive data into an online service unless it is approved for that use.</p></div></section>
+
+<section class="story section"><div class="section-heading"><div><label>CONTACT</label><h2>Questions or a suggestion?</h2></div></div>
+<div class="story-copy"><p>If a tool behaves unexpectedly, a guide needs clarification, or you have an idea for an improvement, visit the <a href="contact.html">Contact page</a>. Include the name of the tool and a description of what you expected; do not include passwords, API keys, or confidential data in a report.</p><p><a href="tools.html">Explore all JSON tools</a> or <a href="learn/">browse the Learn JSON guides</a> to get started.</p></div></section>
 </main>
 
-<footer><div class="footer-grid"><div class="footer-brand"><a class="brand" href="index.html#home"><span class="brand-mark small">{ }</span><span>Romit<span class="brand-accent">JSON</span></span></a><p>Simple browser-based tools for working with JSON data.</p></div><div><h4>Company</h4><a href="about.html">About</a></div><div><h4>Resources</h4><a href="index.html#all-tools">All tools</a><a href="index.html#faq">FAQ</a></div><div class="copyright">© <span id="year"></span> RomitJSON. All rights reserved.</div></div></footer>
-<script>
+<footer class="site-footer">
+<div class="footer-inner">
+<div class="footer-link-grid">
+<section class="footer-column" aria-labelledby="footer-tools-title"><h2 id="footer-tools-title">JSON TOOLS</h2><a href="json-formatter/">JSON Formatter</a><a href="json-pretty-printer/">JSON Pretty Printer</a><a href="json-validator/">JSON Validator</a><a href="json-repair/">JSON Repair</a><a href="json-schema-validator/">JSON Schema Validator</a><a href="json-schema-generator/">JSON Schema Generator</a><a href="json-viewer/">JSON Viewer</a><a href="json-tree-viewer/">JSON Tree Viewer</a><a href="json-path-finder/">JSONPath Finder</a><a href="json-editor/">JSON Editor</a><a class="footer-all-link" href="tools.html">All tools <span aria-hidden="true">&#8599;</span></a></section>
+<section class="footer-column" aria-labelledby="footer-converters-title"><h2 id="footer-converters-title">CONVERTERS</h2><a href="json-to-csv/">JSON to CSV</a><a href="json-to-excel/">JSON to Excel</a><a href="json-to-sql/">JSON to SQL</a><a href="json-to-yaml/">JSON to YAML</a><a href="json-to-xml/">JSON to XML</a><a href="json-to-typescript/">JSON to TypeScript</a><a href="json-to-java/">JSON to Java</a><a href="json-to-python/">JSON to Python</a><a class="footer-all-link" href="tools.html">All tools <span aria-hidden="true">&#8599;</span></a></section>
+<section class="footer-column" aria-labelledby="footer-more-title"><h2 id="footer-more-title">MORE TOOLS</h2><a href="json-minifier/">JSON Minifier</a><a href="json-compare/">JSON Compare</a><a class="footer-all-link" href="tools.html">All tools <span aria-hidden="true">&#8599;</span></a></section>
+<section class="footer-column" aria-labelledby="footer-learn-title"><h2 id="footer-learn-title">LEARN</h2><a href="learn/">Learn JSON tutorials</a><a href="faq.html">Frequently asked questions</a><a href="about.html">About RomitJSON</a></section>
+<section class="footer-column" aria-labelledby="footer-company-title"><h2 id="footer-company-title">COMPANY</h2><a href="contact.html">Contact</a><a href="privacy.html">Privacy policy</a></section>
+</div>
+<div class="footer-about"><div><span class="footer-eyebrow">MADE FOR DEVELOPERS</span><p>Format, validate, inspect, and transform JSON with practical tools for your daily development workflow.</p></div><div class="footer-actions"><a class="footer-cta" href="tools.html">Explore tools <span aria-hidden="true">&#8599;</span></a><a class="footer-cta" href="learn/">Learn JSON <span aria-hidden="true">&#8599;</span></a></div></div>
+<div class="footer-bottom">
+<p class="footer-copyright"><span id="year"></span> RomitJSON. All rights reserved.</p>
+<p class="footer-note">Made with ❤️ for developers.</p>
+<nav class="footer-legal" aria-label="Footer navigation"><a href="about.html">About</a><a href="privacy.html">Privacy</a><a href="contact.html">Contact</a></nav>
+</div>
+</div>
+</footer><script>
 const menuBtn = document.querySelector('#menuBtn');
 const mainNav = document.querySelector('#mainNav');
+
+const closeNav = () => {
+  mainNav.classList.remove('open');
+  menuBtn.setAttribute('aria-expanded', 'false');
+  document.querySelectorAll('.nav-dropdown').forEach((item) => {
+    item.classList.remove('open');
+    item.querySelector('.nav-drop-btn')?.setAttribute('aria-expanded', 'false');
+  });
+};
+
 menuBtn.addEventListener('click', () => {
   const isOpen = mainNav.classList.toggle('open');
   menuBtn.setAttribute('aria-expanded', String(isOpen));
@@ -119,19 +129,17 @@ for (const button of document.querySelectorAll('.nav-drop-btn')) {
     document.querySelectorAll('.nav-dropdown').forEach((item) => {
       if (item !== dropdown) {
         item.classList.remove('open');
-        item.querySelector('.nav-drop-btn').setAttribute('aria-expanded', 'false');
+        item.querySelector('.nav-drop-btn')?.setAttribute('aria-expanded', 'false');
       }
     });
     const isOpen = dropdown.classList.toggle('open');
     button.setAttribute('aria-expanded', String(isOpen));
   });
 }
+
 document.addEventListener('click', (event) => {
-  if (!event.target.closest('.nav-dropdown')) {
-    document.querySelectorAll('.nav-dropdown').forEach((item) => {
-      item.classList.remove('open');
-      item.querySelector('.nav-drop-btn').setAttribute('aria-expanded', 'false');
-    });
+  if (!event.target.closest('#mainNav') && !event.target.closest('#menuBtn')) {
+    closeNav();
   }
 });
 

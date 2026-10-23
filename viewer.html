@@ -1,72 +1,10 @@
 <!doctype html>
-<html lang="en">
-<head>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width,initial-scale=1">
-<title>JSON Viewer | RomitJSON</title>
-<meta name="description" content="Explore JSON objects and arrays in an interactive, searchable tree. Files are processed locally in your browser.">
-<meta name="robots" content="index,follow">
-<link rel="canonical" href="https://romitjson.com/viewer.html">
-<meta name="theme-color" content="#071613">
-<link rel="stylesheet" href="css/style.css">
-<link rel="stylesheet" href="css/formatter.css">
-<link rel="stylesheet" href="css/viewer.css">
-</head>
-<body class="dark">
-<header class="site-header"><div class="nav-wrap">
-<a class="brand" href="index.html#home" aria-label="RomitJSON home"><span class="brand-mark">{ }</span><span>Romit<span class="brand-accent">JSON</span></span></a>
-<nav id="mainNav" aria-label="Main navigation">
-<a href="index.html#home">Home</a>
-<div class="nav-dropdown"><button class="nav-drop-btn" aria-expanded="false">View &amp; Edit <span>▾</span></button><div class="nav-drop-menu">
-<a href="viewer.html" aria-current="page"><b class="ndm-green">◉</b><span><strong>JSON Viewer</strong><small>Browse JSON as a tree</small></span></a>
-<a href="editor.html"><b class="ndm-blue">✎</b><span><strong>JSON Editor</strong><small>Edit and inspect JSON</small></span></a></div></div>
-<div class="nav-dropdown"><button class="nav-drop-btn" aria-expanded="false">Validate <span>▾</span></button><div class="nav-drop-menu">
-<a href="validator.html"><b class="ndm-green">✓</b><span><strong>JSON Validator</strong><small>Find syntax errors</small></span></a>
-<a href="compare.html"><b class="ndm-violet">⇄</b><span><strong>JSON Compare</strong><small>Find document differences</small></span></a></div></div>
-<div class="nav-dropdown"><button class="nav-drop-btn" aria-expanded="false">Convert <span>▾</span></button><div class="nav-drop-menu">
-<a href="csv.html"><b class="ndm-violet">{ }</b><span><strong>JSON → CSV</strong><small>Convert arrays to CSV</small></span></a>
-<a href="yaml.html"><b class="ndm-purple">YML</b><span><strong>JSON → YAML</strong><small>Create YAML data</small></span></a>
-<a href="xml.html"><b class="ndm-orange">&lt;/&gt;</b><span><strong>JSON → XML</strong><small>Create XML data</small></span></a></div></div>
-<div class="nav-dropdown"><button class="nav-drop-btn" aria-expanded="false">Generate <span>▾</span></button><div class="nav-drop-menu">
-<a href="typescript.html"><b class="ndm-blue">TS</b><span><strong>JSON → TypeScript</strong><small>Generate interfaces</small></span></a>
-<a href="minifier.html"><b class="ndm-red">↘</b><span><strong>JSON Minifier</strong><small>Reduce JSON size</small></span></a></div></div>
-<a href="index.html#about">About</a></nav>
-<div class="header-actions"><button class="menu-btn" id="menuBtn" aria-controls="mainNav" aria-expanded="false">Menu</button></div>
-</div></header>
-<main class="formatter-main viewer-main">
-<section class="formatter-intro">
-<label>JSON TOOL / VIEWER</label>
-<h1>JSON Viewer</h1>
-<p>Explore objects and arrays in an interactive tree. Expand nested values, search keys or values, and keep your data on this device.</p>
-</section>
-<section class="formatter-tool viewer-tool" aria-label="JSON viewer">
-<div class="formatter-toolbar viewer-toolbar">
-<div class="viewer-toolbar-actions"><button class="secondary-btn" id="openFileBtn" type="button">Open JSON</button><input id="fileInput" type="file" accept=".json,application/json" hidden><button class="secondary-btn" id="sampleBtn" type="button">Sample</button></div>
-<div class="viewer-toolbar-actions"><button class="secondary-btn" id="copyAllBtn" type="button" disabled>Copy JSON</button><button class="secondary-btn" id="downloadBtn" type="button" disabled>Download JSON</button><button class="primary-btn" id="viewBtn" type="button">View JSON</button><button class="secondary-btn" id="clearBtn" type="button">Clear</button></div>
-</div>
-<div class="viewer-modebar" role="tablist" aria-label="JSON view mode"><button type="button" class="active" id="treeModeBtn" role="tab" aria-selected="true">Tree</button><button type="button" id="codeModeBtn" role="tab" aria-selected="false">Code</button><button type="button" id="tableModeBtn" role="tab" aria-selected="false">Table</button></div>
-<div class="viewer-grid">
-<section class="formatter-panel viewer-input-panel" aria-labelledby="inputTitle">
-<div class="formatter-panel-head"><h2 id="inputTitle">Input JSON</h2></div>
-<div class="numbered-code-wrap">
-<div class="line-number-panel" id="inputLineNumbers" aria-hidden="true"></div>
-<textarea id="jsonInput" spellcheck="false" aria-label="Input JSON" placeholder='Paste JSON here, for example: {"name":"RomitJSON"}'></textarea>
-</div>
-</section>
-<section class="formatter-panel viewer-tree-panel" aria-labelledby="treeTitle">
-<div class="formatter-panel-head"><h2 id="treeTitle">JSON Tree</h2><span id="nodeCount">No data</span></div>
-<div class="tree-controls"><label class="tree-search"><span class="visually-hidden">Search keys and values</span><input id="treeSearch" type="search" placeholder="Search keys and values" disabled></label><button class="panel-action" id="previousMatchBtn" type="button" aria-label="Previous match" disabled>↑</button><button class="panel-action" id="nextMatchBtn" type="button" aria-label="Next match" disabled>↓</button><span id="matchCount" role="status">0 matches</span><button class="panel-action" id="expandAllBtn" type="button" disabled>Expand all</button><button class="panel-action" id="collapseAllBtn" type="button" disabled>Collapse all</button></div>
-<div id="jsonTree" class="json-tree-container" aria-live="polite"><p class="tree-placeholder">Paste JSON or open a file, then select View JSON.</p></div>
-<div class="viewer-selection-actions"><span id="selectionLabel">Select a tree node to copy it.</span><button class="panel-action" id="copyPathBtn" type="button" disabled>Copy path</button><button class="panel-action" id="copyKeyBtn" type="button" disabled>Copy key</button><button class="panel-action" id="copyValueBtn" type="button" disabled>Copy value / JSON</button></div>
-<pre id="jsonCodeView" class="viewer-code-view" aria-label="JSON code" hidden></pre>
-<div id="jsonTableView" class="viewer-table-view" aria-label="JSON table" hidden></div>
-</section>
-</div>
-<dl class="viewer-stats" aria-label="JSON statistics"><div><dt>Input size</dt><dd id="inputBytes">0 bytes</dd></div><div><dt>Objects</dt><dd id="objectCount">0</dd></div><div><dt>Arrays</dt><dd id="arrayCount">0</dd></div><div><dt>Object keys</dt><dd id="objectKeyCount">0</dd></div><div><dt>Primitive values</dt><dd id="primitiveCount">0</dd></div><div><dt>Maximum depth</dt><dd id="maxDepth">0</dd></div></dl>
-<p class="formatter-status" id="viewerStatus" role="status" aria-live="polite">Your JSON stays in this browser.</p>
-</section>
-</main>
-<footer><div class="footer-grid"><div class="footer-brand"><a class="brand" href="index.html#home"><span class="brand-mark small">{ }</span><span>Romit<span class="brand-accent">JSON</span></span></a><p>Simple browser-based tools for working with JSON data.</p></div><div><h4>Company</h4><a href="index.html#about">About</a></div><div><h4>Resources</h4><a href="index.html#all-tools">All tools</a><a href="index.html#faq">FAQ</a></div><div class="copyright">© <span id="year"></span> RomitJSON. All rights reserved.</div></div></footer>
-<script src="js/viewer.js"></script>
-</body>
-</html>
+<html lang="en"><head><meta charset="utf-8"><meta name="robots" content="noindex,follow"><link rel="canonical" href="https://romitjson.com/json-viewer/"><meta http-equiv="refresh" content="0;url=/json-viewer/"><title>JSON Viewer Online – Redirecting</title><!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-DKWQGJ7VQ6"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-DKWQGJ7VQ6');
+</script><link rel="icon" type="image/svg+xml" href="/favicon.svg">
+</head><body><p>This page moved. <a href="/json-viewer/">Continue to the new page</a>.</p><script>location.replace('/json-viewer/'+location.search+location.hash);</script></body></html>

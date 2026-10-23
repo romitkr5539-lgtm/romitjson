@@ -1,65 +1,10 @@
 <!doctype html>
-<html lang="en">
-<head>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width,initial-scale=1">
-<title>JSON Compare | RomitJSON</title>
-<meta name="description" content="Compare two JSON documents and inspect added, removed, and changed values by path. Comparisons run locally in your browser.">
-<meta name="robots" content="index,follow">
-<link rel="canonical" href="https://romitjson.com/compare.html">
-<meta name="theme-color" content="#071613">
-<link rel="stylesheet" href="css/style.css">
-<link rel="stylesheet" href="css/formatter.css">
-<link rel="stylesheet" href="css/compare.css">
-</head>
-<body class="dark">
-<header class="site-header"><div class="nav-wrap">
-<a class="brand" href="index.html#home" aria-label="RomitJSON home"><span class="brand-mark">{ }</span><span>Romit<span class="brand-accent">JSON</span></span></a>
-<nav id="mainNav" aria-label="Main navigation">
-<a href="index.html#home">Home</a>
-<div class="nav-dropdown"><button class="nav-drop-btn" aria-expanded="false">View &amp; Edit <span>▾</span></button><div class="nav-drop-menu">
-<a href="viewer.html"><b class="ndm-green">◉</b><span><strong>JSON Viewer</strong><small>Browse JSON as a tree</small></span></a>
-<a href="editor.html"><b class="ndm-blue">✎</b><span><strong>JSON Editor</strong><small>Edit and inspect JSON</small></span></a></div></div>
-<div class="nav-dropdown"><button class="nav-drop-btn" aria-expanded="false">Validate <span>▾</span></button><div class="nav-drop-menu">
-<a href="validator.html"><b class="ndm-green">✓</b><span><strong>JSON Validator</strong><small>Find syntax errors</small></span></a>
-<a href="compare.html" aria-current="page"><b class="ndm-violet">⇄</b><span><strong>JSON Compare</strong><small>Find document differences</small></span></a></div></div>
-<div class="nav-dropdown"><button class="nav-drop-btn" aria-expanded="false">Convert <span>▾</span></button><div class="nav-drop-menu">
-<a href="csv.html"><b class="ndm-violet">{ }</b><span><strong>JSON → CSV</strong><small>Convert arrays to CSV</small></span></a>
-<a href="yaml.html"><b class="ndm-purple">YML</b><span><strong>JSON → YAML</strong><small>Create YAML data</small></span></a>
-<a href="xml.html"><b class="ndm-orange">&lt;/&gt;</b><span><strong>JSON → XML</strong><small>Create XML data</small></span></a></div></div>
-<div class="nav-dropdown"><button class="nav-drop-btn" aria-expanded="false">Generate <span>▾</span></button><div class="nav-drop-menu">
-<a href="typescript.html"><b class="ndm-blue">TS</b><span><strong>JSON → TypeScript</strong><small>Generate interfaces</small></span></a>
-<a href="minifier.html"><b class="ndm-red">↘</b><span><strong>JSON Minifier</strong><small>Reduce JSON size</small></span></a></div></div>
-<a href="index.html#about">About</a></nav>
-<div class="header-actions"><button class="menu-btn" id="menuBtn" aria-controls="mainNav" aria-expanded="false">Menu</button></div>
-</div></header>
-<main class="formatter-main compare-main">
-<section class="formatter-intro">
-<label>JSON TOOL / COMPARE</label>
-<h1>JSON Compare</h1>
-<p>Compare two JSON documents by value and see additions, removals, or changes at their exact paths. Everything stays in your browser.</p>
-</section>
-<section class="formatter-tool compare-tool" aria-label="JSON comparison">
-<div class="formatter-toolbar compare-toolbar">
-<div class="compare-actions"><button class="secondary-btn" id="openFirstBtn" type="button">Open JSON A</button><input id="firstFile" type="file" accept=".json,application/json" hidden><button class="secondary-btn" id="openSecondBtn" type="button">Open JSON B</button><input id="secondFile" type="file" accept=".json,application/json" hidden><button class="secondary-btn" id="sampleBtn" type="button">Sample</button></div>
-<div class="compare-actions"><button class="primary-btn" id="compareBtn" type="button">Compare JSON</button><button class="secondary-btn" id="swapBtn" type="button">Swap sides</button><button class="secondary-btn" id="copyReportBtn" type="button" disabled>Copy report</button><button class="secondary-btn" id="downloadReportBtn" type="button" disabled>Download report</button><button class="secondary-btn" id="clearBtn" type="button">Clear both</button></div>
-</div>
-<section class="compare-options" aria-label="Comparison options"><label><input id="ignoreArrayOrder" type="checkbox"><span>Ignore array order</span><small>Compare arrays as multisets; duplicate counts still matter.</small></label><label><input id="matchArrayObjects" type="checkbox"><span>Match array objects by key</span><small>Use a unique identifier when both arrays contain objects.</small></label><label class="match-key-setting" for="arrayMatchKey"><span>Identifier key</span><input id="arrayMatchKey" type="text" value="id" disabled></label><label class="ignored-path-setting" for="ignoredPaths"><span>Ignore exact JSONPaths (one per line)</span><textarea id="ignoredPaths" rows="2" placeholder="$.metadata.updatedAt"></textarea></label></section>
-<div class="compare-input-grid">
-<section class="formatter-panel compare-input-panel" aria-labelledby="firstTitle"><div class="formatter-panel-head"><h2 id="firstTitle">JSON A</h2><span id="firstSize">0 characters</span></div><textarea id="firstInput" spellcheck="false" aria-label="First JSON document" placeholder='Paste the first JSON document'></textarea><p class="compare-file-hint">Drop a .json file here, or use Open JSON A.</p></section>
-<section class="formatter-panel compare-input-panel" aria-labelledby="secondTitle"><div class="formatter-panel-head"><h2 id="secondTitle">JSON B</h2><span id="secondSize">0 characters</span></div><textarea id="secondInput" spellcheck="false" aria-label="Second JSON document" placeholder='Paste the second JSON document'></textarea><p class="compare-file-hint">Drop a .json file here, or use Open JSON B.</p></section>
-</div>
-<section class="compare-results" aria-labelledby="resultsTitle">
-<div class="compare-results-head"><h2 id="resultsTitle">Differences</h2><span id="differenceCount">No comparison yet</span></div>
-<div id="compareSummary" class="compare-summary" aria-live="polite">Add two JSON documents and compare them.</div>
-<dl class="compare-counts" id="compareCounts" hidden><div><dt>Added</dt><dd id="addedCount">0</dd></div><div><dt>Removed</dt><dd id="removedCount">0</dd></div><div><dt>Changed</dt><dd id="changedCount">0</dd></div><div><dt>Type changes</dt><dd id="typeChangedCount">0</dd></div><div><dt>Total</dt><dd id="totalCount">0</dd></div></dl>
-<div class="compare-view-tabs" role="tablist" aria-label="Difference view"><button type="button" class="active" id="sideBySideBtn" role="tab" aria-selected="true">Side by side</button><button type="button" id="unifiedBtn" role="tab" aria-selected="false">Unified diff</button><button type="button" id="changesOnlyBtn" role="tab" aria-selected="false">Changes only</button></div>
-<div id="differenceList" class="difference-list" aria-live="polite"></div><pre id="unifiedOutput" class="unified-output" hidden></pre><div id="changesOnlyList" class="changes-only-list" hidden></div>
-</section>
-<p class="formatter-status" id="compareStatus" role="status" aria-live="polite">Your documents stay in this browser.</p>
-</section>
-</main>
-<footer><div class="footer-grid"><div class="footer-brand"><a class="brand" href="index.html#home"><span class="brand-mark small">{ }</span><span>Romit<span class="brand-accent">JSON</span></span></a><p>Simple browser-based tools for working with JSON data.</p></div><div><h4>Company</h4><a href="index.html#about">About</a></div><div><h4>Resources</h4><a href="index.html#all-tools">All tools</a><a href="index.html#faq">FAQ</a></div><div class="copyright">© <span id="year"></span> RomitJSON. All rights reserved.</div></div></footer>
-<script src="js/compare.js"></script>
-</body>
-</html>
+<html lang="en"><head><meta charset="utf-8"><meta name="robots" content="noindex,follow"><link rel="canonical" href="https://romitjson.com/json-compare/"><meta http-equiv="refresh" content="0;url=/json-compare/"><title>JSON Compare Tool – Redirecting</title><!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-DKWQGJ7VQ6"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-DKWQGJ7VQ6');
+</script><link rel="icon" type="image/svg+xml" href="/favicon.svg">
+</head><body><p>This page moved. <a href="/json-compare/">Continue to the new page</a>.</p><script>location.replace('/json-compare/'+location.search+location.hash);</script></body></html>
