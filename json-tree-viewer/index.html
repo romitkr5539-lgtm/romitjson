@@ -1,15 +1,212 @@
 <!doctype html>
 <html lang="en">
 <head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>JSON Tree Viewer | RomitJSON</title>
-  <meta name="robots" content="noindex,follow">
-  <link rel="canonical" href="https://romitjson.com/viewer.html">
-  <meta http-equiv="refresh" content="0;url=../viewer.html">
-  <script>window.location.replace("../viewer.html");</script>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>JSON Tree Viewer – Explore Nested JSON</title>
+<meta name="description" content="Explore nested JSON in an interactive tree. Search keys and values, copy paths, and check object, array, and depth counts. Your data is parsed locally in your browser.">
+<meta name="robots" content="index,follow">
+<link rel="canonical" href="https://romitjson.com/json-tree-viewer/">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="RomitJSON"><meta property="og:locale" content="en_US">
+<meta property="og:title" content="JSON Tree Viewer – Explore Nested JSON">
+<meta property="og:description" content="Explore nested JSON in an interactive tree. Search keys and values, copy paths, and check object, array, and depth counts. Your data is parsed locally in your browser.">
+<meta property="og:url" content="https://romitjson.com/json-tree-viewer/">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="JSON Tree Viewer – Explore Nested JSON">
+<meta name="twitter:description" content="Explore nested JSON in an interactive tree. Search keys and values, copy paths, and check object, array, and depth counts. Your data is parsed locally in your browser.">
+<meta name="theme-color" content="#071613">
+<link rel="stylesheet" href="../css/style.css">
+<link rel="stylesheet" href="../css/formatter.css">
+<link rel="stylesheet" href="../css/tree-viewer.css">
+<link rel="stylesheet" href="../css/tool-seo.css">
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-DKWQGJ7VQ6"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-DKWQGJ7VQ6');
+</script><link rel="icon" type="image/svg+xml" href="/favicon.svg">
 </head>
-<body>
-  <p>Opening <a href="../viewer.html">JSON Tree Viewer</a> on RomitJSON…</p>
+<body class="dark">
+<header class="site-header"><div class="nav-wrap">
+<a class="brand" href="#home" aria-label="RomitJSON home"><span class="brand-mark">{ }</span><span>Romit<span class="brand-accent">JSON</span></span></a>
+<nav id="mainNav" aria-label="Main navigation">
+<a href="../index.html#home">Home</a>
+<a href="../datasets/">Datasets</a>
+<a href="../learn/">Learn JSON</a>
+<div class="nav-dropdown"><button class="nav-drop-btn" aria-expanded="false">View &amp; Edit <span>▾</span></button><div class="nav-drop-menu">
+<a href="../json-viewer/"><b class="ndm-green">◉</b><span><strong>JSON Viewer</strong><small>Browse JSON as a tree</small></span></a>
+<a class="active" href="../json-tree-viewer/" aria-current="page"><b class="ndm-cyan">◈</b><span><strong>JSON Tree Viewer</strong><small>Explore nested JSON</small></span></a>
+<a href="../json-path-finder/"><b class="ndm-blue">$</b><span><strong>JSONPath Finder</strong><small>Find and query data paths</small></span></a>
+<a href="../json-editor/"><b class="ndm-blue">✎</b><span><strong>JSON Editor</strong><small>Edit and inspect JSON</small></span></a></div></div>
+<div class="nav-dropdown"><button class="nav-drop-btn" aria-expanded="false">Validate <span>▾</span></button><div class="nav-drop-menu">
+<a href="../json-validator/"><b class="ndm-green">✓</b><span><strong>JSON Validator</strong><small>Find syntax errors</small></span></a>
+<a href="../json-repair/"><b class="ndm-orange">⌁</b><span><strong>JSON Repair</strong><small>Fix common syntax issues</small></span></a>
+<a href="../json-schema-validator/"><b class="ndm-violet">✓</b><span><strong>JSON Schema Validator</strong><small>Check data against a schema</small></span></a>
+<a href="../json-compare/"><b class="ndm-violet">⇄</b><span><strong>JSON Compare</strong><small>Find document differences</small></span></a></div></div>
+<div class="nav-dropdown"><button class="nav-drop-btn" aria-expanded="false">Convert <span>▾</span></button><div class="nav-drop-menu">
+<a href="../json-to-csv/"><b class="ndm-violet">{ }</b><span><strong>JSON → CSV</strong><small>Convert arrays to CSV</small></span></a>
+<a href="../json-to-excel/"><b class="ndm-green">XLS</b><span><strong>JSON → Excel</strong><small>Export workbook data</small></span></a>
+<a href="../json-to-sql/"><b class="ndm-orange">SQL</b><span><strong>JSON → SQL</strong><small>Generate table and insert SQL</small></span></a>
+<a href="../json-to-yaml/"><b class="ndm-purple">YML</b><span><strong>JSON → YAML</strong><small>Create YAML data</small></span></a>
+<a href="../json-to-xml/"><b class="ndm-orange">&lt;/&gt;</b><span><strong>JSON → XML</strong><small>Create XML data</small></span></a></div></div>
+<div class="nav-dropdown"><button class="nav-drop-btn" aria-expanded="false">Generate <span>▾</span></button><div class="nav-drop-menu">
+<a href="../json-pretty-printer/"><b class="ndm-cyan">¶</b><span><strong>JSON Pretty Printer</strong><small>Beautify JSON output</small></span></a>
+<a href="../json-to-typescript/"><b class="ndm-blue">TS</b><span><strong>JSON → TypeScript</strong><small>Generate interfaces</small></span></a>
+<a href="../json-to-java/"><b class="ndm-orange">J</b><span><strong>JSON → Java</strong><small>Generate Java model classes</small></span></a>
+<a href="../json-to-python/"><b class="ndm-blue">Py</b><span><strong>JSON → Python</strong><small>Generate Python models</small></span></a>
+<a href="../json-schema-generator/"><b class="ndm-violet">{ }</b><span><strong>JSON Schema Generator</strong><small>Generate a schema from JSON</small></span></a>
+<a href="../json-minifier/"><b class="ndm-red">↘</b><span><strong>JSON Minifier</strong><small>Reduce JSON size</small></span></a></div></div>
+<a href="../tools.html">All tools</a>
+<a href="../about.html">About</a><a href="../contact.html">Contact</a></nav>
+<div class="header-actions"><button class="menu-btn" id="menuBtn" type="button" aria-controls="mainNav" aria-expanded="false">Menu</button></div>
+</div></header>
+
+<main class="formatter-main tree-viewer-main">
+  <section class="formatter-intro">
+    <label>JSON TOOL / TREE VIEWER</label>
+    <h1>JSON Tree Viewer Online</h1>
+    <p>Explore nested JSON objects and arrays interactively. Expand and collapse branches, search keys and values, and inspect deeply structured data without losing context.</p>
+  </section>
+
+  <section class="tree-viewer-tool" aria-label="JSON Tree Viewer tool">
+    <div class="tree-toolbar" role="toolbar" aria-label="JSON Tree Viewer controls">
+      <div class="tree-toolbar-group">
+        <button type="button" id="openFileBtn" class="secondary-btn">Open File</button>
+        <input id="fileInput" type="file" accept=".json,application/json" hidden>
+        <button type="button" id="pasteBtn" class="secondary-btn">Paste</button>
+        <button type="button" id="sampleBtn" class="secondary-btn">Sample JSON</button>
+      </div>
+      <div class="tree-toolbar-group">
+        <button type="button" id="loadBtn" class="primary-btn">Load JSON</button>
+        <button type="button" id="copyJsonBtn" class="secondary-btn">Copy JSON</button>
+        <button type="button" id="clearBtn" class="secondary-btn">Clear</button>
+      </div>
+    </div>
+
+    <div class="tree-layout">
+      <section class="formatter-panel tree-input-panel" aria-labelledby="inputTitle">
+        <div class="formatter-panel-head">
+          <h2 id="inputTitle">JSON input</h2>
+        </div>
+        <textarea id="jsonInput" spellcheck="false" aria-label="JSON input" placeholder='Paste JSON here, for example: {"name":"RomitJSON","profile":{"country":"India"}}'></textarea>
+      </section>
+
+      <section class="formatter-panel tree-output-panel" aria-labelledby="treeTitle">
+        <div class="formatter-panel-head">
+          <h2 id="treeTitle">Tree output</h2>
+          <div class="tree-metrics" aria-label="JSON statistics">
+            <span id="objectCount">0 objects</span>
+            <span id="arrayCount">0 arrays</span>
+            <span id="depthCount">Depth 0</span>
+          </div>
+        </div>
+
+        <div class="tree-controls">
+          <label class="tree-search" aria-label="Search tree keys and values">
+            <input id="treeSearch" type="search" placeholder="Search keys and values" aria-label="Search JSON tree">
+          </label>
+          <button type="button" id="prevMatchBtn" class="panel-action" aria-label="Previous match" disabled>Prev</button>
+          <button type="button" id="nextMatchBtn" class="panel-action" aria-label="Next match" disabled>Next</button>
+          <span id="matchCount" class="match-count">0 matches</span>
+          <button type="button" id="expandAllBtn" class="panel-action">Expand All</button>
+          <button type="button" id="collapseAllBtn" class="panel-action">Collapse All</button>
+        </div>
+
+        <div id="treeOutput" class="tree-output" aria-live="polite">
+          <p class="tree-placeholder">Paste JSON or open a file to begin exploring the tree.</p>
+        </div>
+
+        <div class="selection-row">
+          <span id="selectionLabel">No node selected</span>
+          <button type="button" id="copyPathBtn" class="panel-action" aria-label="Copy selected path" disabled>Copy Path</button>
+        </div>
+        <div id="errorBox" class="error-box" role="alert" hidden></div>
+      </section>
+    </div>
+  </section>
+
+    <article class="tool-seo-content" aria-labelledby="tree-viewer-guide-title">
+    <h2 id="tree-viewer-guide-title">Explore nested JSON as an interactive tree</h2>
+    <p>A long JSON response can be valid and still be difficult to inspect. The JSON Tree Viewer turns objects and arrays into expandable branches, so you can follow a value from the top level to the part you need. It is useful when checking an API response, tracing a configuration setting, or figuring out how an exported dataset is organized.</p>
+    <p>Paste JSON or open a local <code>.json</code> file, then select <strong>Load JSON</strong>. Expand only the branches you need, search keys or values, and select a node to copy its path. The viewer also reports how many objects and arrays the document contains and its maximum depth.</p>
+
+    <h2>How to use the JSON Tree Viewer</h2>
+    <ol>
+      <li>Paste JSON in the input box, choose <strong>Open File</strong>, or use <strong>Sample JSON</strong> to see how the tree works.</li>
+      <li>Select <strong>Load JSON</strong> to parse the document and build the tree.</li>
+      <li>Expand a branch to inspect its children, or use <strong>Expand All</strong> and <strong>Collapse All</strong> to change the whole view.</li>
+      <li>Search for a property name or value. Use <strong>Prev</strong> and <strong>Next</strong> to move between matches.</li>
+      <li>Select a node and choose <strong>Copy Path</strong> to copy its location, or use <strong>Copy JSON</strong> to copy the parsed document.</li>
+    </ol>
+
+    <h2>Find where a value lives</h2>
+    <p>A copied path starts at <code>$</code>, the root of the document. Object properties use dot notation when the key is a simple identifier, and array items use their zero-based index in brackets. For example, the <code>status</code> field in the first order of this response is at <code>$.orders[0].status</code>:</p>
+    <pre><code>{
+  "orders": [
+    { "id": "A-104", "status": "shipped" },
+    { "id": "A-105", "status": "processing" }
+  ]
+}</code></pre>
+    <p>Copying the path is handy when you need to point a teammate to a field, document where a value appears, or use the location while debugging. The path describes where the selected node sits in this JSON tree; it does not change the data.</p>
+
+    <h2>Use search and structure counts to narrow your view</h2>
+    <p>Tree search checks property names and scalar values, including text, numbers, booleans, and <code>null</code>. Search is case-insensitive, highlights matching text, opens the branch containing a match, and lets you step through the results. For a response with many repeated records, searching a field such as <code>email</code>, an ID, or a status can be quicker than opening every array item.</p>
+    <p>Each object or array shows its number of keys or items. The summary above the tree counts objects and arrays and reports maximum depth. These counts help you spot the broad shape of a payload—for example, whether a response has a list of records or many nested configuration objects—but they do not validate the data against a schema.</p>
+
+    <h2>Invalid JSON and values to double-check</h2>
+    <p>The viewer must parse valid JSON before it can build a tree. If parsing fails, the error is shown and the text remains in the input so you can correct it. Common causes include a missing comma, a trailing comma, single-quoted strings, unescaped quotation marks, and unmatched braces or brackets. This tool reports syntax errors; it does not repair them. Use the <a href="../json-validator/">JSON Validator</a> to inspect syntax, or the <a href="../json-repair/">JSON Repair Tool</a> for help with common mistakes.</p>
+    <p>The viewer uses the browser’s JavaScript JSON parser. JavaScript cannot represent every very large integer or high-precision decimal exactly, so check long numeric IDs or precision-sensitive values before relying on the displayed or copied JSON. If exact digits matter, store them as quoted strings or use an arbitrary-precision JSON parser.</p>
+
+    <h2>Does the viewer upload or edit my JSON?</h2>
+    <p>The page reads pasted text or a selected file in your browser and parses it locally; the JSON input is not sent to a server by the viewer script. The tree is for inspection: it does not edit individual values. <strong>Copy JSON</strong> serializes the parsed data with indentation, so use the original input if you need to preserve its exact whitespace or source formatting.</p>
+
+    <h2>JSON Tree Viewer and JSON Viewer</h2>
+    <p>This page is designed for exploring expandable branches, searching keys and values, checking structure counts, and copying a node’s path. If you want to switch between tree, code, and table presentations, open the <a href="../json-viewer/">JSON Viewer</a>.</p>
+
+    <h2>Frequently asked questions</h2>
+    <details>
+      <summary>What is a JSON tree viewer?</summary>
+      <p>It displays JSON objects and arrays as expandable branches, with primitive values such as strings, numbers, booleans, and <code>null</code> shown at the leaves. This makes nested structure easier to navigate than a single long block of text.</p>
+    </details>
+    <details>
+      <summary>Can I search for a key or value?</summary>
+      <p>Yes. Search checks property names and scalar values without regard to letter case. Use the previous and next controls to move through the matches.</p>
+    </details>
+    <details>
+      <summary>What does Copy Path copy?</summary>
+      <p>It copies a root-based path such as <code>$.orders[0].status</code> for the selected node. Array indexes start at zero.</p>
+    </details>
+    <details>
+      <summary>Does it accept invalid JSON or comments?</summary>
+      <p>No. The viewer uses a standard JSON parser, so the input must use valid JSON syntax. Comments, trailing commas, and single-quoted strings are not valid JSON and produce a parsing error.</p>
+    </details>
+    <details>
+      <summary>Is my JSON sent to a server?</summary>
+      <p>The viewer parses the pasted text or selected file in your browser. Its script does not upload the JSON input.</p>
+    </details>
+  </article>
+</main>
+
+<footer class="site-footer">
+<div class="footer-inner">
+<div class="footer-link-grid">
+<section class="footer-column" aria-labelledby="footer-tools-title"><h2 id="footer-tools-title">JSON TOOLS</h2><a href="../json-formatter/">JSON Formatter</a><a href="../json-pretty-printer/">JSON Pretty Printer</a><a href="../json-validator/">JSON Validator</a><a href="../json-repair/">JSON Repair</a><a href="../json-schema-validator/">JSON Schema Validator</a><a href="../json-schema-generator/">JSON Schema Generator</a><a href="../json-viewer/">JSON Viewer</a><a href="../json-tree-viewer/">JSON Tree Viewer</a><a href="../json-path-finder/">JSONPath Finder</a><a href="../json-editor/">JSON Editor</a><a class="footer-all-link" href="../tools.html">All tools <span aria-hidden="true">&#8599;</span></a></section>
+<section class="footer-column" aria-labelledby="footer-converters-title"><h2 id="footer-converters-title">CONVERTERS</h2><a href="../json-to-csv/">JSON to CSV</a><a href="../json-to-excel/">JSON to Excel</a><a href="../json-to-sql/">JSON to SQL</a><a href="../json-to-yaml/">JSON to YAML</a><a href="../json-to-xml/">JSON to XML</a><a href="../json-to-typescript/">JSON to TypeScript</a><a href="../json-to-java/">JSON to Java</a><a href="../json-to-python/">JSON to Python</a><a class="footer-all-link" href="../tools.html">All tools <span aria-hidden="true">&#8599;</span></a></section>
+<section class="footer-column" aria-labelledby="footer-more-title"><h2 id="footer-more-title">MORE TOOLS</h2><a href="../json-minifier/">JSON Minifier</a><a href="../json-compare/">JSON Compare</a><a class="footer-all-link" href="../tools.html">All tools <span aria-hidden="true">&#8599;</span></a></section>
+<section class="footer-column" aria-labelledby="footer-learn-title"><h2 id="footer-learn-title">LEARN</h2><a href="../learn/">Learn JSON tutorials</a><a href="../faq.html">Frequently asked questions</a><a href="../about.html">About RomitJSON</a></section>
+<section class="footer-column" aria-labelledby="footer-company-title"><h2 id="footer-company-title">COMPANY</h2><a href="../contact.html">Contact</a><a href="../privacy.html">Privacy policy</a></section>
+</div>
+<div class="footer-about"><div><span class="footer-eyebrow">MADE FOR DEVELOPERS</span><p>Format, validate, inspect, and transform JSON with practical tools for your daily development workflow.</p></div><div class="footer-actions"><a class="footer-cta" href="../tools.html">Explore tools <span aria-hidden="true">&#8599;</span></a><a class="footer-cta" href="../learn/">Learn JSON <span aria-hidden="true">&#8599;</span></a></div></div>
+<div class="footer-bottom">
+<p class="footer-copyright">© <span id="year"></span> RomitJSON. All rights reserved.</p>
+<p class="footer-note">Made with ❤️ for developers.</p>
+<nav class="footer-legal" aria-label="Footer navigation"><a href="../about.html">About</a><a href="../privacy.html">Privacy</a><a href="../contact.html">Contact</a></nav>
+</div>
+</div>
+</footer>
+<script src="../js/tree-viewer.js"></script>
 </body>
 </html>
