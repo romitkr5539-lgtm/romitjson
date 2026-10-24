@@ -1,17 +1,139 @@
 <!doctype html>
 <html lang="en">
 <head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="robots" content="noindex, follow">
-  <title>JSON for APIs | RomitJSON Learn</title>
-  <meta http-equiv="refresh" content="0;url=../index.html">
-  <script>window.location.replace("../index.html");</script>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Working with JSON APIs – Requests and Responses</title>
+<meta name="description" content="Learn how APIs use JSON request bodies and responses, including success and error shapes, nested data, metadata, and pagination.">
+<meta name="robots" content="index,follow"><meta name="theme-color" content="#071613"><link rel="canonical" href="https://romitjson.com/learn/json-for-apis/">
+<meta property="og:type" content="article"><meta property="og:site_name" content="RomitJSON"><meta property="og:locale" content="en_US"><meta property="og:title" content="Working with JSON APIs – Requests and Responses"><meta property="og:description" content="Learn how APIs use JSON request bodies and responses, including success and error shapes, nested data, metadata, and pagination."><meta property="og:url" content="https://romitjson.com/learn/json-for-apis/">
+<meta name="twitter:card" content="summary"><meta name="twitter:title" content="Working with JSON APIs – Requests and Responses"><meta name="twitter:description" content="Learn how APIs use JSON request bodies and responses, including success and error shapes, nested data, metadata, and pagination.">
+<link rel="stylesheet" href="../../css/style.css"><link rel="stylesheet" href="../learn.css">
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-DKWQGJ7VQ6"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-DKWQGJ7VQ6');
+</script><link rel="icon" type="image/svg+xml" href="/favicon.svg">
 </head>
-<body>
-  <main>
-    <h1>JSON for APIs</h1>
-    <p>Continue to the <a href="../index.html">RomitJSON Learn hub</a>.</p>
-  </main>
-</body>
-</html>
+<body class="dark">
+<header class="site-header"><div class="nav-wrap">
+<a class="brand" href="../../index.html#home" aria-label="RomitJSON home"><span class="brand-mark">{ }</span><span>Romit<span class="brand-accent">JSON</span></span></a>
+<nav id="mainNav" aria-label="Main navigation">
+<a href="../../index.html#home">Home</a>
+<a href="../../datasets/">Datasets</a>
+<a class="active" href="../" aria-current="location">Learn JSON</a>
+<div class="nav-dropdown"><button class="nav-drop-btn" type="button" aria-expanded="false">View &amp; Edit <span>▾</span></button><div class="nav-drop-menu">
+<a href="../../json-viewer/"><b class="ndm-green">◉</b><span><strong>JSON Viewer</strong><small>Browse JSON as a tree</small></span></a>
+<a href="../../json-tree-viewer/"><b class="ndm-cyan">◈</b><span><strong>JSON Tree Viewer</strong><small>Explore nested JSON</small></span></a>
+<a href="../../json-path-finder/"><b class="ndm-blue">$</b><span><strong>JSONPath Finder</strong><small>Find and query data paths</small></span></a>
+<a href="../../json-editor/"><b class="ndm-blue">✎</b><span><strong>JSON Editor</strong><small>Edit and inspect JSON</small></span></a></div></div>
+<div class="nav-dropdown"><button class="nav-drop-btn" type="button" aria-expanded="false">Validate <span>▾</span></button><div class="nav-drop-menu">
+<a href="../../json-validator/"><b class="ndm-green">✓</b><span><strong>JSON Validator</strong><small>Find syntax errors</small></span></a>
+<a href="../../json-repair/"><b class="ndm-orange">⌁</b><span><strong>JSON Repair</strong><small>Fix common syntax issues</small></span></a>
+<a href="../../json-schema-validator/"><b class="ndm-violet">✓</b><span><strong>JSON Schema Validator</strong><small>Check data against a schema</small></span></a>
+<a href="../../json-compare/"><b class="ndm-violet">⇄</b><span><strong>JSON Compare</strong><small>Find document differences</small></span></a></div></div>
+<div class="nav-dropdown"><button class="nav-drop-btn" type="button" aria-expanded="false">Convert <span>▾</span></button><div class="nav-drop-menu">
+<a href="../../json-to-csv/"><b class="ndm-violet">{ }</b><span><strong>JSON → CSV</strong><small>Convert arrays to CSV</small></span></a>
+<a href="../../json-to-excel/"><b class="ndm-green">XLS</b><span><strong>JSON → Excel</strong><small>Export workbook data</small></span></a>
+<a href="../../json-to-sql/"><b class="ndm-orange">SQL</b><span><strong>JSON → SQL</strong><small>Generate table and insert SQL</small></span></a>
+<a href="../../json-to-yaml/"><b class="ndm-purple">YML</b><span><strong>JSON → YAML</strong><small>Create YAML data</small></span></a>
+<a href="../../json-to-xml/"><b class="ndm-orange">&lt;/&gt;</b><span><strong>JSON → XML</strong><small>Create XML data</small></span></a></div></div>
+<div class="nav-dropdown"><button class="nav-drop-btn" type="button" aria-expanded="false">Generate <span>▾</span></button><div class="nav-drop-menu">
+<a href="../../json-pretty-printer/"><b class="ndm-cyan">¶</b><span><strong>JSON Pretty Printer</strong><small>Beautify JSON output</small></span></a>
+<a href="../../json-to-typescript/"><b class="ndm-blue">TS</b><span><strong>JSON → TypeScript</strong><small>Generate interfaces</small></span></a>
+<a href="../../json-to-java/"><b class="ndm-orange">J</b><span><strong>JSON → Java</strong><small>Generate Java model classes</small></span></a>
+<a href="../../json-to-python/"><b class="ndm-blue">Py</b><span><strong>JSON → Python</strong><small>Generate Python models</small></span></a>
+<a href="../../json-schema-generator/"><b class="ndm-violet">{ }</b><span><strong>JSON Schema Generator</strong><small>Generate a schema from JSON</small></span></a>
+<a href="../../json-minifier/"><b class="ndm-red">↘</b><span><strong>JSON Minifier</strong><small>Reduce JSON size</small></span></a></div></div>
+<a href="../../tools.html">All tools</a>
+<a href="../../about.html">About</a><a href="../../contact.html">Contact</a></nav>
+<div class="header-actions"><button class="menu-btn" id="menuBtn" type="button" aria-controls="mainNav" aria-expanded="false">Menu</button></div>
+</div></header><main class="tutorial-main"><nav class="learn-breadcrumbs" aria-label="Breadcrumb"><a href="../../index.html">Home</a><span aria-hidden="true">/</span><a href="../">Learn JSON</a><span aria-hidden="true">/</span><span aria-current="page">JSON for APIs</span></nav><div class="tutorial-layout"><article class="tutorial-article"><header class="tutorial-header"><p class="learn-eyebrow">APIS</p><h1>Working with JSON in APIs</h1><p>JSON is a common format for data sent to and returned from web APIs. Knowing how request bodies, response envelopes, errors, and pagination are structured makes it easier to inspect an endpoint and write a client that handles its results.</p><div class="tutorial-meta"><span>Beginner</span><span>8 min read</span></div></header><div class="tutorial-body">
+<h2 id="requests">JSON in API requests</h2><p>An HTTP request has more than a body: it also has a method, URL, headers, and a status from the server. When an endpoint accepts a JSON body, clients commonly send a <code>Content-Type: application/json</code> header and serialize one JSON value as the body. The API documentation—not JSON itself—defines which keys are accepted and what they mean.</p>
+<div class="tutorial-example"><div class="tutorial-example-head"><span>Example JSON request body</span><div class="tutorial-example-actions"><button class="learn-copy" type="button" data-copy-target="#apiRequest">Copy JSON</button><a class="learn-try" href="../../json-formatter/" data-try-target="#apiRequest">Try in Formatter</a></div></div><pre><code id="apiRequest" class="language-json">{
+  "name": "Ari Chen",
+  "email": "ari.chen@example.com",
+  "preferences": {
+    "newsletter": false
+  }
+}</code></pre></div>
+<p>This is only the body data. It does not include an authentication token, URL, HTTP method, or headers. Do not put secrets into sample data or share credentials when testing APIs.</p>
+<h2 id="success">Reading a success response</h2><p>HTTP status codes communicate request outcomes, while the response body contains the API's chosen data structure. Many APIs put returned records under a <code>data</code> property and add metadata separately. This is a convention, not a universal JSON requirement.</p>
+<div class="tutorial-example"><div class="tutorial-example-head"><span>Illustrative success response</span><div class="tutorial-example-actions"><button class="learn-copy" type="button" data-copy-target="#apiSuccess">Copy JSON</button><a class="learn-try" href="../../json-formatter/" data-try-target="#apiSuccess">Try in Formatter</a></div></div><pre><code id="apiSuccess" class="language-json">{
+  "success": true,
+  "status": 200,
+  "data": [
+    {
+      "id": "item-101",
+      "name": "Notebook",
+      "price": 4.5,
+      "available": true
+    }
+  ],
+  "meta": {
+    "requestId": "sample-request-01",
+    "servedAt": "2026-01-15T09:30:00Z"
+  }
+}</code></pre></div>
+<p>Check the API contract to learn whether a successful result is an object, an array, or wrapped in an envelope. Do not assume that every endpoint uses the same shape.</p>
+<h2 id="errors">Reading an error response</h2><p>When a request fails, an API may return a non-success HTTP status and a JSON body explaining the issue. The body shape varies by API. A client should handle both transport-level failure and the documented error payload; it should not assume an error response contains a success-style <code>data</code> array.</p>
+<div class="tutorial-example"><div class="tutorial-example-head"><span>Illustrative validation error response</span><div class="tutorial-example-actions"><button class="learn-copy" type="button" data-copy-target="#apiError">Copy JSON</button><a class="learn-try" href="../../json-formatter/" data-try-target="#apiError">Try in Formatter</a></div></div><pre><code id="apiError" class="language-json">{
+  "success": false,
+  "status": 400,
+  "error": {
+    "code": "VALIDATION_FAILED",
+    "message": "One or more fields need attention.",
+    "fields": [
+      {
+        "name": "email",
+        "issue": "Use a valid email address."
+      }
+    ]
+  },
+  "requestId": "sample-request-02",
+  "retryable": false
+}</code></pre></div>
+<p>The sample is fictional and illustrates one possible design. In a real application, use the endpoint's documentation and avoid showing internal diagnostic details directly to end users.</p>
+<h2 id="nested">Nested response data</h2><p>API responses often contain arrays of records, each with nested objects or arrays. Use a viewer or tree view to explore the structure before writing code that accesses it. Check whether a field may be absent, null, or an empty collection; these cases are not interchangeable.</p>
+<h2 id="pagination">Pagination and metadata</h2><p>Large result sets are often split into pages. The response may include the current page, page size, total count, and flags or links for navigating. The exact shape depends on the API. If you need every record, your client may have to request multiple pages and follow the API's documented next-page mechanism.</p>
+<div class="tutorial-example"><div class="tutorial-example-head"><span>Illustrative paginated response</span><div class="tutorial-example-actions"><button class="learn-copy" type="button" data-copy-target="#apiPage">Copy JSON</button><a class="learn-try" href="../../json-formatter/" data-try-target="#apiPage">Try in Formatter</a></div></div><pre><code id="apiPage" class="language-json">{
+  "data": [
+    { "id": 21, "name": "Mira" },
+    { "id": 22, "name": "Theo" }
+  ],
+  "pagination": {
+    "page": 2,
+    "pageSize": 2,
+    "totalItems": 7,
+    "totalPages": 4,
+    "hasPreviousPage": true,
+    "hasNextPage": true,
+    "nextPage": 3,
+    "previousPage": 1
+  }
+}</code></pre></div>
+<h2 id="inspect">How to inspect an API response</h2><ol><li>Use the API's documentation to identify the endpoint, expected status codes, and response shape.</li><li>Capture a response using an authorized client or development environment. Remove credentials and personal data before sharing it.</li><li>Paste the response into the <a href="../../json-validator/">JSON Validator</a> to check JSON syntax.</li><li>Use the <a href="../../json-formatter/">JSON Formatter</a> to read indentation or the <a href="../../json-viewer/">JSON Viewer</a> to explore nested values.</li><li>Compare the actual values with the API contract. A syntactically valid response can still violate an expected schema or business rule.</li></ol>
+<p>Practice with the fictional <a href="../../datasets/item.html?dataset=api-success">API success</a>, <a href="../../datasets/item.html?dataset=api-error">API error</a>, and <a href="../../datasets/item.html?dataset=pagination">pagination datasets</a>. They are local examples, not live endpoint responses.</p>
+<h2 id="takeaways">Key takeaways</h2><ul><li>HTTP defines request and response mechanics; JSON represents structured body data.</li><li>Response envelopes and pagination shapes are API-specific conventions.</li><li>Validate syntax, then check the response against the API contract.</li><li>Handle error responses, missing fields, nulls, and empty arrays deliberately.</li></ul>
+<div class="tutorial-tools"><a href="../../json-validator/">Validate JSON syntax</a><a href="../../json-formatter/">Format a response</a><a href="../../json-viewer/">Explore nested data</a><a href="../../datasets/">Browse sample datasets</a></div><section class="tutorial-related"><h2>Continue learning</h2><ul><li><a href="../json-basics/">JSON basics</a></li><li><a href="../fix-json-errors/">Fix JSON syntax errors</a></li><li><a href="../json-schema/">JSON Schema</a></li></ul></section>
+</div></article><aside class="tutorial-sidebar"><h2>On this page</h2><ul class="tutorial-toc"><li><a href="#requests">Request bodies</a></li><li><a href="#success">Success responses</a></li><li><a href="#errors">Error responses</a></li><li><a href="#nested">Nested data</a></li><li><a href="#pagination">Pagination</a></li><li><a href="#inspect">Inspect a response</a></li><li><a href="#takeaways">Key takeaways</a></li></ul></aside></div></main>
+<footer class="site-footer">
+<div class="footer-inner">
+<div class="footer-link-grid">
+<section class="footer-column" aria-labelledby="tutorial-footer-tools-title"><h2 id="tutorial-footer-tools-title">JSON TOOLS</h2><a href="../../json-formatter/">JSON Formatter</a><a href="../../json-pretty-printer/">JSON Pretty Printer</a><a href="../../json-validator/">JSON Validator</a><a href="../../json-repair/">JSON Repair</a><a href="../../json-schema-validator/">JSON Schema Validator</a><a href="../../json-schema-generator/">JSON Schema Generator</a><a href="../../json-viewer/">JSON Viewer</a><a href="../../json-tree-viewer/">JSON Tree Viewer</a><a href="../../json-path-finder/">JSONPath Finder</a><a href="../../json-editor/">JSON Editor</a><a class="footer-all-link" href="../../tools.html">All tools <span aria-hidden="true">&#8599;</span></a></section>
+<section class="footer-column" aria-labelledby="tutorial-footer-converters-title"><h2 id="tutorial-footer-converters-title">CONVERTERS</h2><a href="../../json-to-csv/">JSON to CSV</a><a href="../../json-to-excel/">JSON to Excel</a><a href="../../json-to-sql/">JSON to SQL</a><a href="../../json-to-yaml/">JSON to YAML</a><a href="../../json-to-xml/">JSON to XML</a><a href="../../json-to-typescript/">JSON to TypeScript</a><a href="../../json-to-java/">JSON to Java</a><a href="../../json-to-python/">JSON to Python</a><a class="footer-all-link" href="../../tools.html">All tools <span aria-hidden="true">&#8599;</span></a></section>
+<section class="footer-column" aria-labelledby="tutorial-footer-more-title"><h2 id="tutorial-footer-more-title">MORE TOOLS</h2><a href="../../json-minifier/">JSON Minifier</a><a href="../../json-compare/">JSON Compare</a><a class="footer-all-link" href="../../tools.html">All tools <span aria-hidden="true">&#8599;</span></a></section>
+<section class="footer-column" aria-labelledby="tutorial-footer-learn-title"><h2 id="tutorial-footer-learn-title">LEARN</h2><a href="../">Learn JSON tutorials</a><a href="../../faq.html">Frequently asked questions</a><a href="../../about.html">About RomitJSON</a></section>
+<section class="footer-column" aria-labelledby="tutorial-footer-company-title"><h2 id="tutorial-footer-company-title">COMPANY</h2><a href="../../contact.html">Contact</a><a href="../../privacy.html">Privacy policy</a></section>
+</div>
+<div class="footer-about"><div><span class="footer-eyebrow">MADE FOR DEVELOPERS</span><p>Format, validate, inspect, and transform JSON with practical tools for your daily development workflow.</p></div><div class="footer-actions"><a class="footer-cta" href="../../tools.html">Explore tools <span aria-hidden="true">&#8599;</span></a><a class="footer-cta" href="../">Learn JSON <span aria-hidden="true">&#8599;</span></a></div></div>
+<div class="footer-bottom">
+<p class="footer-copyright"><span id="year"></span> RomitJSON. All rights reserved.</p>
+<p class="footer-note">Made with ❤️ for developers.</p>
+<nav class="footer-legal" aria-label="Footer navigation"><a href="../../about.html">About</a><a href="../../privacy.html">Privacy</a><a href="../../contact.html">Contact</a></nav>
+</div>
+</div>
+</footer><div class="tutorial-feedback" id="tutorialFeedback" role="status" aria-live="polite" hidden></div><script src="../learn.js"></script>
+</body></html>
