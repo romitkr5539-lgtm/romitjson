@@ -80,6 +80,7 @@
 <div class="contact-intro"><h2 id="contact-form-title">Send a message</h2><p>A short example made with fictional values can help explain an issue. Do not include passwords, API keys, customer records, or confidential JSON.</p></div>
 <form class="contact-form" method="POST" action="https://formsubmit.co/support@romitjson.com">
 <input type="hidden" name="_subject" value="New RomitJSON contact message">
+<input type="hidden" name="_url" value="https://romitjson.com/contact.html">
 <input type="text" name="_honey" class="contact-honeypot" tabindex="-1" autocomplete="off" aria-hidden="true">
 <div class="contact-field"><label for="contact-name">Your name</label><input id="contact-name" name="name" type="text" autocomplete="name" maxlength="100" required></div>
 <div class="contact-field"><label for="contact-email">Email address</label><input id="contact-email" name="email" type="email" autocomplete="email" maxlength="254" required></div>
@@ -91,8 +92,8 @@
 <p class="contact-privacy">When you submit this form, your name, email address, subject, and message are sent to FormSubmit so it can forward the message to support@romitjson.com. Please do not include passwords, API keys, real customer data, or other sensitive information. See the <a href="privacy.html">Privacy Policy</a> for details.</p>
 </section>
 <dialog class="contact-success-dialog" id="contactSuccessDialog" aria-labelledby="contactSuccessTitle" aria-describedby="contactSuccessMessage">
-<h2 id="contactSuccessTitle">Message sent</h2>
-<p id="contactSuccessMessage">Thanks for getting in touch. Your message was submitted to our support team.</p>
+<h2 id="contactSuccessTitle">Message sent successfully</h2>
+<p id="contactSuccessMessage">Your message was sent successfully. Thanks for getting in touch.</p>
 <form method="dialog"><button class="primary-btn" type="submit">Close</button></form>
 </dialog>
 </main>
@@ -166,12 +167,22 @@ contactForm.addEventListener('submit', async (event) => {
       headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
       body: JSON.stringify(Object.fromEntries(new FormData(contactForm).entries()))
     });
-    const result = await response.json();
-    if (!response.ok || !(result.success === true || result.success === 'true')) {
+    const result = await response.json().catch(() => ({}));
+    const confirmed = result?.success === true || String(result?.success ?? '').trim().toLowerCase() === 'true';
+    if (!response.ok || !confirmed) {
       throw new Error('The form service did not confirm the submission.');
     }
     contactForm.reset();
-    successDialog.showModal();
+    const successMessage = 'Your message was sent successfully.';
+    if (typeof successDialog.showModal === 'function') {
+      try {
+        successDialog.showModal();
+      } catch {
+        window.alert(successMessage);
+      }
+    } else {
+      window.alert(successMessage);
+    }
   } catch (error) {
     submitError.hidden = false;
   } finally {
