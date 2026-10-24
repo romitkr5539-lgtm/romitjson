@@ -304,3 +304,48 @@ if (downloadButton) downloadButton.addEventListener('click', downloadWorkbook);
 if (excelInput) excelInput.addEventListener('input', () => {
   inputSize.textContent = `${excelInput.value.length.toLocaleString()} characters`;
 });
+
+const mainNav = document.querySelector('#mainNav');
+const menuButton = document.querySelector('#menuBtn');
+if (mainNav && menuButton) {
+  menuButton.addEventListener('click', () => {
+    const isOpen = mainNav.classList.toggle('open');
+    menuButton.setAttribute('aria-expanded', String(isOpen));
+  });
+
+  document.querySelectorAll('.nav-drop-btn').forEach((button) => {
+    button.addEventListener('click', (event) => {
+      event.stopPropagation();
+      const dropdown = button.closest('.nav-dropdown');
+      const isOpen = dropdown.classList.toggle('open');
+      document.querySelectorAll('.nav-dropdown').forEach((item) => {
+        if (item !== dropdown) {
+          item.classList.remove('open');
+          item.querySelector('.nav-drop-btn')?.setAttribute('aria-expanded', 'false');
+        }
+      });
+      button.setAttribute('aria-expanded', String(isOpen));
+    });
+  });
+
+  document.addEventListener('click', (event) => {
+    if (!event.target.closest('#mainNav') && !event.target.closest('#menuBtn')) {
+      document.querySelectorAll('.nav-dropdown').forEach((item) => {
+        item.classList.remove('open');
+        item.querySelector('.nav-drop-btn')?.setAttribute('aria-expanded', 'false');
+      });
+      mainNav.classList.remove('open');
+      menuButton.setAttribute('aria-expanded', 'false');
+    }
+  });
+
+  document.querySelectorAll('#mainNav a').forEach((link) => {
+    link.addEventListener('click', () => {
+      mainNav.classList.remove('open');
+      menuButton.setAttribute('aria-expanded', 'false');
+    });
+  });
+}
+
+const yearElement = document.querySelector('#year');
+if (yearElement) yearElement.textContent = new Date().getFullYear();
