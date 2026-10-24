@@ -1,17 +1,110 @@
 <!doctype html>
 <html lang="en">
 <head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="robots" content="noindex, follow">
-  <title>JSON Basics | RomitJSON Learn</title>
-  <meta http-equiv="refresh" content="0;url=../index.html">
-  <script>window.location.replace("../index.html");</script>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>JSON Basics – Syntax, Types, Objects and Arrays</title>
+<meta name="description" content="Learn JSON syntax, objects, arrays, strings, numbers, booleans, null, and nested data with copyable examples and common mistakes.">
+<meta name="robots" content="index,follow"><meta name="theme-color" content="#071613"><link rel="canonical" href="https://romitjson.com/learn/json-basics/">
+<meta property="og:type" content="article"><meta property="og:site_name" content="RomitJSON"><meta property="og:locale" content="en_US"><meta property="og:title" content="JSON Basics – Syntax, Types, Objects and Arrays"><meta property="og:description" content="Learn JSON syntax, objects, arrays, strings, numbers, booleans, null, and nested data with copyable examples and common mistakes."><meta property="og:url" content="https://romitjson.com/learn/json-basics/">
+<meta name="twitter:card" content="summary"><meta name="twitter:title" content="JSON Basics – Syntax, Types, Objects and Arrays"><meta name="twitter:description" content="Learn JSON syntax, objects, arrays, strings, numbers, booleans, null, and nested data with copyable examples and common mistakes.">
+<link rel="stylesheet" href="../../css/style.css"><link rel="stylesheet" href="../learn.css">
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-DKWQGJ7VQ6"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-DKWQGJ7VQ6');
+</script><link rel="icon" type="image/svg+xml" href="/favicon.svg">
 </head>
-<body>
-  <main>
-    <h1>JSON Basics</h1>
-    <p>Continue to the <a href="../index.html">RomitJSON Learn hub</a>.</p>
-  </main>
-</body>
-</html>
+<body class="dark">
+<header class="site-header"><div class="nav-wrap">
+<a class="brand" href="../../index.html#home" aria-label="RomitJSON home"><span class="brand-mark">{ }</span><span>Romit<span class="brand-accent">JSON</span></span></a>
+<nav id="mainNav" aria-label="Main navigation">
+<a href="../../index.html#home">Home</a>
+<a href="../../datasets/">Datasets</a>
+<a class="active" href="../" aria-current="location">Learn JSON</a>
+<div class="nav-dropdown"><button class="nav-drop-btn" type="button" aria-expanded="false">View &amp; Edit <span>▾</span></button><div class="nav-drop-menu">
+<a href="../../json-viewer/"><b class="ndm-green">◉</b><span><strong>JSON Viewer</strong><small>Browse JSON as a tree</small></span></a>
+<a href="../../json-tree-viewer/"><b class="ndm-cyan">◈</b><span><strong>JSON Tree Viewer</strong><small>Explore nested JSON</small></span></a>
+<a href="../../json-path-finder/"><b class="ndm-blue">$</b><span><strong>JSONPath Finder</strong><small>Find and query data paths</small></span></a>
+<a href="../../json-editor/"><b class="ndm-blue">✎</b><span><strong>JSON Editor</strong><small>Edit and inspect JSON</small></span></a></div></div>
+<div class="nav-dropdown"><button class="nav-drop-btn" type="button" aria-expanded="false">Validate <span>▾</span></button><div class="nav-drop-menu">
+<a href="../../json-validator/"><b class="ndm-green">✓</b><span><strong>JSON Validator</strong><small>Find syntax errors</small></span></a>
+<a href="../../json-repair/"><b class="ndm-orange">⌁</b><span><strong>JSON Repair</strong><small>Fix common syntax issues</small></span></a>
+<a href="../../json-schema-validator/"><b class="ndm-violet">✓</b><span><strong>JSON Schema Validator</strong><small>Check data against a schema</small></span></a>
+<a href="../../json-compare/"><b class="ndm-violet">⇄</b><span><strong>JSON Compare</strong><small>Find document differences</small></span></a></div></div>
+<div class="nav-dropdown"><button class="nav-drop-btn" type="button" aria-expanded="false">Convert <span>▾</span></button><div class="nav-drop-menu">
+<a href="../../json-to-csv/"><b class="ndm-violet">{ }</b><span><strong>JSON → CSV</strong><small>Convert arrays to CSV</small></span></a>
+<a href="../../json-to-excel/"><b class="ndm-green">XLS</b><span><strong>JSON → Excel</strong><small>Export workbook data</small></span></a>
+<a href="../../json-to-sql/"><b class="ndm-orange">SQL</b><span><strong>JSON → SQL</strong><small>Generate table and insert SQL</small></span></a>
+<a href="../../json-to-yaml/"><b class="ndm-purple">YML</b><span><strong>JSON → YAML</strong><small>Create YAML data</small></span></a>
+<a href="../../json-to-xml/"><b class="ndm-orange">&lt;/&gt;</b><span><strong>JSON → XML</strong><small>Create XML data</small></span></a></div></div>
+<div class="nav-dropdown"><button class="nav-drop-btn" type="button" aria-expanded="false">Generate <span>▾</span></button><div class="nav-drop-menu">
+<a href="../../json-pretty-printer/"><b class="ndm-cyan">¶</b><span><strong>JSON Pretty Printer</strong><small>Beautify JSON output</small></span></a>
+<a href="../../json-to-typescript/"><b class="ndm-blue">TS</b><span><strong>JSON → TypeScript</strong><small>Generate interfaces</small></span></a>
+<a href="../../json-to-java/"><b class="ndm-orange">J</b><span><strong>JSON → Java</strong><small>Generate Java model classes</small></span></a>
+<a href="../../json-to-python/"><b class="ndm-blue">Py</b><span><strong>JSON → Python</strong><small>Generate Python models</small></span></a>
+<a href="../../json-schema-generator/"><b class="ndm-violet">{ }</b><span><strong>JSON Schema Generator</strong><small>Generate a schema from JSON</small></span></a>
+<a href="../../json-minifier/"><b class="ndm-red">↘</b><span><strong>JSON Minifier</strong><small>Reduce JSON size</small></span></a></div></div>
+<a href="../../tools.html">All tools</a>
+<a href="../../about.html">About</a><a href="../../contact.html">Contact</a></nav>
+<div class="header-actions"><button class="menu-btn" id="menuBtn" type="button" aria-controls="mainNav" aria-expanded="false">Menu</button></div>
+</div></header><main class="tutorial-main"><nav class="learn-breadcrumbs" aria-label="Breadcrumb"><a href="../../index.html">Home</a><span aria-hidden="true">/</span><a href="../">Learn JSON</a><span aria-hidden="true">/</span><span aria-current="page">JSON Basics</span></nav>
+<div class="tutorial-layout"><article class="tutorial-article"><header class="tutorial-header"><p class="learn-eyebrow">BASICS</p><h1>JSON Basics: Syntax, Types, Objects, and Arrays</h1><p>JSON is a compact text format for representing structured data. This guide walks through its building blocks so you can read, write, and check a JSON document with confidence.</p><div class="tutorial-meta"><span>Beginner</span><span>8 min read</span></div></header>
+<div class="tutorial-body">
+<h2 id="what-is-json">What is JSON?</h2><p>JSON stands for <strong>JavaScript Object Notation</strong>. Despite its name, it is a language-independent data format, not JavaScript code. Programs use JSON text to exchange information, store configuration, and describe structured records. Web APIs commonly return JSON in HTTP responses, and many tools can read or write it.</p><p>A JSON document contains a value. That value can be an object, an array, a string, a number, a boolean, or <code>null</code>. Objects and arrays can contain other JSON values, which is how larger structures are built.</p>
+<h2 id="objects">Objects: named properties</h2><p>An object is enclosed in curly braces. It contains zero or more <strong>key-value pairs</strong>. Each key is a double-quoted string, followed by a colon, followed by a value. Commas separate pairs.</p>
+<div class="tutorial-example"><div class="tutorial-example-head"><span>Valid JSON: an object</span><div class="tutorial-example-actions"><button class="learn-copy" type="button" data-copy-target="#basicsObject">Copy JSON</button><a class="learn-try" href="../../json-formatter/" data-try-target="#basicsObject">Try in Formatter</a></div></div><pre><code id="basicsObject" class="language-json">{
+  "name": "Ari Chen",
+  "active": true,
+  "role": "developer"
+}</code></pre></div>
+<p>Here, <code>name</code>, <code>active</code>, and <code>role</code> are keys. Their associated values are a string, a boolean, and another string. Keys in the same object should be unique so readers and programs do not have to guess which duplicate value to use.</p>
+<h2 id="arrays">Arrays: ordered values</h2><p>An array is enclosed in square brackets. It stores values in order, and the values do not need property names. Commas separate array items.</p>
+<div class="tutorial-example"><div class="tutorial-example-head"><span>Valid JSON: an array of strings</span><div class="tutorial-example-actions"><button class="learn-copy" type="button" data-copy-target="#basicsArray">Copy JSON</button><a class="learn-try" href="../../json-formatter/" data-try-target="#basicsArray">Try in Formatter</a></div></div><pre><code id="basicsArray" class="language-json">[
+  "format",
+  "validate",
+  "convert"
+]</code></pre></div>
+<p>Arrays can also contain objects, numbers, booleans, or a mixture of JSON value types. For a list of similar records, an array of objects is common.</p>
+<h2 id="value-types">The six JSON value types</h2>
+<ul><li><strong>String:</strong> text surrounded by double quotes, such as <code>"hello"</code>. Escape a quote inside a string as <code>\"</code>.</li><li><strong>Number:</strong> an integer or decimal number, optionally with an exponent, such as <code>12</code>, <code>-0.5</code>, or <code>2e3</code>. JSON has no separate integer type.</li><li><strong>Boolean:</strong> exactly <code>true</code> or <code>false</code>, in lowercase.</li><li><strong>Null:</strong> the literal <code>null</code>, used to represent an explicitly absent or unknown value.</li><li><strong>Object:</strong> a collection of named properties inside <code>{}</code>.</li><li><strong>Array:</strong> an ordered collection of values inside <code>[]</code>.</li></ul>
+<p>JSON does not have undefined, comments, functions, dates, or <code>NaN</code> as native values. Dates are usually represented as strings in a documented format, often an ISO-style timestamp.</p>
+<h2 id="nested-data">Nesting objects and arrays</h2><p>Objects and arrays can appear inside one another. Indentation is optional to the JSON parser, but it helps people see which values belong together.</p>
+<div class="tutorial-example"><div class="tutorial-example-head"><span>Valid JSON: nested data with varied types</span><div class="tutorial-example-actions"><button class="learn-copy" type="button" data-copy-target="#basicsNested">Copy JSON</button><a class="learn-try" href="../../json-formatter/" data-try-target="#basicsNested">Try in Formatter</a></div></div><pre><code id="basicsNested" class="language-json">{
+  "user": {
+    "id": 42,
+    "name": "Ari Chen",
+    "active": true,
+    "profile": {
+      "city": "Portland",
+      "bio": null
+    },
+    "skills": ["HTML", "CSS", "JavaScript"]
+  }
+}</code></pre></div>
+<p>To read a nested value, follow its keys and array positions from the root. In this example, the city is at <code>user.profile.city</code>, and the first skill is at <code>user.skills[0]</code>.</p>
+<h2 id="valid-json">Rules for valid JSON</h2><ul><li>Property names and strings use double quotes.</li><li>Every property has a colon between its key and value.</li><li>Commas separate items, but there is no comma after the last item.</li><li>Braces and brackets must be paired and correctly nested.</li><li>Use lowercase <code>true</code>, <code>false</code>, and <code>null</code>.</li><li>Do not include comments or extra text before or after the JSON value.</li></ul><p>For a syntax check, paste a document into the <a href="../../json-validator/">JSON Validator</a>. To make valid JSON easier to read, use the <a href="../../json-formatter/">JSON Formatter</a>.</p>
+<h2 id="takeaways">Key takeaways</h2><ul><li>JSON is text representing one structured value.</li><li>Objects group named properties; arrays hold ordered items.</li><li>Strings, numbers, booleans, and null are the primitive JSON types.</li><li>Strict punctuation and quoting rules matter; formatting does not change the underlying data.</li></ul>
+<div class="tutorial-tools"><a href="../../json-formatter/">Open JSON Formatter</a><a href="../../json-validator/">Open JSON Validator</a><a href="../../json-viewer/">Explore JSON in Viewer</a></div>
+<section class="tutorial-related"><h2>Continue learning</h2><ul><li><a href="../format-json/">Format JSON</a></li><li><a href="../fix-json-errors/">Fix JSON syntax errors</a></li><li><a href="../json-schema/">Learn JSON Schema</a></li></ul></section>
+</div></article><aside class="tutorial-sidebar"><h2>On this page</h2><ul class="tutorial-toc"><li><a href="#what-is-json">What is JSON?</a></li><li><a href="#objects">Objects</a></li><li><a href="#arrays">Arrays</a></li><li><a href="#value-types">Value types</a></li><li><a href="#nested-data">Nested data</a></li><li><a href="#valid-json">Valid JSON</a></li><li><a href="#takeaways">Key takeaways</a></li></ul></aside></div></main>
+<footer class="site-footer">
+<div class="footer-inner">
+<div class="footer-link-grid">
+<section class="footer-column" aria-labelledby="tutorial-footer-tools-title"><h2 id="tutorial-footer-tools-title">JSON TOOLS</h2><a href="../../json-formatter/">JSON Formatter</a><a href="../../json-pretty-printer/">JSON Pretty Printer</a><a href="../../json-validator/">JSON Validator</a><a href="../../json-repair/">JSON Repair</a><a href="../../json-schema-validator/">JSON Schema Validator</a><a href="../../json-schema-generator/">JSON Schema Generator</a><a href="../../json-viewer/">JSON Viewer</a><a href="../../json-tree-viewer/">JSON Tree Viewer</a><a href="../../json-path-finder/">JSONPath Finder</a><a href="../../json-editor/">JSON Editor</a><a class="footer-all-link" href="../../tools.html">All tools <span aria-hidden="true">&#8599;</span></a></section>
+<section class="footer-column" aria-labelledby="tutorial-footer-converters-title"><h2 id="tutorial-footer-converters-title">CONVERTERS</h2><a href="../../json-to-csv/">JSON to CSV</a><a href="../../json-to-excel/">JSON to Excel</a><a href="../../json-to-sql/">JSON to SQL</a><a href="../../json-to-yaml/">JSON to YAML</a><a href="../../json-to-xml/">JSON to XML</a><a href="../../json-to-typescript/">JSON to TypeScript</a><a href="../../json-to-java/">JSON to Java</a><a href="../../json-to-python/">JSON to Python</a><a class="footer-all-link" href="../../tools.html">All tools <span aria-hidden="true">&#8599;</span></a></section>
+<section class="footer-column" aria-labelledby="tutorial-footer-more-title"><h2 id="tutorial-footer-more-title">MORE TOOLS</h2><a href="../../json-minifier/">JSON Minifier</a><a href="../../json-compare/">JSON Compare</a><a class="footer-all-link" href="../../tools.html">All tools <span aria-hidden="true">&#8599;</span></a></section>
+<section class="footer-column" aria-labelledby="tutorial-footer-learn-title"><h2 id="tutorial-footer-learn-title">LEARN</h2><a href="../">Learn JSON tutorials</a><a href="../../faq.html">Frequently asked questions</a><a href="../../about.html">About RomitJSON</a></section>
+<section class="footer-column" aria-labelledby="tutorial-footer-company-title"><h2 id="tutorial-footer-company-title">COMPANY</h2><a href="../../contact.html">Contact</a><a href="../../privacy.html">Privacy policy</a></section>
+</div>
+<div class="footer-about"><div><span class="footer-eyebrow">MADE FOR DEVELOPERS</span><p>Format, validate, inspect, and transform JSON with practical tools for your daily development workflow.</p></div><div class="footer-actions"><a class="footer-cta" href="../../tools.html">Explore tools <span aria-hidden="true">&#8599;</span></a><a class="footer-cta" href="../">Learn JSON <span aria-hidden="true">&#8599;</span></a></div></div>
+<div class="footer-bottom">
+<p class="footer-copyright"><span id="year"></span> RomitJSON. All rights reserved.</p>
+<p class="footer-note">Made with ❤️ for developers.</p>
+<nav class="footer-legal" aria-label="Footer navigation"><a href="../../about.html">About</a><a href="../../privacy.html">Privacy</a><a href="../../contact.html">Contact</a></nav>
+</div>
+</div>
+</footer><div class="tutorial-feedback" id="tutorialFeedback" role="status" aria-live="polite" hidden></div><script src="../learn.js"></script>
+</body></html>
