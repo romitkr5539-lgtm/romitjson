@@ -1,0 +1,73 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>JSON Dataset Details</title>
+<meta name="description" content="Preview and download a free fictional JSON dataset for development and testing.">
+<meta name="robots" content="index,follow">
+<link rel="canonical" href="https://romitjson.com/datasets/item.html">
+<meta property="og:type" content="article"><meta property="og:site_name" content="RomitJSON">
+<meta property="og:title" content="JSON Dataset Details"><meta property="og:description" content="Preview and download fictional JSON sample data."><meta property="og:url" content="https://romitjson.com/datasets/item.html">
+<meta name="twitter:card" content="summary"><meta name="twitter:title" content="JSON Dataset Details"><meta name="twitter:description" content="Preview and download fictional JSON sample data.">
+<meta name="theme-color" content="#071613">
+<link rel="stylesheet" href="../css/style.css">
+<link rel="stylesheet" href="../css/datasets.css">
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-DKWQGJ7VQ6"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-DKWQGJ7VQ6');
+</script><link rel="icon" type="image/svg+xml" href="/favicon.svg">
+</head>
+<body class="dark">
+<header class="site-header"><div class="nav-wrap">
+<a class="brand" href="../index.html#home" aria-label="RomitJSON home"><span class="brand-mark">{ }</span><span>Romit<span class="brand-accent">JSON</span></span></a>
+<nav id="mainNav" aria-label="Main navigation">
+<a href="../index.html#home">Home</a><a href="../tools.html">All tools</a><a class="active" href="./" aria-current="page">Datasets</a>
+<div class="nav-dropdown"><button class="nav-drop-btn" type="button" aria-expanded="false">View &amp; Edit <span>▾</span></button><div class="nav-drop-menu">
+<a href="../json-viewer/"><b class="ndm-green">◉</b><span><strong>JSON Viewer</strong><small>Browse JSON as a tree</small></span></a>
+<a href="../json-formatter/"><b class="ndm-blue">{ }</b><span><strong>JSON Formatter</strong><small>Format and inspect JSON</small></span></a></div></div>
+<a href="../json-validator/">JSON Validator</a></nav>
+<div class="header-actions"><button class="menu-btn" id="menuBtn" type="button" aria-controls="mainNav" aria-expanded="false">Menu</button></div>
+</div></header>
+<main class="dataset-detail-main">
+<nav class="datasets-breadcrumbs" aria-label="Breadcrumb"><a href="../index.html">Home</a><span aria-hidden="true">/</span><a href="./">Datasets</a><span aria-hidden="true">/</span><span id="breadcrumbName" aria-current="page">Loading dataset</span></nav>
+<div id="datasetLoading" class="dataset-loading" role="status">Loading dataset…</div>
+<section id="datasetError" class="dataset-error-state" hidden role="alert"><h1>Dataset unavailable</h1><p id="datasetErrorText">The requested dataset could not be loaded.</p><a href="./">Return to the datasets library</a></section>
+<article id="datasetContent" hidden>
+<header class="dataset-detail-header"><p class="dataset-card-category" id="datasetCategory"></p><h1 id="datasetTitle"></h1><p id="datasetDescription"></p>
+<div class="dataset-meta"><span id="datasetFile"></span><span id="datasetRecordCount"></span><span>Fictional sample data</span></div>
+</header>
+<div class="dataset-actions">
+<button class="dataset-primary" id="copyDataset" type="button">Copy JSON</button>
+<button id="downloadDataset" type="button">Download JSON</button>
+<button id="expandPreview" type="button" hidden aria-expanded="false">Expand preview</button>
+<a id="openFormatter" href="../json-formatter/">Open in JSON Formatter</a>
+<a id="openViewer" href="../json-viewer/">Open in JSON Viewer</a>
+</div>
+<p class="dataset-status" id="datasetStatus" role="status" aria-live="polite"></p>
+<section class="dataset-preview-panel" aria-labelledby="previewHeading"><div class="dataset-preview-head"><h2 id="previewHeading">JSON preview</h2><span id="previewInfo">Formatted sample data</span></div><pre class="dataset-preview" id="datasetPreview" tabindex="0" aria-label="Dataset JSON preview"></pre></section>
+<section class="dataset-explanation" aria-labelledby="datasetExplanationHeading">
+<h2 id="datasetExplanationHeading">What this dataset contains</h2>
+<ul id="datasetContents"></ul>
+<h2>What you can use it for</h2>
+<p id="datasetUseCases"></p>
+</section>
+<section class="dataset-related"><h2>Related datasets</h2><nav class="dataset-related-links" id="relatedDatasets" aria-label="Related datasets"></nav></section>
+<section class="dataset-related"><h2>Explore with RomitJSON</h2><div class="dataset-related-links"><a href="../json-formatter/">Format JSON</a><a href="../json-viewer/">Explore in JSON Viewer</a><a href="../json-schema-generator/">Generate a JSON Schema</a><a href="../json-validator/">Check JSON syntax</a></div></section>
+<p class="datasets-footer-note">This dataset is fictional sample data for development and testing. Values are illustrative and do not represent real people, organizations, or production records. <a href="./">Back to all datasets</a>.</p>
+</article>
+</main>
+<footer class="site-footer"><div class="footer-inner"><div class="footer-link-grid">
+<section class="footer-column"><h2>DATASETS</h2><a href="./">Browse datasets</a><a href="../tools.html">All JSON tools</a></section>
+<section class="footer-column"><h2>JSON TOOLS</h2><a href="../json-formatter/">JSON Formatter</a><a href="../json-viewer/">JSON Viewer</a><a href="../json-schema-generator/">JSON Schema Generator</a><a href="../json-schema-validator/">JSON Schema Validator</a></section>
+<section class="footer-column"><h2>LEARN</h2><a href="../faq.html">Frequently asked questions</a><a href="../about.html">About RomitJSON</a></section>
+<section class="footer-column"><h2>COMPANY</h2><a href="../contact.html">Contact</a><a href="../privacy.html">Privacy policy</a></section>
+</div><div class="footer-bottom"><p class="footer-copyright">© <span id="year"></span> RomitJSON. All rights reserved.</p><p class="footer-note">JSON tools that work right in your browser.</p><nav class="footer-legal" aria-label="Footer navigation"><a href="../about.html">About</a><a href="../privacy.html">Privacy</a><a href="../contact.html">Contact</a></nav></div></div></footer>
+<script src="../js/dataset-catalog.js"></script>
+<script src="../js/dataset-detail.js"></script>
+</body>
+</html>
