@@ -1,17 +1,96 @@
 <!doctype html>
 <html lang="en">
 <head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="robots" content="noindex, follow">
-  <title>Format JSON | RomitJSON Learn</title>
-  <meta http-equiv="refresh" content="0;url=../index.html">
-  <script>window.location.replace("../index.html");</script>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>How to Format JSON for Readability</title>
+<meta name="description" content="Learn the difference between formatted and minified JSON, choose indentation, and decide when readable or compact JSON is useful.">
+<meta name="robots" content="index,follow"><meta name="theme-color" content="#071613"><link rel="canonical" href="https://romitjson.com/learn/format-json/">
+<meta property="og:type" content="article"><meta property="og:site_name" content="RomitJSON"><meta property="og:locale" content="en_US"><meta property="og:title" content="How to Format JSON for Readability"><meta property="og:description" content="Learn the difference between formatted and minified JSON, choose indentation, and decide when readable or compact JSON is useful."><meta property="og:url" content="https://romitjson.com/learn/format-json/">
+<meta name="twitter:card" content="summary"><meta name="twitter:title" content="How to Format JSON for Readability"><meta name="twitter:description" content="Learn the difference between formatted and minified JSON, choose indentation, and decide when readable or compact JSON is useful.">
+<link rel="stylesheet" href="../../css/style.css"><link rel="stylesheet" href="../learn.css">
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-DKWQGJ7VQ6"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-DKWQGJ7VQ6');
+</script><link rel="icon" type="image/svg+xml" href="/favicon.svg">
 </head>
-<body>
-  <main>
-    <h1>Format JSON</h1>
-    <p>Continue to the <a href="../index.html">RomitJSON Learn hub</a>.</p>
-  </main>
-</body>
-</html>
+<body class="dark">
+<header class="site-header"><div class="nav-wrap">
+<a class="brand" href="../../index.html#home" aria-label="RomitJSON home"><span class="brand-mark">{ }</span><span>Romit<span class="brand-accent">JSON</span></span></a>
+<nav id="mainNav" aria-label="Main navigation">
+<a href="../../index.html#home">Home</a>
+<a href="../../datasets/">Datasets</a>
+<a class="active" href="../" aria-current="location">Learn JSON</a>
+<div class="nav-dropdown"><button class="nav-drop-btn" type="button" aria-expanded="false">View &amp; Edit <span>▾</span></button><div class="nav-drop-menu">
+<a href="../../json-viewer/"><b class="ndm-green">◉</b><span><strong>JSON Viewer</strong><small>Browse JSON as a tree</small></span></a>
+<a href="../../json-tree-viewer/"><b class="ndm-cyan">◈</b><span><strong>JSON Tree Viewer</strong><small>Explore nested JSON</small></span></a>
+<a href="../../json-path-finder/"><b class="ndm-blue">$</b><span><strong>JSONPath Finder</strong><small>Find and query data paths</small></span></a>
+<a href="../../json-editor/"><b class="ndm-blue">✎</b><span><strong>JSON Editor</strong><small>Edit and inspect JSON</small></span></a></div></div>
+<div class="nav-dropdown"><button class="nav-drop-btn" type="button" aria-expanded="false">Validate <span>▾</span></button><div class="nav-drop-menu">
+<a href="../../json-validator/"><b class="ndm-green">✓</b><span><strong>JSON Validator</strong><small>Find syntax errors</small></span></a>
+<a href="../../json-repair/"><b class="ndm-orange">⌁</b><span><strong>JSON Repair</strong><small>Fix common syntax issues</small></span></a>
+<a href="../../json-schema-validator/"><b class="ndm-violet">✓</b><span><strong>JSON Schema Validator</strong><small>Check data against a schema</small></span></a>
+<a href="../../json-compare/"><b class="ndm-violet">⇄</b><span><strong>JSON Compare</strong><small>Find document differences</small></span></a></div></div>
+<div class="nav-dropdown"><button class="nav-drop-btn" type="button" aria-expanded="false">Convert <span>▾</span></button><div class="nav-drop-menu">
+<a href="../../json-to-csv/"><b class="ndm-violet">{ }</b><span><strong>JSON → CSV</strong><small>Convert arrays to CSV</small></span></a>
+<a href="../../json-to-excel/"><b class="ndm-green">XLS</b><span><strong>JSON → Excel</strong><small>Export workbook data</small></span></a>
+<a href="../../json-to-sql/"><b class="ndm-orange">SQL</b><span><strong>JSON → SQL</strong><small>Generate table and insert SQL</small></span></a>
+<a href="../../json-to-yaml/"><b class="ndm-purple">YML</b><span><strong>JSON → YAML</strong><small>Create YAML data</small></span></a>
+<a href="../../json-to-xml/"><b class="ndm-orange">&lt;/&gt;</b><span><strong>JSON → XML</strong><small>Create XML data</small></span></a></div></div>
+<div class="nav-dropdown"><button class="nav-drop-btn" type="button" aria-expanded="false">Generate <span>▾</span></button><div class="nav-drop-menu">
+<a href="../../json-pretty-printer/"><b class="ndm-cyan">¶</b><span><strong>JSON Pretty Printer</strong><small>Beautify JSON output</small></span></a>
+<a href="../../json-to-typescript/"><b class="ndm-blue">TS</b><span><strong>JSON → TypeScript</strong><small>Generate interfaces</small></span></a>
+<a href="../../json-to-java/"><b class="ndm-orange">J</b><span><strong>JSON → Java</strong><small>Generate Java model classes</small></span></a>
+<a href="../../json-to-python/"><b class="ndm-blue">Py</b><span><strong>JSON → Python</strong><small>Generate Python models</small></span></a>
+<a href="../../json-schema-generator/"><b class="ndm-violet">{ }</b><span><strong>JSON Schema Generator</strong><small>Generate a schema from JSON</small></span></a>
+<a href="../../json-minifier/"><b class="ndm-red">↘</b><span><strong>JSON Minifier</strong><small>Reduce JSON size</small></span></a></div></div>
+<a href="../../tools.html">All tools</a>
+<a href="../../about.html">About</a><a href="../../contact.html">Contact</a></nav>
+<div class="header-actions"><button class="menu-btn" id="menuBtn" type="button" aria-controls="mainNav" aria-expanded="false">Menu</button></div>
+</div></header><main class="tutorial-main"><nav class="learn-breadcrumbs" aria-label="Breadcrumb"><a href="../../index.html">Home</a><span aria-hidden="true">/</span><a href="../">Learn JSON</a><span aria-hidden="true">/</span><span aria-current="page">Format JSON</span></nav><div class="tutorial-layout"><article class="tutorial-article"><header class="tutorial-header"><p class="learn-eyebrow">FORMATTING</p><h1>How to Format JSON for Readability</h1><p>Minified JSON can be difficult to inspect, while deeply indented JSON can be inconvenient to transmit or store. Formatting changes whitespace, not the represented values, so choose the presentation that fits your next task.</p><div class="tutorial-meta"><span>Beginner</span><span>5 min read</span></div></header><div class="tutorial-body">
+<h2 id="meaning">What formatting JSON means</h2><p>Formatting (also called pretty-printing or beautifying) adds line breaks and indentation around JSON objects and arrays. A parser ignores this insignificant whitespace outside strings, so formatted and minified versions can represent the same JSON value.</p>
+<h2 id="example">Minified versus formatted</h2><p>Here is one JSON object written compactly. It is valid but harder to scan:</p>
+<div class="tutorial-example"><div class="tutorial-example-head"><span>Minified JSON</span><div class="tutorial-example-actions"><button class="learn-copy" type="button" data-copy-target="#compactJson">Copy JSON</button><a class="learn-try" href="../../json-formatter/" data-try-target="#compactJson">Try in Formatter</a></div></div><pre><code id="compactJson" class="language-json">{"service":"catalog","enabled":true,"limits":{"pageSize":25,"retries":3},"regions":["north","west"]}</code></pre></div>
+<p>With indentation, the relationships are easier to see:</p>
+<div class="tutorial-example"><div class="tutorial-example-head"><span>Formatted JSON with two-space indentation</span><div class="tutorial-example-actions"><button class="learn-copy" type="button" data-copy-target="#formattedJson">Copy JSON</button><a class="learn-try" href="../../json-formatter/" data-try-target="#formattedJson">Try in Formatter</a></div></div><pre><code id="formattedJson" class="language-json">{
+  "service": "catalog",
+  "enabled": true,
+  "limits": {
+    "pageSize": 25,
+    "retries": 3
+  },
+  "regions": [
+    "north",
+    "west"
+  ]
+}</code></pre></div>
+<p>Both examples contain the same keys, values, and array order. The formatted version uses whitespace to make object boundaries and nesting visible.</p>
+<h2 id="indentation">Choosing indentation</h2><p>Two spaces, four spaces, and tabs are common indentation styles. JSON syntax does not require a specific one; teams often select a style in their repository conventions. Consistency is more important than one universally correct width. For long arrays or nested values, line breaks can make individual elements easier to review.</p>
+<h2 id="when-to-format">When to format JSON</h2><ul><li>Inspect an API response or configuration file.</li><li>Review changes in version control or debug a deeply nested object.</li><li>Prepare a JSON example for documentation or a code review.</li><li>Check whether values are placed under the intended keys.</li></ul><p>Use the <a href="../../json-formatter/">JSON Formatter</a> to select indentation and format valid input. Formatting does not repair malformed JSON; use the <a href="../fix-json-errors/">syntax guide</a> or <a href="../../json-validator/">JSON Validator</a> if parsing fails.</p>
+<h2 id="when-to-minify">When to minify JSON</h2><p>Minification removes unnecessary whitespace and line breaks. It can reduce the text size of a JSON payload or create a compact representation for a system that expects one. It does not compress or encrypt the data, and it does not change the values.</p><p>Do not minify a file you need people to review or edit by hand. Keep an original or use version control before replacing readable source data. The <a href="../../json-minifier/">JSON Minifier</a> creates a compact output from valid JSON.</p>
+<div class="tutorial-callout"><strong>Important:</strong> A formatter changes whitespace, not the data model. Reordering object keys may change the textual output, although JSON object order is not generally meaningful to consumers. Array order, however, is meaningful and must be preserved.</div>
+<h2 id="workflow">A practical workflow</h2><ol><li>Start with the source JSON and keep a copy if it is important.</li><li>Format it with a consistent indentation style.</li><li>Review the nesting and values; use validation if there is a syntax error.</li><li>Minify only when compact text is useful, and retain readable source where people maintain it.</li></ol>
+<h2 id="takeaways">Key takeaways</h2><ul><li>Formatting adds whitespace to improve readability; minifying removes it.</li><li>Whitespace outside strings does not change the JSON value.</li><li>Formatting requires valid JSON and is not a repair operation.</li><li>Array order is data, not formatting, and should not be changed.</li></ul>
+<div class="tutorial-tools"><a href="../../json-formatter/">Format JSON</a><a href="../../json-minifier/">Minify JSON</a><a href="../../json-validator/">Validate JSON</a></div><section class="tutorial-related"><h2>Continue learning</h2><ul><li><a href="../json-basics/">JSON basics</a></li><li><a href="../fix-json-errors/">Fix JSON syntax errors</a></li><li><a href="../json-conversion-guide/">JSON conversion guide</a></li></ul></section>
+</div></article><aside class="tutorial-sidebar"><h2>On this page</h2><ul class="tutorial-toc"><li><a href="#meaning">What formatting means</a></li><li><a href="#example">Before and after</a></li><li><a href="#indentation">Indentation</a></li><li><a href="#when-to-format">When to format</a></li><li><a href="#when-to-minify">When to minify</a></li><li><a href="#workflow">Workflow</a></li><li><a href="#takeaways">Key takeaways</a></li></ul></aside></div></main>
+<footer class="site-footer">
+<div class="footer-inner">
+<div class="footer-link-grid">
+<section class="footer-column" aria-labelledby="tutorial-footer-tools-title"><h2 id="tutorial-footer-tools-title">JSON TOOLS</h2><a href="../../json-formatter/">JSON Formatter</a><a href="../../json-pretty-printer/">JSON Pretty Printer</a><a href="../../json-validator/">JSON Validator</a><a href="../../json-repair/">JSON Repair</a><a href="../../json-schema-validator/">JSON Schema Validator</a><a href="../../json-schema-generator/">JSON Schema Generator</a><a href="../../json-viewer/">JSON Viewer</a><a href="../../json-tree-viewer/">JSON Tree Viewer</a><a href="../../json-path-finder/">JSONPath Finder</a><a href="../../json-editor/">JSON Editor</a><a class="footer-all-link" href="../../tools.html">All tools <span aria-hidden="true">&#8599;</span></a></section>
+<section class="footer-column" aria-labelledby="tutorial-footer-converters-title"><h2 id="tutorial-footer-converters-title">CONVERTERS</h2><a href="../../json-to-csv/">JSON to CSV</a><a href="../../json-to-excel/">JSON to Excel</a><a href="../../json-to-sql/">JSON to SQL</a><a href="../../json-to-yaml/">JSON to YAML</a><a href="../../json-to-xml/">JSON to XML</a><a href="../../json-to-typescript/">JSON to TypeScript</a><a href="../../json-to-java/">JSON to Java</a><a href="../../json-to-python/">JSON to Python</a><a class="footer-all-link" href="../../tools.html">All tools <span aria-hidden="true">&#8599;</span></a></section>
+<section class="footer-column" aria-labelledby="tutorial-footer-more-title"><h2 id="tutorial-footer-more-title">MORE TOOLS</h2><a href="../../json-minifier/">JSON Minifier</a><a href="../../json-compare/">JSON Compare</a><a class="footer-all-link" href="../../tools.html">All tools <span aria-hidden="true">&#8599;</span></a></section>
+<section class="footer-column" aria-labelledby="tutorial-footer-learn-title"><h2 id="tutorial-footer-learn-title">LEARN</h2><a href="../">Learn JSON tutorials</a><a href="../../faq.html">Frequently asked questions</a><a href="../../about.html">About RomitJSON</a></section>
+<section class="footer-column" aria-labelledby="tutorial-footer-company-title"><h2 id="tutorial-footer-company-title">COMPANY</h2><a href="../../contact.html">Contact</a><a href="../../privacy.html">Privacy policy</a></section>
+</div>
+<div class="footer-about"><div><span class="footer-eyebrow">MADE FOR DEVELOPERS</span><p>Format, validate, inspect, and transform JSON with practical tools for your daily development workflow.</p></div><div class="footer-actions"><a class="footer-cta" href="../../tools.html">Explore tools <span aria-hidden="true">&#8599;</span></a><a class="footer-cta" href="../">Learn JSON <span aria-hidden="true">&#8599;</span></a></div></div>
+<div class="footer-bottom">
+<p class="footer-copyright"><span id="year"></span> RomitJSON. All rights reserved.</p>
+<p class="footer-note">Made with ❤️ for developers.</p>
+<nav class="footer-legal" aria-label="Footer navigation"><a href="../../about.html">About</a><a href="../../privacy.html">Privacy</a><a href="../../contact.html">Contact</a></nav>
+</div>
+</div>
+</footer><div class="tutorial-feedback" id="tutorialFeedback" role="status" aria-live="polite" hidden></div><script src="../learn.js"></script>
+</body></html>
