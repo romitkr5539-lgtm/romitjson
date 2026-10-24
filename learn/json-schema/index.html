@@ -1,17 +1,114 @@
 <!doctype html>
 <html lang="en">
 <head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="robots" content="noindex, follow">
-  <title>JSON Schema | RomitJSON Learn</title>
-  <meta http-equiv="refresh" content="0;url=../index.html">
-  <script>window.location.replace("../index.html");</script>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>JSON Schema Guide – Define and Validate JSON Data</title>
+<meta name="description" content="Learn JSON Schema with a complete Draft 2020-12 example covering properties, required fields, types, arrays, nested objects, and validation.">
+<meta name="robots" content="index,follow"><meta name="theme-color" content="#071613"><link rel="canonical" href="https://romitjson.com/learn/json-schema/">
+<meta property="og:type" content="article"><meta property="og:site_name" content="RomitJSON"><meta property="og:locale" content="en_US"><meta property="og:title" content="JSON Schema Guide – Define and Validate JSON Data"><meta property="og:description" content="Learn JSON Schema with a complete Draft 2020-12 example covering properties, required fields, types, arrays, nested objects, and validation."><meta property="og:url" content="https://romitjson.com/learn/json-schema/">
+<meta name="twitter:card" content="summary"><meta name="twitter:title" content="JSON Schema Guide – Define and Validate JSON Data"><meta name="twitter:description" content="Learn JSON Schema with a complete Draft 2020-12 example covering properties, required fields, types, arrays, nested objects, and validation.">
+<link rel="stylesheet" href="../../css/style.css"><link rel="stylesheet" href="../learn.css">
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-DKWQGJ7VQ6"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-DKWQGJ7VQ6');
+</script><link rel="icon" type="image/svg+xml" href="/favicon.svg">
 </head>
-<body>
-  <main>
-    <h1>JSON Schema</h1>
-    <p>Continue to the <a href="../index.html">RomitJSON Learn hub</a>.</p>
-  </main>
-</body>
-</html>
+<body class="dark">
+<header class="site-header"><div class="nav-wrap">
+<a class="brand" href="../../index.html#home" aria-label="RomitJSON home"><span class="brand-mark">{ }</span><span>Romit<span class="brand-accent">JSON</span></span></a>
+<nav id="mainNav" aria-label="Main navigation">
+<a href="../../index.html#home">Home</a>
+<a href="../../datasets/">Datasets</a>
+<a class="active" href="../" aria-current="location">Learn JSON</a>
+<div class="nav-dropdown"><button class="nav-drop-btn" type="button" aria-expanded="false">View &amp; Edit <span>▾</span></button><div class="nav-drop-menu">
+<a href="../../json-viewer/"><b class="ndm-green">◉</b><span><strong>JSON Viewer</strong><small>Browse JSON as a tree</small></span></a>
+<a href="../../json-tree-viewer/"><b class="ndm-cyan">◈</b><span><strong>JSON Tree Viewer</strong><small>Explore nested JSON</small></span></a>
+<a href="../../json-path-finder/"><b class="ndm-blue">$</b><span><strong>JSONPath Finder</strong><small>Find and query data paths</small></span></a>
+<a href="../../json-editor/"><b class="ndm-blue">✎</b><span><strong>JSON Editor</strong><small>Edit and inspect JSON</small></span></a></div></div>
+<div class="nav-dropdown"><button class="nav-drop-btn" type="button" aria-expanded="false">Validate <span>▾</span></button><div class="nav-drop-menu">
+<a href="../../json-validator/"><b class="ndm-green">✓</b><span><strong>JSON Validator</strong><small>Find syntax errors</small></span></a>
+<a href="../../json-repair/"><b class="ndm-orange">⌁</b><span><strong>JSON Repair</strong><small>Fix common syntax issues</small></span></a>
+<a href="../../json-schema-validator/"><b class="ndm-violet">✓</b><span><strong>JSON Schema Validator</strong><small>Check data against a schema</small></span></a>
+<a href="../../json-compare/"><b class="ndm-violet">⇄</b><span><strong>JSON Compare</strong><small>Find document differences</small></span></a></div></div>
+<div class="nav-dropdown"><button class="nav-drop-btn" type="button" aria-expanded="false">Convert <span>▾</span></button><div class="nav-drop-menu">
+<a href="../../json-to-csv/"><b class="ndm-violet">{ }</b><span><strong>JSON → CSV</strong><small>Convert arrays to CSV</small></span></a>
+<a href="../../json-to-excel/"><b class="ndm-green">XLS</b><span><strong>JSON → Excel</strong><small>Export workbook data</small></span></a>
+<a href="../../json-to-sql/"><b class="ndm-orange">SQL</b><span><strong>JSON → SQL</strong><small>Generate table and insert SQL</small></span></a>
+<a href="../../json-to-yaml/"><b class="ndm-purple">YML</b><span><strong>JSON → YAML</strong><small>Create YAML data</small></span></a>
+<a href="../../json-to-xml/"><b class="ndm-orange">&lt;/&gt;</b><span><strong>JSON → XML</strong><small>Create XML data</small></span></a></div></div>
+<div class="nav-dropdown"><button class="nav-drop-btn" type="button" aria-expanded="false">Generate <span>▾</span></button><div class="nav-drop-menu">
+<a href="../../json-pretty-printer/"><b class="ndm-cyan">¶</b><span><strong>JSON Pretty Printer</strong><small>Beautify JSON output</small></span></a>
+<a href="../../json-to-typescript/"><b class="ndm-blue">TS</b><span><strong>JSON → TypeScript</strong><small>Generate interfaces</small></span></a>
+<a href="../../json-to-java/"><b class="ndm-orange">J</b><span><strong>JSON → Java</strong><small>Generate Java model classes</small></span></a>
+<a href="../../json-to-python/"><b class="ndm-blue">Py</b><span><strong>JSON → Python</strong><small>Generate Python models</small></span></a>
+<a href="../../json-schema-generator/"><b class="ndm-violet">{ }</b><span><strong>JSON Schema Generator</strong><small>Generate a schema from JSON</small></span></a>
+<a href="../../json-minifier/"><b class="ndm-red">↘</b><span><strong>JSON Minifier</strong><small>Reduce JSON size</small></span></a></div></div>
+<a href="../../tools.html">All tools</a>
+<a href="../../about.html">About</a><a href="../../contact.html">Contact</a></nav>
+<div class="header-actions"><button class="menu-btn" id="menuBtn" type="button" aria-controls="mainNav" aria-expanded="false">Menu</button></div>
+</div></header><main class="tutorial-main"><nav class="learn-breadcrumbs" aria-label="Breadcrumb"><a href="../../index.html">Home</a><span aria-hidden="true">/</span><a href="../">Learn JSON</a><span aria-hidden="true">/</span><span aria-current="page">JSON Schema</span></nav><div class="tutorial-layout"><article class="tutorial-article"><header class="tutorial-header"><p class="learn-eyebrow">SCHEMA</p><h1>JSON Schema: Define and Validate Data</h1><p>Valid JSON can still have the wrong shape for an application. JSON Schema lets you describe structural expectations—such as property types and required fields—so a validator can check a JSON instance against those rules.</p><div class="tutorial-meta"><span>Beginner</span><span>10 min read</span></div></header><div class="tutorial-body">
+<h2 id="what-is-schema">What is JSON Schema?</h2><p>A JSON Schema is itself a JSON document that describes constraints for another JSON value, called the <strong>instance</strong>. For example, a schema can require a user object to contain a string name and an integer age. Validation checks whether the instance satisfies those declared rules. It does not prove that a value is true in the real world or enforce rules that were not written into the schema.</p>
+<h2 id="keywords">Core schema keywords</h2><ul><li><code>$schema</code> identifies the schema vocabulary or draft used. This example uses Draft 2020-12.</li><li><code>type</code> sets the expected JSON type: object, array, string, number, integer, boolean, or null.</li><li><code>properties</code> defines rules for named object properties.</li><li><code>required</code> lists property names that must be present. A property is not required merely because it appears in <code>properties</code>.</li><li><code>items</code> describes the expected value or schema for each array item.</li><li><code>additionalProperties</code> can allow, forbid, or describe properties not listed under <code>properties</code>.</li></ul>
+<h2 id="complete-example">A complete schema and matching data</h2><p>This schema describes an object with a required name and an optional active flag. It also describes a required array of tag strings and a nested profile object. Setting <code>additionalProperties</code> to <code>false</code> rejects undeclared keys at each object level where it appears.</p>
+<div class="tutorial-example"><div class="tutorial-example-head"><span>Draft 2020-12 JSON Schema</span><div class="tutorial-example-actions"><button class="learn-copy" type="button" data-copy-target="#userSchema">Copy schema</button></div></div><pre><code id="userSchema" class="language-json">{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "type": "object",
+  "properties": {
+    "name": { "type": "string", "minLength": 1 },
+    "active": { "type": "boolean" },
+    "tags": {
+      "type": "array",
+      "items": { "type": "string" }
+    },
+    "profile": {
+      "type": "object",
+      "properties": {
+        "city": { "type": "string" },
+        "timezone": { "type": "string" }
+      },
+      "required": ["city"],
+      "additionalProperties": false
+    }
+  },
+  "required": ["name", "tags", "profile"],
+  "additionalProperties": false
+}</code></pre></div>
+<p>This instance satisfies the schema: all required properties are present, their values have the expected types, the tag items are strings, and the profile contains a required city.</p>
+<div class="tutorial-example"><div class="tutorial-example-head"><span>JSON instance that matches the schema</span><div class="tutorial-example-actions"><button class="learn-copy" type="button" data-copy-target="#schemaInstance">Copy JSON</button><a class="learn-try" href="../../json-formatter/" data-try-target="#schemaInstance">Try in Formatter</a></div></div><pre><code id="schemaInstance" class="language-json">{
+  "name": "Ari Chen",
+  "active": true,
+  "tags": ["editor", "member"],
+  "profile": {
+    "city": "Portland",
+    "timezone": "America/Los_Angeles"
+  }
+}</code></pre></div>
+<p>For example, changing <code>"active": true</code> to <code>"active": "yes"</code> violates the declared boolean type. Removing <code>name</code> violates the root <code>required</code> list. Adding an undeclared property is rejected because additional properties are disabled.</p>
+<h2 id="arrays-and-nesting">Arrays and nested objects</h2><p>Use <code>items</code> to define array elements. An object schema inside <code>items</code> describes every object in that array. Use another <code>properties</code> block inside a property schema to validate nested objects. If values may be null, explicitly include null in the accepted type (for example <code>"type": ["string", "null"]</code> in the supported draft) or use the appropriate schema composition.</p>
+<h2 id="common-mistakes">Common schema mistakes</h2><ul><li><strong>Assuming properties are required:</strong> list mandatory names in <code>required</code>.</li><li><strong>Using the wrong numeric type:</strong> JSON Schema distinguishes <code>integer</code> from <code>number</code>; use the one your data allows.</li><li><strong>Forgetting array item rules:</strong> without an <code>items</code> schema, the schema may not constrain each element as intended.</li><li><strong>Closing only the root object:</strong> <code>additionalProperties</code> applies where it is declared; nested objects need their own rule if they should also be closed.</li><li><strong>Confusing syntax with schema validity:</strong> an instance must first be parseable JSON, then it must pass the schema rules.</li><li><strong>Overconstraining from one sample:</strong> a generated schema can infer a shape from observed values, but it cannot know every valid future case or business rule.</li></ul>
+<h2 id="validation">How schema validation works</h2><ol><li>Write or generate a schema describing the shape you expect.</li><li>Parse the data as JSON. Invalid syntax must be corrected before schema validation.</li><li>Run a validator against the instance and schema.</li><li>Review each validation error and decide whether the data is wrong or the schema is too restrictive.</li></ol><p>RomitJSON's <a href="../../json-schema-validator/">JSON Schema Validator</a> checks a JSON document against a supplied schema using Draft 2020-12 support. The <a href="../../json-schema-generator/">JSON Schema Generator</a> can infer a starting schema from sample JSON; review and adapt the result to reflect your actual requirements.</p>
+<h2 id="takeaways">Key takeaways</h2><ul><li>A schema describes rules; the instance is the data being checked.</li><li><code>properties</code> defines property rules, while <code>required</code> separately specifies presence.</li><li><code>items</code> describes array contents, and nested schemas describe nested objects.</li><li>Validation only checks rules that the schema expresses.</li></ul>
+<div class="tutorial-tools"><a href="../../json-schema-generator/">Generate a starting schema</a><a href="../../json-schema-validator/">Validate JSON against a schema</a><a href="../../json-validator/">Check JSON syntax</a></div><section class="tutorial-related"><h2>Continue learning</h2><ul><li><a href="../json-basics/">JSON basics</a></li><li><a href="../fix-json-errors/">Fix JSON syntax errors</a></li><li><a href="../json-for-apis/">JSON for APIs</a></li></ul></section>
+</div></article><aside class="tutorial-sidebar"><h2>On this page</h2><ul class="tutorial-toc"><li><a href="#what-is-schema">What is a schema?</a></li><li><a href="#keywords">Core keywords</a></li><li><a href="#complete-example">Complete example</a></li><li><a href="#arrays-and-nesting">Arrays and nesting</a></li><li><a href="#common-mistakes">Common mistakes</a></li><li><a href="#validation">Validation</a></li><li><a href="#takeaways">Key takeaways</a></li></ul></aside></div></main>
+<footer class="site-footer">
+<div class="footer-inner">
+<div class="footer-link-grid">
+<section class="footer-column" aria-labelledby="tutorial-footer-tools-title"><h2 id="tutorial-footer-tools-title">JSON TOOLS</h2><a href="../../json-formatter/">JSON Formatter</a><a href="../../json-pretty-printer/">JSON Pretty Printer</a><a href="../../json-validator/">JSON Validator</a><a href="../../json-repair/">JSON Repair</a><a href="../../json-schema-validator/">JSON Schema Validator</a><a href="../../json-schema-generator/">JSON Schema Generator</a><a href="../../json-viewer/">JSON Viewer</a><a href="../../json-tree-viewer/">JSON Tree Viewer</a><a href="../../json-path-finder/">JSONPath Finder</a><a href="../../json-editor/">JSON Editor</a><a class="footer-all-link" href="../../tools.html">All tools <span aria-hidden="true">&#8599;</span></a></section>
+<section class="footer-column" aria-labelledby="tutorial-footer-converters-title"><h2 id="tutorial-footer-converters-title">CONVERTERS</h2><a href="../../json-to-csv/">JSON to CSV</a><a href="../../json-to-excel/">JSON to Excel</a><a href="../../json-to-sql/">JSON to SQL</a><a href="../../json-to-yaml/">JSON to YAML</a><a href="../../json-to-xml/">JSON to XML</a><a href="../../json-to-typescript/">JSON to TypeScript</a><a href="../../json-to-java/">JSON to Java</a><a href="../../json-to-python/">JSON to Python</a><a class="footer-all-link" href="../../tools.html">All tools <span aria-hidden="true">&#8599;</span></a></section>
+<section class="footer-column" aria-labelledby="tutorial-footer-more-title"><h2 id="tutorial-footer-more-title">MORE TOOLS</h2><a href="../../json-minifier/">JSON Minifier</a><a href="../../json-compare/">JSON Compare</a><a class="footer-all-link" href="../../tools.html">All tools <span aria-hidden="true">&#8599;</span></a></section>
+<section class="footer-column" aria-labelledby="tutorial-footer-learn-title"><h2 id="tutorial-footer-learn-title">LEARN</h2><a href="../">Learn JSON tutorials</a><a href="../../faq.html">Frequently asked questions</a><a href="../../about.html">About RomitJSON</a></section>
+<section class="footer-column" aria-labelledby="tutorial-footer-company-title"><h2 id="tutorial-footer-company-title">COMPANY</h2><a href="../../contact.html">Contact</a><a href="../../privacy.html">Privacy policy</a></section>
+</div>
+<div class="footer-about"><div><span class="footer-eyebrow">MADE FOR DEVELOPERS</span><p>Format, validate, inspect, and transform JSON with practical tools for your daily development workflow.</p></div><div class="footer-actions"><a class="footer-cta" href="../../tools.html">Explore tools <span aria-hidden="true">&#8599;</span></a><a class="footer-cta" href="../">Learn JSON <span aria-hidden="true">&#8599;</span></a></div></div>
+<div class="footer-bottom">
+<p class="footer-copyright"><span id="year"></span> RomitJSON. All rights reserved.</p>
+<p class="footer-note">Made with ❤️ for developers.</p>
+<nav class="footer-legal" aria-label="Footer navigation"><a href="../../about.html">About</a><a href="../../privacy.html">Privacy</a><a href="../../contact.html">Contact</a></nav>
+</div>
+</div>
+</footer><div class="tutorial-feedback" id="tutorialFeedback" role="status" aria-live="polite" hidden></div><script src="../learn.js"></script>
+</body></html>
