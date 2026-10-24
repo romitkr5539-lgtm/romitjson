@@ -1,0 +1,29 @@
+[
+  {
+    "id": 8101,
+    "postId": 501,
+    "author": {"id": 1002, "name": "Theo Alvarez"},
+    "body": "The offline-state example is especially helpful.",
+    "createdAt": "2025-01-28T14:12:00Z",
+    "approved": true,
+    "replyTo": null
+  },
+  {
+    "id": 8102,
+    "postId": 501,
+    "author": {"id": 1003, "name": "Sam Okafor"},
+    "body": "A useful reminder to prioritize core content.",
+    "createdAt": "2025-01-29T08:40:00Z",
+    "approved": true,
+    "replyTo": 8101
+  },
+  {
+    "id": 8103,
+    "postId": 502,
+    "author": {"id": 1001, "name": "Mira Chen"},
+    "body": "I would love to see a follow-up on test data.",
+    "createdAt": "2025-02-02T17:00:00Z",
+    "approved": false,
+    "replyTo": null
+  }
+]

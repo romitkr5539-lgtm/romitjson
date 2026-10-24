@@ -1,0 +1,23 @@
+[
+  {
+    "studentId": "ST-1402",
+    "name": "Casey Rivera",
+    "email": "casey.rivera@example.com",
+    "year": 2,
+    "enrolled": true,
+    "courses": [
+      {"code": "BIO-210", "title": "Field Ecology", "grade": "A-"},
+      {"code": "STA-115", "title": "Statistics Lab", "grade": null}
+    ],
+    "advisor": {"name": "Dr. Rowan Lee", "email": "rowan.lee@example.com"}
+  },
+  {
+    "studentId": "ST-1558",
+    "name": "Jamie Okoye",
+    "email": "jamie.okoye@example.com",
+    "year": 4,
+    "enrolled": false,
+    "courses": [{"code": "HIS-330", "title": "Cities and Memory", "grade": "B+"}],
+    "advisor": null
+  }
+]

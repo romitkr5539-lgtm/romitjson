@@ -1,0 +1,20 @@
+[
+  {
+    "location": {"city": "Boulder", "region": "Colorado", "countryCode": "US"},
+    "observedAt": "2025-04-22T15:00:00Z",
+    "conditions": "Partly cloudy",
+    "temperature": {"value": 18.4, "unit": "C"},
+    "humidityPercent": 42,
+    "wind": {"speed": 11, "unit": "km/h", "direction": "NW"},
+    "precipitationMm": 0
+  },
+  {
+    "location": {"city": "Galway", "region": "Connacht", "countryCode": "IE"},
+    "observedAt": "2025-04-22T15:00:00Z",
+    "conditions": "Light rain",
+    "temperature": {"value": 12.1, "unit": "C"},
+    "humidityPercent": 81,
+    "wind": {"speed": 19, "unit": "km/h", "direction": "W"},
+    "precipitationMm": 1.6
+  }
+]

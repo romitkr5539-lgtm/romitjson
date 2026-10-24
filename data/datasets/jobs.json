@@ -1,0 +1,24 @@
+[
+  {
+    "jobId": "JOB-720",
+    "title": "Frontend Engineer",
+    "company": "Northwind Learning",
+    "location": {"city": "Remote", "country": "US"},
+    "employmentType": "full-time",
+    "salaryRange": {"minimum": 92000, "maximum": 128000, "currency": "USD"},
+    "skills": ["JavaScript", "accessibility", "CSS"],
+    "applicationDeadline": "2025-06-30",
+    "remote": true
+  },
+  {
+    "jobId": "JOB-845",
+    "title": "Research Data Analyst",
+    "company": "Cedar Grove Lab",
+    "location": {"city": "Madison", "country": "US"},
+    "employmentType": "contract",
+    "salaryRange": {"minimum": 38, "maximum": 52, "currency": "USD/hour"},
+    "skills": ["Python", "statistics", "SQL"],
+    "applicationDeadline": null,
+    "remote": false
+  }
+]

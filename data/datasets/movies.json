@@ -1,0 +1,24 @@
+[
+  {
+    "id": "film-204",
+    "title": "Lanterns at Low Tide",
+    "releaseYear": 2022,
+    "runtimeMinutes": 108,
+    "genres": ["Drama", "Mystery"],
+    "rating": 7.6,
+    "available": true,
+    "cast": ["Rae Morgan", "Ivo Park"],
+    "production": {"studio": "Blue Harbor Pictures", "country": "IE"}
+  },
+  {
+    "id": "film-318",
+    "title": "The Last Paper Kite",
+    "releaseYear": 2024,
+    "runtimeMinutes": 94,
+    "genres": ["Family", "Adventure"],
+    "rating": null,
+    "available": false,
+    "cast": ["Noor Ellis", "Milo Hart"],
+    "production": {"studio": "North Window Films", "country": "CA"}
+  }
+]

@@ -1,0 +1,56 @@
+[
+  {
+    "id": 1001,
+    "name": "Mira Chen",
+    "email": "mira.chen@example.com",
+    "username": "mirac",
+    "active": true,
+    "joinedAt": "2024-03-18T09:20:00Z",
+    "profile": {
+      "city": "Portland",
+      "timezone": "America/Los_Angeles",
+      "bio": null
+    },
+    "roles": ["editor", "member"],
+    "preferences": {
+      "newsletter": false,
+      "theme": "dark"
+    }
+  },
+  {
+    "id": 1002,
+    "name": "Theo Alvarez",
+    "email": "theo.alvarez@example.com",
+    "username": "theoa",
+    "active": true,
+    "joinedAt": "2023-11-02T14:45:00Z",
+    "profile": {
+      "city": "Austin",
+      "timezone": "America/Chicago",
+      "bio": "Enjoys building accessible web tools."
+    },
+    "roles": ["member"],
+    "preferences": {
+      "newsletter": true,
+      "theme": "light"
+    }
+  },
+  {
+    "id": 1003,
+    "name": "Sam Okafor",
+    "email": "sam.okafor@example.com",
+    "username": "samo",
+    "active": false,
+    "joinedAt": "2025-01-12T08:10:00Z",
+    "profile": {
+      "city": "Bristol",
+      "timezone": "Europe/London",
+      "bio": null
+    },
+    "roles": ["reviewer", "member"],
+    "preferences": {
+      "newsletter": false,
+      "theme": "system"
+    }
+  }
+]

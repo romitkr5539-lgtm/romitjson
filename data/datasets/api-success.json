@@ -1,0 +1,13 @@
+{
+  "success": true,
+  "status": 200,
+  "message": "Records retrieved.",
+  "data": [
+    {"id": "rec-101", "label": "North", "enabled": true},
+    {"id": "rec-102", "label": "South", "enabled": false}
+  ],
+  "meta": {
+    "requestId": "req-example-72",
+    "servedAt": "2025-03-05T10:30:00Z"
+  }
+}

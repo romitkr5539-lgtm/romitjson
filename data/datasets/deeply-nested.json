@@ -1,0 +1,26 @@
+{
+  "organization": {
+    "departments": [
+      {
+        "name": "Research",
+        "teams": [
+          {
+            "name": "Coastal Systems",
+            "projects": [
+              {
+                "code": "CS-14",
+                "milestones": [
+                  {
+                    "name": "Prototype review",
+                    "owner": {"name": "Riley Stone", "email": "riley.stone@example.com"},
+                    "complete": false
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  }
+}

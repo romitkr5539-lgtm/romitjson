@@ -1,0 +1,38 @@
+[
+  {
+    "employeeId": "EMP-204",
+    "name": "Avery Brooks",
+    "email": "avery.brooks@example.com",
+    "jobTitle": "Product Designer",
+    "department": "Design",
+    "employment": {
+      "type": "full-time",
+      "startDate": "2022-06-13",
+      "managerId": "EMP-101"
+    },
+    "office": {
+      "city": "Denver",
+      "country": "US",
+      "remote": true
+    },
+    "skills": ["prototyping", "accessibility"]
+  },
+  {
+    "employeeId": "EMP-319",
+    "name": "Jordan Patel",
+    "email": "jordan.patel@example.com",
+    "jobTitle": "Data Engineer",
+    "department": "Platform",
+    "employment": {
+      "type": "contract",
+      "startDate": "2024-02-01",
+      "managerId": null
+    },
+    "office": {
+      "city": "Toronto",
+      "country": "CA",
+      "remote": false
+    },
+    "skills": ["SQL", "data modeling"]
+  }
+]

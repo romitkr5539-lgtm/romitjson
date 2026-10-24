@@ -1,0 +1,14 @@
+{
+  "success": false,
+  "status": 422,
+  "error": {
+    "code": "VALIDATION_FAILED",
+    "message": "One or more fields need attention.",
+    "fields": [
+      {"name": "email", "issue": "Enter a valid email address."},
+      {"name": "quantity", "issue": "Must be greater than zero."}
+    ]
+  },
+  "requestId": "req-example-91",
+  "retryable": false
+}

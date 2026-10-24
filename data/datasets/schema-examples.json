@@ -1,0 +1,30 @@
+[
+  {
+    "name": "Simple object",
+    "schema": {
+      "$schema": "https://json-schema.org/draft/2020-12/schema",
+      "type": "object",
+      "properties": {
+        "name": {"type": "string"},
+        "active": {"type": "boolean"}
+      },
+      "required": ["name", "active"],
+      "additionalProperties": false
+    }
+  },
+  {
+    "name": "Array of records",
+    "schema": {
+      "$schema": "https://json-schema.org/draft/2020-12/schema",
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "id": {"type": "integer"},
+          "score": {"type": "number", "minimum": 0}
+        },
+        "required": ["id"]
+      }
+    }
+  }
+]

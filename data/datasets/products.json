@@ -1,0 +1,47 @@
+[
+  {
+    "id": "prod-410",
+    "name": "Field Notes Backpack",
+    "category": {
+      "id": 12,
+      "name": "Accessories",
+      "parent": "Travel"
+    },
+    "price": 68.5,
+    "currency": "USD",
+    "inStock": true,
+    "tags": ["recycled", "carry-on"],
+    "variants": [
+      {"sku": "FN-BAG-OLV", "color": "Olive", "available": 8},
+      {"sku": "FN-BAG-SND", "color": "Sand", "available": 0}
+    ]
+  },
+  {
+    "id": "prod-522",
+    "name": "Ceramic Desk Cup",
+    "category": {
+      "id": 18,
+      "name": "Home Office",
+      "parent": "Home"
+    },
+    "price": 18,
+    "currency": "USD",
+    "inStock": false,
+    "tags": ["ceramic", "hand-finished"],
+    "variants": []
+  },
+  {
+    "id": "prod-638",
+    "name": "Pocket Garden Journal",
+    "category": {
+      "id": 12,
+      "name": "Stationery",
+      "parent": null
+    },
+    "price": 12.75,
+    "currency": "USD",
+    "inStock": true,
+    "tags": ["paper", "outdoors"],
+    "variants": [{"sku": "PG-JRN-GRN", "color": "Fern", "available": 24}]
+  }
+]

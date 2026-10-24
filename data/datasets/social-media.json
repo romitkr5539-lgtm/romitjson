@@ -1,0 +1,22 @@
+[
+  {
+    "postId": "social-301",
+    "platform": "ExampleNet",
+    "author": {"handle": "mira_builds", "displayName": "Mira Chen"},
+    "text": "Sharing a small accessibility checklist for project teams.",
+    "createdAt": "2025-02-03T11:10:00Z",
+    "metrics": {"likes": 34, "reposts": 7, "replies": 4},
+    "hashtags": ["accessibility", "product"],
+    "media": null
+  },
+  {
+    "postId": "social-302",
+    "platform": "ExampleNet",
+    "author": {"handle": "theo_codes", "displayName": "Theo Alvarez"},
+    "text": "A clear fixture can explain an API response better than a paragraph.",
+    "createdAt": "2025-02-05T15:42:00Z",
+    "metrics": {"likes": 21, "reposts": 3, "replies": 2},
+    "hashtags": ["testing", "json"],
+    "media": {"type": "image", "alt": "Illustrative code editor screenshot"}
+  }
+]

@@ -1,0 +1,31 @@
+[
+  {
+    "orderId": "ORD-73018",
+    "customerId": 1001,
+    "status": "shipped",
+    "createdAt": "2025-02-12T16:24:00Z",
+    "currency": "USD",
+    "items": [
+      {"productId": "prod-410", "quantity": 1, "unitPrice": 68.5},
+      {"productId": "prod-638", "quantity": 2, "unitPrice": 12.75}
+    ],
+    "shipping": {
+      "method": "standard",
+      "trackingNumber": "TRACK-EXAMPLE-18"
+    },
+    "total": 94
+  },
+  {
+    "orderId": "ORD-73042",
+    "customerId": 1002,
+    "status": "processing",
+    "createdAt": "2025-02-14T10:05:00Z",
+    "currency": "USD",
+    "items": [{"productId": "prod-522", "quantity": 3, "unitPrice": 18}],
+    "shipping": {
+      "method": "pickup",
+      "trackingNumber": null
+    },
+    "total": 54
+  }
+]

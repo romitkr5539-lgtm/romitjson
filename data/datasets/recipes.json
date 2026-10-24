@@ -1,0 +1,30 @@
+[
+  {
+    "id": "recipe-117",
+    "name": "Lemon Herb Couscous",
+    "servings": 4,
+    "prepMinutes": 15,
+    "vegetarian": true,
+    "ingredients": [
+      {"name": "couscous", "quantity": 250, "unit": "g"},
+      {"name": "lemon", "quantity": 1, "unit": "whole"},
+      {"name": "parsley", "quantity": 15, "unit": "g"}
+    ],
+    "steps": ["Prepare couscous.", "Fold in herbs and lemon.", "Serve warm."],
+    "allergens": null
+  },
+  {
+    "id": "recipe-208",
+    "name": "Roasted Pumpkin Soup",
+    "servings": 6,
+    "prepMinutes": 20,
+    "vegetarian": true,
+    "ingredients": [
+      {"name": "pumpkin", "quantity": 800, "unit": "g"},
+      {"name": "vegetable stock", "quantity": 700, "unit": "ml"},
+      {"name": "thyme", "quantity": 4, "unit": "sprigs"}
+    ],
+    "steps": ["Roast pumpkin until tender.", "Simmer with stock.", "Blend and season."],
+    "allergens": []
+  }
+]

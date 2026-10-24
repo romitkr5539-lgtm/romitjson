@@ -1,0 +1,30 @@
+[
+  {
+    "bookingId": "TRIP-3201",
+    "destination": {"city": "Kyoto", "country": "Japan", "countryCode": "JP"},
+    "hotel": {
+      "name": "Maple Courtyard Inn",
+      "rating": 4.6,
+      "amenities": ["wifi", "breakfast", "garden"]
+    },
+    "checkIn": "2025-09-08",
+    "checkOut": "2025-09-12",
+    "guests": 2,
+    "total": {"amount": 840, "currency": "USD"},
+    "confirmed": true
+  },
+  {
+    "bookingId": "TRIP-3314",
+    "destination": {"city": "Valparaíso", "country": "Chile", "countryCode": "CL"},
+    "hotel": {
+      "name": "Harbor Steps Guesthouse",
+      "rating": 4.2,
+      "amenities": ["wifi", "shared-kitchen"]
+    },
+    "checkIn": "2025-11-14",
+    "checkOut": "2025-11-17",
+    "guests": 1,
+    "total": {"amount": 315, "currency": "USD"},
+    "confirmed": false
+  }
+]

@@ -1,0 +1,24 @@
+[
+  {
+    "id": 501,
+    "slug": "designing-for-slower-connections",
+    "title": "Designing for slower connections",
+    "body": "A resilient interface keeps essential information available when a network is unreliable.",
+    "published": true,
+    "publishedAt": "2025-01-28T12:00:00Z",
+    "author": {"id": 1001, "name": "Mira Chen"},
+    "tags": ["performance", "design"],
+    "commentCount": 2
+  },
+  {
+    "id": 502,
+    "slug": "small-steps-to-better-tests",
+    "title": "Small steps to better tests",
+    "body": "Clear fixtures and focused assertions make a test suite easier to maintain.",
+    "published": false,
+    "publishedAt": null,
+    "author": {"id": 1002, "name": "Theo Alvarez"},
+    "tags": ["testing", "development"],
+    "commentCount": 1
+  }
+]

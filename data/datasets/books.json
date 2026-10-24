@@ -1,0 +1,22 @@
+[
+  {
+    "id": "book-018",
+    "title": "The Glass Orchard",
+    "author": {"id": "author-7", "name": "Nia Rowan"},
+    "genre": "Speculative fiction",
+    "publishedYear": 2021,
+    "pages": 284,
+    "isbn": null,
+    "availableFormats": ["paperback", "ebook"]
+  },
+  {
+    "id": "book-029",
+    "title": "Maps for Quiet Places",
+    "author": {"id": "author-12", "name": "Elliot Vale"},
+    "genre": "Travel essays",
+    "publishedYear": 2023,
+    "pages": 196,
+    "isbn": "978-1-55555-029-4",
+    "availableFormats": ["hardcover", "ebook", "audio"]
+  }
+]

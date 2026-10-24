@@ -1,0 +1,17 @@
+{
+  "data": [
+    {"id": 41, "name": "Page sample A"},
+    {"id": 42, "name": "Page sample B"},
+    {"id": 43, "name": "Page sample C"}
+  ],
+  "pagination": {
+    "page": 3,
+    "pageSize": 3,
+    "totalItems": 24,
+    "totalPages": 8,
+    "hasPreviousPage": true,
+    "hasNextPage": true,
+    "nextPage": 4,
+    "previousPage": 2
+  }
+}
